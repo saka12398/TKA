@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Math Academy - 40 Soal Olimpiade</title>
+    <title>Math Academy Elite - 40 Soal Olimpiade</title>
     <style>
         * {
             margin: 0;
@@ -13,98 +13,146 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', 'Poppins', sans-serif;
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
             background: linear-gradient(145deg, #eef2ff 0%, #c7d2fe 100%);
             color: #0f172a;
             line-height: 1.45;
-            padding: 12px;
+            padding: 16px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.98);
-            border-radius: 32px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255,255,255,0.96);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             overflow: hidden;
-            animation: fadeInScale 0.4s ease forwards;
+            animation: fadeInScale 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+            backdrop-filter: blur(2px);
         }
 
         @keyframes fadeInScale {
-            0% { opacity: 0; transform: scale(0.96) translateY(-10px); }
+            0% { opacity: 0; transform: scale(0.95) translateY(-20px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* ========== SPLASH SCREEN RINGKAS & CENTER ========== */
+        /* ========== SPLASH SCREEN - FULL CENTER ========== */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #0f172a, #1e1b4b);
+            background: radial-gradient(ellipse at center, #0a0f2a 0%, #020617 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s;
+            transition: opacity 0.8s ease, visibility 0.8s;
+            overflow: hidden;
         }
 
-        .splash-box {
+        /* Bintang animasi */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Partikel mengambang */
+        .floating-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #facc15;
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatUp 4s infinite ease-in;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            30% { opacity: 0.8; transform: translateY(-50px) scale(1); }
+            100% { opacity: 0; transform: translateY(-150px) scale(0); }
+        }
+
+        /* KONTEN SPLASH - CENTER PERFECT */
+        .splash-content {
             text-align: center;
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
             padding: 20px;
-            width: 85%;
-            max-width: 320px;
         }
 
-        .splash-icon {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 16px auto;
+        /* Logo animasi */
+        .math-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px auto;
             background: linear-gradient(135deg, #facc15, #f59e0b);
-            border-radius: 28px;
+            border-radius: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
             color: #0f172a;
-            box-shadow: 0 10px 25px rgba(250,204,21,0.4);
-            animation: iconPop 1s ease-in-out infinite alternate;
+            box-shadow: 0 20px 35px -8px rgba(250,204,21,0.5);
+            animation: pulseLogo 1.8s ease-in-out infinite;
         }
 
-        @keyframes iconPop {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); box-shadow: 0 20px 35px -8px rgba(250,204,21,0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 25px 45px -5px rgba(250,204,21,0.8); }
         }
 
         .splash-title {
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #facc15, #f97316);
+            background: linear-gradient(135deg, #facc15, #f97316, #facc15);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
         }
 
         .splash-sub {
-            font-size: 0.65rem;
             color: #a5b4fc;
-            letter-spacing: 2px;
-            margin-top: 5px;
-            margin-bottom: 25px;
+            letter-spacing: 5px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 35px;
         }
 
-        /* Loader pendek */
-        .splash-loader {
-            width: 200px;
+        /* Loader premium */
+        .loader-container {
+            width: 260px;
             margin: 0 auto;
         }
 
-        .loader-bar {
-            height: 4px;
+        .loader-track {
+            height: 6px;
             background: rgba(255,255,255,0.15);
             border-radius: 10px;
             overflow: hidden;
@@ -115,25 +163,60 @@
             height: 100%;
             background: linear-gradient(90deg, #facc15, #f97316);
             border-radius: 10px;
-            animation: loadAnim 2s ease-out forwards;
+            animation: loadingFill 2.5s ease-out forwards;
+            position: relative;
         }
 
-        @keyframes loadAnim {
+        @keyframes loadingFill {
             0% { width: 0%; }
             100% { width: 100%; }
         }
 
-        .loader-text {
-            margin-top: 10px;
-            font-size: 0.7rem;
-            color: #facc15;
-            font-family: monospace;
+        .loader-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 1.5s infinite;
         }
 
-        .splash-tag {
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .loader-percent {
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #facc15;
+            letter-spacing: 1px;
+        }
+
+        .loading-status {
             margin-top: 20px;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             color: #64748b;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .loading-status span {
+            color: #facc15;
+        }
+
+        .splash-footer-text {
+            margin-top: 35px;
+            font-size: 0.65rem;
+            color: #475569;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .fade-out {
@@ -141,48 +224,49 @@
             visibility: hidden;
         }
 
-        /* HERO */
+        /* HERO SECTION */
         .hero {
-            background: linear-gradient(135deg, #0f172a, #1e1b4b);
-            padding: 1.2rem 1rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            padding: 1.8rem 1.5rem;
             color: white;
             text-align: center;
-            border-bottom: 3px solid #facc15;
+            border-bottom: 4px solid #facc15;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .badge-40 {
             background: #facc15;
             color: #0f172a;
-            padding: 3px 12px;
-            border-radius: 40px;
-            font-size: 0.7rem;
+            padding: 4px 14px;
+            border-radius: 60px;
+            font-size: 0.85rem;
             font-weight: 800;
         }
 
         .subhead {
-            font-size: 0.65rem;
-            opacity: 0.85;
-            margin-top: 5px;
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-top: 6px;
         }
 
         .info-bar {
             background: #ffffffdd;
             backdrop-filter: blur(8px);
-            padding: 10px 15px;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
             border-bottom: 1px solid #e2e8f0;
             position: sticky;
             top: 0;
@@ -191,83 +275,88 @@
 
         .score-card {
             background: #0f172a;
-            padding: 5px 16px;
-            border-radius: 40px;
+            padding: 8px 20px;
+            border-radius: 50px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: #facc15;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.2s;
         }
 
         .btn-group {
             display: flex;
-            gap: 8px;
+            gap: 10px;
         }
 
         .btn {
             border: none;
-            padding: 6px 14px;
+            padding: 8px 18px;
             border-radius: 40px;
             font-weight: 600;
             cursor: pointer;
-            font-size: 0.7rem;
-            transition: 0.1s;
+            transition: all 0.2s;
+            font-size: 0.8rem;
         }
-        .btn-primary { background: #3b82f6; color: white; }
+
+        .btn-primary { background: #3b82f6; color: white; box-shadow: 0 2px 5px rgba(59,130,246,0.3);}
         .btn-success { background: #10b981; color: white; }
         .btn-warning { background: #f59e0b; color: white; }
-        .btn:active { transform: scale(0.95); }
+        .btn:active { transform: scale(0.96);}
 
-        /* QUESTION CARDS */
+        /* QUESTION CARD */
         .quiz-grid {
-            padding: 1rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .question-card {
             background: white;
-            border-radius: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 28px;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.08);
             border: 1px solid #eef2ff;
-            animation: cardIn 0.3s ease forwards;
+            transition: all 0.2s;
+            animation: cardFadeIn 0.4s ease forwards;
             opacity: 0;
         }
 
-        @keyframes cardIn {
+        @keyframes cardFadeIn {
             to { opacity: 1; transform: translateY(0);}
-            from { opacity: 0; transform: translateY(8px);}
+            from { opacity: 0; transform: translateY(12px);}
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
+            gap: 12px;
+            padding: 14px 20px;
             background: #fefce8;
-            border-radius: 24px 24px 16px 16px;
+            border-radius: 28px 28px 20px 20px;
             flex-wrap: wrap;
         }
 
         .num-badge {
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             background: #3b82f6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
+            font-weight: 800;
+            font-size: 1rem;
         }
 
         .difficulty-tag {
-            padding: 3px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
             font-weight: 700;
         }
+
         .diff-medium { background: #fef3c7; color: #b45309; }
         .diff-hard { background: #fee2e2; color: #b91c1c; }
         .diff-hot { background: #fce7f3; color: #be185d; }
@@ -275,104 +364,109 @@
 
         .category-tag {
             background: #dbeafe;
-            padding: 3px 12px;
-            border-radius: 30px;
-            font-size: 0.6rem;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
             font-weight: 600;
             color: #1e40af;
         }
 
         .question-text {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
-            padding: 12px 15px 6px;
+            padding: 1rem 1.2rem 0.5rem;
             color: #0c4a6e;
+            line-height: 1.5;
         }
 
         .input-wrapper {
-            padding: 0 15px;
+            padding: 0.2rem 1.2rem;
         }
+
         .answer-input {
             width: 100%;
-            padding: 10px 14px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-family: monospace;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-family: 'Courier New', monospace;
+            transition: 0.2s;
             background: #fafcff;
         }
+
         .answer-input:focus {
             border-color: #facc15;
             outline: none;
+            box-shadow: 0 0 0 3px rgba(250,204,21,0.2);
         }
 
         .check-btn {
-            margin: 10px 15px 8px;
-            background: #3b82f6;
+            margin: 12px 1.2rem 8px;
+            background: linear-gradient(95deg, #3b82f6, #2563eb);
             color: white;
             border: none;
-            padding: 8px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            width: calc(100% - 30px);
+            padding: 10px;
+            border-radius: 60px;
+            font-weight: 700;
+            width: calc(100% - 2.4rem);
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .feedback-area {
-            padding: 8px 15px 15px;
+            padding: 0.6rem 1.2rem 1.2rem;
         }
 
         .result-correct {
             background: #d1fae5;
             color: #065f46;
-            border-left: 4px solid #10b981;
-            padding: 8px 12px;
-            border-radius: 14px;
-            font-size: 0.75rem;
-            margin-bottom: 8px;
+            border-left: 6px solid #10b981;
+            padding: 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
         }
+
         .result-wrong {
             background: #fee2e2;
             color: #991b1b;
-            border-left: 4px solid #ef4444;
-            padding: 8px 12px;
-            border-radius: 14px;
-            font-size: 0.75rem;
-            margin-bottom: 8px;
+            border-left: 6px solid #ef4444;
+            padding: 12px;
+            border-radius: 20px;
         }
+
         .explanation-box {
-            background: #f1f5f9;
-            padding: 10px;
-            border-radius: 14px;
-            font-size: 0.75rem;
-            line-height: 1.5;
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            border: 1px solid #e2e8f0;
         }
 
         .footer-note {
             background: #f1f5f9;
             text-align: center;
-            padding: 10px;
-            font-size: 0.6rem;
+            padding: 14px;
+            font-size: 0.7rem;
             color: #475569;
         }
 
         .scroll-top {
             position: fixed;
-            bottom: 15px;
-            right: 15px;
+            bottom: 20px;
+            right: 20px;
             background: #1e293b;
-            width: 42px;
-            height: 42px;
+            width: 48px;
+            height: 48px;
             border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #facc15;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             z-index: 99;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
         #confetti-canvas {
@@ -383,13 +477,13 @@
             z-index: 1000;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 550px) {
             body { padding: 8px; }
-            .hero h1 { font-size: 1.2rem; }
+            .hero h1 { font-size: 1.3rem; }
             .info-bar { flex-direction: column; align-items: stretch; }
             .btn-group { justify-content: center; }
-            .splash-icon { width: 70px; height: 70px; font-size: 2.2rem; }
-            .splash-title { font-size: 1.3rem; }
+            .splash-title { font-size: 1.8rem; }
+            .math-logo { width: 90px; height: 90px; font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -399,70 +493,114 @@
 
 <div class="container">
     <div class="hero">
-        <h1>🧮 MATH ACADEMY <span class="badge-40">40 SOAL</span></h1>
-        <div class="subhead">⚡ Bilangan | Aljabar | Geometri | Peluang ⚡</div>
-        <div class="subhead" style="margin-top:3px;">🎉 Konfeti saat skor 40! 🎉</div>
+        <h1>🧠 MATH ACADEMY <span class="badge-40">40 SOAL ELITE</span></h1>
+        <div class="subhead">⚡ Bilangan | Aljabar | Geometri | Statistika | Peluang ⚡</div>
+        <div style="margin-top:6px;">🎉✨ KONFETI MERIAH saat SKOR 40! ✨🎉</div>
     </div>
     <div class="info-bar">
-        <div class="score-card" id="liveScoreDisplay">🏆 0 / 40</div>
+        <div class="score-card" id="liveScoreDisplay">🏆 SKOR: 0 / 40</div>
         <div class="btn-group">
-            <button class="btn btn-primary" id="checkAllBtn">CEK SEMUA</button>
-            <button class="btn btn-success" id="showAnswersBtn">KUNCI</button>
-            <button class="btn btn-warning" id="resetBtn">RESET</button>
+            <button class="btn btn-primary" id="checkAllBtn">🔍 CEK SEMUA</button>
+            <button class="btn btn-success" id="showAnswersBtn">📖 KUNCI JAWABAN</button>
+            <button class="btn btn-warning" id="resetBtn">🔄 RESET</button>
         </div>
     </div>
 
-    <!-- SPLASH SCREEN RINGKAS - FULL CENTER -->
+    <!-- SPLASH SCREEN - FULL CENTER -->
     <div id="splash-screen">
-        <div class="splash-box">
-            <div class="splash-icon">🧮</div>
+        <div class="stars" id="stars"></div>
+        <div class="splash-content">
+            <div class="math-logo">🧮</div>
             <h1 class="splash-title">MATH OLYMPIAD</h1>
-            <p class="splash-sub">ELITE • 40 SOAL</p>
-            <div class="splash-loader">
-                <div class="loader-bar"><div class="loader-fill"></div></div>
-                <div class="loader-text" id="splashPercent">0%</div>
+            <p class="splash-sub">ELITE CHALLENGE • 40 SOAL</p>
+            
+            <div class="loader-container">
+                <div class="loader-track">
+                    <div class="loader-fill">
+                        <div class="loader-glow"></div>
+                    </div>
+                </div>
+                <div class="loader-percent" id="loadingPercent">0%</div>
             </div>
-            <div class="splash-tag">✨ Siap berjuang? ✨</div>
+            
+            <div class="loading-status">
+                <span>🏆</span> Siapkan strategi <span>⚡</span>
+            </div>
+            <div class="splash-footer-text">
+                <span>✨ Pembahasan lengkap</span>
+                <span>🎯 Target nilai 40</span>
+            </div>
         </div>
     </div>
 
     <div class="quiz-grid" id="quizGrid"></div>
     <div class="footer-note">
-        💡 Ketik angka (titik/koma sama). Contoh: 16.67 atau 16,67
+        💡 Tips: Ketik angka (bisa pakai titik atau koma, sistem akan baca keduanya). Contoh: 16.67 atau 16,67 sama-sama benar.
     </div>
 </div>
 <div class="scroll-top" id="scrollTopBtn">↑</div>
 
 <script>
-    // ========== SPLASH LOADING ==========
-    let percent = 0;
-    const percentInterval = setInterval(() => {
-        if (percent < 100) {
-            percent += Math.floor(Math.random() * 8) + 3;
-            if (percent > 100) percent = 100;
-            const pSpan = document.getElementById('splashPercent');
-            if (pSpan) pSpan.innerText = percent + '%';
+    // ==================== BINTANG & PARTIKEL ====================
+    function createStars() {
+        const starsDiv = document.getElementById('stars');
+        if(!starsDiv) return;
+        for(let i=0;i<150;i++) {
+            let s = document.createElement('div');
+            s.classList.add('star');
+            s.style.left = Math.random()*100+'%';
+            s.style.top = Math.random()*100+'%';
+            s.style.width = Math.random()*3+1+'px';
+            s.style.height = s.style.width;
+            s.style.animationDelay = Math.random()*4+'s';
+            s.style.animationDuration = Math.random()*2+2+'s';
+            starsDiv.appendChild(s);
         }
-    }, 60);
+    }
 
-    window.addEventListener('load', () => {
-        setTimeout(() => {
+    function createFloatingParticles() {
+        const splash = document.getElementById('splash-screen');
+        if(!splash) return;
+        for(let i=0;i<40;i++) {
+            let p = document.createElement('div');
+            p.classList.add('floating-particle');
+            p.style.left = Math.random()*100+'%';
+            p.style.bottom = '0%';
+            p.style.animationDelay = Math.random()*3+'s';
+            p.style.animationDuration = Math.random()*3+2+'s';
+            splash.appendChild(p);
+        }
+    }
+
+    // Animasi loading persen
+    let percentVal = 0;
+    const percentInterval = setInterval(()=>{
+        if(percentVal<100){
+            percentVal += Math.floor(Math.random()*5)+2;
+            if(percentVal>100) percentVal=100;
+            const pSpan = document.getElementById('loadingPercent');
+            if(pSpan) pSpan.innerText = percentVal+'%';
+        }
+    }, 70);
+
+    window.addEventListener('load',()=>{
+        createStars();
+        createFloatingParticles();
+        setTimeout(()=>{
             clearInterval(percentInterval);
             const splash = document.getElementById('splash-screen');
-            if (splash) {
+            if(splash){
                 splash.classList.add('fade-out');
-                setTimeout(() => {
-                    if (splash.parentNode) splash.remove();
-                }, 600);
+                setTimeout(()=>{ if(splash.parentNode) splash.remove(); }, 800);
             }
-        }, 2000);
+        }, 2800);
     });
 
-    // ========== CONFETTI SIMPLE ==========
+    // ==================== CONFETTI SYSTEM ====================
     const canvas = document.getElementById('confetti-canvas');
     let ctx = canvas.getContext('2d');
     let animId = null;
-    let particles = [];
+    let confettiParticles = [];
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -471,193 +609,201 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    class ConfettiPart {
-        constructor() {
+    class Confetti {
+        constructor(){
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height - canvas.height;
-            this.size = Math.random() * 7 + 3;
-            this.speedY = Math.random() * 5 + 3;
+            this.size = Math.random() * 9 + 4;
+            this.speedY = Math.random() * 6 + 4;
             this.speedX = Math.random() * 2 - 1;
-            this.color = `hsl(${Math.random() * 360}, 75%, 60%)`;
+            this.color = `hsl(${Math.random() * 360}, 80%, 65%)`;
             this.rot = Math.random() * 360;
-            this.rotSpeed = Math.random() * 10 - 5;
+            this.rotSpeed = Math.random() * 12 - 6;
         }
-        update() {
+        update(){
             this.y += this.speedY;
             this.x += this.speedX;
             this.rot += this.rotSpeed;
-            return this.y < canvas.height + 50;
+            return this.y < canvas.height + 60;
         }
-        draw() {
+        draw(){
             ctx.save();
             ctx.translate(this.x, this.y);
-            ctx.rotate(this.rot * Math.PI / 180);
+            ctx.rotate(this.rot * Math.PI/180);
             ctx.fillStyle = this.color;
-            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+            ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
             ctx.restore();
         }
     }
 
-    function startConfetti() {
-        if (animId) cancelAnimationFrame(animId);
-        particles = [];
-        for (let i = 0; i < 180; i++) particles.push(new ConfettiPart());
-        function animate() {
-            if (!ctx) return;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function startConfetti(){
+        if(animId) cancelAnimationFrame(animId);
+        confettiParticles = [];
+        for(let i=0;i<220;i++) confettiParticles.push(new Confetti());
+        function animateConfetti(){
+            if(!ctx) return;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
             let alive = false;
-            for (let p of particles) {
-                if (p.update()) alive = true;
+            for(let p of confettiParticles){
+                if(p.update()) alive = true;
                 p.draw();
             }
-            if (alive) animId = requestAnimationFrame(animate);
+            if(alive) animId = requestAnimationFrame(animateConfetti);
             else {
                 cancelAnimationFrame(animId);
                 animId = null;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0,0,canvas.width,canvas.height);
             }
         }
-        animate();
-        setTimeout(() => {
-            if (animId) {
+        animateConfetti();
+        setTimeout(()=>{
+            if(animId){
                 cancelAnimationFrame(animId);
-                animId = null;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                animId=null;
+                ctx.clearRect(0,0,canvas.width,canvas.height);
             }
-        }, 4000);
+        },4800);
     }
 
-    // ========== 40 SOAL LENGKAP (RINGKAS) ==========
-    const questions = [
-        { id:1, diff:"Sedang", dcl:"diff-medium", cat:"Bilangan", text:"Beli 50kg beras Rp600.000, jual Rp14.000/kg. % untung?", ans:"16.67", exp:"Harga beli/kg=12.000, untung=2.000, %=2.000/12.000×100%=16,67%" },
-        { id:2, diff:"Sulit", dcl:"diff-hard", cat:"Bilangan", text:"120km, 60km/jam. Ingin 30 menit lebih cepat, kecepatan baru?", ans:"80", exp:"Waktu awal=2 jam, baru=1,5 jam → 120/1,5=80 km/jam" },
-        { id:3, diff:"Hot", dcl:"diff-hot", cat:"Bilangan", text:"5,9,13,17,... Jumlah 20 suku pertama?", ans:"860", exp:"a=5,b=4, Sn=10×(10+76)=860" },
-        { id:4, diff:"Ekstrem", dcl:"diff-extreme", cat:"Bilangan", text:"Diskon 20% jadi Rp160.000. Harga awal?", ans:"200000", exp:"160.000 / 0,8 = 200.000" },
-        { id:5, diff:"Sedang", dcl:"diff-medium", cat:"Bilangan", text:"Andi:Budi:Cici=3:5:7. Selisih Budi & Andi Rp40.000. Total uang?", ans:"300000", exp:"2 bagian=40rb → 1 bagian=20rb, total 15 bagian=300rb" },
-        { id:6, diff:"Sulit", dcl:"diff-hard", cat:"Bilangan", text:"Bunga 8%/thn, 9 bulan jadi Rp5.180.000. Tabungan awal?", ans:"5000000", exp:"Bunga 9 bln=6%, modal=5.180.000/1,06=5.000.000" },
-        { id:7, diff:"Hot", dcl:"diff-hot", cat:"Bilangan", text:"U3=12, U6=96 (geometri). U8?", ans:"384", exp:"r³=8→r=2, a=3, U8=3×128=384" },
-        { id:8, diff:"Ekstrem", dcl:"diff-extreme", cat:"Bilangan", text:"5 ganjil berurutan jumlah 75. Bilangan terbesar?", ans:"19", exp:"n + n+2 + ... + n+8 = 5n+20=75 → n=11, terbesar=19" },
-        { id:9, diff:"Sulit", dcl:"diff-hard", cat:"Bilangan", text:"Skala 1:250.000, jarak peta 8cm. Jarak sebenarnya (km)?", ans:"20", exp:"8×250.000=2.000.000cm=20km" },
-        { id:10, diff:"Hot", dcl:"diff-hot", cat:"Bilangan", text:"Jual Rp240.000 rugi 20%. Harga beli?", ans:"300000", exp:"240.000 / 0,8 = 300.000" },
-        { id:11, diff:"Sedang", dcl:"diff-medium", cat:"Aljabar", text:"3(x-4)=2(x+5)-3. x?", ans:"19", exp:"3x-12=2x+7 → x=19" },
-        { id:12, diff:"Sulit", dcl:"diff-hard", cat:"Aljabar", text:"2x+3y=13, x-y=-1. x+y?", ans:"5", exp:"x=2,y=3 → 5" },
-        { id:13, diff:"Hot", dcl:"diff-hot", cat:"Aljabar", text:"f(x)=3x-7, f(2a+3)=20. a?", ans:"3", exp:"6a+2=20 → a=3" },
-        { id:14, diff:"Ekstrem", dcl:"diff-extreme", cat:"Aljabar", text:"Jumlah 2 bilangan=45, selisih=9. Hasil kali?", ans:"486", exp:"27×18=486" },
-        { id:15, diff:"Sedang", dcl:"diff-medium", cat:"Aljabar", text:"f(2)=7, f(4)=13 (linear). f(5)=?", ans:"16", exp:"a=3,b=1 → f(5)=16" },
-        { id:16, diff:"Sulit", dcl:"diff-hard", cat:"Aljabar", text:"3 tahun lalu Ali=2×Budi. 4 tahun lagi Ali=1,5×Budi. Umur Ali?", ans:"17", exp:"A=2B-3, A+4=1,5(B+4) → B=10, A=17" },
-        { id:17, diff:"Hot", dcl:"diff-hot", cat:"Aljabar", text:"3b+2p=15rb, 2b+3p=12,5rb. b+p?", ans:"5500", exp:"5b+5p=27.500 → b+p=5.500" },
-        { id:18, diff:"Ekstrem", dcl:"diff-extreme", cat:"Aljabar", text:"Puluhan=2×satuan, ditukar jadi 18 lebih kecil. Bilangan?", ans:"42", exp:"21x - 12x=18 → x=2 → 42" },
-        { id:19, diff:"Sedang", dcl:"diff-medium", cat:"Aljabar", text:"x + 1/x = 5. x²+1/x²?", ans:"23", exp:"25-2=23" },
-        { id:20, diff:"Sedang", dcl:"diff-medium", cat:"Geometri", text:"L=96cm², p=12cm. Keliling?", ans:"40", exp:"l=8cm, K=2(12+8)=40" },
-        { id:21, diff:"Sulit", dcl:"diff-hard", cat:"Geometri", text:"Tabung r=7cm, t=10cm, π=22/7. Volume?", ans:"1540", exp:"22/7×49×10=1540cm³" },
-        { id:22, diff:"Hot", dcl:"diff-hot", cat:"Geometri", text:"Siku2 8cm,15cm. Jari2 lingkaran luar?", ans:"8.5", exp:"Sisi miring=17, jari2=8,5cm" },
-        { id:23, diff:"Ekstrem", dcl:"diff-extreme", cat:"Geometri", text:"Segitiga sebangun sisi 6,8,10. Sisi terpendek kedua=9cm. Keliling kedua?", ans:"36", exp:"Skala=1,5 → 9,12,15 → K=36" },
-        { id:24, diff:"Sedang", dcl:"diff-medium", cat:"Geometri", text:"Keliling lingkaran 44cm (π=22/7). Luas?", ans:"154", exp:"r=7cm, L=154cm²" },
-        { id:25, diff:"Sulit", dcl:"diff-hard", cat:"Geometri", text:"Balok p=12,l=8,t=5. Luas permukaan?", ans:"392", exp:"2(96+60+40)=392" },
-        { id:26, diff:"Hot", dcl:"diff-hot", cat:"Geometri", text:"A=(3x+5)°, B=(2x-5)° berpenyiku. Besar A?", ans:"59", exp:"5x=90→x=18, A=59°" },
-        { id:27, diff:"Ekstrem", dcl:"diff-extreme", cat:"Geometri", text:"Kerucut r=6cm, t=8cm, π=3,14. Volume?", ans:"301.44", exp:"⅓×3,14×36×8=301,44" },
-        { id:28, diff:"Sedang", dcl:"diff-medium", cat:"Geometri", text:"Prisma segitiga siku2 3,4,5, tinggi 10cm. Volume?", ans:"60", exp:"La=6, V=60cm³" },
-        { id:29, diff:"Sedang", dcl:"diff-medium", cat:"Data", text:"6,7,8,8,9,9,9,10. Mean?", ans:"8.25", exp:"66/8=8,25" },
-        { id:30, diff:"Sulit", dcl:"diff-hard", cat:"Data", text:"4,5,5,6,7,7,7,8,9. Median?", ans:"7", exp:"Data ke-5 = 7" },
-        { id:31, diff:"Ekstrem", dcl:"diff-extreme", cat:"Kombinatorika", text:"Pilih 2 merah dari 5 merah+3 biru?", ans:"10", exp:"C(5,2)=10" },
-        { id:32, diff:"Ekstrem", dcl:"diff-extreme", cat:"Peluang", text:"4M,3B,5H ambil 2. Peluang warna sama?", ans:"0.2879", exp:"(6+3+10)/66=19/66=0,2879" },
-        { id:33, diff:"Sedang", dcl:"diff-medium", cat:"Data", text:"Rata2 5 siswa=75, + nilai 90. Rata2 baru?", ans:"77.5", exp:"(375+90)/6=77,5" },
-        { id:34, diff:"Sulit", dcl:"diff-hard", cat:"Peluang", text:"Dua koin, peluang minimal 1 gambar?", ans:"0.75", exp:"3/4=0,75" },
-        { id:35, diff:"Hot", dcl:"diff-hot", cat:"Data", text:"5,6,7,7,8,8,9,9,10. Jangkauan?", ans:"5", exp:"10-5=5" },
-        { id:36, diff:"Sedang", dcl:"diff-medium", cat:"Bilangan", text:"Sisa 2²⁰²³ ÷ 7 ?", ans:"2", exp:"Pola 2,4,1, sisa 1 → 2" },
-        { id:37, diff:"Sedang", dcl:"diff-medium", cat:"Kombinatorika", text:"Susun angka 1-5 dengan 2&3 berdampingan?", ans:"48", exp:"4!×2!=48" },
-        { id:38, diff:"Sedang", dcl:"diff-medium", cat:"Geometri", text:"Diagonal persegi √50 cm. Luas?", ans:"25", exp:"½×50=25cm²" },
-        { id:39, diff:"Sedang", dcl:"diff-medium", cat:"Aljabar", text:"a+b=7, ab=12. a²+b²?", ans:"25", exp:"49-24=25" },
-        { id:40, diff:"Sulit", dcl:"diff-hard", cat:"Aljabar", text:"5apel+3jeruk=105rb, 2apel+4jeruk=70rb. Harga 1 apel?", ans:"15000", exp:"eliminasi → 14a=210rb → a=15.000" }
+    // ==================== 40 SOAL LENGKAP ====================
+    const fullQuestions = [
+        { id:1, diff:"Sedang", dclass:"diff-medium", cat:"Bilangan", text:"Seorang pedagang membeli 50 kg beras Rp600.000, dijual Rp14.000/kg. Berapa % untung?", correct:"16.67", explanation:"✅ Harga beli/kg = 600.000/50 = 12.000. Untung/kg = 2.000. %Untung = (2000/12000)×100% = 16,67%." },
+        { id:2, diff:"Sulit", dclass:"diff-hard", cat:"Bilangan", text:"Mobil 120km kecepatan 60km/jam. Agar sampai 30 menit lebih cepat, berapa kecepatan baru?", correct:"80", explanation:"⏱ Waktu awal = 2 jam = 120 menit. Waktu baru = 90 menit = 1,5 jam. Kecepatan = 120/1,5 = 80 km/jam." },
+        { id:3, diff:"Hot", dclass:"diff-hot", cat:"Bilangan", text:"Barisan aritmatika 5,9,13,17,... Jumlah 20 suku pertama?", correct:"860", explanation:"📐 a=5, b=4, n=20. Sn = 20/2×(2×5 + 19×4) = 10×(10+76)=860." },
+        { id:4, diff:"Ekstrem", dclass:"diff-extreme", cat:"Bilangan", text:"Diskon 20% jadi Rp160.000. Harga awal?", correct:"200000", explanation:"💰 Harga awal = 160.000 / 0,8 = 200.000." },
+        { id:5, diff:"Sedang", dclass:"diff-medium", cat:"Bilangan", text:"Perbandingan Andi:Budi:Cici = 3:5:7. Selisih Budi & Andi Rp40.000. Jumlah uang mereka?", correct:"300000", explanation:"📊 Selisih 2 bagian = 40.000 → 1 bagian = 20.000. Jumlah 15 bagian = 300.000." },
+        { id:6, diff:"Sulit", dclass:"diff-hard", cat:"Bilangan", text:"Bunga 8%/tahun. 9 bulan jadi Rp5.180.000. Tabungan awal?", correct:"5000000", explanation:"🏦 Bunga 9 bulan = 6%. Modal awal = 5.180.000 / 1,06 = 5.000.000." },
+        { id:7, diff:"Hot", dclass:"diff-hot", cat:"Bilangan", text:"Deret geometri: U3=12, U6=96. U8?", correct:"384", explanation:"🔢 r³ = 96/12=8 → r=2. a=3. U8 = 3×2⁷ = 384." },
+        { id:8, diff:"Ekstrem", dclass:"diff-extreme", cat:"Bilangan", text:"5 bilangan ganjil berurutan jumlah 75. Bilangan terbesar?", correct:"19", explanation:"🔢 Misal n, n+2, ... n+8. 5n+20=75 → n=11. Terbesar = 19." },
+        { id:9, diff:"Sulit", dclass:"diff-hard", cat:"Bilangan", text:"Skala 1:250.000, jarak peta 8 cm. Jarak sebenarnya (km)?", correct:"20", explanation:"🗺 8×250.000 = 2.000.000 cm = 20 km." },
+        { id:10, diff:"Hot", dclass:"diff-hot", cat:"Bilangan", text:"Harga jual Rp240.000 rugi 20%. Harga beli?", correct:"300000", explanation:"📉 Rugi 20% → harga jual = 80% harga beli → HB = 240.000/0,8 = 300.000." },
+        { id:11, diff:"Sedang", dclass:"diff-medium", cat:"Aljabar", text:"3(x-4)=2(x+5)-3. Nilai x?", correct:"19", explanation:"✏️ 3x-12=2x+7 → x=19." },
+        { id:12, diff:"Sulit", dclass:"diff-hard", cat:"Aljabar", text:"2x+3y=13 dan x-y=-1. x+y=?", correct:"5", explanation:"🧮 x = y-1 → 2(y-1)+3y=13 → 5y=15 → y=3, x=2. x+y=5." },
+        { id:13, diff:"Hot", dclass:"diff-hot", cat:"Aljabar", text:"f(x)=3x-7, f(2a+3)=20. a=?", correct:"3", explanation:"🎯 3(2a+3)-7=6a+2=20 → 6a=18 → a=3." },
+        { id:14, diff:"Ekstrem", dclass:"diff-extreme", cat:"Aljabar", text:"Jumlah 2 bilangan=45, selisih=9. Hasil kali?", correct:"486", explanation:"🔢 a+b=45, a-b=9 → a=27,b=18 → hasil kali = 486." },
+        { id:15, diff:"Sedang", dclass:"diff-medium", cat:"Aljabar", text:"f(x)=ax+b, f(2)=7, f(4)=13. f(5)=?", correct:"16", explanation:"📈 2a+b=7, 4a+b=13 → a=3, b=1. f(5)=16." },
+        { id:16, diff:"Sulit", dclass:"diff-hard", cat:"Aljabar", text:"3 tahun lalu Ali = 2× umur Budi. 4 tahun lagi Ali = 1,5× Budi. Umur Ali skrg?", correct:"17", explanation:"👨‍👦 A-3=2(B-3) → A=2B-3. A+4=1,5(B+4) → B=10, A=17." },
+        { id:17, diff:"Hot", dclass:"diff-hot", cat:"Aljabar", text:"3buku+2pensil=15rb, 2buku+3pensil=12,5rb. 1buku+1pensil?", correct:"5500", explanation:"✏️ Jumlah kedua pers: 5b+5p=27.500 → b+p=5.500." },
+        { id:18, diff:"Ekstrem", dclass:"diff-extreme", cat:"Aljabar", text:"Bilangan 2 angka: puluhan = 2×satuan. Tukar angka jadi 18 lebih kecil. Bilangan asli?", correct:"42", explanation:"🔁 Misal satuan=x, puluhan=2x → bilangan=21x, ditukar=12x. 21x-12x=18 → x=2 → bilangan 42." },
+        { id:19, diff:"Sedang", dclass:"diff-medium", cat:"Aljabar", text:"x + 1/x = 5. Nilai x²+1/x²?", correct:"23", explanation:"🧮 (x+1/x)² = x²+2+1/x² → 25 = x²+1/x²+2 → hasil = 23." },
+        { id:20, diff:"Sedang", dclass:"diff-medium", cat:"Geometri", text:"Luas persegi panjang 96 cm², panjang 12 cm. Keliling?", correct:"40", explanation:"📏 lebar=8 cm → keliling=2×(12+8)=40 cm." },
+        { id:21, diff:"Sulit", dclass:"diff-hard", cat:"Geometri", text:"Tabung r=7cm, t=10cm, π=22/7. Volume?", correct:"1540", explanation:"🧴 V=πr²t = 22/7×49×10 = 1540 cm³." },
+        { id:22, diff:"Hot", dclass:"diff-hot", cat:"Geometri", text:"Segitiga siku2 8cm,15cm. Jari2 lingkaran luar?", correct:"8.5", explanation:"📐 Sisi miring=17cm, jari2 luar = 17/2 = 8,5 cm." },
+        { id:23, diff:"Ekstrem", dclass:"diff-extreme", cat:"Geometri", text:"Segitiga sebangun sisi 6,8,10. Sisi terpendek ke2 =9cm. Keliling ke2?", correct:"36", explanation:"🔺 Skala=9/6=1,5 → sisi 9,12,15 → keliling 36 cm." },
+        { id:24, diff:"Sedang", dclass:"diff-medium", cat:"Geometri", text:"Keliling lingkaran 44cm (π=22/7). Luas?", correct:"154", explanation:"⚪ r=7cm → Luas=π×49=154 cm²." },
+        { id:25, diff:"Sulit", dclass:"diff-hard", cat:"Geometri", text:"Balok p=12, l=8, t=5. Luas permukaan?", correct:"392", explanation:"📦 Lp = 2(96+60+40) = 392 cm²." },
+        { id:26, diff:"Hot", dclass:"diff-hot", cat:"Geometri", text:"Sudut A & B berpenyiku. A=3x+5, B=2x-5. Besar sudut A?", correct:"59", explanation:"📐 (3x+5)+(2x-5)=90 → 5x=90 → x=18 → A=59°." },
+        { id:27, diff:"Ekstrem", dclass:"diff-extreme", cat:"Geometri", text:"Kerucut r=6cm, t=8cm, π=3,14. Volume?", correct:"301.44", explanation:"📐 V=⅓×3,14×36×8 = 301,44 cm³." },
+        { id:28, diff:"Sedang", dclass:"diff-medium", cat:"Geometri", text:"Prisma segitiga siku2 3,4,5, tinggi 10cm. Volume?", correct:"60", explanation:"📐 Luas alas=6 cm², V=6×10=60 cm³." },
+        { id:29, diff:"Sedang", dclass:"diff-medium", cat:"Data", text:"Nilai: 6,7,8,8,9,9,9,10. Mean?", correct:"8.25", explanation:"📊 Jumlah=66, n=8 → mean=8,25." },
+        { id:30, diff:"Sulit", dclass:"diff-hard", cat:"Data", text:"Data:4,5,5,6,7,7,7,8,9. Median?", correct:"7", explanation:"📈 Urut, nilai ke-5 = 7." },
+        { id:31, diff:"Ekstrem", dclass:"diff-extreme", cat:"Kombinatorika", text:"Pilih 2 bola merah dari 5 merah + 3 biru?", correct:"10", explanation:"🧮 C(5,2) = 10 cara." },
+        { id:32, diff:"Ekstrem", dclass:"diff-extreme", cat:"Peluang", text:"Kantong 4M,3B,5H. Ambil 2, peluang warna sama?", correct:"0.2879", explanation:"🎲 Total C(12,2)=66. 2M=6, 2B=3, 2H=10 → total 19. Peluang=19/66=0,2879." },
+        { id:33, diff:"Sedang", dclass:"diff-medium", cat:"Data", text:"Rata2 5 siswa=75, ditambah nilai 90. Rata2 baru?", correct:"77.5", explanation:"📊 Jumlah awal=375, +90=465, bagi 6 = 77,5." },
+        { id:34, diff:"Sulit", dclass:"diff-hard", cat:"Peluang", text:"Dua koin dilempar, peluang minimal 1 gambar?", correct:"0.75", explanation:"🪙 Ruang sampel 4, kejadian 3 → 3/4=0,75." },
+        { id:35, diff:"Hot", dclass:"diff-hot", cat:"Data", text:"Nilai:5,6,7,7,8,8,9,9,10. Jangkauan?", correct:"5", explanation:"📈 10-5=5." },
+        { id:36, diff:"Sedang", dclass:"diff-medium", cat:"Bilangan", text:"Sisa 2²⁰²³ ÷ 7 ?", correct:"2", explanation:"🔁 Pola sisa: 2,4,1 berulang setiap 3. 2023 mod 3 = 1 → sisa 2." },
+        { id:37, diff:"Sedang", dclass:"diff-medium", cat:"Kombinatorika", text:"Susun angka 1,2,3,4,5 dengan 2&3 berdampingan?", correct:"48", explanation:"🔢 Blok (2,3) + 1,4,5 = 4 benda → 4!×2! = 48." },
+        { id:38, diff:"Sedang", dclass:"diff-medium", cat:"Geometri", text:"Diagonal persegi √50 cm. Luas?", correct:"25", explanation:"⬛ Luas = ½ × d² = ½×50 = 25 cm²." },
+        { id:39, diff:"Sedang", dclass:"diff-medium", cat:"Aljabar", text:"a+b=7, ab=12. a²+b²=?", correct:"25", explanation:"✨ a²+b² = (a+b)² - 2ab = 49-24=25." },
+        { id:40, diff:"Sulit", dclass:"diff-hard", cat:"Aljabar", text:"5 apel+3 jeruk=105rb, 2 apel+4 jeruk=70rb. Harga 1 apel?", correct:"15000", explanation:"🍎 eliminasi: 20a+12j=420rb, 6a+12j=210rb → 14a=210rb → a=15.000." }
     ];
 
-    let userAns = {}, status = {}, lastScore = 0;
-    for (let i=1;i<=40;i++) { userAns[i]=""; status[i]=false; }
+    let userAnswers = {}, answerStatus = {}, lastScore = 0;
+    for(let i=1;i<=40;i++) { userAnswers[i]=""; answerStatus[i]=false; }
 
-    function norm(v) { 
-        let s = v.trim().replace(/,/g, '.');
-        if(s==="") return "";
-        let n = parseFloat(s);
-        return isNaN(n) ? s : n.toString();
+    function normalizeAnswer(val){
+        let str = val.trim().replace(/,/g, '.');
+        if(str === "") return "";
+        let num = parseFloat(str);
+        if(isNaN(num)) return str;
+        return num.toString();
     }
 
-    function evalQ(id) {
-        let q = questions.find(qq=>qq.id===id);
+    function evaluateQuestion(qid){
+        let q = fullQuestions.find(qq=>qq.id===qid);
         if(!q) return;
-        let raw = userAns[id] || "";
-        let isCor = norm(raw) === norm(q.ans);
-        status[id] = isCor;
-        let fb = document.getElementById(`fb_${id}`);
-        if(fb) {
-            fb.innerHTML = (isCor ? `<div class="result-correct">✅ BENAR! Jawaban: ${raw || "—"}</div>` : `<div class="result-wrong">❌ SALAH. Jawaban benar: ${q.ans}<br>Kamu: ${raw || "kosong"}</div>`) 
-                + `<div class="explanation-box"><strong>📖 Pembahasan:</strong> ${q.exp}</div>`;
+        let raw = userAnswers[qid] || "";
+        let normalizedInput = normalizeAnswer(raw);
+        let correctNorm = normalizeAnswer(q.correct);
+        let isCorrect = (normalizedInput === correctNorm);
+        answerStatus[qid] = isCorrect;
+        let fbDiv = document.getElementById(`fb_${qid}`);
+        if(fbDiv){
+            let resultHtml = isCorrect ? `<div class="result-correct">✅ BENAR! Jawaban: ${raw || "(kosong)"}</div>` : `<div class="result-wrong">❌ SALAH. Jawaban benar: ${q.correct}<br> Jawaban kamu: ${raw || "(kosong)"}</div>`;
+            resultHtml += `<div class="explanation-box"><strong>📘 Pembahasan Mudah:</strong><br>${q.explanation}</div>`;
+            fbDiv.innerHTML = resultHtml;
         }
-        updateScore();
+        updateScoreDisplay();
     }
 
-    function render() {
+    function renderAllCards(){
         const grid = document.getElementById('quizGrid');
         if(!grid) return;
         grid.innerHTML = '';
-        for(let i=1;i<=40;i++) {
-            let q = questions.find(qq=>qq.id===i);
+        for(let i=1;i<=40;i++){
+            let q = fullQuestions.find(qq=>qq.id===i);
             if(!q) continue;
-            let card = document.createElement('div');
+            const card = document.createElement('div');
             card.className = 'question-card';
-            card.style.animationDelay = `${i*0.01}s`;
             card.innerHTML = `
                 <div class="card-header">
                     <div class="num-badge">${i}</div>
-                    <div class="difficulty-tag ${q.dcl}">🔥 ${q.diff}</div>
+                    <div class="difficulty-tag ${q.dclass}">🔥 ${q.diff}</div>
                     <div class="category-tag">📌 ${q.cat}</div>
                 </div>
                 <div class="question-text">${q.text}</div>
-                <div class="input-wrapper"><input type="text" class="answer-input" id="in_${i}" placeholder="Ketik jawaban..." value="${userAns[i]||''}"></div>
-                <button class="check-btn" onclick="evalQ(${i})">✅ CEK & PEMBAHASAN</button>
+                <div class="input-wrapper"><input type="text" class="answer-input" id="input_${i}" placeholder="Contoh: 16.67 atau 16,67" value="${userAnswers[i]||''}"></div>
+                <button class="check-btn" onclick="evaluateQuestion(${i})">✅ CEK & PEMBAHASAN LENGKAP</button>
                 <div class="feedback-area" id="fb_${i}"></div>
             `;
             grid.appendChild(card);
-            document.getElementById(`in_${i}`).addEventListener('input', (e)=>{
-                userAns[i] = e.target.value;
-                status[i] = false;
+            const inp = document.getElementById(`input_${i}`);
+            inp.addEventListener('input', (e)=>{
+                userAnswers[i] = e.target.value;
+                answerStatus[i] = false;
                 document.getElementById(`fb_${i}`).innerHTML = '';
-                updateScore();
+                updateScoreDisplay();
             });
         }
     }
 
-    function checkAll() {
-        for(let i=1;i<=40;i++) {
-            let inp = document.getElementById(`in_${i}`);
-            if(inp) userAns[i] = inp.value;
-            evalQ(i);
+    function checkAll(){
+        for(let i=1;i<=40;i++){
+            let inp = document.getElementById(`input_${i}`);
+            if(inp) userAnswers[i] = inp.value;
+            evaluateQuestion(i);
         }
     }
-    function showKeys() {
-        for(let i=1;i<=40;i++) {
-            let q = questions.find(qq=>qq.id===i);
+    function showAllKeys(){
+        for(let i=1;i<=40;i++){
+            let q = fullQuestions.find(qq=>qq.id===i);
             if(!q) continue;
             let fb = document.getElementById(`fb_${i}`);
-            if(fb) fb.innerHTML = `<div class="result-wrong">🔑 KUNCI: ${q.ans}</div><div class="explanation-box">📖 ${q.exp}</div>`;
+            if(fb) fb.innerHTML = `<div class="result-wrong">🔑 KUNCI JAWABAN: ${q.correct}</div><div class="explanation-box"><strong>📖 Pembahasan:</strong><br>${q.explanation}</div>`;
         }
     }
-    function resetAll() {
-        for(let i=1;i<=40;i++) {
-            let inp = document.getElementById(`in_${i}`);
+    function resetAll(){
+        for(let i=1;i<=40;i++){
+            let inp = document.getElementById(`input_${i}`);
             if(inp) inp.value = '';
-            userAns[i] = '';
-            status[i] = false;
+            userAnswers[i] = '';
+            answerStatus[i] = false;
             let fb = document.getElementById(`fb_${i}`);
             if(fb) fb.innerHTML = '';
         }
-        updateScore();
+        updateScoreDisplay();
     }
-    function getScore() { let c=0; for(let i=1;i<=40;i++) if(status[i]===true) c++; return c; }
-    function updateScore() {
-        let sc = getScore();
-        let el = document.getElementById('liveScoreDisplay');
-        if(el) el.innerHTML = `🏆 ${sc} / 40`;
-        if(sc === 40 && lastScore !== 40) {
+    function computeScore(){
+        let correct=0;
+        for(let i=1;i<=40;i++) if(answerStatus[i]===true) correct++;
+        return correct;
+    }
+    function updateScoreDisplay(){
+        let sc = computeScore();
+        let scoreSpan = document.getElementById('liveScoreDisplay');
+        if(scoreSpan) scoreSpan.innerHTML = `🏆 SKOR: ${sc} / 40`;
+        if(sc === 40 && lastScore !== 40){
             startConfetti();
             let scEl = document.getElementById('liveScoreDisplay');
             if(scEl) scEl.style.background = "#10b981";
@@ -666,13 +812,13 @@
         lastScore = sc;
     }
 
-    window.evalQ = evalQ;
-    render();
+    window.evaluateQuestion = evaluateQuestion;
+    renderAllCards();
     document.getElementById('checkAllBtn')?.addEventListener('click', checkAll);
-    document.getElementById('showAnswersBtn')?.addEventListener('click', showKeys);
+    document.getElementById('showAnswersBtn')?.addEventListener('click', showAllKeys);
     document.getElementById('resetBtn')?.addEventListener('click', resetAll);
     document.getElementById('scrollTopBtn')?.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-    updateScore();
+    updateScoreDisplay();
 </script>
 </body>
 </html>
