@@ -37,20 +37,22 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* ========== SPLASH SCREEN - FULL CENTER ========== */
+        /* ========== SPLASH SCREEN - FULL FIXED COVER ========== */
+        /* Splash screen menutupi FULL layar tanpa scroll, posisi fixed */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;           /* Tinggi penuh viewport */
+            height: 100dvh;          /* Dinamis untuk browser modern (menutupi address bar) */
             background: radial-gradient(ellipse at center, #0a0f2a 0%, #020617 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             transition: opacity 0.8s ease, visibility 0.8s;
-            overflow: hidden;
+            overflow: hidden;        /* Tidak ada scroll sama sekali */
         }
 
         /* Bintang animasi */
@@ -93,28 +95,29 @@
             100% { opacity: 0; transform: translateY(-150px) scale(0); }
         }
 
-        /* KONTEN SPLASH - CENTER PERFECT */
+        /* KONTEN SPLASH - FLEXIBLE & TETAP DI TENGAH */
         .splash-content {
             text-align: center;
             z-index: 2;
             position: relative;
-            width: 100%;
+            width: 90%;
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
+            /* Konten akan fleksibel dan tetap di tengah vertikal karena flex parent */
         }
 
-        /* Logo animasi */
+        /* Logo animasi - responsive */
         .math-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px auto;
+            width: clamp(80px, 25vw, 120px);
+            height: clamp(80px, 25vw, 120px);
+            margin: 0 auto 20px auto;
             background: linear-gradient(135deg, #facc15, #f59e0b);
             border-radius: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             font-weight: bold;
             color: #0f172a;
             box-shadow: 0 20px 35px -8px rgba(250,204,21,0.5);
@@ -127,7 +130,7 @@
         }
 
         .splash-title {
-            font-size: 2.2rem;
+            font-size: clamp(1.5rem, 6vw, 2.2rem);
             font-weight: 800;
             background: linear-gradient(135deg, #facc15, #f97316, #facc15);
             -webkit-background-clip: text;
@@ -140,14 +143,14 @@
         .splash-sub {
             color: #a5b4fc;
             letter-spacing: 5px;
-            font-size: 0.7rem;
+            font-size: clamp(0.6rem, 2vw, 0.7rem);
             text-transform: uppercase;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        /* Loader premium */
+        /* Loader premium - responsive */
         .loader-container {
-            width: 260px;
+            width: min(260px, 70%);
             margin: 0 auto;
         }
 
@@ -190,7 +193,7 @@
         .loader-percent {
             margin-top: 15px;
             font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 3vw, 0.9rem);
             font-weight: bold;
             color: #facc15;
             letter-spacing: 1px;
@@ -198,7 +201,7 @@
 
         .loading-status {
             margin-top: 20px;
-            font-size: 0.7rem;
+            font-size: clamp(0.65rem, 2.5vw, 0.7rem);
             color: #64748b;
             display: flex;
             justify-content: center;
@@ -210,8 +213,8 @@
         }
 
         .splash-footer-text {
-            margin-top: 35px;
-            font-size: 0.65rem;
+            margin-top: 30px;
+            font-size: clamp(0.55rem, 2vw, 0.65rem);
             color: #475569;
             display: flex;
             justify-content: center;
@@ -482,8 +485,27 @@
             .hero h1 { font-size: 1.3rem; }
             .info-bar { flex-direction: column; align-items: stretch; }
             .btn-group { justify-content: center; }
-            .splash-title { font-size: 1.8rem; }
-            .math-logo { width: 90px; height: 90px; font-size: 2.5rem; }
+        }
+
+        /* Perbaikan untuk HP kecil - splash content tetap proporsional */
+        @media (max-height: 600px) {
+            .math-logo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 10px;
+            }
+            .splash-title {
+                margin-bottom: 4px;
+            }
+            .splash-sub {
+                margin-bottom: 15px;
+            }
+            .loading-status {
+                margin-top: 12px;
+            }
+            .splash-footer-text {
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
@@ -506,7 +528,7 @@
         </div>
     </div>
 
-    <!-- SPLASH SCREEN - FULL CENTER -->
+    <!-- SPLASH SCREEN - FULL FIXED (tidak ikut scroll, full layar) -->
     <div id="splash-screen">
         <div class="stars" id="stars"></div>
         <div class="splash-content">
@@ -591,7 +613,9 @@
             const splash = document.getElementById('splash-screen');
             if(splash){
                 splash.classList.add('fade-out');
-                setTimeout(()=>{ if(splash.parentNode) splash.remove(); }, 800);
+                setTimeout(()=>{ 
+                    if(splash.parentNode) splash.remove(); 
+                }, 800);
             }
         }, 2800);
     });
@@ -746,6 +770,7 @@
             if(!q) continue;
             const card = document.createElement('div');
             card.className = 'question-card';
+            card.style.animationDelay = `${i * 0.03}s`;
             card.innerHTML = `
                 <div class="card-header">
                     <div class="num-badge">${i}</div>
