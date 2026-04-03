@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>TKA Olympiad | Persiapan TKA SMP</title>
+    <title>TKA Olympiad | Matematika & B. Indonesia</title>
     <style>
         * {
             margin: 0;
@@ -12,141 +13,250 @@
         }
 
         body {
-            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-family: -apple-system, 'Poppins', 'Segoe UI', system-ui, sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 16px 12px;
         }
 
-        .container {
-            max-width: 1100px;
-            width: 100%;
+        .main-container {
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        /* Hero Section */
-        .hero {
+        /* Header */
+        .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 28px;
         }
 
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #facc15, #f59e0b);
-            border-radius: 30px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 50px;
-            box-shadow: 0 20px 35px -8px rgba(250,204,21,0.3);
-            animation: float 3s ease-in-out infinite;
+            margin: 0 auto 10px;
+            font-size: 30px;
+            box-shadow: 0 8px 20px -6px rgba(250,204,21,0.3);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
+        .header h1 {
+            font-size: 1.5rem;
             background: linear-gradient(135deg, #facc15, #f97316);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
         }
 
-        .hero p {
+        .header p {
             color: #a5b4fc;
-            margin-top: 10px;
-            font-size: 1rem;
+            font-size: 0.7rem;
+            margin-top: 4px;
         }
 
-        /* Cards Grid */
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
+        /* DUA KOTAK - pakai GRID, otomatis kanan kiri tanpa scroll */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 8px;
         }
 
-        .card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 40px;
-            padding: 35px 30px;
-            width: 320px;
+        .subject-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 26px;
+            padding: 18px 10px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .subject-card.active {
+            border: 2px solid #facc15;
+            background: rgba(250, 204, 21, 0.1);
+        }
+
+        .subject-icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .subject-card h2 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .subject-desc {
+            color: #cbd5e1;
+            font-size: 0.6rem;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            min-height: 46px;
+        }
+
+        .subject-badge {
+            display: inline-block;
+            background: rgba(250, 204, 21, 0.18);
+            color: #facc15;
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            margin-top: auto;
+            align-self: center;
+        }
+
+        /* PANEL MODE */
+        .mode-panel-wrapper {
+            margin-top: 24px;
+        }
+
+        .mode-panel {
+            background: rgba(10, 15, 35, 0.96);
+            backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 16px 12px;
+            border: 1px solid rgba(250, 204, 21, 0.3);
+            animation: panelFadeIn 0.3s ease;
+        }
+
+        @keyframes panelFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(250, 204, 21, 0.25);
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .panel-title span {
+            font-size: 22px;
+        }
+
+        .panel-title h3 {
+            font-size: 1.15rem;
+            color: #facc15;
+        }
+
+        .close-panel-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            color: #94a3b8;
+            padding: 4px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.6rem;
+        }
+
+        /* MODE CARDS - pakai grid juga biar rapi tanpa scroll */
+        .modes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .mode-item {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+            border-radius: 24px;
+            padding: 14px 10px;
             text-decoration: none;
             color: white;
-            display: block;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.1);
-            border-color: #facc15;
+        .mode-item:active {
+            transform: scale(0.98);
+            background: rgba(250, 204, 21, 0.12);
         }
 
-        .card-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
+        .mode-icon {
+            font-size: 32px;
+            margin-bottom: 6px;
         }
 
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+        .mode-item h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
         }
 
-        .card .badge {
+        .mode-tag {
             display: inline-block;
-            background: rgba(250,204,21,0.2);
+            background: rgba(250, 204, 21, 0.2);
             color: #facc15;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin: 15px 0;
+            padding: 2px 8px;
+            border-radius: 30px;
+            font-size: 0.5rem;
+            margin: 6px 0 4px;
         }
 
-        .card p {
-            color: #c7d2fe;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .mode-desc {
+            color: #cbd5e6;
+            font-size: 0.6rem;
+            line-height: 1.3;
+            margin-bottom: 8px;
         }
 
-        .feature-list {
-            text-align: left;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.8rem;
-        }
-
-        .feature-list li {
+        .mode-features {
             list-style: none;
-            padding: 5px 0;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .mode-features li {
+            font-size: 0.55rem;
+            padding: 2px 0;
             color: #a5b4fc;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        .feature-list li::before {
-            content: "✓ ";
+        .mode-features li::before {
+            content: "✓";
             color: #facc15;
-            font-weight: bold;
+            font-size: 0.55rem;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
-            margin-top: 50px;
-            color: #64748b;
-            font-size: 0.75rem;
+            margin-top: 32px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #4a5568;
+            font-size: 0.5rem;
+        }
+
+        .footer p {
+            margin-bottom: 4px;
         }
 
         /* Splash Screen */
@@ -161,44 +271,25 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s;
-        }
-
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+            transition: opacity 0.5s ease, visibility 0.5s;
         }
 
         .splash-content {
             text-align: center;
-            z-index: 2;
+            padding: 20px;
         }
 
-        .math-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
+        .splash-logo {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #facc15, #f59e0b);
-            border-radius: 35px;
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            animation: pulseLogo 1.8s ease-in-out infinite;
+            margin: 0 auto 12px;
+            font-size: 34px;
+            animation: pulseLogo 1.5s ease-in-out infinite;
         }
 
         @keyframes pulseLogo {
@@ -206,23 +297,33 @@
             50% { transform: scale(1.05); }
         }
 
-        .loader-track {
-            height: 6px;
-            background: rgba(255,255,255,0.15);
+        .splash-content h2 {
+            color: #facc15;
+            font-size: 1.25rem;
+        }
+
+        .splash-content p {
+            color: #a5b4fc;
+            font-size: 0.7rem;
+        }
+
+        .loader {
+            width: 160px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
+            margin: 14px auto 0;
             overflow: hidden;
-            margin: 20px 0 10px;
-            width: 250px;
         }
 
         .loader-fill {
             width: 0%;
             height: 100%;
             background: linear-gradient(90deg, #facc15, #f97316);
-            animation: loadingFill 2s ease-out forwards;
+            animation: loadAnim 2s ease-out forwards;
         }
 
-        @keyframes loadingFill {
+        @keyframes loadAnim {
             0% { width: 0%; }
             100% { width: 100%; }
         }
@@ -232,93 +333,204 @@
             visibility: hidden;
         }
 
-        @media (max-width: 700px) {
-            .hero h1 { font-size: 1.8rem; }
-            .card { width: 280px; padding: 25px 20px; }
+        /* HP kecil banget (max-width 400px) tetap aman */
+        @media (max-width: 420px) {
+            .subject-card h2 {
+                font-size: 1rem;
+            }
+            .subject-icon {
+                font-size: 36px;
+            }
+            .subject-desc {
+                font-size: 0.55rem;
+                min-height: 40px;
+            }
+            .subject-badge {
+                font-size: 0.55rem;
+                padding: 4px 8px;
+            }
+            .mode-item h4 {
+                font-size: 1rem;
+            }
+            .mode-icon {
+                font-size: 28px;
+            }
+            .mode-desc {
+                font-size: 0.55rem;
+            }
         }
     </style>
 </head>
 <body>
 
 <div id="splash-screen">
-    <div class="stars" id="stars"></div>
     <div class="splash-content">
-        <div class="math-logo">🏅</div>
-        <h1 style="color:#facc15; margin-bottom:5px;">KIAT TKA SUKSES</h1>
-        <p style="color:#a5b4fc;">60 Soal Fundamental</p>
-        <div class="loader-track"><div class="loader-fill"></div></div>
-        <p style="color:#facc15; margin-top:10px;">Siap berlatih?</p>
+        <div class="splash-logo">🏅</div>
+        <h2>TKA OLYMPIAD</h2>
+        <p>Matematika & Bahasa Indonesia</p>
+        <div class="loader"><div class="loader-fill"></div></div>
     </div>
 </div>
 
-<div class="container">
-    <div class="hero">
+<div class="main-container">
+    <div class="header">
         <div class="logo">🏅</div>
         <h1>TKA CHALLENGE</h1>
-        <p>Persiapan TKA Matematika | 60 Soal Berkualitas</p>
+        <p>Pilih mata pelajaran • lalu pilih mode</p>
     </div>
 
-    <div class="cards-grid">
-        <a href="tka.html" class="card">
-            <div class="card-icon">📚</div>
-            <h2>Mode LATIHAN</h2>
-            <div class="badge">🎯 Tanpa Tekanan</div>
-            <p>Belajar dengan nyaman! Lihat pembahasan setiap saat, cek jawaban, dan pahami konsep dengan detail.</p>
-            <ul class="feature-list">
-                <li>40 Soal + Pembahasan</li>
-                <li>Bisa lihat kunci jawaban</li>
-                <li>Ada contoh soal serupa</li>
-                <li>Skor otomatis</li>
-            </ul>
-        </a>
-
-        <a href="test.html" class="card">
-            <div class="card-icon">⏱️</div>
-            <h2>Mode TEST</h2>
-            <div class="badge">⚡ Tanpa kunci jawaban!</div>
-            <p>Uji kemampuanmu! Kerjakan soal dengan batas waktu, dapatkan nilai akhir, dan lihat hasilmu.</p>
-            <ul class="feature-list">
-                <li>60 Soal dengan tingkatan lebih lanjut</li>
-                <li>Tidak bisa lihat jawaban</li>
-                <li>Penilaian otomatis</li>
-                <li>Review setelah selesai</li>
-            </ul>
-        </a>
+    <!-- DUA KOTAK - GRID 2 KOLOM, LANGSUNG KANAN KIRI, TANPA SCROLL -->
+    <div class="subjects-grid">
+        <div class="subject-card" id="cardMath">
+            <div class="subject-icon">📐</div>
+            <h2>Matematika</h2>
+            <div class="subject-desc">Aljabar • Geometri<br>Bilangan • Statistika<br>60+ Soal</div>
+            <div class="subject-badge">⭐ Klik mulai</div>
+        </div>
+        <div class="subject-card" id="cardIndo">
+            <div class="subject-icon">📖</div>
+            <h2>B. Indonesia</h2>
+            <div class="subject-desc">Literasi • Ejaan<br>Tata Bahasa • Pemahaman<br>60+ Soal</div>
+            <div class="subject-badge">⭐ Klik mulai</div>
+        </div>
     </div>
+
+    <div id="modePanelContainer" class="mode-panel-wrapper"></div>
 
     <div class="footer">
-        <p>© 2024 TKA Olympiad | Persiapan Olimpiade Matematika SMP</p>
+        <p>© 2025 TKA Olympiad | Persiapan Olimpiade SMP/MTs</p>
+        <p>📁 Latihan MTK: tka.html | Test MTK: test.html | Latihan B.Indo: tka2.html | Test B.Indo: test2.html</p>
     </div>
 </div>
 
 <script>
-    function createStars() {
-        const starsDiv = document.getElementById('stars');
-        if (!starsDiv) return;
-        for (let i = 0; i < 150; i++) {
-            let s = document.createElement('div');
-            s.classList.add('star');
-            s.style.left = Math.random() * 100 + '%';
-            s.style.top = Math.random() * 100 + '%';
-            s.style.width = Math.random() * 3 + 1 + 'px';
-            s.style.height = s.style.width;
-            s.style.animationDelay = Math.random() * 4 + 's';
-            s.style.animationDuration = Math.random() * 2 + 2 + 's';
-            starsDiv.appendChild(s);
-        }
-    }
-    createStars();
-
+    // Splash screen
     window.addEventListener('load', () => {
         setTimeout(() => {
             const splash = document.getElementById('splash-screen');
             if (splash) {
                 splash.classList.add('fade-out');
-                setTimeout(() => {
-                    if (splash.parentNode) splash.remove();
-                }, 700);
+                setTimeout(() => splash.remove(), 500);
             }
-        }, 2000);
+        }, 1800);
+    });
+
+    const mathCard = document.getElementById('cardMath');
+    const indoCard = document.getElementById('cardIndo');
+    const container = document.getElementById('modePanelContainer');
+    let activeSubject = null;
+
+    function removeHighlights() {
+        mathCard.classList.remove('active');
+        indoCard.classList.remove('active');
+    }
+
+    function renderModePanel(subject) {
+        if (subject === 'math') {
+            return `
+                <div class="mode-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span>🧮</span>
+                            <h3>Matematika</h3>
+                        </div>
+                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
+                    </div>
+                    <div class="modes-grid">
+                        <a href="tka.html" class="mode-item">
+                            <div class="mode-icon">📚</div>
+                            <h4>Latihan</h4>
+                            <div class="mode-tag">🎯 Tanpa Tekanan</div>
+                            <div class="mode-desc">Lihat pembahasan & kunci jawaban</div>
+                            <ul class="mode-features">
+                                <li>40+ Soal + Pembahasan</li>
+                                <li>Bisa lihat kunci</li>
+                                <li>Skor otomatis</li>
+                            </ul>
+                        </a>
+                        <a href="test.html" class="mode-item">
+                            <div class="mode-icon">⏱️</div>
+                            <h4>Test</h4>
+                            <div class="mode-tag">⚡ Uji Kemampuan</div>
+                            <div class="mode-desc">Mode ujian, tanpa bocoran</div>
+                            <ul class="mode-features">
+                                <li>60 Soal tingkat lanjut</li>
+                                <li>Timer & penilaian</li>
+                                <li>Review hasil</li>
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="mode-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span>📖</span>
+                            <h3>B. Indonesia</h3>
+                        </div>
+                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
+                    </div>
+                    <div class="modes-grid">
+                        <a href="tka2.html" class="mode-item">
+                            <div class="mode-icon">📔</div>
+                            <h4>Latihan</h4>
+                            <div class="mode-tag">🎯 Asah Terus</div>
+                            <div class="mode-desc">Literasi, ejaan, + pembahasan</div>
+                            <ul class="mode-features">
+                                <li>40+ Soal + Pembahasan</li>
+                                <li>Kunci jawaban & tips</li>
+                                <li>Skor instan</li>
+                            </ul>
+                        </a>
+                        <a href="test2.html" class="mode-item">
+                            <div class="mode-icon">📜</div>
+                            <h4>Test</h4>
+                            <div class="mode-tag">🏆 Full Challenge</div>
+                            <div class="mode-desc">Level olimpiade, tekanan waktu</div>
+                            <ul class="mode-features">
+                                <li>60 soal setara olimpiade</li>
+                                <li>Timer & penilaian</li>
+                                <li>Laporan skor akhir</li>
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showPanel(subject) {
+        if (!container) return;
+        container.innerHTML = renderModePanel(subject);
+        const closeBtn = document.getElementById('closePanelBtn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                container.innerHTML = '';
+                activeSubject = null;
+                removeHighlights();
+            });
+        }
+        setTimeout(() => {
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+
+    mathCard.addEventListener('click', () => {
+        if (activeSubject === 'math') return;
+        activeSubject = 'math';
+        removeHighlights();
+        mathCard.classList.add('active');
+        showPanel('math');
+    });
+
+    indoCard.addEventListener('click', () => {
+        if (activeSubject === 'indo') return;
+        activeSubject = 'indo';
+        removeHighlights();
+        indoCard.classList.add('active');
+        showPanel('indo');
     });
 </script>
 </body>
