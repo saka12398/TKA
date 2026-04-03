@@ -31,7 +31,203 @@
             overflow: hidden;
             position: relative;
         }
+/* Info Bar - Container Utama */
+.info-bar {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
+/* Score Card */
+.score-card {
+    background: linear-gradient(135deg, #1e3a5f, #0f2b44);
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #facc15;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+/* Button Group - Container Tombol */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Style Dasar Semua Tombol */
+.btn {
+    border: none;
+    padding: 9px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Tombol HOME */
+.btn-home {
+    background: #64748b;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-home:hover {
+    background: #475569;
+    transform: translateY(-1px);
+}
+
+/* Tombol CEK SEMUA */
+.btn-primary {
+    background: linear-gradient(95deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(95deg, #2563eb, #1d4ed8);
+    transform: translateY(-1px);
+}
+
+/* Tombol LIHAT SEMUA KUNCI */
+.btn-info {
+    background: linear-gradient(95deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+.btn-info:hover {
+    background: linear-gradient(95deg, #7c3aed, #6d28d9);
+    transform: translateY(-1px);
+}
+
+/* Tombol RESET - dibuat lebih lebar dan tegas */
+.btn-warning {
+    background: linear-gradient(95deg, #ef4444, #dc2626);
+    color: white;
+    min-width: 85px;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(95deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+}
+
+/* ========== RESPONSIVE UNTUK HP ========== */
+@media (max-width: 640px) {
+    .info-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 16px;
+        gap: 14px;
+    }
+
+    .score-card {
+        text-align: center;
+        white-space: normal;
+        font-size: 0.9rem;
+        display: block;
+        width: 100%;
+        padding: 10px 16px;
+    }
+
+    .btn-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Tombol HOME dan RESET bisa special */
+    .btn-home {
+        grid-column: span 1;
+    }
+
+    .btn-primary {
+        grid-column: span 1;
+    }
+
+    .btn-info {
+        grid-column: span 1;
+    }
+
+    .btn-warning {
+        grid-column: span 1;
+    }
+
+    .btn {
+        padding: 10px 12px;
+        font-size: 0.75rem;
+        width: 100%;
+        white-space: nowrap;
+    }
+}
+
+/* Untuk layar sangat kecil (max-width: 480px) - ubah jadi 2 baris atau 4 tombol berjajar */
+@media (max-width: 480px) {
+    .btn-group {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .btn {
+        padding: 9px 8px;
+        font-size: 0.7rem;
+        white-space: normal;
+        word-break: keep-all;
+    }
+    
+    .score-card {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Untuk HP yang lebih lebar (500-640px) tombol tetap rapi */
+@media (min-width: 481px) and (max-width: 640px) {
+    .btn {
+        font-size: 0.75rem;
+        padding: 10px 8px;
+    }
+    
+    .btn-warning {
+        min-width: auto;
+    }
+}
+
+/* Untuk tablet (641px - 900px) */
+@media (min-width: 641px) and (max-width: 900px) {
+    .info-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .btn-group {
+        justify-content: center;
+    }
+}
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #1e3a5f 0%, #0f2b44 100%);
@@ -148,167 +344,7 @@
             to { opacity: 1; transform: translateY(0);}
             from { opacity: 0; transform: translateY(12px);}
         }
-/* Info Bar - Container Utama */
-.info-bar {
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(10px);
-    padding: 14px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    border-bottom: 1px solid #e2e8f0;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
 
-/* Score Card */
-.score-card {
-    background: linear-gradient(135deg, #1e3a5f, #0f2b44);
-    padding: 8px 20px;
-    border-radius: 40px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: #facc15;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    white-space: nowrap;
-}
-
-/* Button Group - Container Tombol */
-.btn-group {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-/* Style Dasar Semua Tombol */
-.btn {
-    border: none;
-    padding: 8px 16px;
-    border-radius: 40px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 0.75rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    white-space: nowrap;
-}
-
-.btn:active {
-    transform: scale(0.96);
-}
-
-/* Tombol HOME */
-.btn-home {
-    background: #64748b;
-    color: white;
-    text-decoration: none;
-}
-
-.btn-home:hover {
-    background: #475569;
-    transform: translateY(-1px);
-}
-
-/* Tombol CEK SEMUA */
-.btn-primary {
-    background: linear-gradient(95deg, #3b82f6, #2563eb);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(95deg, #2563eb, #1d4ed8);
-    transform: translateY(-1px);
-}
-
-/* Tombol LIHAT SEMUA KUNCI */
-.btn-info {
-    background: linear-gradient(95deg, #8b5cf6, #7c3aed);
-    color: white;
-}
-
-.btn-info:hover {
-    background: linear-gradient(95deg, #7c3aed, #6d28d9);
-    transform: translateY(-1px);
-}
-
-/* Tombol RESET */
-.btn-warning {
-    background: linear-gradient(95deg, #f59e0b, #d97706);
-    color: white;
-}
-
-.btn-warning:hover {
-    background: linear-gradient(95deg, #d97706, #b45309);
-    transform: translateY(-1px);
-}
-
-/* ========== RESPONSIVE UNTUK HP ========== */
-@media (max-width: 640px) {
-    .info-bar {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 12px 16px;
-        gap: 12px;
-    }
-
-    .score-card {
-        text-align: center;
-        white-space: normal;
-        font-size: 0.85rem;
-        display: inline-block;
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    .btn-group {
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .btn {
-        padding: 8px 14px;
-        font-size: 0.7rem;
-        flex: 0 1 auto;
-    }
-}
-
-/* Untuk layar sangat kecil (max-width: 480px) */
-@media (max-width: 480px) {
-    .btn-group {
-        gap: 6px;
-    }
-    
-    .btn {
-        padding: 7px 12px;
-        font-size: 0.65rem;
-    }
-    
-    .score-card {
-        font-size: 0.8rem;
-        padding: 6px 16px;
-    }
-}
-
-/* Untuk tablet (641px - 900px) tetap rapi */
-@media (min-width: 641px) and (max-width: 900px) {
-    .info-bar {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-    
-    .btn-group {
-        justify-content: center;
-    }
-}
         .card-header {
             display: flex;
             align-items: center;
