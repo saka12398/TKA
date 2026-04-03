@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Math Academy Elite - 50 Soal Olimpiade</title>
+    <title>Math Academy Elite - 40 Soal Olimpiade</title>
     <style>
         * {
             margin: 0;
@@ -849,409 +850,410 @@
         },4800);
     }
 
-    // ==================== 40 SOAL LENGKAP dengan PEMBAHASAN DETAIL ====================
+    // ==================== 40 SOAL LENGKAP (sudah diperbaiki) ====================
     const fullQuestions = [
-   
-    { 
-        "id": 1, 
-        "diff": "Sedang", 
-        "dclass": "diff-medium", 
-        "cat": "Aritmatika Sosial", 
-        "text": "Seorang pedagang membeli 50 kg beras seharga Rp600.000, lalu dijual kembali Rp14.000/kg. Berapa % keuntungan yang didapat?", 
-        "correct": "16.67", 
-        "type": "desimal", 
-        "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Harga beli per kg = Rp600.000 ÷ 50 = <strong>Rp12.000/kg</strong><br>2. Untung per kg = Rp14.000 - 12.000 = <strong>Rp2.000</strong><br>3. Persentase untung = (Untung ÷ Harga Beli) × 100%<br>4. (2.000 ÷ 12.000) × 100% = 16,67%" 
-    },
-    { 
-        "id": 2, 
-        "diff": "Sulit", 
-        "dclass": "diff-hard", 
-        "cat": "Bilangan", 
-        "text": "Berapakah hasil sederhana dari (2<sup>2026</sup> + 2<sup>2024</sup>) / (2<sup>2024</sup> + 2<sup>2022</sup>) ?", 
-        "correct": "4", 
-        "type": "bulat", 
- "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Faktorkan pangkat terkecil pada pembilang dan penyebut.<br>2. <strong>Pembilang:</strong> 2<sup>2024</sup> × (2<sup>2</sup> + 1) = 2<sup>2024</sup> × 5<br>3. <strong>Penyebut:</strong> 2<sup>2022</sup> × (2<sup>2</sup> + 1) = 2<sup>2022</sup> × 5<br>4. Sisa: 2<sup>2024</sup> / 2<sup>2022</sup> = 2<sup>2024-2022</sup> = 2<sup>2</sup> = <strong>4</strong>" 
-    { 
-        id: 3, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Barisan & Deret", 
-        text: "Diketahui barisan aritmatika 5, 9, 13, 17, ... Berapakah jumlah 20 suku pertama ($S_{20}$)?", 
-        correct: "860", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $a = 5, b = 4, n = 20$<br>2. $S_n = \\frac{n}{2} (2a + (n-1)b)$<br>3. $S_{20} = \\frac{20}{2} (10 + 19 \\times 4) = 10 \\times 86 = \\mathbf{860}$" 
-    },
-    { 
-        id: 4, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Aritmatika Sosial", 
-        text: "Setelah didiskon 20%, harga sebuah barang menjadi Rp160.000. Berapakah harga awal barang tersebut?", 
-        correct: "200000", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Harga setelah diskon = $80\\%$ dari harga awal.<br>2. Harga awal = $160.000 \\div 0,8 = \\mathbf{200.000}$" 
-    },
-    { 
-        id: 5, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Perbandingan", 
-        text: "Perbandingan uang Andi, Budi, dan Cici adalah $3:5:7$. Jika selisih uang Budi dan Andi adalah Rp40.000, berapakah jumlah total uang mereka?", 
-        correct: "300000", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Selisih perbandingan Budi-Andi = $5 - 3 = 2$ bagian.<br>2. Nilai 1 bagian = $40.000 \\div 2 = 20.000$<br>3. Total perbandingan = $3+5+7 = 15$ bagian.<br>4. Total uang = $15 \\times 20.000 = \\mathbf{300.000}$" 
-    },
-    { 
-        id: 6, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Aritmatika Sosial", 
-        text: "Bank memberikan bunga 8%/tahun. Setelah 9 bulan, tabungan Ali menjadi Rp5.180.000. Berapa tabungan awal Ali?", 
-        correct: "5000000", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Bunga 9 bulan = $\\frac{9}{12} \\times 8\\% = 6\\%$<br>2. Persentase akhir = $106\\%$<br>3. Tabungan awal = $5.180.000 \\div 1,06 = \\mathbf{5.000.000}$" 
-    },
-    { 
-        id: 7, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Barisan & Deret", 
-        text: "Dalam deret geometri, diketahui $U_3 = 12$ dan $U_6 = 96$. Tentukan nilai $U_8$!", 
-        correct: "384", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Cari rasio ($r$): $r^{6-3} = \\frac{96}{12} \\rightarrow r^3 = 8 \\rightarrow r = 2$<br>2. $U_8 = U_6 \\times r^2 = 96 \\times 4 = \\mathbf{384}$" 
-    },
-    { 
-        id: 8, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Bilangan", 
-        text: "Lima bilangan ganjil berurutan memiliki jumlah 75. Berapakah bilangan yang terbesar?", 
-        correct: "19", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Rata-rata (bilangan tengah) = $75 \\div 5 = 15$<br>2. Lima bilangan tersebut: $11, 13, 15, 17, 19$<br>3. Bilangan terbesar = $\\mathbf{19}$" 
-    },
-    { 
-        id: 9, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Skala", 
-        text: "Skala peta 1 : 250.000. Jika jarak pada peta adalah 8 cm, berapakah jarak sebenarnya dalam km?", 
-        correct: "20", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Jarak (cm) = $8 \\times 250.000 = 2.000.000$ cm<br>2. Jarak (km) = $2.000.000 \\div 100.000 = \\mathbf{20}$ km" 
-    },
-    { 
-        id: 10, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Aritmatika Sosial", 
-        text: "Harga jual sebuah barang Rp240.000 dan pedagang mengalami kerugian 20%. Berapakah harga belinya?", 
-        correct: "300000", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Rugi 20%, maka Harga Jual = $80\\%$ dari Harga Beli.<br>2. Harga beli = $240.000 \\div 0,8 = \\mathbf{300.000}$" 
-    },
-    { 
-        id: 11, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "PLSV", 
-        text: "Tentukan nilai $x$ dari persamaan: $3(x - 4) = 2(x + 5) - 3$", 
-        correct: "19", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $3x - 12 = 2x + 10 - 3$<br>2. $3x - 12 = 2x + 7$<br>3. $x = 7 + 12 = \\mathbf{19}$" 
-    },
-    { 
-        id: 12, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Aljabar", 
-        text: "Diketahui sistem persamaan $2x + 3y = 13$ dan $x - y = -1$. Berapakah nilai $x + y$?", 
-        correct: "5", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Dari $x - y = -1 \\rightarrow x = y - 1$<br>2. Substitusi: $2(y-1) + 3y = 13 \\rightarrow 5y = 15 \\rightarrow y = 3$<br>3. $x = 3 - 1 = 2$. Maka $x + y = 2 + 3 = \\mathbf{5}$" 
-    },
-    { 
-        id: 13, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Fungsi", 
-        text: "Diketahui $f(x) = 3x - 7$. Jika $f(2a + 3) = 20$, berapakah nilai $a$?", 
-        correct: "3", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $3(2a + 3) - 7 = 20$<br>2. $6a + 9 - 7 = 20 \\rightarrow 6a + 2 = 20$<br>3. $6a = 18 \\rightarrow a = \\mathbf{3}$" 
-    },
-    { 
-        id: 14, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Aljabar", 
-        text: "Jumlah dua buah bilangan adalah 45 dan selisihnya adalah 9. Berapakah hasil kali kedua bilangan tersebut?", 
-        correct: "486", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $x + y = 45, x - y = 9$<br>2. Eliminasi: $2x = 54 \\rightarrow x = 27, y = 18$<br>3. Hasil kali = $27 \\times 18 = \\mathbf{486}$" 
-    },
-    { 
-        id: 15, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Fungsi", 
-        text: "Fungsi $f(x) = ax + b$, dengan $f(2) = 7$ dan $f(4) = 13$. Berapakah nilai $f(5)$?", 
-        correct: "16", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Beda $f(x)$ per 2 langkah: $13 - 7 = 6 \\rightarrow a = 3$<br>2. $f(4) = 13$, maka $f(5) = f(4) + a = 13 + 3 = \\mathbf{16}$" 
-    },
-    { 
-        id: 16, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Aljabar", 
-        text: "3 tahun lalu Ali = $2 \\times$ umur Budi. 4 tahun lagi Ali = $1,5 \\times$ umur Budi. Berapa umur Ali sekarang?", 
-        correct: "17", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $(A-3) = 2(B-3)$ dan $(A+4) = 1,5(B+4)$<br>2. Selesaikan sistem persamaan: $B = 10, A = 17$<br>3. Umur Ali = $\\mathbf{17}$ tahun" 
-    },
-    { 
-        id: 17, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Aritmatika Sosial", 
-        text: "3 buku + 2 pensil = Rp15.000. Sedangkan 2 buku + 3 pensil = Rp12.500. Harga 1 buku dan 1 pensil adalah...", 
-        correct: "5500", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Jumlahkan kedua persamaan: $5 \\text{ buku} + 5 \\text{ pensil} = 27.500$<br>2. Bagi dengan 5: $1 \\text{ buku} + 1 \\text{ pensil} = \\mathbf{5.500}$" 
-    },
-    { 
-        id: 18, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Bilangan", 
-        text: "Bilangan 2 angka: puluhan = $2 \\times$ satuan. Jika angka ditukar, nilainya jadi 18 lebih kecil. Bilangan itu adalah...", 
-        correct: "42", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Misal bilangan $10(2x) + x = 21x$<br>2. Ditukar: $10(x) + 2x = 12x$<br>3. $21x - 12x = 18 \\rightarrow 9x = 18 \\rightarrow x = 2$<br>4. Bilangan = $21 \\times 2 = \\mathbf{42}$" 
-    },
-    { 
-        id: 19, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Aljabar", 
-        text: "Jika $x + \\frac{1}{x} = 5$, berapakah nilai dari $x^2 + \\frac{1}{x^2}$ ?", 
-        correct: "23", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $(x + \\frac{1}{x})^2 = x^2 + \\frac{1}{x^2} + 2$<br>2. $5^2 = x^2 + \\frac{1}{x^2} + 2 \\rightarrow 25 - 2 = \\mathbf{23}$" 
-    },
-    { 
-        id: 20, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Geometri", 
-        text: "Luas persegi panjang 96 cm² dengan panjang 12 cm. Berapakah kelilingnya?", 
-        correct: "40", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Lebar = $96 \\div 12 = 8$ cm<br>2. Keliling = $2 \\times (12 + 8) = \\mathbf{40}$ cm" 
-    },
-    { 
-        id: 21, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Geometri", 
-        text: "Tabung dengan $r=7$ cm dan $t=10$ cm. Berapakah volumenya? ($\\pi = \\frac{22}{7}$)", 
-        correct: "1540", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $V = \\pi r^2 t$<br>2. $V = \\frac{22}{7} \\times 49 \\times 10 = 154 \\times 10 = \\mathbf{1.540}$ cm³" 
-    },
-    { 
-        id: 22, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Geometri", 
-        text: "Segitiga siku-siku memiliki sisi tegak 8 cm dan 15 cm. Berapakah jari-jari lingkaran luarnya?", 
-        correct: "8.5", 
-        type: "desimal", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Sisi miring = $\\sqrt{8^2 + 15^2} = 17$ cm<br>2. Jari-jari lingkaran luar = $\\frac{1}{2} \\times \\text{sisi miring}$<br>3. $17 \\div 2 = \\mathbf{8,5}$ cm" 
-    },
-    { 
-        id: 23, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Geometri", 
-        text: "Segitiga A sebangun dengan B. Sisi A: 6, 8, 10. Jika sisi terpendek B adalah 9, berapakah keliling B?", 
-        correct: "36", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Faktor skala = $9 \\div 6 = 1,5$<br>2. Keliling A = $6+8+10 = 24$<br>3. Keliling B = $24 \\times 1,5 = \\mathbf{36}$" 
-    },
-    { 
-        id: 24, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Geometri", 
-        text: "Keliling lingkaran adalah 44 cm. Berapakah luasnya? ($\\pi = \\frac{22}{7}$)", 
-        correct: "154", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $2 \\pi r = 44 \\rightarrow r = 7$ cm<br>2. Luas = $\\pi r^2 = \\frac{22}{7} \\times 49 = \\mathbf{154}$ cm²" 
-    },
-    { 
-        id: 25, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Geometri", 
-        text: "Balok berukuran $12 \\times 8 \\times 5$ cm. Berapakah luas permukaannya?", 
-        correct: "392", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $L = 2(pl + pt + lt)$<br>2. $L = 2(96 + 60 + 40) = 2(196) = \\mathbf{392}$ cm²" 
-    },
-    { 
-        id: 26, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Geometri", 
-        text: "Sudut A dan B berpenyiku. Jika $A = 3x+5$ dan $B = 2x-5$, berapa besar sudut A?", 
-        correct: "59", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $(3x+5) + (2x-5) = 90 \\rightarrow 5x = 90 \\rightarrow x = 18$<br>2. $A = 3(18) + 5 = \\mathbf{59^\\circ}$" 
-    },
-    { 
-        id: 27, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Geometri", 
-        text: "Kerucut dengan $r=6$ cm dan $t=8$ cm. Berapakah volumenya? ($\\pi = 3,14$)", 
-        correct: "301.44", 
-        type: "desimal", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $V = \\frac{1}{3} \\pi r^2 t$<br>2. $V = \\frac{1}{3} \\times 3,14 \\times 36 \\times 8 = 3,14 \\times 12 \\times 8 = \\mathbf{301,44}$ cm³" 
-    },
-    { 
-        id: 28, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Geometri", 
-        text: "Prisma alas segitiga siku-siku (3, 4, 5 cm) dengan tinggi 10 cm. Berapakah volumenya?", 
-        correct: "60", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Luas alas = $\\frac{1}{2} \\times 3 \\times 4 = 6$ cm²<br>2. $V = 6 \\times 10 = \\mathbf{60}$ cm³" 
-    },
-    { 
-        id: 29, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Statistika", 
-        text: "Data nilai: 6, 7, 8, 8, 9, 9, 9, 10. Berapakah nilai rata-ratanya (mean)?", 
-        correct: "8.25", 
-        type: "desimal", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Jumlah = $6+7+8+8+9+9+9+10 = 66$<br>2. Mean = $66 \\div 8 = \\mathbf{8,25}$" 
-    },
-    { 
-        id: 30, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Aritmatika Sosial", 
-        text: "Saldo awal Rp2.000.000 dengan bunga tunggal 6% per tahun. Berapakah saldo setelah 8 bulan?", 
-        correct: "2080000", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Bunga = $\\frac{8}{12} \\times 6\\% \\times 2.000.000 = 80.000$<br>2. Saldo = $2.000.000 + 80.000 = \\mathbf{2.080.000}$" 
-    },
-    { 
-        id: 31, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "PLSV", 
-        text: "Tentukan nilai $x$ yang memenuhi persamaan: $3(x - 2) = x + 10$", 
-        correct: "8", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $3x - 6 = x + 10 \\rightarrow 2x = 16$<br>2. $x = \\mathbf{8}$" 
-    },
-    { 
-        id: 32, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "PtLSV", 
-        text: "Berapa bilangan bulat terkecil $x$ yang memenuhi $2x - 5 > 7$?", 
-        correct: "7", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $2x > 12 \\rightarrow x > 6$<br>2. Bilangan bulat terkecil $> 6$ adalah $\\mathbf{7}$" 
-    },
-    { 
-        id: 33, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Pythagoras", 
-        text: "Tangga 13 m bersandar di tembok. Jarak kaki tangga ke tembok 5 m. Tinggi tembok adalah...", 
-        correct: "12", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $t = \\sqrt{13^2 - 5^2} = \\sqrt{144} = \\mathbf{12}$ m" 
-    },
-    { 
-        id: 34, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Kesebangunan", 
-        text: "Tiang 2 m punya bayangan 3 m. Jika bayangan gedung 24 m, berapa tinggi gedung?", 
-        correct: "16", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $\\frac{T}{24} = \\frac{2}{3} \\rightarrow 3T = 48$<br>2. $T = \\mathbf{16}$ m" 
-    },
-    { 
-        id: 35, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Kesebangunan", 
-        text: "Dua segitiga kongruen. Jika ABC memiliki sudut 40° dan 60°, berapa sudut ketiga pasangannya?", 
-        correct: "80", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Sudut ketiga = $180 - (40+60) = \\mathbf{80^\\circ}$" 
-    },
-    { 
-        id: 36, 
-        diff: "Hot", 
-        dclass: "diff-hot", 
-        cat: "Transformasi", 
-        text: "Titik $A(2, 3)$ direfleksikan terhadap sumbu $X$. Di mana posisi koordinat bayangannya?", 
-        correct: "(2,-3)", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Refleksi sumbu $X$: $(x, y) \\rightarrow (x, -y)$<br>2. $(2, 3) \\rightarrow \\mathbf{(2, -3)}$" 
-    },
-    { 
-        id: 37, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Transformasi", 
-        text: "Titik $B(1, 5)$ ditranslasi $T(2, -3)$, lalu dirotasi 90° berlawanan arah jarum jam pusat $(0,0)$. Koordinat akhir?", 
-        correct: "(-2,3)", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Translasi: $(1+2, 5-3) = (3, 2)$<br>2. Rotasi 90°: $(x, y) \\rightarrow (-y, x)$<br>3. $(3, 2) \\rightarrow \\mathbf{(-2, 3)}$" 
-    },
-    { 
-        id: 38, 
-        diff: "Sulit", 
-        dclass: "diff-hard", 
-        cat: "Fungsi Kuadrat", 
-        text: "Tentukan titik potong sumbu $Y$ dari fungsi $f(x) = x^2 - 5x + 6$", 
-        correct: "6", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Potong sumbu $Y$ saat $x = 0$<br>2. $f(0) = 0 - 0 + 6 = \\mathbf{6}$" 
-    },
-    { 
-        id: 39, 
-        diff: "Ekstrem", 
-        dclass: "diff-extreme", 
-        cat: "Fungsi Kuadrat", 
-        text: "Tentukan akar ($x$) terkecil dari fungsi $f(x) = x^2 - 7x + 10$", 
-        correct: "2", 
-        type: "bulat", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. $(x-2)(x-5) = 0$<br>2. $x=2$ atau $x=5$. Terkecil adalah $\\mathbf{2}$" 
-    },
-    { 
-        id: 40, 
-        diff: "Sedang", 
-        dclass: "diff-medium", 
-        cat: "Peluang", 
-        text: "Satu dadu dilempar sekali. Berapa peluang muncul mata dadu genap?", 
-        correct: "0.5", 
-        type: "desimal", 
-        explanation: "📌 <strong>Cara pengerjaan:</strong><br>1. Kejadian = $\\{2, 4, 6\\}$ (3)<br>2. Total sampel = 6<br>3. Peluang = $3/6 = \\mathbf{0,5}$" 
-    }
-];
+        { 
+            "id": 1, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Aritmatika Sosial", 
+            "text": "Seorang pedagang membeli 50 kg beras seharga Rp600.000, lalu dijual kembali Rp14.000/kg. Berapa % keuntungan yang didapat?", 
+            "correct": "16.67", 
+            "type": "desimal", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Harga beli per kg = Rp600.000 ÷ 50 = <strong>Rp12.000/kg</strong><br>2. Untung per kg = Rp14.000 - 12.000 = <strong>Rp2.000</strong><br>3. Persentase untung = (Untung ÷ Harga Beli) × 100%<br>4. (2.000 ÷ 12.000) × 100% = 16,67%" 
+        },
+        { 
+            "id": 2, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Bilangan", 
+            "text": "Berapakah hasil sederhana dari (2<sup>2026</sup> + 2<sup>2024</sup>) / (2<sup>2024</sup> + 2<sup>2022</sup>) ?", 
+            "correct": "4", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Faktorkan pangkat terkecil pada pembilang dan penyebut.<br>2. <strong>Pembilang:</strong> 2<sup>2024</sup> × (2<sup>2</sup> + 1) = 2<sup>2024</sup> × 5<br>3. <strong>Penyebut:</strong> 2<sup>2022</sup> × (2<sup>2</sup> + 1) = 2<sup>2022</sup> × 5<br>4. Sisa: 2<sup>2024</sup> / 2<sup>2022</sup> = 2<sup>2024-2022</sup> = 2<sup>2</sup> = <strong>4</strong>" 
+        },
+        { 
+            "id": 3, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Barisan & Deret", 
+            "text": "Diketahui barisan aritmatika 5, 9, 13, 17, ... Berapakah jumlah 20 suku pertama ($S_{20}$)?", 
+            "correct": "860", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $a = 5, b = 4, n = 20$<br>2. $S_n = \\frac{n}{2} (2a + (n-1)b)$<br>3. $S_{20} = \\frac{20}{2} (10 + 19 \\times 4) = 10 \\times 86 = \\mathbf{860}$" 
+        },
+        { 
+            "id": 4, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Aritmatika Sosial", 
+            "text": "Setelah didiskon 20%, harga sebuah barang menjadi Rp160.000. Berapakah harga awal barang tersebut?", 
+            "correct": "200000", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Harga setelah diskon = $80\\%$ dari harga awal.<br>2. Harga awal = $160.000 \\div 0,8 = \\mathbf{200.000}$" 
+        },
+        { 
+            "id": 5, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Perbandingan", 
+            "text": "Perbandingan uang Andi, Budi, dan Cici adalah $3:5:7$. Jika selisih uang Budi dan Andi adalah Rp40.000, berapakah jumlah total uang mereka?", 
+            "correct": "300000", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Selisih perbandingan Budi-Andi = $5 - 3 = 2$ bagian.<br>2. Nilai 1 bagian = $40.000 \\div 2 = 20.000$<br>3. Total perbandingan = $3+5+7 = 15$ bagian.<br>4. Total uang = $15 \\times 20.000 = \\mathbf{300.000}$" 
+        },
+        { 
+            "id": 6, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Aritmatika Sosial", 
+            "text": "Bank memberikan bunga 8%/tahun. Setelah 9 bulan, tabungan Ali menjadi Rp5.180.000. Berapa tabungan awal Ali?", 
+            "correct": "5000000", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Bunga 9 bulan = $\\frac{9}{12} \\times 8\\% = 6\\%$<br>2. Persentase akhir = $106\\%$<br>3. Tabungan awal = $5.180.000 \\div 1,06 = \\mathbf{5.000.000}$" 
+        },
+        { 
+            "id": 7, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Barisan & Deret", 
+            "text": "Dalam deret geometri, diketahui $U_3 = 12$ dan $U_6 = 96$. Tentukan nilai $U_8$!", 
+            "correct": "384", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Cari rasio ($r$): $r^{6-3} = \\frac{96}{12} \\rightarrow r^3 = 8 \\rightarrow r = 2$<br>2. $U_8 = U_6 \\times r^2 = 96 \\times 4 = \\mathbf{384}$" 
+        },
+        { 
+            "id": 8, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Bilangan", 
+            "text": "Lima bilangan ganjil berurutan memiliki jumlah 75. Berapakah bilangan yang terbesar?", 
+            "correct": "19", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Rata-rata (bilangan tengah) = $75 \\div 5 = 15$<br>2. Lima bilangan tersebut: $11, 13, 15, 17, 19$<br>3. Bilangan terbesar = $\\mathbf{19}$" 
+        },
+        { 
+            "id": 9, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Skala", 
+            "text": "Skala peta 1 : 250.000. Jika jarak pada peta adalah 8 cm, berapakah jarak sebenarnya dalam km?", 
+            "correct": "20", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Jarak (cm) = $8 \\times 250.000 = 2.000.000$ cm<br>2. Jarak (km) = $2.000.000 \\div 100.000 = \\mathbf{20}$ km" 
+        },
+        { 
+            "id": 10, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Aritmatika Sosial", 
+            "text": "Harga jual sebuah barang Rp240.000 dan pedagang mengalami kerugian 20%. Berapakah harga belinya?", 
+            "correct": "300000", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Rugi 20%, maka Harga Jual = $80\\%$ dari Harga Beli.<br>2. Harga beli = $240.000 \\div 0,8 = \\mathbf{300.000}$" 
+        },
+        { 
+            "id": 11, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "PLSV", 
+            "text": "Tentukan nilai $x$ dari persamaan: $3(x - 4) = 2(x + 5) - 3$", 
+            "correct": "19", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $3x - 12 = 2x + 10 - 3$<br>2. $3x - 12 = 2x + 7$<br>3. $x = 7 + 12 = \\mathbf{19}$" 
+        },
+        { 
+            "id": 12, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Aljabar", 
+            "text": "Diketahui sistem persamaan $2x + 3y = 13$ dan $x - y = -1$. Berapakah nilai $x + y$?", 
+            "correct": "5", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Dari $x - y = -1 \\rightarrow x = y - 1$<br>2. Substitusi: $2(y-1) + 3y = 13 \\rightarrow 5y = 15 \\rightarrow y = 3$<br>3. $x = 3 - 1 = 2$. Maka $x + y = 2 + 3 = \\mathbf{5}$" 
+        },
+        { 
+            "id": 13, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Fungsi", 
+            "text": "Diketahui $f(x) = 3x - 7$. Jika $f(2a + 3) = 20$, berapakah nilai $a$?", 
+            "correct": "3", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $3(2a + 3) - 7 = 20$<br>2. $6a + 9 - 7 = 20 \\rightarrow 6a + 2 = 20$<br>3. $6a = 18 \\rightarrow a = \\mathbf{3}$" 
+        },
+        { 
+            "id": 14, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Aljabar", 
+            "text": "Jumlah dua buah bilangan adalah 45 dan selisihnya adalah 9. Berapakah hasil kali kedua bilangan tersebut?", 
+            "correct": "486", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $x + y = 45, x - y = 9$<br>2. Eliminasi: $2x = 54 \\rightarrow x = 27, y = 18$<br>3. Hasil kali = $27 \\times 18 = \\mathbf{486}$" 
+        },
+        { 
+            "id": 15, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Fungsi", 
+            "text": "Fungsi $f(x) = ax + b$, dengan $f(2) = 7$ dan $f(4) = 13$. Berapakah nilai $f(5)$?", 
+            "correct": "16", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Beda $f(x)$ per 2 langkah: $13 - 7 = 6 \\rightarrow a = 3$<br>2. $f(4) = 13$, maka $f(5) = f(4) + a = 13 + 3 = \\mathbf{16}$" 
+        },
+        { 
+            "id": 16, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Aljabar", 
+            "text": "3 tahun lalu Ali = $2 \\times$ umur Budi. 4 tahun lagi Ali = $1,5 \\times$ umur Budi. Berapa umur Ali sekarang?", 
+            "correct": "17", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $(A-3) = 2(B-3)$ dan $(A+4) = 1,5(B+4)$<br>2. Selesaikan sistem persamaan: $B = 10, A = 17$<br>3. Umur Ali = $\\mathbf{17}$ tahun" 
+        },
+        { 
+            "id": 17, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Aritmatika Sosial", 
+            "text": "3 buku + 2 pensil = Rp15.000. Sedangkan 2 buku + 3 pensil = Rp12.500. Harga 1 buku dan 1 pensil adalah...", 
+            "correct": "5500", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Jumlahkan kedua persamaan: $5 \\text{ buku} + 5 \\text{ pensil} = 27.500$<br>2. Bagi dengan 5: $1 \\text{ buku} + 1 \\text{ pensil} = \\mathbf{5.500}$" 
+        },
+        { 
+            "id": 18, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Bilangan", 
+            "text": "Bilangan 2 angka: puluhan = $2 \\times$ satuan. Jika angka ditukar, nilainya jadi 18 lebih kecil. Bilangan itu adalah...", 
+            "correct": "42", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Misal bilangan $10(2x) + x = 21x$<br>2. Ditukar: $10(x) + 2x = 12x$<br>3. $21x - 12x = 18 \\rightarrow 9x = 18 \\rightarrow x = 2$<br>4. Bilangan = $21 \\times 2 = \\mathbf{42}$" 
+        },
+        { 
+            "id": 19, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Aljabar", 
+            "text": "Jika $x + \\frac{1}{x} = 5$, berapakah nilai dari $x^2 + \\frac{1}{x^2}$ ?", 
+            "correct": "23", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $(x + \\frac{1}{x})^2 = x^2 + \\frac{1}{x^2} + 2$<br>2. $5^2 = x^2 + \\frac{1}{x^2} + 2 \\rightarrow 25 - 2 = \\mathbf{23}$" 
+        },
+        { 
+            "id": 20, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Geometri", 
+            "text": "Luas persegi panjang 96 cm² dengan panjang 12 cm. Berapakah kelilingnya?", 
+            "correct": "40", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Lebar = $96 \\div 12 = 8$ cm<br>2. Keliling = $2 \\times (12 + 8) = \\mathbf{40}$ cm" 
+        },
+        { 
+            "id": 21, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Geometri", 
+            "text": "Tabung dengan $r=7$ cm dan $t=10$ cm. Berapakah volumenya? ($\\pi = \\frac{22}{7}$)", 
+            "correct": "1540", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $V = \\pi r^2 t$<br>2. $V = \\frac{22}{7} \\times 49 \\times 10 = 154 \\times 10 = \\mathbf{1.540}$ cm³" 
+        },
+        { 
+            "id": 22, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Geometri", 
+            "text": "Segitiga siku-siku memiliki sisi tegak 8 cm dan 15 cm. Berapakah jari-jari lingkaran luarnya?", 
+            "correct": "8.5", 
+            "type": "desimal", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Sisi miring = $\\sqrt{8^2 + 15^2} = 17$ cm<br>2. Jari-jari lingkaran luar = $\\frac{1}{2} \\times \\text{sisi miring}$<br>3. $17 \\div 2 = \\mathbf{8,5}$ cm" 
+        },
+        { 
+            "id": 23, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Geometri", 
+            "text": "Segitiga A sebangun dengan B. Sisi A: 6, 8, 10. Jika sisi terpendek B adalah 9, berapakah keliling B?", 
+            "correct": "36", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Faktor skala = $9 \\div 6 = 1,5$<br>2. Keliling A = $6+8+10 = 24$<br>3. Keliling B = $24 \\times 1,5 = \\mathbf{36}$" 
+        },
+        { 
+            "id": 24, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Geometri", 
+            "text": "Keliling lingkaran adalah 44 cm. Berapakah luasnya? ($\\pi = \\frac{22}{7}$)", 
+            "correct": "154", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $2 \\pi r = 44 \\rightarrow r = 7$ cm<br>2. Luas = $\\pi r^2 = \\frac{22}{7} \\times 49 = \\mathbf{154}$ cm²" 
+        },
+        { 
+            "id": 25, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Geometri", 
+            "text": "Balok berukuran $12 \\times 8 \\times 5$ cm. Berapakah luas permukaannya?", 
+            "correct": "392", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $L = 2(pl + pt + lt)$<br>2. $L = 2(96 + 60 + 40) = 2(196) = \\mathbf{392}$ cm²" 
+        },
+        { 
+            "id": 26, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Geometri", 
+            "text": "Sudut A dan B berpenyiku. Jika $A = 3x+5$ dan $B = 2x-5$, berapa besar sudut A?", 
+            "correct": "59", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $(3x+5) + (2x-5) = 90 \\rightarrow 5x = 90 \\rightarrow x = 18$<br>2. $A = 3(18) + 5 = \\mathbf{59^\\circ}$" 
+        },
+        { 
+            "id": 27, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Geometri", 
+            "text": "Kerucut dengan $r=6$ cm dan $t=8$ cm. Berapakah volumenya? ($\\pi = 3,14$)", 
+            "correct": "301.44", 
+            "type": "desimal", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $V = \\frac{1}{3} \\pi r^2 t$<br>2. $V = \\frac{1}{3} \\times 3,14 \\times 36 \\times 8 = 3,14 \\times 12 \\times 8 = \\mathbf{301,44}$ cm³" 
+        },
+        { 
+            "id": 28, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Geometri", 
+            "text": "Prisma alas segitiga siku-siku (3, 4, 5 cm) dengan tinggi 10 cm. Berapakah volumenya?", 
+            "correct": "60", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Luas alas = $\\frac{1}{2} \\times 3 \\times 4 = 6$ cm²<br>2. $V = 6 \\times 10 = \\mathbf{60}$ cm³" 
+        },
+        { 
+            "id": 29, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Statistika", 
+            "text": "Data nilai: 6, 7, 8, 8, 9, 9, 9, 10. Berapakah nilai rata-ratanya (mean)?", 
+            "correct": "8.25", 
+            "type": "desimal", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Jumlah = $6+7+8+8+9+9+9+10 = 66$<br>2. Mean = $66 \\div 8 = \\mathbf{8,25}$" 
+        },
+        { 
+            "id": 30, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Aritmatika Sosial", 
+            "text": "Saldo awal Rp2.000.000 dengan bunga tunggal 6% per tahun. Berapakah saldo setelah 8 bulan?", 
+            "correct": "2080000", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Bunga = $\\frac{8}{12} \\times 6\\% \\times 2.000.000 = 80.000$<br>2. Saldo = $2.000.000 + 80.000 = \\mathbf{2.080.000}$" 
+        },
+        { 
+            "id": 31, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "PLSV", 
+            "text": "Tentukan nilai $x$ yang memenuhi persamaan: $3(x - 2) = x + 10$", 
+            "correct": "8", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $3x - 6 = x + 10 \\rightarrow 2x = 16$<br>2. $x = \\mathbf{8}$" 
+        },
+        { 
+            "id": 32, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "PtLSV", 
+            "text": "Berapa bilangan bulat terkecil $x$ yang memenuhi $2x - 5 > 7$?", 
+            "correct": "7", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $2x > 12 \\rightarrow x > 6$<br>2. Bilangan bulat terkecil $> 6$ adalah $\\mathbf{7}$" 
+        },
+        { 
+            "id": 33, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Pythagoras", 
+            "text": "Tangga 13 m bersandar di tembok. Jarak kaki tangga ke tembok 5 m. Tinggi tembok adalah...", 
+            "correct": "12", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $t = \\sqrt{13^2 - 5^2} = \\sqrt{144} = \\mathbf{12}$ m" 
+        },
+        { 
+            "id": 34, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Kesebangunan", 
+            "text": "Tiang 2 m punya bayangan 3 m. Jika bayangan gedung 24 m, berapa tinggi gedung?", 
+            "correct": "16", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $\\frac{T}{24} = \\frac{2}{3} \\rightarrow 3T = 48$<br>2. $T = \\mathbf{16}$ m" 
+        },
+        { 
+            "id": 35, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Kesebangunan", 
+            "text": "Dua segitiga kongruen. Jika ABC memiliki sudut 40° dan 60°, berapa sudut ketiga pasangannya?", 
+            "correct": "80", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Sudut ketiga = $180 - (40+60) = \\mathbf{80^\\circ}$" 
+        },
+        { 
+            "id": 36, 
+            "diff": "Hot", 
+            "dclass": "diff-hot", 
+            "cat": "Transformasi", 
+            "text": "Titik $A(2, 3)$ direfleksikan terhadap sumbu $X$. Di mana posisi koordinat bayangannya?", 
+            "correct": "(2,-3)", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Refleksi sumbu $X$: $(x, y) \\rightarrow (x, -y)$<br>2. $(2, 3) \\rightarrow \\mathbf{(2, -3)}$" 
+        },
+        { 
+            "id": 37, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Transformasi", 
+            "text": "Titik $B(1, 5)$ ditranslasi $T(2, -3)$, lalu dirotasi 90° berlawanan arah jarum jam pusat $(0,0)$. Koordinat akhir?", 
+            "correct": "(-2,3)", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Translasi: $(1+2, 5-3) = (3, 2)$<br>2. Rotasi 90°: $(x, y) \\rightarrow (-y, x)$<br>3. $(3, 2) \\rightarrow \\mathbf{(-2, 3)}$" 
+        },
+        { 
+            "id": 38, 
+            "diff": "Sulit", 
+            "dclass": "diff-hard", 
+            "cat": "Fungsi Kuadrat", 
+            "text": "Tentukan titik potong sumbu $Y$ dari fungsi $f(x) = x^2 - 5x + 6$", 
+            "correct": "6", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Potong sumbu $Y$ saat $x = 0$<br>2. $f(0) = 0 - 0 + 6 = \\mathbf{6}$" 
+        },
+        { 
+            "id": 39, 
+            "diff": "Ekstrem", 
+            "dclass": "diff-extreme", 
+            "cat": "Fungsi Kuadrat", 
+            "text": "Tentukan akar ($x$) terkecil dari fungsi $f(x) = x^2 - 7x + 10$", 
+            "correct": "2", 
+            "type": "bulat", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. $(x-2)(x-5) = 0$<br>2. $x=2$ atau $x=5$. Terkecil adalah $\\mathbf{2}$" 
+        },
+        { 
+            "id": 40, 
+            "diff": "Sedang", 
+            "dclass": "diff-medium", 
+            "cat": "Peluang", 
+            "text": "Satu dadu dilempar sekali. Berapa peluang muncul mata dadu genap?", 
+            "correct": "0.5", 
+            "type": "desimal", 
+            "explanation": "📌 <strong>Cara pengerjaan:</strong><br>1. Kejadian = $\\{2, 4, 6\\}$ (3)<br>2. Total sampel = 6<br>3. Peluang = $3/6 = \\mathbf{0,5}$" 
+        }
+    ];
+
     let userAnswers = {}, answerStatus = {}, lastScore = 0;
     for(let i=1;i<=40;i++) { userAnswers[i]=""; answerStatus[i]=false; }
 
