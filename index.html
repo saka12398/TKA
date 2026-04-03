@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Math Academy Elite - 40 Soal Olimpiade</title>
+    <title>Math Academy Elite - 50 Soal Olimpiade</title>
     <style>
         * {
             margin: 0;
@@ -550,8 +550,8 @@
 
 <div class="container">
     <div class="hero">
-        <h1>🧠 MATH ACADEMY <span class="badge-40">40 SOAL ELITE</span></h1>
-        <div class="subhead">⚡ Bilangan | Aljabar | Geometri | Statistika | Peluang ⚡</div>
+        <h1>🧠 MATH ACADEMY fundamental <span class="badge-40">50 SOAL</span></h1>
+        <div class="subhead">⚡ Bilangan | Aljabar | Geometri | Statistika | Peluang dan lainnya ⚡</div>
         <div style="margin-top:6px;">🎉✨ KONFETI MERIAH saat SKOR 40! ✨🎉</div>
     </div>
     <div class="info-bar">
@@ -765,7 +765,54 @@
         { id:37, diff:"Sedang", dclass:"diff-medium", cat:"Kombinatorika", text:"Susun angka 1,2,3,4,5 dengan 2&3 berdampingan?", correct:"48", type:"bulat", explanation:"📌 <strong>Cara pengerjaan:</strong><br>1. Angka 2 dan 3 dianggap 1 blok → ada 4 benda<br>2. 4! = 24 susunan<br>3. 2&3 bisa bertukar posisi = 2! = 2<br>4. Total = 24 × 2 = <strong>48</strong>" },
         { id:38, diff:"Sedang", dclass:"diff-medium", cat:"Geometri", text:"Diagonal persegi √50 cm. Luas?", correct:"25", type:"bulat", explanation:"📌 <strong>Cara pengerjaan:</strong><br>1. Rumus diagonal persegi = s√2<br>2. s√2 = √50 → s = √50/√2 = √25 = 5 cm<br>3. Luas = s² = 5² = <strong>25 cm²</strong>" },
         { id:39, diff:"Sedang", dclass:"diff-medium", cat:"Aljabar", text:"a+b=7, ab=12. a²+b²=?", correct:"25", type:"bulat", explanation:"📌 <strong>Cara pengerjaan:</strong><br>1. (a+b)² = a² + 2ab + b²<br>2. 7² = a² + 2(12) + b²<br>3. 49 = a² + b² + 24<br>4. a² + b² = 49 - 24 = <strong>25</strong>" },
-        { id:40, diff:"Sulit", dclass:"diff-hard", cat:"Aljabar", text:"5 apel+3 jeruk=105rb, 2 apel+4 jeruk=70rb. Harga 1 apel?", correct:"15000", type:"bulat", explanation:"📌 <strong>Cara pengerjaan:</strong><br>1. 5a + 3j = 105.000 | ×4 → 20a+12j=420.000<br>2. 2a + 4j = 70.000 | ×3 → 6a+12j=210.000<br>3. Kurangkan: 14a = 210.000 → a = <strong>15.000</strong>" }
+        // ========== TAMBAHAN 10 SOAL CAMPURAN (ID 40-49) ==========
+        
+        // --- Aritmatika Sosial ---
+        { id: 40, difficulty: "Sedang", diffClass: "diff-medium", category: "Aritmatika Sosial", 
+          text: "Tabungan awal Rp2.000.000 dengan bunga tunggal 6% per tahun. Berapa saldo setelah 8 bulan?", correctAnswer: "2080000", 
+          explanation: "1️⃣ Bunga 8 bulan = (8/12) × 6% × 2.000.000 = 4% × 2.000.000 = 80.000. 2️⃣ Total = 2.000.000 + 80.000 = <strong>2.080.000</strong>." },
+
+        // --- PLSV & PtLSV ---
+        { id: 41, difficulty: "Sulit", diffClass: "diff-hard", category: "PLSV", 
+          text: "Tentukan nilai x yang memenuhi persamaan: 3(x - 2) = x + 10", correctAnswer: "8", 
+          explanation: "1️⃣ Jabarkan: 3x - 6 = x + 10. 2️⃣ Pindah ruas: 3x - x = 10 + 6 → 2x = 16. 3️⃣ x = <strong>8</strong>." },
+        
+        { id: 42, difficulty: "Hot", diffClass: "diff-hot", category: "PtLSV", 
+          text: "Berapa bilangan bulat terkecil x yang memenuhi pertidaksamaan 2x - 5 > 7?", correctAnswer: "7", 
+          explanation: "1️⃣ 2x > 7 + 5 → 2x > 12. 2️⃣ x > 6. 3️⃣ Bilangan bulat terkecil yang lebih besar dari 6 adalah <strong>7</strong>." },
+
+        // --- Pythagoras ---
+        { id: 43, difficulty: "Sedang", diffClass: "diff-medium", category: "Pythagoras", 
+          text: "Sebuah tangga 13m bersandar di tembok. Jarak kaki tangga ke tembok 5m. Berapa tinggi tembok?", correctAnswer: "12", 
+          explanation: "1️⃣ Gunakan rumus: t² = 13² - 5². 2️⃣ t² = 169 - 25 = 144. 3️⃣ t = √144 = <strong>12</strong>." },
+
+        // --- Kesebangunan & Kongruen ---
+        { id: 44, difficulty: "Sulit", diffClass: "diff-hard", category: "Sebangun", 
+          text: "Tiang setinggi 2m punya bayangan 3m. Jika bayangan sebuah gedung 24m, berapa tinggi gedung tersebut?", correctAnswer: "16", 
+          explanation: "1️⃣ Gunakan perbandingan: Tinggi/Bayangan = T/24 = 2/3. 2️⃣ 3T = 48. 3️⃣ T = 48 ÷ 3 = <strong>16</strong> m." },
+        
+        { id: 45, difficulty: "Hot", diffClass: "diff-hot", category: "Kongruen", 
+          text: "Dua segitiga kongruen. Jika ABC memiliki sudut 40° dan 60°, berapa sudut ketiga pada segitiga pasangannya?", correctAnswer: "80", 
+          explanation: "1️⃣ Segitiga kongruen memiliki sudut yang sama. 2️⃣ Jumlah sudut segitiga = 180°. 3️⃣ 180 - (40 + 60) = <strong>80</strong>." },
+
+        // --- Transformasi Geometri ---
+        { id: 46, difficulty: "Hot", diffClass: "diff-hot", category: "Transformasi", 
+          text: "Titik A(2, 3) direfleksikan terhadap sumbu X. Di mana posisi koordinat bayangannya?", correctAnswer: "(2,-3)", 
+          explanation: "1️⃣ Refleksi sumbu X mengubah tanda koordinat y (y → -y). 2️⃣ (2, 3) menjadi <strong>(2, -3)</strong>." },
+        
+        { id: 47, difficulty: "Ekstrem", diffClass: "diff-extreme", category: "Transformasi", 
+          text: "Titik B(1, 5) ditranslasi oleh T(2, -3), lalu dirotasi 90° berlawanan arah jarum jam pusat (0,0). Koordinat akhir?", correctAnswer: "(-2,3)", 
+          explanation: "1️⃣ Translasi: (1+2, 5-3) = (3, 2). 2️⃣ Rotasi 90° (x,y → -y,x): (3, 2) menjadi <strong>(-2, 3)</strong>." },
+
+        // --- Fungsi Kuadrat ---
+        { id: 48, difficulty: "Sulit", diffClass: "diff-hard", category: "Fungsi Kuadrat", 
+          text: "Tentukan titik potong sumbu Y dari fungsi f(x) = x² - 5x + 6", correctAnswer: "6", 
+          explanation: "1️⃣ Titik potong sumbu Y terjadi saat x = 0. 2️⃣ f(0) = 0² - 5(0) + 6 = <strong>6</strong>." },
+        
+        { id: 49, difficulty: "Ekstrem", diffClass: "diff-extreme", category: "Fungsi Kuadrat", 
+          text: "Tentukan nilai x pembuat nol (akar) terkecil dari fungsi f(x) = x² - 7x + 10", correctAnswer: "2", 
+          explanation: "1️⃣ Faktorkan: (x - 2)(x - 5) = 0. 2️⃣ Akar-akarnya adalah x = 2 atau x = 5. 3️⃣ Nilai terkecil adalah <strong>2</strong>." },
+        { id:50, diff:"Sulit", dclass:"diff-hard", cat:"Aljabar", text:"5 apel+3 jeruk=105rb, 2 apel+4 jeruk=70rb. Harga 1 apel?", correct:"15000", type:"bulat", explanation:"📌 <strong>Cara pengerjaan:</strong><br>1. 5a + 3j = 105.000 | ×4 → 20a+12j=420.000<br>2. 2a + 4j = 70.000 | ×3 → 6a+12j=210.000<br>3. Kurangkan: 14a = 210.000 → a = <strong>15.000</strong>" }
     ];
 
     let userAnswers = {}, answerStatus = {}, lastScore = 0;
