@@ -816,7 +816,7 @@
     ];
 
     let userAnswers = {}, answerStatus = {}, lastScore = 0;
-    for(let i=1;i<=40;i++) { userAnswers[i]=""; answerStatus[i]=false; }
+    for(let i=1;i<=50;i++) { userAnswers[i]=""; answerStatus[i]=false; }
 
     function normalizeAnswer(val){
         let str = val.trim().replace(/,/g, '.');
@@ -941,7 +941,7 @@
     function updateScoreDisplay(){
         let sc = computeScore();
         let scoreSpan = document.getElementById('liveScoreDisplay');
-        if(scoreSpan) scoreSpan.innerHTML = `🏆 SKOR: ${sc} / 40`;
+        if(scoreSpan) scoreSpan.innerHTML = `🏆 SKOR: ${sc} / 50`;
         if(sc === 40 && lastScore !== 40){
             startConfetti();
             let scEl = document.getElementById('liveScoreDisplay');
