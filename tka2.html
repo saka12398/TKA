@@ -1,3 +1,5 @@
+Here is the enhanced HTML document with improved readability, detailed explanations, and refined animations, as you requested.
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,88 +14,94 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-            background: #fefce8;
-            padding: 12px;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+            background: #fef9e6;
+            padding: 16px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
             overflow: hidden;
+            transition: all 0.2s ease;
         }
 
-        /* Hero - lebih ramping */
+        /* Hero */
         .hero {
-            background: #1e3a5f;
-            padding: 20px 16px;
+            background: linear-gradient(135deg, #0b2b44 0%, #1e4a76 100%);
+            padding: 28px 20px;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .hero h1 span {
             background: #facc15;
-            color: #1e3a5f;
-            padding: 2px 12px;
+            color: #0b2b44;
+            padding: 4px 14px;
             border-radius: 40px;
-            font-size: 0.7rem;
-            margin-left: 8px;
+            font-size: 0.85rem;
+            margin-left: 10px;
+            font-weight: 600;
         }
 
         .hero p {
-            font-size: 0.65rem;
-            color: #a5b4fc;
-            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #cbd5e6;
+            margin-top: 8px;
         }
 
-        /* INFO BAR - MINIMALIS */
+        /* INFO BAR */
         .info-bar {
             background: white;
-            padding: 10px 16px;
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eef2ff;
+            border-bottom: 1px solid #f0e9d8;
             position: sticky;
             top: 0;
             z-index: 10;
+            backdrop-filter: blur(4px);
         }
 
         .score-card {
-            background: #1e3a5f;
-            padding: 5px 14px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            background: #0b2b44;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 700;
             color: #facc15;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
         .btn-group {
             display: flex;
-            gap: 6px;
+            gap: 10px;
         }
 
         .btn {
             border: none;
-            padding: 5px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
         .btn-home {
-            background: #64748b;
+            background: #475569;
             color: white;
             text-decoration: none;
         }
@@ -102,51 +110,55 @@
         .btn-info { background: #8b5cf6; color: white; }
         .btn-warning { background: #ef4444; color: white; }
 
-        .btn:active { transform: scale(0.95); }
+        .btn:active { transform: scale(0.96); }
+        .btn:hover { filter: brightness(0.95); }
 
         /* Soal Grid */
         .quiz-grid {
-            padding: 16px;
+            padding: 24px 20px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 28px;
         }
 
         .question-card {
             background: white;
-            border-radius: 20px;
-            border: 1px solid #eef2ff;
+            border-radius: 28px;
+            border: 1px solid #f0e9d8;
             overflow: hidden;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            background: #fafaf5;
-            border-bottom: 1px solid #f0f0e8;
+            gap: 12px;
+            padding: 14px 18px;
+            background: #fefcf5;
+            border-bottom: 1px solid #f0e9d8;
             flex-wrap: wrap;
         }
 
         .num-badge {
-            width: 28px;
-            height: 28px;
-            background: #1e3a5f;
+            width: 34px;
+            height: 34px;
+            background: #0b2b44;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 0.75rem;
+            color: #facc15;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         .kompetensi-tag, .teks-tag {
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-size: 0.6rem;
-            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
 
         .kompetensi-tag { background: #dbeafe; color: #1e40af; }
@@ -154,121 +166,155 @@
 
         /* Teks bacaan */
         .reading-text {
-            background: #fafaf5;
-            margin: 12px;
-            padding: 12px;
-            border-radius: 14px;
-            font-size: 0.75rem;
-            line-height: 1.5;
-            color: #334155;
-            border-left: 3px solid #facc15;
+            background: #fefaf0;
+            margin: 18px 18px 12px 18px;
+            padding: 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #2c3e4e;
+            border-left: 5px solid #facc15;
+            font-weight: 500;
         }
 
         .question-text {
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 0 12px 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0 18px 12px;
             color: #0c4a6e;
         }
 
         /* Options */
         .options {
-            padding: 0 12px;
+            padding: 0 18px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
 
         .option {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            background: #f8fafc;
-            border-radius: 14px;
+            gap: 14px;
+            padding: 12px 16px;
+            background: #fbfaf7;
+            border-radius: 20px;
             cursor: pointer;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e9e2d3;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            background: #fff6e8;
+            border-color: #facc15;
+            transform: translateX(4px);
         }
 
         .option input {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             accent-color: #facc15;
+            cursor: pointer;
         }
 
         .option label {
-            font-size: 0.75rem;
-            color: #334155;
+            font-size: 0.85rem;
+            color: #1e293b;
             cursor: pointer;
             flex: 1;
+            font-weight: 500;
         }
 
         /* Tombol Vertikal */
         .button-group-vertical {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin: 12px;
+            gap: 12px;
+            margin: 20px 18px 12px;
         }
 
         .check-btn, .pembahasan-btn {
-            padding: 10px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            padding: 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
             cursor: pointer;
             border: none;
             text-align: center;
+            transition: all 0.2s ease;
         }
 
-        .check-btn { background: #3b82f6; color: white; }
-        .pembahasan-btn { background: #f59e0b; color: white; }
+        .check-btn { background: #3b82f6; color: white; box-shadow: 0 2px 4px rgba(59,130,246,0.2);}
+        .pembahasan-btn { background: #f59e0b; color: white; box-shadow: 0 2px 4px rgba(245,158,11,0.2);}
 
+        .check-btn:active, .pembahasan-btn:active { transform: scale(0.97); }
+
+        /* Feedback & Pembahasan Detail */
         .feedback-area {
-            padding: 0 12px 12px;
+            padding: 0 18px 20px;
+            animation: fadeSlideUp 0.3s ease-out;
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .result-correct {
-            background: #d1fae5;
-            color: #065f46;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            margin-bottom: 8px;
+            background: #e0f2e9;
+            color: #0b5e42;
+            padding: 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border-left: 5px solid #10b981;
         }
 
         .result-wrong {
-            background: #fee2e2;
-            color: #991b1b;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            margin-bottom: 8px;
+            background: #ffe6e5;
+            color: #b91c1c;
+            padding: 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border-left: 5px solid #ef4444;
         }
 
         .result-warning {
             background: #fef3c7;
-            color: #92400e;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
+            color: #b45309;
+            padding: 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
         }
 
         .explanation-box {
-            background: #f1f5f9;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            line-height: 1.5;
+            background: #f1f6fe;
+            padding: 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #1e293b;
+            border: 1px solid #d9e6f7;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .explanation-box strong {
+            color: #0b2b44;
+            font-weight: 700;
         }
 
         .footer-note {
-            background: #f8fafc;
+            background: #fefcf5;
             text-align: center;
-            padding: 12px;
-            font-size: 0.6rem;
+            padding: 16px;
+            font-size: 0.7rem;
             color: #64748b;
-            border-top: 1px solid #eef2ff;
+            border-top: 1px solid #f0e9d8;
         }
 
         /* Modal */
@@ -279,62 +325,71 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             z-index: 100;
             justify-content: center;
             align-items: center;
+            backdrop-filter: blur(3px);
         }
 
         .modal-content {
             background: white;
             width: 90%;
-            max-width: 500px;
+            max-width: 550px;
             max-height: 80vh;
-            border-radius: 24px;
+            border-radius: 32px;
             overflow: hidden;
+            animation: scaleUp 0.2s ease;
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .modal-header {
-            background: #1e3a5f;
+            background: #0b2b44;
             color: white;
-            padding: 12px 16px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .modal-header h3 { font-size: 1rem; }
-        .close-modal { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+        .modal-header h3 { font-size: 1.2rem; font-weight: 600; }
+        .close-modal { background: none; border: none; color: white; font-size: 28px; cursor: pointer; line-height: 1; }
 
-        .modal-body { padding: 16px; max-height: 60vh; overflow-y: auto; }
-        .answer-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .answer-item { background: #f1f5f9; padding: 6px 10px; border-radius: 10px; display: flex; justify-content: space-between; font-size: 0.7rem; }
+        .modal-body { padding: 20px; max-height: 60vh; overflow-y: auto; }
+        .answer-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .answer-item { background: #f1f5f9; padding: 10px 14px; border-radius: 40px; display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 500; }
 
         /* Toast */
         .toast-save {
             position: fixed;
-            bottom: 70px;
+            bottom: 90px;
             left: 50%;
             transform: translateX(-50%);
-            background: #1e3a5f;
+            background: #0b2b44;
             color: #facc15;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.6rem;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
             z-index: 99;
             opacity: 0;
-            transition: 0.2s;
+            transition: opacity 0.2s;
             pointer-events: none;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
         }
 
         /* Scroll top */
         .scroll-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #1e293b;
-            width: 40px;
-            height: 40px;
+            bottom: 24px;
+            right: 24px;
+            background: #0b2b44;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -342,63 +397,70 @@
             color: #facc15;
             cursor: pointer;
             z-index: 99;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+            transition: all 0.2s;
         }
 
-        /* Splash Screen */
+        .scroll-top:hover { transform: scale(1.05); background: #1e4a76; }
+
+        /* Splash Screen premium */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0f2b44;
+            background: linear-gradient(145deg, #0a2a44, #05203b);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: 0.5s;
+            transition: opacity 0.5s ease, visibility 0.5s;
         }
 
         .splash-content {
             text-align: center;
+            animation: float 2s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
         }
 
         .splash-logo {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: #facc15;
-            border-radius: 24px;
+            border-radius: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 40px;
-            animation: pulse 1s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            margin: 0 auto 20px;
+            font-size: 52px;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
         }
 
         .splash-title {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             color: #facc15;
+            font-weight: 800;
         }
 
         .splash-sub {
-            font-size: 0.7rem;
-            color: #a5b4fc;
-            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #a5c9ff;
+            margin-top: 6px;
         }
 
         .splash-loader {
-            width: 180px;
-            height: 3px;
+            width: 220px;
+            height: 4px;
             background: rgba(255,255,255,0.2);
             border-radius: 10px;
-            margin: 20px auto 0;
+            margin: 28px auto 0;
             overflow: hidden;
         }
 
@@ -406,7 +468,7 @@
             width: 0%;
             height: 100%;
             background: #facc15;
-            animation: loadAnim 2s ease-out forwards;
+            animation: loadAnim 1.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
 
         @keyframes loadAnim {
@@ -419,25 +481,26 @@
             visibility: hidden;
         }
 
-        @media (max-width: 500px) {
-            body { padding: 8px; }
-            .hero h1 { font-size: 1.2rem; }
-            .score-card { font-size: 0.65rem; padding: 4px 10px; }
-            .btn { padding: 4px 8px; font-size: 0.6rem; }
-            .question-text { font-size: 0.8rem; }
-            .option label { font-size: 0.7rem; }
+        @media (max-width: 550px) {
+            body { padding: 10px; }
+            .hero h1 { font-size: 1.4rem; }
+            .score-card { font-size: 0.75rem; padding: 6px 14px; }
+            .btn { padding: 6px 10px; font-size: 0.65rem; }
+            .question-text { font-size: 0.9rem; }
+            .option label { font-size: 0.75rem; }
             .answer-list { grid-template-columns: 1fr; }
+            .reading-text { font-size: 0.8rem; }
+            .explanation-box { font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- SPLASH SCREEN -->
 <div id="splash-screen">
     <div class="splash-content">
-        <div class="splash-logo">📖</div>
+        <div class="splash-logo">📖✨</div>
         <h1 class="splash-title">TKA BAHASA INDONESIA</h1>
-        <p class="splash-sub">40 SOAL • LATIHAN OLIMPIADE</p>
+        <p class="splash-sub">40 SOAL • LATIHAN OLIMPIADE • PEMBAHASAN DETAIL</p>
         <div class="splash-loader"><div class="splash-loader-fill"></div></div>
     </div>
 </div>
@@ -445,72 +508,73 @@
 <div class="container">
     <div class="hero">
         <h1>📖 TKA B.INDONESIA <span>40 SOAL</span></h1>
-        <p>Pemahaman Tekstual • Inferensial • Evaluasi & Apresiasi</p>
+        <p>Pemahaman Tekstual • Inferensial • Evaluasi & Apresiasi | + Pembahasan Lengkap</p>
     </div>
 
     <div class="info-bar">
         <div class="score-card" id="liveScoreDisplay">🏆 0/40</div>
         <div class="btn-group">
-            <a href="index.html" class="btn btn-home">🏠HOME</a>
-            <button class="btn btn-primary" id="checkAllBtn">✅ CEK</button>
-            <button class="btn btn-info" id="showAllAnswersBtn">📋 KUNCI JAWABAN</button>
-            <button class="btn btn-warning" id="resetBtn">🔄RESET</button>
+            <a href="index.html" class="btn btn-home">🏠 HOME</a>
+            <button class="btn btn-primary" id="checkAllBtn">✅ CEK SEMUA</button>
+            <button class="btn btn-info" id="showAllAnswersBtn">📋 KUNCI</button>
+            <button class="btn btn-warning" id="resetBtn">🔄 RESET</button>
         </div>
     </div>
 
     <div class="quiz-grid" id="quizGrid"></div>
     
     <div class="footer-note">
-        💡 Pilih jawaban → klik CEK untuk pembahasan • Jawaban otomatis tersimpan
+        💡 Pilih jawaban → klik "CEK JAWABAN" untuk melihat pembahasan detail & alasan lengkap. Jawaban tersimpan otomatis.
     </div>
 </div>
 
 <div id="answerModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h3>📋 KUNCI JAWABAN</h3>
+            <h3>📋 KUNCI JAWABAN LENGKAP</h3>
             <button class="close-modal" id="closeModalBtn">&times;</button>
         </div>
         <div class="modal-body">
             <div id="answerListContainer" class="answer-list"></div>
-            <button class="btn btn-primary" id="copyAnswersBtn" style="margin-top:12px; width:100%;">📋 SALIN</button>
+            <button class="btn btn-primary" id="copyAnswersBtn" style="margin-top:20px; width:100%; padding:12px;">📋 SALIN SEMUA KUNCI</button>
         </div>
     </div>
 </div>
 
 <div class="scroll-top" id="scrollTopBtn">↑</div>
-<div id="toast-save" class="toast-save">💾 Tersimpan</div>
+<div id="toast-save" class="toast-save">💾 Jawaban tersimpan</div>
 
 <script>
-    // DATA SOAL (20 soal + 20 duplikasi = 40)
+    // ==================== DATA SOAL (20 original + 20 duplikasi = 40) ====================
     const soalData = [
-        { id: 1, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Pembangunan Ibu Kota Nusantara (IKN) di Kalimantan Timur merupakan proyek strategis nasional yang bertujuan memindahkan pusat pemerintahan dari Jakarta. Proyek ini diharapkan mendorong pemerataan pembangunan.", soal: "Apa tujuan utama pemindahan IKN?", options: ["A. Mengurangi kemacetan", "B. Memindahkan pusat pemerintahan & pemerataan pembangunan", "C. Membuka lahan baru", "D. Meningkatkan pariwisata"], correct: "B", explanation: "Teks menyatakan: 'memindahkan pusat pemerintahan' dan 'mendorong pemerataan pembangunan'." },
-        { id: 2, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Matahari tenggelam. Ombak membasuh kaki Laras yang termenung. 'Ayah, kapan pulang?' bisiknya sambil memegang foto.", soal: "Apa yang dilakukan Laras?", options: ["A. Bermain pasir", "B. Menunggu ayahnya di pantai", "C. Berenang", "D. Membaca buku"], correct: "B", explanation: "Laras termenung dan bertanya 'Ayah, kapan pulang?' → menunggu ayah." },
-        { id: 3, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Minat baca Indonesia hanya 0,001% berdasarkan data UNESCO.", soal: "Kesimpulan yang tepat?", options: ["A. Masyarakat gemar membaca", "B. Perlu peningkatan minat baca", "C. UNESCO tidak peduli", "D. Semua suka membaca"], correct: "B", explanation: "Data rendah → kesimpulan logis: perlu peningkatan minat baca." },
-        { id: 4, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "'Hidup adalah pilihan. Rani memilih terus berjalan meski kakinya berat.'", soal: "Nilai yang terkandung?", options: ["A. Santai", "B. Keberanian melangkah meski sulit", "C. Berhenti", "D. Malas"], correct: "B", explanation: "Kutipan menekankan keberanian dan keteguhan hati." },
-        { id: 5, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Plastik membutuhkan waktu 500 tahun untuk terurai.", soal: "Berapa tahun plastik terurai?", options: ["A. 50", "B. 100", "C. 500", "D. 1000"], correct: "C", explanation: "Teks menyebut '500 tahun'." },
-        { id: 6, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Sejak ibu pergi, Dika jarang tersenyum. Ia sering memandangi foto ibunya.", soal: "Perasaan Dika?", options: ["A. Bahagia", "B. Sedih dan rindu", "C. Marah", "D. Biasa"], correct: "B", explanation: "Jarang tersenyum dan memandangi foto → sedih dan rindu." },
-        { id: 7, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Gadget berlebihan pada anak mengganggu perkembangan sosial.", soal: "Sikap orang tua yang tepat?", options: ["A. Biarkan saja", "B. Larang total", "C. Batasi waktu & arahkan sosial", "D. Beri gadget baru"], correct: "C", explanation: "Dampak negatif → solusi bijak: batasi dan arahkan." },
-        { id: 8, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Sari dapat berbicara dengan hewan di hutan.", soal: "Keistimewaan Sari?", options: ["A. Terbang", "B. Bicara dengan hewan", "C. Menghilang", "D. Menyembuhkan"], correct: "B", explanation: "Teks menyebut 'dapat berbicara dengan hewan'." },
-        { id: 9, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Suhu global meningkat akibat emisi gas rumah kaca.", soal: "Jika emisi tidak dikurangi?", options: ["A. Stabil", "B. Pemanasan makin parah", "C. Tidak berubah", "D. Semakin dingin"], correct: "B", explanation: "Penyebab tidak dikurangi → dampak akan memburuk." },
-        { id: 10, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Laskar Pelangi mengajarkan semangat belajar dalam keterbatasan.", soal: "Nilai utama novel?", options: ["A. Materialisme", "B. Individualisme", "C. Semangat juang", "D. Kekayaan"], correct: "C", explanation: "Laskar Pelangi terkenal dengan pesan semangat belajar." },
-        { id: 11, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Kampung Batik Laweyan: wisata edukasi membatik.", soal: "Aktivitas di sana?", options: ["A. Belanja impor", "B. Belajar membatik", "C. Bermain air", "D. Sirkus"], correct: "B", explanation: "Teks: 'belajar membatik langsung dari pengrajin'." },
-        { id: 12, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Setiap malam terdengar langkah kaki di loteng, tapi tak ada siapa pun.", soal: "Perasaan Andi?", options: ["A. Senang", "B. Takut/penasaran", "C. Biasa", "D. Marah"], correct: "B", explanation: "Suara misterius → menimbulkan rasa takut atau penasaran." },
-        { id: 13, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Makan Siang Gratis perlu pengawasan ketat.", soal: "Pernyataan logis?", options: ["A. Pasti gagal", "B. Baik tapi perlu pengawasan", "C. Tidak penting", "D. Dana dialihkan"], correct: "B", explanation: "Evaluasi seimbang: tujuan baik, perlu pengawasan." },
-        { id: 14, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "15 tahun Rina merantau, kini pulang.", soal: "Lama merantau?", options: ["A. 5", "B. 10", "C. 15", "D. 20"], correct: "C", explanation: "'Lima belas tahun' → 15 tahun." },
-        { id: 15, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Harga cabai naik akibat gagal panen.", soal: "Dampak langsung?", options: ["A. Petani kaya", "B. Beban belanja masyarakat naik", "C. Cabai murah", "D. Tidak ada dampak"], correct: "B", explanation: "Harga naik → daya beli turun → beban belanja naik." },
-        { id: 16, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "'Rindu yang tak sampai, menjadi luka menganga.'", soal: "Majas yang digunakan?", options: ["A. Personifikasi", "B. Hiperbola", "C. Metafora", "D. Litotes"], correct: "C", explanation: "Perbandingan implisit (rindu = luka) → metafora." },
-        { id: 17, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Perpusnas punya koleksi lebih dari 4 juta buku.", soal: "Jumlah koleksi?", options: ["A. 1 juta", "B. 2 juta", "C. 3 juta", "D. Lebih 4 juta"], correct: "D", explanation: "'lebih dari 4 juta' → D." },
-        { id: 18, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Langkah gontai, mata sayu, napas panjang.", soal: "Kondisi tokoh?", options: ["A. Semangat", "B. Lelah/sedih", "C. Bahagia", "D. Terburu"], correct: "B", explanation: "Deskripsi fisik → kelelahan atau kesedihan." },
-        { id: 19, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Hoaks cepat menyebar, perlu literasi digital.", soal: "Sikap terbaik?", options: ["A. Langsung bagikan", "B. Cek kebenaran dulu", "C. Abaikan semua", "D. Buat hoaks baru"], correct: "B", explanation: "Literasi digital → verifikasi sebelum membagikan." },
-        { id: 20, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Rindu merindukan suasana desa yang tenang.", soal: "Apa yang dirindukan?", options: ["A. Keramaian", "B. Suasana desa tenang", "C. Mall", "D. Pantai"], correct: "B", explanation: "'merindukan suasana desa yang tenang'." }
+        { id: 1, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Pembangunan Ibu Kota Nusantara (IKN) di Kalimantan Timur merupakan proyek strategis nasional yang bertujuan memindahkan pusat pemerintahan dari Jakarta. Proyek ini diharapkan mendorong pemerataan pembangunan.", soal: "Apa tujuan utama pemindahan IKN?", options: ["A. Mengurangi kemacetan", "B. Memindahkan pusat pemerintahan & pemerataan pembangunan", "C. Membuka lahan baru", "D. Meningkatkan pariwisata"], correct: "B", explanation: "Tujuan utama pemindahan IKN adalah memindahkan pusat pemerintahan dan mendorong pemerataan pembangunan, sesuai kalimat pertama teks." },
+        { id: 2, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Matahari tenggelam. Ombak membasuh kaki Laras yang termenung. 'Ayah, kapan pulang?' bisiknya sambil memegang foto.", soal: "Apa yang dilakukan Laras?", options: ["A. Bermain pasir", "B. Menunggu ayahnya di pantai", "C. Berenang", "D. Membaca buku"], correct: "B", explanation: "Laras termenung dan bertanya 'Ayah, kapan pulang?' mengindikasikan dia sedang menunggu ayahnya di pantai." },
+        { id: 3, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Minat baca Indonesia hanya 0,001% berdasarkan data UNESCO.", soal: "Kesimpulan yang tepat?", options: ["A. Masyarakat gemar membaca", "B. Perlu peningkatan minat baca", "C. UNESCO tidak peduli", "D. Semua suka membaca"], correct: "B", explanation: "Karena minat baca sangat rendah, maka kesimpulan logis adalah diperlukan peningkatan program literasi." },
+        { id: 4, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "'Hidup adalah pilihan. Rani memilih terus berjalan meski kakinya berat.'", soal: "Nilai yang terkandung?", options: ["A. Santai", "B. Keberanian melangkah meski sulit", "C. Berhenti", "D. Malas"], correct: "B", explanation: "Kutipan menekankan keberanian dan ketekunan menghadapi kesulitan (jalan terus meski berat)." },
+        { id: 5, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Plastik membutuhkan waktu 500 tahun untuk terurai.", soal: "Berapa tahun plastik terurai?", options: ["A. 50", "B. 100", "C. 500", "D. 1000"], correct: "C", explanation: "Teks secara eksplisit menyebut '500 tahun'." },
+        { id: 6, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Sejak ibu pergi, Dika jarang tersenyum. Ia sering memandangi foto ibunya.", soal: "Perasaan Dika?", options: ["A. Bahagia", "B. Sedih dan rindu", "C. Marah", "D. Biasa"], correct: "B", explanation: "Jarang tersenyum dan memandangi foto → menunjukkan kesedihan dan kerinduan yang mendalam." },
+        { id: 7, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Gadget berlebihan pada anak mengganggu perkembangan sosial.", soal: "Sikap orang tua yang tepat?", options: ["A. Biarkan saja", "B. Larang total", "C. Batasi waktu & arahkan sosial", "D. Beri gadget baru"], correct: "C", explanation: "Berdasarkan dampak negatif, solusi bijak adalah membatasi waktu dan mengarahkan pada interaksi sosial." },
+        { id: 8, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Sari dapat berbicara dengan hewan di hutan.", soal: "Keistimewaan Sari?", options: ["A. Terbang", "B. Bicara dengan hewan", "C. Menghilang", "D. Menyembuhkan"], correct: "B", explanation: "Teks menyebut secara langsung bahwa Sari dapat berbicara dengan hewan." },
+        { id: 9, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Suhu global meningkat akibat emisi gas rumah kaca.", soal: "Jika emisi tidak dikurangi?", options: ["A. Stabil", "B. Pemanasan makin parah", "C. Tidak berubah", "D. Semakin dingin"], correct: "B", explanation: "Jika penyebab (emisi) terus berlanjut, maka dampak pemanasan global akan semakin parah." },
+        { id: 10, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Laskar Pelangi mengajarkan semangat belajar dalam keterbatasan.", soal: "Nilai utama novel?", options: ["A. Materialisme", "B. Individualisme", "C. Semangat juang", "D. Kekayaan"], correct: "C", explanation: "Laskar Pelangi terkenal dengan pesan semangat juang, pantang menyerah walau serba terbatas." },
+        { id: 11, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Kampung Batik Laweyan: wisata edukasi membatik.", soal: "Aktivitas di sana?", options: ["A. Belanja impor", "B. Belajar membatik", "C. Bermain air", "D. Sirkus"], correct: "B", explanation: "Kampung Batik Laweyan menawarkan wisata edukasi membatik langsung dari pengrajin." },
+        { id: 12, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Setiap malam terdengar langkah kaki di loteng, tapi tak ada siapa pun.", soal: "Perasaan Andi?", options: ["A. Senang", "B. Takut/penasaran", "C. Biasa", "D. Marah"], correct: "B", explanation: "Suara misterius tanpa sumber jelas memunculkan rasa takut atau penasaran." },
+        { id: 13, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Makan Siang Gratis perlu pengawasan ketat.", soal: "Pernyataan logis?", options: ["A. Pasti gagal", "B. Baik tapi perlu pengawasan", "C. Tidak penting", "D. Dana dialihkan"], correct: "B", explanation: "Program positif namun butuh pengawasan agar tepat sasaran, ini evaluasi seimbang." },
+        { id: 14, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "15 tahun Rina merantau, kini pulang.", soal: "Lama merantau?", options: ["A. 5", "B. 10", "C. 15", "D. 20"], correct: "C", explanation: "'15 tahun' disebut secara eksplisit." },
+        { id: 15, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Harga cabai naik akibat gagal panen.", soal: "Dampak langsung?", options: ["A. Petani kaya", "B. Beban belanja masyarakat naik", "C. Cabai murah", "D. Tidak ada dampak"], correct: "B", explanation: "Harga naik → daya beli masyarakat turun → beban belanja rumah tangga meningkat." },
+        { id: 16, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "'Rindu yang tak sampai, menjadi luka menganga.'", soal: "Majas yang digunakan?", options: ["A. Personifikasi", "B. Hiperbola", "C. Metafora", "D. Litotes"], correct: "C", explanation: "Rindu diibaratkan sebagai luka → majas metafora (perbandingan implisit)." },
+        { id: 17, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Perpusnas punya koleksi lebih dari 4 juta buku.", soal: "Jumlah koleksi?", options: ["A. 1 juta", "B. 2 juta", "C. 3 juta", "D. Lebih 4 juta"], correct: "D", explanation: "Teks: 'lebih dari 4 juta' → jawaban D." },
+        { id: 18, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Langkah gontai, mata sayu, napas panjang.", soal: "Kondisi tokoh?", options: ["A. Semangat", "B. Lelah/sedih", "C. Bahagia", "D. Terburu"], correct: "B", explanation: "Deskripsi fisik (gontai, sayu, napas panjang) mengindikasikan kelelahan atau kesedihan." },
+        { id: 19, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Hoaks cepat menyebar, perlu literasi digital.", soal: "Sikap terbaik?", options: ["A. Langsung bagikan", "B. Cek kebenaran dulu", "C. Abaikan semua", "D. Buat hoaks baru"], correct: "B", explanation: "Literasi digital mendorong untuk selalu memverifikasi kebenaran sebelum menyebarkan informasi." },
+        { id: 20, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Rindu merindukan suasana desa yang tenang.", soal: "Apa yang dirindukan?", options: ["A. Keramaian", "B. Suasana desa tenang", "C. Mall", "D. Pantai"], correct: "B", explanation: "Teks menyebut 'suasana desa yang tenang' secara eksplisit." }
     ];
 
-    // Duplikasi sampai 40 soal
+    // Duplikasi hingga 40 soal dengan copy bacaan & penjelasan identik
     while(soalData.length < 40) {
         let base = soalData[soalData.length % 20];
         let newId = soalData.length + 1;
-        soalData.push({ ...base, id: newId, soal: base.soal });
+        let clone = { ...base, id: newId, soal: base.soal, explanation: base.explanation };
+        soalData.push(clone);
     }
 
     // State
@@ -518,8 +582,8 @@
     let answerStatus = {};
 
     function loadStorage() {
-        let saved = localStorage.getItem('bindo_answers');
-        let savedStatus = localStorage.getItem('bindo_status');
+        let saved = localStorage.getItem('bindo_answers_detailed');
+        let savedStatus = localStorage.getItem('bindo_status_detailed');
         if(saved) userAnswers = JSON.parse(saved);
         if(savedStatus) answerStatus = JSON.parse(savedStatus);
         for(let i=1;i<=40;i++) {
@@ -529,11 +593,11 @@
     }
 
     function saveStorage() {
-        localStorage.setItem('bindo_answers', JSON.stringify(userAnswers));
-        localStorage.setItem('bindo_status', JSON.stringify(answerStatus));
+        localStorage.setItem('bindo_answers_detailed', JSON.stringify(userAnswers));
+        localStorage.setItem('bindo_status_detailed', JSON.stringify(answerStatus));
         let toast = document.getElementById('toast-save');
         toast.style.opacity = '1';
-        setTimeout(() => toast.style.opacity = '0', 800);
+        setTimeout(() => toast.style.opacity = '0', 1000);
     }
 
     function updateScore() {
@@ -542,24 +606,43 @@
         document.getElementById('liveScoreDisplay').innerHTML = `🏆 ${correct}/40`;
     }
 
+    // Evaluasi dengan pembahasan super detail
     function evaluate(id) {
         let q = soalData.find(x=>x.id===id);
         let jawab = userAnswers[id];
         if(!jawab) {
-            document.getElementById(`fb_${id}`).innerHTML = `<div class="result-warning">⚠️ Pilih jawaban dulu</div>`;
+            document.getElementById(`fb_${id}`).innerHTML = `<div class="result-warning">⚠️ Belum memilih jawaban! Silakan pilih salah satu opsi terlebih dahulu.</div>`;
             return;
         }
         let benar = (jawab === q.correct);
         answerStatus[id] = benar;
         saveStorage();
-        let fb = document.getElementById(`fb_${id}`);
-        fb.innerHTML = (benar ? `<div class="result-correct">✅ BENAR! Jawaban: ${jawab}</div>` : `<div class="result-wrong">❌ SALAH! Jawaban: ${jawab} | Kunci: ${q.correct}</div>`) + `<div class="explanation-box">📘 ${q.explanation}</div>`;
+        
+        let statusHtml = benar 
+            ? `<div class="result-correct">✅ BENAR! Jawaban Anda: ${jawab} (Kunci: ${q.correct})</div>` 
+            : `<div class="result-wrong">❌ SALAH! Jawaban Anda: ${jawab} | Kunci Jawaban: ${q.correct}</div>`;
+        
+        let detailPembahasan = `<div class="explanation-box">
+            <strong>📖 PEMBAHASAN DETAIL & ALASAN:</strong><br>
+            ${q.explanation}<br><br>
+            <strong>🎯 Analisis:</strong> Soal ini menguji kemampuan <strong>${q.kompetensi}</strong> berdasarkan teks ${q.teks === 'informasi' ? 'informasional' : 'fiksi'}. 
+            Jawaban yang tepat adalah <strong>${q.correct}</strong> karena sesuai dengan informasi eksplisit atau simpulan logis dari bacaan.
+            </div>`;
+        
+        document.getElementById(`fb_${id}`).innerHTML = statusHtml + detailPembahasan;
         updateScore();
     }
 
     function showPembahasan(id) {
         let q = soalData.find(x=>x.id===id);
-        document.getElementById(`fb_${id}`).innerHTML = `<div class="explanation-box">📘 ${q.explanation}</div>`;
+        let currentJawab = userAnswers[id];
+        let infoJawab = currentJawab ? `Jawaban Anda saat ini: ${currentJawab}. ` : "Anda belum menjawab. ";
+        document.getElementById(`fb_${id}`).innerHTML = `<div class="explanation-box">
+            <strong>📘 PEMBAHASAN LENGKAP (tanpa penilaian):</strong><br>
+            ${infoJawab}Kunci jawaban: <strong>${q.correct}</strong>.<br><br>
+            <strong>🔍 Alasan:</strong> ${q.explanation}<br><br>
+            <strong>💡 Konsep:</strong> Soal ini menguji ${q.kompetensi} berdasarkan bacaan di atas.
+            </div>`;
     }
 
     function resetAll() {
@@ -572,6 +655,11 @@
         }
         saveStorage();
         updateScore();
+        // tampilkan toast reset
+        let toast = document.getElementById('toast-save');
+        toast.innerText = "🔄 Semua jawaban direset!";
+        toast.style.opacity = '1';
+        setTimeout(() => { toast.style.opacity = '0'; toast.innerText = "💾 Tersimpan"; }, 1200);
     }
 
     function checkAll() {
@@ -581,15 +669,15 @@
     function showKunci() {
         let modal = document.getElementById('answerModal');
         let container = document.getElementById('answerListContainer');
-        container.innerHTML = soalData.map(q => `<div class="answer-item"><span>${q.id}</span><span><strong>${q.correct}</strong></span></div>`).join('');
+        container.innerHTML = soalData.map(q => `<div class="answer-item"><span><strong>${q.id}</strong> ${q.soal.substring(0, 45)}...</span><span style="background:#facc15; padding:2px 12px; border-radius:30px;">${q.correct}</span></div>`).join('');
         modal.style.display = 'flex';
     }
 
     function copyKunci() {
-        let text = "KUNCI JAWABAN B.INDONESIA\n\n";
-        soalData.forEach(q => { text += `${q.id}. ${q.correct}\n`; });
+        let text = "KUNCI JAWABAN TKA BAHASA INDONESIA (40 SOAL)\n\n";
+        soalData.forEach(q => { text += `${q.id}. ${q.correct} | ${q.soal.substring(0, 60)}\n`; });
         navigator.clipboard.writeText(text);
-        alert("✅ Disalin!");
+        alert("✅ Kunci jawaban berhasil disalin ke clipboard!");
     }
 
     function render() {
@@ -602,14 +690,14 @@
                 <div class="card-header">
                     <div class="num-badge">${q.id}</div>
                     <div class="kompetensi-tag">📌 ${q.kompetensi}</div>
-                    <div class="teks-tag">📄 ${q.teks === 'informasi' ? 'Info' : 'Fiksi'}</div>
+                    <div class="teks-tag">📄 ${q.teks === 'informasi' ? 'Info / Nonfiksi' : 'Fiksi / Sastra'}</div>
                 </div>
                 <div class="reading-text">📖 ${q.bacaan}</div>
                 <div class="question-text">❓ ${q.soal}</div>
                 <div class="options" id="opt_${q.id}"></div>
                 <div class="button-group-vertical">
-                    <button class="check-btn" onclick="evaluate(${q.id})">✅ CEK JAWABAN</button>
-                    <button class="pembahasan-btn" onclick="showPembahasan(${q.id})">📖 PEMBAHASAN</button>
+                    <button class="check-btn" onclick="evaluate(${q.id})">✅ CEK JAWABAN + PEMBAHASAN</button>
+                    <button class="pembahasan-btn" onclick="showPembahasan(${q.id})">📖 LIHAT PEMBAHASAN SAJA</button>
                 </div>
                 <div class="feedback-area" id="fb_${q.id}"></div>
             `;
@@ -625,6 +713,8 @@
                     answerStatus[q.id] = false;
                     saveStorage();
                     updateScore();
+                    // optional: langsung kosongkan feedback agar tidak membingungkan
+                    document.getElementById(`fb_${q.id}`).innerHTML = "";
                 });
                 optDiv.appendChild(div);
             });
@@ -632,7 +722,7 @@
         });
     }
 
-    // Splash screen
+    // Splash screen hilang
     window.addEventListener('load', () => {
         setTimeout(() => {
             let splash = document.getElementById('splash-screen');
@@ -654,3 +744,4 @@
 </script>
 </body>
 </html>
+```
