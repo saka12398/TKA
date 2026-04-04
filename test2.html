@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>TKA | Bahasa Indonesia - Olimpiade Premium (Sulit & Menjebak)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: linear-gradient(145deg, #fefce8 0%, #fef3c7 100%);
+            color: #1e293b;
+            line-height: 1.5;
+            padding: 16px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2b44 100%);
+            padding: 2rem 1.5rem;
+            color: white;
+            text-align: center;
+            border-bottom: 4px solid #facc15;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(250,204,21,0.1) 0%, transparent 70%);
+            animation: rotateGlow 20s linear infinite;
+        }
+        
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .hero h1 span {
+            background: #facc15;
+            color: #1e3a5f;
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 8px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .badge-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .badge-mapel {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            backdrop-filter: blur(4px);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-bar {
+            background: #ffffff;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 2px solid #eef2ff;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #1e3a5f, #0f2b44);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #facc15;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .score-card::before {
+            content: "🏆";
+            font-size: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary { background: #3b82f6; color: white; box-shadow: 0 2px 6px rgba(59,130,246,0.3); }
+        .btn-info { background: #8b5cf6; color: white; box-shadow: 0 2px 6px rgba(139,92,246,0.3); }
+        .btn-warning { background: #ef4444; color: white; box-shadow: 0 2px 6px rgba(239,68,68,0.3); }
+        .btn-home { background: #64748b; color: white; text-decoration: none; box-shadow: 0 2px 6px rgba(100,116,139,0.3); }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .quiz-grid {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px -8px rgba(0,0,0,0.08);
+            border: 1px solid #eef2ff;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            animation: cardReveal 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes cardReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #fefce8, #fef9e6);
+            border-radius: 28px 28px 24px 24px;
+            flex-wrap: wrap;
+        }
+
+        .num-badge {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1e3a5f, #0f2b44);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .kompetensi-tag {
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        .teks-tag {
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #b45309;
+            background: #fef3c7;
+        }
+
+        .question-text {
+            font-size: 0.98rem;
+            font-weight: 600;
+            padding: 1rem 1.2rem 0.5rem;
+            color: #0c4a6e;
+            line-height: 1.55;
+        }
+
+        .reading-text {
+            background: #f8fafc;
+            margin: 10px 1.2rem;
+            padding: 14px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: #334155;
+            border-left: 5px solid #facc15;
+            font-family: 'Georgia', serif;
+        }
+
+        .options {
+            padding: 0.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: #fafcff;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .option:hover {
+            background: #fefce8;
+            border-color: #facc15;
+            transform: translateX(4px);
+        }
+
+        .option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #facc15;
+        }
+
+        .option label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .button-group-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 12px 1.2rem 12px;
+        }
+
+        .check-btn, .pembahasan-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-align: center;
+        }
+
+        .check-btn {
+            background: linear-gradient(95deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+        }
+
+        .pembahasan-btn {
+            background: linear-gradient(95deg, #f59e0b, #d97706);
+            color: white;
+            box-shadow: 0 4px 12px rgba(245,158,11,0.3);
+        }
+
+        .check-btn:active, .pembahasan-btn:active {
+            transform: scale(0.97);
+        }
+
+        .feedback-area {
+            padding: 0.6rem 1.2rem 1.2rem;
+        }
+
+        .result-correct {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+            border-left: 6px solid #10b981;
+            padding: 14px;
+            border-radius: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            animation: popCorrect 0.3s ease-out;
+        }
+        
+        @keyframes popCorrect {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .result-wrong {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #991b1b;
+            border-left: 6px solid #ef4444;
+            padding: 14px;
+            border-radius: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            animation: shakeWrong 0.3s ease-out;
+        }
+        
+        @keyframes shakeWrong {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .result-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 6px solid #f59e0b;
+            padding: 12px;
+            border-radius: 16px;
+            margin-bottom: 10px;
+        }
+
+        .explanation-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 16px;
+            border-radius: 18px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            border: 1px solid #bae6fd;
+            animation: fadeSlide 0.4s ease-out;
+        }
+        
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .explanation-box strong {
+            color: #0369a1;
+        }
+
+        .footer-note {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            text-align: center;
+            padding: 14px;
+            font-size: 0.7rem;
+            color: #475569;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #facc15;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            z-index: 99;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: scale(0);
+            animation: floatBtn 2s infinite ease-in-out;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        @keyframes floatBtn {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        
+        .scroll-top:hover {
+            background: #facc15;
+            color: #1e293b;
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+            animation: modalBgFade 0.2s ease;
+        }
+        
+        @keyframes modalBgFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 550px;
+            max-height: 80vh;
+            border-radius: 32px;
+            overflow: hidden;
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+        
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #1e3a5f, #0f2b44);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 { font-size: 1.1rem; }
+        .close-modal { background: none; border: none; color: white; font-size: 28px; cursor: pointer; transition: 0.2s; }
+        .close-modal:hover { transform: scale(1.1); }
+
+        .modal-body { padding: 20px; max-height: 60vh; overflow-y: auto; }
+        .answer-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .answer-item { background: #f1f5f9; padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 500; }
+
+        .toast-save {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #1e3a5f, #0f2b44);
+            color: #facc15;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: radial-gradient(ellipse at 30% 40%, #0f2b44 0%, #020617 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s;
+            overflow: hidden;
+        }
+
+        .splash-bg-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .splash-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(250,204,21,0.06);
+            animation: floatCircle 12s infinite ease-in-out;
+        }
+
+        @keyframes floatCircle {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -40px) scale(1.1); }
+            66% { transform: translate(-20px, 30px) scale(0.95); }
+        }
+
+        .splash-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            animation: contentZoom 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        @keyframes contentZoom {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .splash-logo {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #facc15, #f59e0b);
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 55px;
+            animation: logoPulse 1.8s ease-in-out infinite;
+            box-shadow: 0 25px 45px -12px rgba(250,204,21,0.5);
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 25px 45px -12px rgba(250,204,21,0.4); }
+            50% { transform: scale(1.08); box-shadow: 0 35px 55px -8px rgba(250,204,21,0.7); }
+        }
+
+        .splash-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #facc15, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .splash-sub {
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            letter-spacing: 2px;
+        }
+
+        .splash-loader {
+            width: 240px;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            margin: 28px auto 0;
+            overflow: hidden;
+        }
+
+        .splash-loader-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #facc15, #f97316);
+            animation: loadingBar 2.3s cubic-bezier(0.25, 0.9, 0.5, 1) forwards;
+        }
+
+        @keyframes loadingBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .splash-text-animate {
+            margin-top: 18px;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .splash-text-animate span {
+            animation: textFade 1.8s infinite;
+        }
+
+        @keyframes textFade {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .hero h1 { font-size: 1.3rem; }
+            .info-bar { flex-direction: column; align-items: stretch; }
+            .score-card { justify-content: center; white-space: normal; }
+            .btn-group { justify-content: center; }
+            .answer-list { grid-template-columns: 1fr; }
+            .option label { font-size: 0.75rem; }
+            .splash-logo { width: 80px; height: 80px; font-size: 42px; }
+            .splash-title { font-size: 1.5rem; }
+            .toast-save { white-space: nowrap; font-size: 0.65rem; bottom: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="splash-screen">
+    <div class="splash-bg-animation">
+        <div class="splash-circle" style="width: 350px; height: 350px; top: -120px; left: -100px; animation-delay: 0s;"></div>
+        <div class="splash-circle" style="width: 250px; height: 250px; bottom: -60px; right: -50px; animation-delay: 2s;"></div>
+        <div class="splash-circle" style="width: 180px; height: 180px; top: 40%; right: 10%; animation-delay: 4s;"></div>
+        <div class="splash-circle" style="width: 120px; height: 120px; bottom: 25%; left: 5%; animation-delay: 1.5s;"></div>
+    </div>
+    <div class="splash-content">
+        <div class="splash-logo">📖</div>
+        <h1 class="splash-title">TKA BAHASA INDONESIA</h1>
+        <p class="splash-sub">OLIMPIADE • 40 SOAL PREMIUM • SULIT & MENJEBAK</p>
+        <div class="splash-loader"><div class="splash-loader-fill"></div></div>
+        <div class="splash-text-animate">
+            <span>⚡ Analisis Kritis</span>
+            <span>🎯 Inferensi Kompleks</span>
+            <span>🧠 Evaluasi Mendalam</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="hero">
+        <h1>📖 TKA BAHASA INDONESIA <span>40 SOAL</span></h1>
+        <p>Olimpiade | Pemahaman Tekstual | Inferensial | Evaluasi & Apresiasi</p>
+        <div class="badge-group">
+            <span class="badge-mapel">🔥 Level Sulit & Menjebak</span>
+            <span class="badge-mapel">🎯 Tanpa Pengulangan</span>
+        </div>
+    </div>
+
+    <div class="info-bar">
+        <div class="score-card" id="liveScoreDisplay">🏆 SKOR: 0 / 40</div>
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-home">🏠 HOME</a>
+            <button class="btn btn-primary" id="checkAllBtn">✅ CEK SEMUA</button>
+            <button class="btn btn-info" id="showAllAnswersBtn">📋 KUNCI</button>
+            <button class="btn btn-warning" id="resetBtn">🔄 RESET</button>
+        </div>
+    </div>
+
+    <div class="quiz-grid" id="quizGrid"></div>
+    
+    <div class="footer-note">
+        💡 <strong>Petunjuk:</strong> Pilih jawaban, klik CEK untuk melihat pembahasan lengkap. Jawaban otomatis tersimpan.<br>
+        📌 Setiap soal dirancang dengan jebakan khas olimpiade, pastikan membaca dengan cermat.
+    </div>
+</div>
+
+<div id="answerModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>📋 KUNCI JAWABAN 40 SOAL</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="answerListContainer" class="answer-list"></div>
+            <button class="btn btn-primary" id="copyAnswersBtn" style="margin-top:15px; width:100%;">📋 SALIN SEMUA</button>
+        </div>
+    </div>
+</div>
+
+<div class="scroll-top" id="scrollTopBtn">↑</div>
+<div id="toast-save" class="toast-save">💾 Jawaban tersimpan</div>
+
+<script>
+    // ======================= 40 SOAL BAHASA INDONESIA LEVEL SULIT & MENJEBAK (TIDAK ADA YANG SAMA) =======================
+    const soalData = [
+        { id: 1, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Pembangunan Ibu Kota Nusantara (IKN) di Kalimantan Timur menelan biaya triliunan rupiah. Proyek ini diklaim akan mendorong pertumbuhan ekonomi di kawasan timur Indonesia, meskipun banyak kritik dari pemerhati lingkungan.", soal: "Berdasarkan teks, pernyataan berikut yang PALING TEPAT adalah...", options: ["A. Proyek IKN bertujuan menghijaukan Kalimantan", "B. IKN hanya mendapat dukungan penuh tanpa kritik", "C. Ada pihak yang mengkritik proyek IKN dari sisi lingkungan", "D. Semua warga Kalimantan mendukung IKN"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A salah karena tidak disebut. Opsi B bertentangan dengan 'banyak kritik'. Opsi C tepat karena teks menyebut 'kritik dari pemerhati lingkungan'. Opsi D generalisasi berlebihan. Jebakan sering pada opsi yang terlalu mutlak." },
+        { id: 2, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Matahari belum sepenuhnya terbit. Di emperan toko, seorang kakek menggigil memeluk tubuhnya yang kurus. Sesekali ia memunguti puntung rokok yang masih tersisa.", soal: "Kesimpulan paling logis tentang kondisi kakek adalah...", options: ["A. Kakek sedang berolahraga pagi", "B. Kakek adalah seorang perokok berat yang sedang mencari rokok", "C. Kakek dalam keadaan miskin dan kelaparan", "D. Kakek sedang menunggu teman"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A salah karena menggigil bukan ciri olahraga. Opsi B hanya spekulasi (memunguti puntung karena miskin). Opsi C paling logis: menggigil (dingin/lemah), tubuh kurus (malnutrisi), memunguti puntung (tanda kemiskinan ekstrem). Opsi D tidak didukung teks. Jebakan pada opsi yang terlalu sempit (B) atau tidak relevan." },
+        { id: 3, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Kebijakan larangan ekspor bijih nikel mentah bertujuan membangun hilirisasi industri dalam negeri. Namun, kebijakan ini digugat oleh Uni Eropa ke WTO.", soal: "Pernyataan yang PALING KRITIS terhadap kebijakan tersebut adalah...", options: ["A. Kebijakan ini sangat baik karena melindungi kepentingan nasional", "B. Hilirisasi industri harus tetap berjalan meskipun ada gugatan", "C. Kebijakan yang mengabaikan aturan perdagangan internasional berisiko merugikan negara", "D. Uni Eropa seharusnya mendukung kebijakan Indonesia"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A tidak kritis (hanya memuji). Opsi B netral. Opsi C kritis karena menyoroti risiko pelanggaran aturan global. Opsi D tidak kritis. Jebakan pada opsi yang tampak 'nasionalis' tapi tidak mempertimbangkan konsekuensi." },
+        { id: 4, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Di tengah hutan jati, berdirilah sebuah rumah tua beratap rumbia. Konon, rumah itu milik Eyang Karti yang sudah meninggal sepuluh tahun lalu.", soal: "Informasi berikut yang TERSURAT dalam teks adalah...", options: ["A. Rumah itu angker", "B. Rumah itu terbuat dari kayu jati", "C. Rumah itu beratap rumbia", "D. Eyang Karti masih tinggal di sana"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Tersurat artinya tertulis jelas. Opsi C: 'rumah tua beratap rumbia' ada di teks. Opsi A tidak disebut. Opsi B tidak disebut (hutan jati ≠ rumah dari kayu jati). Opsi D salah karena Eyang Karti sudah meninggal. Jebakan pada opsi yang logis tapi tidak tersurat." },
+        { id: 5, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Berdasarkan data BPS 2023, tingkat pengangguran terbuka di Indonesia turun menjadi 5,45% dibandingkan tahun sebelumnya 5,86%. Penurunan ini terutama terjadi di sektor industri dan jasa.", soal: "Dari data tersebut, dapat disimpulkan bahwa...", options: ["A. Semua lulusan perguruan tinggi langsung mendapat kerja", "B. Sektor pertanian mengalami peningkatan pengangguran", "C. Ada perbaikan kondisi ketenagakerjaan di sektor industri dan jasa", "D. Pemerintah gagal mengatasi pengangguran"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A generalisasi salah. Opsi B tidak ada data. Opsi C tepat karena penurunan terjadi di sektor industri dan jasa. Opsi D bertentangan dengan data (pengangguran turun). Jebakan pada opsi yang terlalu ekstrem." },
+        { id: 6, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Puisi: 'Aku ingin mencintaimu dengan sederhana; seperti kata yang tak sempat diucapkan kayu kepada api yang menjadikannya abu.'", soal: "Makna yang paling mendalam dari puisi tersebut adalah...", options: ["A. Cinta yang rumit dan penuh drama", "B. Cinta yang sederhana namun destruktif", "C. Cinta yang membosankan", "D. Cinta yang penuh kebencian"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Kata kunci: 'sederhana' tetapi 'kayu menjadi abu oleh api' menunjukkan kehancuran. Opsi B paling tepat: sederhana namun destruktif. Opsi A bertentangan dengan 'sederhana'. Opsi C tidak tepat karena api membakar. Opsi D berlebihan." },
+        { id: 7, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "WHO resmi mencabut status darurat kesehatan global untuk COVID-19 pada 5 Mei 2023. Keputusan ini berdasarkan tren penurunan kasus dan meningkatnya kekebalan populasi.", soal: "Apa alasan utama WHO mencabut status darurat COVID-19?", options: ["A. Vaksin sudah tidak diperlukan", "B. Kasus menurun dan kekebalan populasi meningkat", "C. Semua negara sudah bebas COVID-19", "D. Tekanan dari negara-negara maju"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Teks: 'berdasarkan tren penurunan kasus dan meningkatnya kekebalan populasi'. Opsi B kutipan langsung. Opsi A, C, D tidak disebut atau salah. Jebakan pada opsi yang berbau konspirasi (D) atau absolut (C)." },
+        { id: 8, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Rani mematikan ponselnya. Ia kemudian meraih buku catatan dan mulai menulis. Matanya berkaca-kaca sesekali.", soal: "Apa yang mungkin sedang dirasakan Rani?", options: ["A. Kebahagiaan karena mendapat ponsel baru", "B. Kemarahan karena kehilangan data", "C. Kesedihan yang mendalam hingga menangis", "D. Kebosanan karena tidak ada hiburan"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> 'Matanya berkaca-kaca' menandakan menahan tangis atau sedih. Opsi C paling tepat. Opsi A bertentangan. Opsi B tidak didukung (tidak disebut kehilangan data). Opsi D tidak menyebabkan berkaca-kaca." },
+        { id: 9, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Program 'Makan Siang Gratis' di sekolah bertujuan meningkatkan gizi anak. Namun, anggaran yang besar dikhawatirkan membebani APBN.", soal: "Sikap paling bijak terhadap program tersebut adalah...", options: ["A. Menolak program karena terlalu mahal", "B. Menerima tanpa perubahan karena tujuan baik", "C. Mendukung dengan catatan perlu efisiensi dan pengawasan ketat", "D. Mengalihkan dana ke program lain"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A ekstrem, Opsi B naif, Opsi D tidak solutif. Opsi C seimbang: mendukung tujuan baik namun mengkritisi anggaran dengan efisiensi. Sikap bijak adalah moderat dan konstruktif." },
+        { id: 10, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Lelaki itu terus berlari tanpa menoleh ke belakang. Keringat bercucuran membasahi kemejanya. Langkahnya terhuyung karena kelelahan.", soal: "Dari teks, dapat ditemukan bahwa lelaki itu...", options: ["A. Sedang dikejar sesuatu", "B. Berlari karena senang", "C. Berlari sambil menoleh", "D. Kelelahan karena berlari"], correct: "D", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Tersurat: 'Langkahnya terhuyung karena kelelahan.' Opsi D tepat. Opsi A inferensi mungkin benar tapi tidak tersurat. Opsi B salah. Opsi C bertentangan dengan 'tanpa menoleh'." },
+        { id: 11, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Penjualan mobil listrik di Indonesia naik 300% pada kuartal I 2024. Meski demikian, jumlah Stasiun Pengisian Kendaraan Listrik Umum (SPKLU) masih sangat terbatas.", soal: "Kesimpulan yang dapat ditarik adalah...", options: ["A. Mobil listrik sudah lebih unggul dari mobil konvensional", "B. Infrastruktur pendukung belum sebanding dengan pertumbuhan penjualan", "C. Pemerintah melarang mobil bensin", "D. Semua orang beralih ke mobil listrik"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Penjualan naik drastis, tapi SPKLU terbatas → infrastruktur tertinggal. Opsi B tepat. Opsi A, C, D generalisasi dan tidak didukung teks." },
+        { id: 12, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Dalam novel 'Cantik Itu Luka', Eka Kurniawan menggambarkan kekerasan dan objektifikasi perempuan secara gamblang.", soal: "Kritik yang paling relevan terhadap novel tersebut adalah...", options: ["A. Novel ini terlalu vulgar dan tidak pantas dibaca", "B. Penggambaran kekerasan justru mengkritisi realitas sosial yang patriarkis", "C. Novel ini tidak memiliki nilai sastra", "D. Semua tokoh perempuan digambarkan lemah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A dangkal. Opsi B apresiasi kritis: penggambaran kekerasan bisa menjadi kritik sosial. Opsi C salah. Opsi D tidak akurat." },
+        { id: 13, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Bandara Soekarno-Hatta menempati peringkat ke-28 bandara tersibuk di dunia versi ACI 2023 dengan 49 juta penumpang.", soal: "Berapa juta penumpang yang dilayani Bandara Soetta pada 2023?", options: ["A. 28 juta", "B. 35 juta", "C. 49 juta", "D. 50 juta"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Angka 49 juta disebut eksplisit. Opsi C tepat. Jebakan pada opsi yang mirip (peringkat 28 vs jumlah 49)." },
+        { id: 14, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Setiap hari Jumat, Andi selalu membawa sekantong nasi dan lauk. Ia memberikannya pada seorang pemulung di dekat pasar.", soal: "Watak Andi yang paling menonjol adalah...", options: ["A. Pelit", "B. Peduli sosial", "C. Sombong", "D. Pemarah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Memberi makan pemulung secara rutin menunjukkan kepedulian sosial. Opsi B tepat. Opsi A, C, D bertentangan." },
+        { id: 15, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Penggunaan AI seperti ChatGPT di kalangan pelajar memicu pro kontra. Ada yang bilang membantu belajar, ada yang khawatir mengurangi kemampuan berpikir kritis.", soal: "Pendapat yang paling seimbang tentang fenomena ini adalah...", options: ["A. AI harus dilarang total di sekolah", "B. AI boleh digunakan asal untuk bahan referensi, bukan menggantikan proses berpikir", "C. AI lebih pintar dari guru", "D. AI hanya untuk bermain"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi B moderat dan solutif. Opsi A ekstrem, Opsi C provokatif, Opsi D meremehkan." },
+        { id: 16, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Laut malam itu gelap dan sunyi. Hanya suara ombak yang sesekali memecah kesunyian. Di kejauhan, sesosok bayangan berdiri di atas tebing.", soal: "Apa yang TIDAK disebutkan dalam teks?", options: ["A. Suara ombak", "B. Warna laut", "C. Bayangan di tebing", "D. Bulan bersinar terang"], correct: "D", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Bulan tidak disebut. Opsi D benar sebagai yang tidak disebut. Jebakan pada opsi yang logis tapi tidak ada." },
+        { id: 17, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Harga beras naik 15% dalam tiga bulan terakhir akibat gagal panen di beberapa sentra produksi.", soal: "Dampak yang paling mungkin terjadi adalah...", options: ["A. Daya beli masyarakat meningkat", "B. Inflasi bahan pokok dan beban belanja rumah tangga membesar", "C. Petani makmur tanpa masalah", "D. Ekspor beras meningkat"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Harga naik → daya beli turun, beban belanja naik. Opsi B tepat. Opsi A, C, D tidak logis." },
+        { id: 18, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Cerpen 'Robohnya Surau Kami' karya AA Navis mengkritik ritual keagamaan yang kosong tanpa pemaknaan.", soal: "Nilai utama yang disampaikan cerpen tersebut adalah...", options: ["A. Pentingnya kekayaan materi", "B. Ibadah ritual harus disertai pemahaman dan amal sosial", "C. Surau tidak berguna", "D. Semua orang harus menjadi kiai"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Kritik terhadap ritual kosong → pesan: ibadah harus bermakna dan disertai amal. Opsi B tepat." },
+        { id: 19, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Taman Nasional Komodo di NTT menjadi satu-satunya habitat asli komodo. Populasi komodo saat ini sekitar 3.000 ekor.", soal: "Pernyataan yang sesuai teks adalah...", options: ["A. Komodo banyak ditemukan di seluruh Indonesia", "B. Taman Nasional Komodo ada di Jawa", "C. Populasi komodo sekitar 3.000 ekor", "D. Komodo adalah hewan buas yang tidak dilindungi"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Teks: 'populasi komodo saat ini sekitar 3.000 ekor'. Opsi C tepat. Opsi A, B, D salah atau tidak disebut." },
+        { id: 20, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Ani tidak masuk sekolah selama tiga hari. Ketika ditanya, ia hanya diam dan menunduk.", soal: "Penyebab paling mungkin Ani tidak masuk sekolah adalah...", options: ["A. Liburan ke luar kota", "B. Ada masalah pribadi yang membuatnya malu atau sedih", "C. Malas belajar", "D. Pindah sekolah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Sikap diam dan menunduk mengindikasikan masalah pribadi (malu, sedih, takut). Opsi B paling logis. Opsi A, C, D tidak didukung." }
+    ];
+
+    // Lanjutkan hingga 40 soal (21-40) dengan tingkat kesulitan tinggi dan tidak berulang
+    const soalTambahan = [
+        { id: 21, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Candi Borobudur dibangun pada abad ke-8 oleh dinasti Syailendra. Candi ini sempat terkubur debu vulkanik selama berabad-abad.", soal: "Penyebab Candi Borobudur terkubur adalah...", options: ["A. Gempa bumi", "B. Letusan gunung berapi", "C. Banjir bandang", "D. Ulah manusia"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> 'terkubur debu vulkanik' → akibat letusan gunung berapi. Opsi B tepat." },
+        { id: 22, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Tangan Budi gemetar saat memegang amplop coklat itu. Ia menelan ludah, lalu membuka amplop perlahan.", soal: "Perasaan Budi yang paling mungkin adalah...", options: ["A. Senang", "B. Gugup atau takut", "C. Biasa saja", "D. Marah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Gemetar, menelan ludah → tanda gugup atau takut akan isi amplop." },
+        { id: 23, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Fenomena 'quiet quitting' yaitu pekerja hanya melakukan tugas minimal sesuai jobdesc, marak di kalangan Gen Z.", soal: "Pandangan paling bijak terhadap fenomena ini adalah...", options: ["A. Pekerja malas harus dipecat", "B. Perusahaan perlu mengevaluasi beban kerja dan kesejahteraan karyawan", "C. Fenomena ini tidak nyata", "D. Gen Z tidak layak bekerja"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Solusi konstruktif: evaluasi internal perusahaan. Opsi B paling bijak." },
+        { id: 24, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Kicau burung terdengar merdu di pagi buta. Embun masih membasahi dedaunan. Semburat merah mulai terlihat di timur.", soal: "Waktu yang digambarkan dalam teks adalah...", options: ["A. Siang hari", "B. Malam hari", "C. Pagi hari menjelang matahari terbit", "D. Sore hari"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> 'pagi buta', 'embun', 'semburat merah di timur' → pagi menjelang sunrise." },
+        { id: 25, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Penelitian menunjukkan bahwa 80% anak muda lebih percaya pada influencer daripada berita mainstream.", soal: "Dampak dari temuan ini adalah...", options: ["A. Media mainstream akan bangkrut", "B. Kredibilitas media tradisional menurun di mata generasi muda", "C. Semua influencer jujur", "D. Anak muda tidak peduli informasi"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Kepercayaan lebih tinggi pada influencer → kredibilitas media tradisional menurun relatif." },
+        { id: 26, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Lagu 'Lathi' oleh Weird Genius menggabungkan musik elektronik dengan tembang Jawa dan lirik berbahasa Inggris.", soal: "Keunikan lagu tersebut terletak pada...", options: ["A. Hanya menggunakan satu bahasa", "B. Perpaduan budaya Timur dan Barat serta kolaborasi genre", "C. Lirik yang tidak bermakna", "D. Tempo yang sangat lambat"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Gabungan elektronik (Barat) + tembang Jawa (Timur) → perpaduan budaya dan genre." },
+        { id: 27, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Indonesia menduduki peringkat ke-5 sebagai negara penghasil sampah plastik terbesar di dunia.", soal: "Peringkat Indonesia sebagai penghasil sampah plastik adalah...", options: ["A. Ke-1", "B. Ke-3", "C. Ke-5", "D. Ke-10"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> Eksplisit 'peringkat ke-5'." },
+        { id: 28, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Lia selalu membawa payung kemanapun pergi, meski cuaca cerah.", soal: "Karakter Lia yang paling mungkin adalah...", options: ["A. Pencemas dan suka berjaga-jaga", "B. Sok sibuk", "C. Pemboros", "D. Tukang pamer"], correct: "A", explanation: "📌 <strong>PEMBAHASAN:</strong> Perilaku antisipatif berlebihan → ciri pencemas atau sangat berhati-hati." },
+        { id: 29, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Media sosial memicu fenomena Fear of Missing Out (FOMO) pada remaja.", soal: "Solusi paling tepat untuk mengatasi FOMO adalah...", options: ["A. Mematikan semua akses internet", "B. Membatasi waktu bermedsos dan meningkatkan aktivitas nyata", "C. Mengikuti semua tren", "D. Membeli barang yang sedang viral"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Batasan sehat dan alihkan ke dunia nyata." },
+        { id: 30, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Di sudut ruangan, seorang gadis kecil memeluk boneka usangnya erat-erat. Matanya terpejam, bibirnya komat-kamit.", soal: "Aktivitas yang sedang dilakukan gadis kecil adalah...", options: ["A. Bermain boneka", "B. Berdoa atau tidur", "C. Menonton TV", "D. Belajar"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Mata terpejam, bibir komat-kamit → tanda sedang berdoa atau tidur (mimpi)." },
+        { id: 31, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Setiap tahun, Indonesia kehilangan 684.000 hektar hutan akibat deforestasi.", soal: "Dampak jangka panjang dari deforestasi adalah...", options: ["A. Peningkatan oksigen", "B. Kepunahan spesies dan perubahan iklim", "C. Kesuburan tanah meningkat", "D. Banjir tidak akan terjadi"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Hilangnya habitat → kepunahan, juga emisi karbon → perubahan iklim." },
+        { id: 32, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Film 'Penyanyi Malam' mengangkat kisah perjuangan seniman jalanan.", soal: "Pesan moral yang paling kuat dalam film tersebut adalah...", options: ["A. Uang adalah segalanya", "B. Seni tidak penting", "C. Kegigihan dan semangat pantang menyerah", "D. Jalanan adalah tempat terbaik"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> Perjuangan seniman jalanan → nilai kegigihan." },
+        { id: 33, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Badan Pusat Statistik mencatat jumlah penduduk miskin Maret 2024 sebesar 9,03% dari total penduduk.", soal: "Persentase penduduk miskin pada Maret 2024 adalah...", options: ["A. 8,5%", "B. 9,03%", "C. 10,2%", "D. 12%"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> 9,03% disebut eksplisit." },
+        { id: 34, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Rina menyusuri lorong gelap sendirian. Ia mendengar suara langkah kaki di belakangnya.", soal: "Yang mungkin dirasakan Rina adalah...", options: ["A. Tenang", "B. Senang", "C. Takut dan was-was", "D. Lapar"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> Lorong gelap + suara langkah kaki misterius → takut." },
+        { id: 35, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Kenaikan BBM bersubsidi selalu menuai protes. Namun, subsidi yang membebani APBN perlu dikurangi.", soal: "Pendapat yang paling rasional adalah...", options: ["A. Harga BBM tidak boleh naik selamanya", "B. Subsidi perlu dialihkan ke program yang lebih tepat sasaran seperti bansos", "C. Biarkan APBN defisit", "D. Harga BBM dinaikkan 500%"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Solusi rasional: realokasi subsidi ke yang lebih tepat sasaran." },
+        { id:36, kompetensi:"Unsur Paragraf", teks:"informasi", bacaan:"(1) Indonesia memiliki keanekaragaman hayati tertinggi kedua di dunia. (2) Sayangnya, deforestasi terus terjadi. (3) Oleh karena itu, perlu aksi nyata.", soal:"Kalimat yang merupakan argumen/ide pokok paragraf tersebut adalah...", options:["A. Kalimat (1)","B. Kalimat (2)","C. Kalimat (3)","D. Semua benar"], correct:"C", explanation:"Kalimat (3) adalah simpulan/ajakan yang menjadi inti argumen." },
+        { id:37, kompetensi:"Unsur Paragraf", teks:"informasi", bacaan:"Sampah plastik menjadi masalah global. Banyak negara melarang plastik sekali pakai. Indonesia pun mulai menerapkan kebijakan serupa.", soal:"Pola pengembangan paragraf tersebut adalah...", options:["A. Deduktif","B. Induktif","C. Naratif","D. Deskriptif"], correct:"B", explanation:"Dimulai dari masalah global, lalu contoh, terakhir kebijakan Indonesia → khusus → umum (induktif)." },
+        { id:38, kompetensi:"Unsur Paragraf", teks:"fiksi", bacaan:"Hujan turun deras. Angin menderu kencang. Daun-daun beterbangan. Suasana mencekam.", soal:"Kalimat yang merupakan unsur deskripsi suasana:", options:["A. Hujan turun","B. Angin menderu","C. Daun beterbangan","D. Semua jawaban di atas"], correct:"D", explanation:"Semua kalimat mendeskripsikan suasana mencekam." },
+        { id:39, kompetensi:"Unsur Paragraf", teks:"informasi", bacaan:"Ketahanan pangan harus diperkuat. Pertama, diversifikasi pangan lokal. Kedua, modernisasi pertanian. Ketiga, dukungan riset.", soal:"Berdasarkan strukturnya, paragraf tersebut termasuk jenis...", options:["A. Argumentasi dengan contoh","B. Eksposisi proses","C. Persuasi dengan bukti","D. Deskripsi subjektif"], correct:"A", explanation:"Berisi pendapat (harus diperkuat) disertai rincian alasan → argumentasi." },
+        { id:40, kompetensi:"Unsur Paragraf", teks:"fiksi", bacaan:"Di kejauhan tampak puncak gunung diselimuti kabut. Embun masih menempel di rumput. Burung berkicau pelan.", soal:"Pola kalimat utama paragraf ini berada di...", options:["A. Awal paragraf","B. Tengah paragraf","C. Akhir paragraf","D. Tidak ada kalimat utama"], correct:"D", explanation:"Paragraf deskriptif yang tidak memiliki kalimat utama eksplisit (semua kalimat sama penting)." },
+        // CERPEN & TABEL (5)
+        { id:41, kompetensi:"Cerpen & Tabel", teks:"fiksi", bacaan:"Dalam cerpen 'Rindu', tokoh Utama merantau ke kota. Ia selalu rindu kampung halaman. Suatu hari ia mendapat kabar orang tuanya sakit.", soal:"Amanat cerpen tersebut yang paling mungkin adalah...", options:["A. Merantau itu menyenangkan","B. Jangan lupakan keluarga dan kampung halaman","C. Orang tua selalu sakit","D. Kota lebih baik dari desa"], correct:"B", explanation:"Kesedihan karena rindu dan kabar orang tua sakit → pesan jangan lupakan keluarga." },
+        { id:42, kompetensi:"Cerpen & Tabel", teks:"informasi", bacaan:"<table border='1'><tr><th>Tahun</th><th>Jumlah</th></tr><tr><td>2020</td><td>120</td></tr><tr><td>2021</td><td>150</td></tr></table>", soal:"Berdasarkan tabel, peningkatan jumlah dari 2020 ke 2021 adalah...", options:["A. 20","B. 30","C. 40","D. 50"], correct:"B", explanation:"150-120 = 30." },
+        { id:43, kompetensi:"Cerpen & Tabel", teks:"fiksi", bacaan:"Dalam kutipan cerpen: 'Dia terdiam, air matanya jatuh membasahi surat itu.'", soal:"Suasana yang tergambar adalah...", options:["A. Gembira","B. Sedih","C. Marah","D. Biasa saja"], correct:"B", explanation:"Air mata → kesedihan." },
+        { id:44, kompetensi:"Cerpen & Tabel", teks:"informasi", bacaan:"Tabel: Nilai UN Bahasa Indonesia tahun 2023: Rata-rata 78,5; Median 80; Modus 85.", soal:"Pernyataan yang BENAR berdasarkan tabel:", options:["A. Sebagian besar siswa mendapat nilai 78,5","B. Nilai yang paling sering muncul adalah 85","C. Rata-rata lebih besar dari modus","D. Median adalah 78,5"], correct:"B", explanation:"Modus = 85 adalah nilai yang paling sering muncul." },
+        { id:45, kompetensi:"Cerpen & Tabel", teks:"fiksi", bacaan:"Cerpen 'Pohon Keramat': warga takut menebang pohon beringin karena mitos.", soal:"Konflik utama cerpen tersebut adalah...", options:["A. Ketakutan irasional warga","B. Pohon beringin tumbang","C. Kemarahan kepala desa","D. Hewan liar"], correct:"A", explanation:"Konflik batin akibat mitos." },
+        // MENULIS TERBATAS (5)
+        { id:46, kompetensi:"Menulis Terbatas", teks:"informasi", bacaan:"Petunjuk: Buat kalimat poster tentang hemat energi.", soal:"Kalimat poster yang paling efektif dan persuasif adalah...", options:["A. Matikan lampu jika tidak perlu","B. Hemat energi selamatkan bumi!","C. Lampu jangan dinyalakan","D. Tolong matikan lampu"], correct:"B", explanation:"Mengandung ajakan kuat dan singkat." },
+        { id:47, kompetensi:"Menulis Terbatas", teks:"informasi", bacaan:"Tema: Pentingnya gotong royong.", soal:"Kalimat slogan yang tepat adalah...", options:["A. Bersatu kita teguh","B. Gotong royong budaya kita","C. Mari kita kerja bakti","D. Sendiri itu berat"], correct:"A", explanation:"Slogan klasik, padat, bermakna." },
+        { id:48, kompetensi:"Menulis Terbatas", teks:"informasi", bacaan:"Anda diminta menulis pengumuman tentang lomba puisi.", soal:"Bagian pembuka pengumuman yang paling baik:", options:["A. Kepada seluruh siswa","B. Diumumkan kepada seluruh siswa bahwa akan diadakan lomba puisi","C. Lomba puisi","D. Assalamualaikum"], correct:"B", explanation:"Struktur pengumuman baku." },
+        { id:49, kompetensi:"Menulis Terbatas", teks:"informasi", bacaan:"Isi pesan singkat: memberi tahu teman bahwa rapat dimajukan.", soal:"Pesan singkat paling jelas:", options:["A. Rapat dimajukan","B. Hai, rapat besok jadi jam 8, bukan jam 9","C. Rapat ganti jam","D. Tolong ingat rapat"], correct:"B", explanation:"Jelas, spesifik." },
+        { id:50, kompetensi:"Menulis Terbatas", teks:"informasi", bacaan:"Menulis ringkasan teks tentang sampah plastik: 5 kalimat.", soal:"Syarat ringkasan yang benar adalah...", options:["A. Mengandung opini penulis","B. Lebih panjang dari teks asli","C. Memuat ide pokok dan padat","D. Menyalin semua kalimat"], correct:"C", explanation:"Ringkasan = ide pokok, singkat." },
+        // INFOGRAFIK (5)
+        { id:51, kompetensi:"Infografik", teks:"informasi", bacaan:"Infografik: 70% remaja menggunakan medsos >3 jam/hari, 25% pernah alami cyberbullying.", soal:"Kesimpulan utama dari data infografik:", options:["A. Remaja kecanduan medsos","B. Cyberbullying tinggi dan durasi medsos lama","C. Semua remaja aman","D. Medsos tidak berdampak"], correct:"B", explanation:"Data menunjukkan durasi tinggi & adanya cyberbullying." },
+        { id:52, kompetensi:"Infografik", teks:"informasi", bacaan:"Infografik: Diagram batang kunjungan wisata: Bali 8jt, Jogja 5jt, Lombok 3jt.", soal:"Pernyataan yang tepat:", options:["A. Lombok lebih ramai dari Bali","B. Bali paling diminati wisatawan","C. Jogja 8 juta","D. Tidak ada data"], correct:"B", explanation:"Bali 8jt tertinggi." },
+        { id:53, kompetensi:"Infografik", teks:"informasi", bacaan:"Infografik: Langkah cuci tangan (1) basahi, (2) sabun, (3) gosok, (4) bilas, (5) keringkan.", soal:"Urutan yang benar adalah...", options:["A. 1-2-4-3-5","B. 1-2-3-4-5","C. 2-1-3-4-5","D. 5-4-3-2-1"], correct:"B", explanation:"Urutan prosedur yang benar." },
+        { id:54, kompetensi:"Infografik", teks:"informasi", bacaan:"Infografik: Persentase donasi: pendidikan 45%, kesehatan 30%, infrastruktur 25%.", soal:"Jika total donasi 1M, berapa untuk kesehatan?", options:["A. 250 jt","B. 300 jt","C. 450 jt","D. 350 jt"], correct:"B", explanation:"30% × 1M = 300 jt." },
+        { id:55, kompetensi:"Infografik", teks:"informasi", bacaan:"Infografik peta: daerah rawan banjir di Jawa Tengah: Pekalongan, Semarang, Kudus.", soal:"Kota yang TIDAK termasuk rawan banjir:", options:["A. Pekalongan","B. Semarang","C. Surakarta","D. Kudus"], correct:"C", explanation:"Surakarta tidak disebut." },
+        // MENYUNTING EJAAN & TANDA BACA (5)
+        { id:56, kompetensi:"Menyunting Ejaan", teks:"informasi", bacaan:"Kalimat: 'Para peserta diharapkan datang tepat waktu, karena acara akan dimulai pukul 08.00'.", soal:"Perbaikan tanda baca yang tepat:", options:["A. Tepat waktu karena acara (tanpa koma)","B. tepat waktu, karena acara (koma sebelum karena)","C. tepat waktu karena acara (koma dihilangkan)","D. tepat waktu: karena acara"], correct:"B", explanation:"Koma sebelum 'karena' untuk klausa sebab akibat." },
+        { id:57, kompetensi:"Menyunting Ejaan", teks:"informasi", bacaan:"Kalimat: 'Saya beli buku, pensil dan penghapus.'", soal:"Perbaikan ejaan tanda baca:", options:["A. buku, pensil, dan penghapus","B. buku pensil dan penghapus","C. buku; pensil dan penghapus","D. buku, pensil, dan, penghapus"], correct:"A", explanation:"Menggunakan tanda koma sebelum 'dan' untuk serial (Oxford comma) sesuai PUEBI fleksibel namun opsi A paling baku." },
+        { id:58, kompetensi:"Menyunting Ejaan", teks:"informasi", bacaan:"Penulisan kata: 'di Jakarta', 'di berikan', 'disana'.", soal:"Penulisan yang benar sesuai kaidah:", options:["A. di Jakarta, diberikan, di sana","B. diJakarta, diberikan, disana","C. di Jakarta, di berikan, di sana","D. dijakarta, diberikan, disana"], correct:"A", explanation:"di sebagai kata depan dipisah, diberikan (di- sebagai awalan), di sana (kata depan + tempat)." },
+        { id:59, kompetensi:"Menyunting Ejaan", teks:"informasi", bacaan:"Kalimat: 'Kapan kamu pulang? Tanya ibu.'", soal:"Perbaikan tanda baca yang tepat:", options:["A. 'Kapan kamu pulang?' tanya ibu.","B. 'Kapan kamu pulang?', tanya ibu.","C. 'Kapan kamu pulang? Tanya ibu.'","D. Kapan kamu pulang? tanya ibu."], correct:"A", explanation:"Huruf kecil 'tanya' setelah kutipan kalimat tanya." },
+        { id:60, kompetensi:"Menyunting Ejaan", teks:"informasi", bacaan:"Kalimat: 'Presiden Jokowi berkata “kita harus bersatu”.'", soal:"Penempatan tanda petik yang benar:", options:["A. berkata, “Kita harus bersatu.”","B. berkata “kita harus bersatu.”","C. berkata “Kita harus bersatu”","D. berkata: “Kita harus bersatu.”"], correct:"D", explanation:"Tanda titik dua sebelum petik, dan huruf kapital awal kalimat, titik di dalam petik." }
+    ];
+
+    const fullSoal = [...soalData, ...soalTambahan];
+    fullSoal.sort((a,b) => a.id - b.id);
+
+    // State
+    let userAnswers = {};
+    let answerStatus = {};
+
+    function loadStorage() {
+        let saved = localStorage.getItem('bindo_40_hard');
+        let savedStatus = localStorage.getItem('bindo_40_hard_status');
+        if(saved) userAnswers = JSON.parse(saved);
+        if(savedStatus) answerStatus = JSON.parse(savedStatus);
+        for(let i=1;i<=40;i++) {
+            if(!userAnswers[i]) userAnswers[i] = "";
+            if(answerStatus[i] === undefined) answerStatus[i] = false;
+        }
+    }
+
+    function saveStorage() {
+        localStorage.setItem('bindo_40_hard', JSON.stringify(userAnswers));
+        localStorage.setItem('bindo_40_hard_status', JSON.stringify(answerStatus));
+        let toast = document.getElementById('toast-save');
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 1000);
+    }
+
+    function updateScore() {
+        let correct = 0;
+        for(let i=1;i<=40;i++) if(answerStatus[i]) correct++;
+        document.getElementById('liveScoreDisplay').innerHTML = `🏆 SKOR: ${correct} / 40`;
+    }
+
+    window.evaluateQuestion = function(id) {
+        let q = fullSoal.find(x=>x.id===id);
+        let jawab = userAnswers[id];
+        if(!jawab) {
+            document.getElementById(`fb_${id}`).innerHTML = `<div class="result-warning">⚠️ Pilih jawaban terlebih dahulu!</div>`;
+            return;
+        }
+        let benar = (jawab === q.correct);
+        answerStatus[id] = benar;
+        saveStorage();
+        
+        let fbDiv = document.getElementById(`fb_${id}`);
+        let resultHtml = benar ? 
+            `<div class="result-correct">✅ <strong>BENAR!</strong> Jawaban Anda: ${jawab} (Kunci: ${q.correct})</div>` :
+            `<div class="result-wrong">❌ <strong>SALAH!</strong><br>Jawaban Anda: ${jawab}<br>Jawaban benar: <strong>${q.correct}</strong></div>`;
+        resultHtml += `<div class="explanation-box"><strong>📘 PEMBAHASAN DETAIL + ANALISIS JEBAKAN:</strong><br>${q.explanation}</div>`;
+        fbDiv.innerHTML = resultHtml;
+        updateScore();
+    };
+
+    window.showExplanation = function(id) {
+        let q = fullSoal.find(x=>x.id===id);
+        document.getElementById(`fb_${id}`).innerHTML = `<div class="explanation-box"><strong>📘 PEMBAHASAN LENGKAP & STRATEGI MENJAWAB:</strong><br>${q.explanation}</div>`;
+    };
+
+    function checkAll() { for(let i=1;i<=40;i++) evaluateQuestion(i); }
+    function resetAll() {
+        for(let i=1;i<=40;i++) {
+            userAnswers[i] = "";
+            answerStatus[i] = false;
+            let radios = document.getElementsByName(`q${i}`);
+            radios.forEach(r => r.checked = false);
+            document.getElementById(`fb_${i}`).innerHTML = "";
+        }
+        saveStorage();
+        updateScore();
+    }
+
+    function showAllAnswers() {
+        let modal = document.getElementById('answerModal');
+        let container = document.getElementById('answerListContainer');
+        container.innerHTML = fullSoal.map(q => `<div class="answer-item"><span>${q.id}. ${q.soal.substring(0,35)}...</span><span><strong>${q.correct}</strong></span></div>`).join('');
+        modal.style.display = 'flex';
+    }
+
+    function copyAnswers() {
+        let text = "KUNCI JAWABAN BAHASA INDONESIA (40 SOAL - SULIT & MENJEBAK)\n\n";
+        fullSoal.forEach(q => { text += `${q.id}. ${q.correct} - ${q.soal.substring(0,50)}\n`; });
+        navigator.clipboard.writeText(text);
+        alert("✅ Kunci jawaban disalin!");
+    }
+
+    function render() {
+        let grid = document.getElementById('quizGrid');
+        grid.innerHTML = '';
+        fullSoal.forEach((q, idx) => {
+            let card = document.createElement('div');
+            card.className = 'question-card';
+            card.style.animationDelay = `${idx * 0.02}s`;
+            let kompetensiColor = q.kompetensi === "Pemahaman Tekstual" ? "#3b82f6" : (q.kompetensi === "Pemahaman Inferensial" ? "#10b981" : "#8b5cf6");
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="num-badge">${q.id}</div>
+                    <div class="kompetensi-tag" style="background:${kompetensiColor}15; color:${kompetensiColor};">📌 ${q.kompetensi}</div>
+                    <div class="teks-tag">📄 ${q.teks === 'informasi' ? 'Teks Informasi' : 'Teks Fiksi'}</div>
+                </div>
+                <div class="reading-text">📖 ${q.bacaan}</div>
+                <div class="question-text">❓ ${q.soal}</div>
+                <div class="options" id="opt_${q.id}"></div>
+                <div class="button-group-vertical">
+                    <button class="check-btn" onclick="evaluateQuestion(${q.id})">✅ CEK JAWABAN & PEMBAHASAN</button>
+                    <button class="pembahasan-btn" onclick="showExplanation(${q.id})">📖 LIHAT PEMBAHASAN</button>
+                </div>
+                <div class="feedback-area" id="fb_${q.id}"></div>
+            `;
+            grid.appendChild(card);
+            let optDiv = document.getElementById(`opt_${q.id}`);
+            q.options.forEach(opt => {
+                let letter = opt[0];
+                let div = document.createElement('div');
+                div.className = 'option';
+                div.innerHTML = `<input type="radio" name="q${q.id}" value="${letter}" id="q${q.id}_${letter}" ${userAnswers[q.id]===letter ? 'checked' : ''}><label for="q${q.id}_${letter}">${opt}</label>`;
+                div.querySelector('input').addEventListener('change', (e) => {
+                    userAnswers[q.id] = e.target.value;
+                    answerStatus[q.id] = false;
+                    saveStorage();
+                    updateScore();
+                    document.getElementById(`fb_${q.id}`).innerHTML = "";
+                });
+                optDiv.appendChild(div);
+            });
+            if(userAnswers[q.id] && answerStatus[q.id]) evaluateQuestion(q.id);
+        });
+    }
+
+    // Scroll Top visibility
+    window.addEventListener('scroll', () => {
+        let btn = document.getElementById('scrollTopBtn');
+        if(window.scrollY > 300) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+    });
+    document.getElementById('scrollTopBtn')?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Splash screen
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            let splash = document.getElementById('splash-screen');
+            if(splash) {
+                splash.classList.add('fade-out');
+                setTimeout(() => splash.remove(), 800);
+            }
+        }, 2500);
+    });
+
+    loadStorage();
+    render();
+    updateScore();
+
+    document.getElementById('checkAllBtn')?.addEventListener('click', checkAll);
+    document.getElementById('resetBtn')?.addEventListener('click', resetAll);
+    document.getElementById('showAllAnswersBtn')?.addEventListener('click', showAllAnswers);
+    document.getElementById('closeModalBtn')?.addEventListener('click', () => document.getElementById('answerModal').style.display = 'none');
+    document.getElementById('copyAnswersBtn')?.addEventListener('click', copyAnswers);
+</script>
+</body>
+</html>
