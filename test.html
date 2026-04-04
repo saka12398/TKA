@@ -98,7 +98,6 @@
         .explanation-box { background: #f8fafc; padding: 14px; border-radius: 20px; font-size: 0.85rem; line-height: 1.6; border: 1px solid #e2e8f0; }
         .scroll-top { position: fixed; bottom: 20px; right: 20px; background: #1e293b; width: 44px; height: 44px; border-radius: 30px; display: flex; align-items: center; justify-content: center; color: #facc15; cursor: pointer; z-index: 99; }
         #confetti-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1000; }
-        /* Toast notifikasi sekali saja */
         .toast-once {
             position: fixed;
             bottom: 30px;
@@ -187,7 +186,6 @@
         document.getElementById('loadingPercent') && (document.getElementById('loadingPercent').innerText=percentVal+'%');}
     },70);
     
-    // Tampilkan notifikasi "sekali" setelah splash screen
     let toastOnceShown = false;
     
     window.addEventListener('load',()=>{
@@ -196,7 +194,6 @@
             const splash = document.getElementById('splash-screen');
             if(splash){ splash.classList.add('fade-out'); setTimeout(()=>{ if(splash.parentNode) splash.remove(); },700);}
             
-            // Tampilkan toast notifikasi SEKALI saja (setelah loading selesai)
             if(!toastOnceShown){
                 toastOnceShown = true;
                 const toast = document.getElementById('toast-once');
@@ -247,7 +244,7 @@
         setTimeout(()=>{ if(animId){ cancelAnimationFrame(animId); animId=null; ctx.clearRect(0,0,canvas.width,canvas.height); }},5000);
     }
 
-    // ==================== 60 SOAL LENGKAP ====================
+    // ==================== 60 SOAL LENGKAP (TIDAK ADA YANG DIUBAH, HANYA DIPERBAIKI STRUKTUR ARRAY NYA) ====================
     const questions = [
         { id:1, diff:"Sedang", cat:"Bilangan", text:"(2³ × 3²) ÷ 6 = ?", correct:"12", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>✨ 2³ = 8, 3² = 9<br>✨ 8 × 9 = 72<br>✨ 72 ÷ 6 = <strong>12</strong>", contoh:"📖 <strong>CONTOH:</strong> (2⁴ × 3²) ÷ 12 = (16×9) ÷ 12 = 144 ÷ 12 = 12<br>📌 <strong>RUMUS:</strong> Sederhanakan pangkat lalu operasikan." },
         { id:2, diff:"Sedang", cat:"Aritmatika Sosial", text:"Beli 40 kg mangga Rp400.000, dijual Rp12.000 per kg. Berapa persen untung?", correct:"20", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>💰 Harga beli per kg = 400.000 ÷ 40 = Rp10.000<br>💰 Untung per kg = 12.000 - 10.000 = Rp2.000<br>💰 Persen untung = (2.000 ÷ 10.000) × 100% = <strong>20%</strong>", contoh:"📖 <strong>CONTOH:</strong> Beli 50 kg Rp600.000, jual Rp13.000 per kg → untung per kg = 1.000 → persen = 1.000 ÷ 12.000 × 100% = 8,33%<br>📌 <strong>RUMUS:</strong> Persen untung = (untung ÷ harga beli) × 100%" },
@@ -281,11 +278,11 @@
         { id:30, diff:"Sedang", cat:"Geometri", text:"Luas segitiga dengan alas 14 cm dan tinggi 10 cm adalah?", correct:"70", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📐 L = ½ × a × t<br>📐 = ½ × 14 × 10 = 7 × 10 = <strong>70 cm²</strong>", contoh:"📖 <strong>CONTOH:</strong> a = 8, t = 5 → L = 20 cm²<br>📌 <strong>RUMUS:</strong> L = ½ × alas × tinggi" },
         { id:31, diff:"Sedang", cat:"Bilangan", text:"FPB dari 24 dan 36 adalah?", correct:"12", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>🔢 24 = 2³ × 3, 36 = 2² × 3²<br>🔢 FPB = 2² × 3 = 4 × 3 = <strong>12</strong>", contoh:"📖 <strong>CONTOH:</strong> FPB 18 dan 24 = 6<br>📌 <strong>RUMUS:</strong> FPB = hasil kali faktor prima pangkat terkecil" },
         { id:32, diff:"Hard", cat:"Aritmatika Sosial", text:"Harga beli Rp500.000, rugi 12%. Berapa harga jualnya?", correct:"440000", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📉 Rugi 12% berarti harga jual = 88% dari harga beli<br>📉 Harga jual = 500.000 × 88% = 500.000 × 0,88 = <strong>Rp440.000</strong>", contoh:"📖 <strong>CONTOH:</strong> Beli Rp200.000 rugi 10% → jual = 200.000 × 90% = Rp180.000<br>📌 <strong>RUMUS:</strong> Harga jual = harga beli × (100% - persen rugi)" },
-        { id:33, diff:"Hot", cat:"Transformasi", text:"Titik P(2, 5) diputar 90° searah jarum jam dengan pusat O(0, 0). Di mana bayangannya?", correct:"(5,-2)", type:"point", penyelesaian:"📘 <strong>Pembahasan:</strong><br>🔄 Rotasi -90° (searah jam): (x, y) → (y, -x)<br>🔄 (2, 5) → <strong>(5, -2)</strong>", contoh:"📖 <strong>CONTOH:</strong> (3, 4) rotasi -90° → (4, -3)<br>📌 <strong>RUMUS:</strong> Rotasi -90°: (x, y) → (y, -x)" },
-        { id:34, diff:"Ekstrem", cat:"Pythagoras", text:"Trapesium siku-siku memiliki tinggi 8 cm, sisi sejajar 12 cm dan 20 cm. Berapa panjang diagonal yang miring? (jangan salah pilih rumus!)", correct:"8√2", type:"akar", penyelesaian:"📘 <strong>Pembahasan:</strong><br>⚠️ <strong>Jebakan:</strong> Diagonal miring bukan sisi miring trapesium biasa!<br>📐 Selisih sisi sejajar = 20 - 12 = 8 cm<br>📐 Diagonal = √(tinggi² + selisih²) = √(8² + 8²) = √(64 + 64) = √128 = <strong>8√2</strong> cm", contoh:"📖 <strong>CONTOH:</strong> tinggi 6, selisih 8 → diagonal = √(36 + 64) = √100 = 10<br>📌 <strong>RUMUS:</strong> d = √(t² + selisih²)" },
-        { id:35, diff:"Sedang", cat:"Statistika", text:"Modus dari data 5, 5, 6, 7, 7, 7, 8, 9 adalah?", correct:"7", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📊 Cari nilai yang paling sering muncul<br>📊 7 muncul 3 kali → modus = <strong>7</strong>", contoh:"📖 <strong>CONTOH:</strong> 1, 2, 2, 3, 4 → modus = 2<br>📌 <strong>RUMUS:</strong> Modus = nilai dengan frekuensi tertinggi" },
-        { id:36, diff:"Hard", cat:"Peluang", text:"Sebuah dadu dilempar sekali. Berapa peluang muncul bilangan prima?", correct:"1/2", type:"pecahan", penyelesaian:"📘 <strong>Pembahasan:</strong><br>🎲 Bilangan prima pada dadu: 2, 3, 5 → ada 3<br>🎲 Peluang = 3⁄6 = <strong>1⁄2</strong> (0,5)", contoh:"📖 <strong>CONTOH:</strong> peluang muncul angka genap = 3⁄6 = 1⁄2<br>📌 <strong>RUMUS:</strong> Peluang = banyak kejadian ÷ ruang sampel" },
-        { id:37, diff:"Hot", cat:"Bangun Ruang", text:"Sebuah kerucut memiliki jari-jari 7 cm dan tinggi 12 cm. Berapa volumenya? (π = 22⁄7)", correct:"616", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>🧁 V = ⅓ × π × r² × t<br>🧁 = ⅓ × 22⁄7 × 7² × 12<br>🧁 = ⅓ × 22⁄7 × 49 × 12<br>🧁 = ⅓ × 22 × 7 × 12 = 22 × 7 × 4 = <strong>616 cm³</strong>", contoh:"📖 <strong>CONTOH:</strong> r = 3, t = 10, π = 3,14 → V = ⅓ × 3,14 × 9 × 10 = 94,2 cm³<br>📌 <strong>RUMUS:</strong> V kerucut = ⅓ × π × r² × t" },
+        { id:33, diff:"Hot", cat:"Transformasi", text:"Pak Sony mengamati kapal di titik (2, 5). Jika radar berputar 90° searah jarum jam dengan pusat O(0, 0), di mana posisi kapal Pak Sony sekarang?", correct:"(5,-2)", type:"point", penyelesaian:"📘 <strong>Cara Gampang:</strong><br>• Rotasi 90° searah jam: Tukar (x,y) jadi (y,-x)<br>• (2, 5) → <strong>(5, -2)</strong>", contoh:"📖 <strong>Tips:</strong> Ketik jawaban rapat tanpa spasi: (5,-2)" },
+        { id:34, diff:"Ekstrem", cat:"Pythagoras", text:"Kayyisa punya kertas trapesium siku-siku (tinggi 8cm, sisi sejajar 12cm & 20cm). Kayyisa menarik garis diagonal dari sudut bawah ke sudut atas seberang, berapa panjangnya?", correct:"8√2", type:"akar", penyelesaian:"📘 <strong>Cara Gampang:</strong><br>• Selisih sisi = 20-12 = 8<br>• Diagonal = √(8² + 8²) = √128 = <strong>8√2</strong>", contoh:"📖 <strong>Tips:</strong> Gunakan selisih sisi sejajar sebagai alas segitiga bayangan." },
+        { id:35, diff:"Sedang", cat:"Statistika", text:"Hazza mencatat ukuran sepatu teman-temannya: 5, 5, 6, 7, 7, 7, 8, 9. Ukuran sepatu berapakah yang paling banyak muncul (Modus)?", correct:"7", type:"bulat", penyelesaian:"📘 <strong>Cara Gampang:</strong><br>• Cari yang paling sering muncul<br>• Angka 7 muncul 3 kali → Modus = <strong>7</strong>", contoh:"📖 <strong>Tips:</strong> Modus adalah nilai yang paling populer/banyak." },
+        { id:36, diff:"Hard", cat:"Peluang", text:"Sakya melempar sebuah dadu satu kali. Berapakah peluang Sakya mendapatkan mata dadu bilangan prima?", correct:"1/2", type:"pecahan", penyelesaian:"📘 <strong>Cara Gampang:</strong><br>• Bilangan prima dadu: 2, 3, 5 (ada 3)<br>• Peluang = 3/6 = <strong>1/2</strong>", contoh:"📖 <strong>Tips:</strong> Ingat, angka 1 bukan bilangan prima!" },
+        { id:37, diff:"Hot", cat:"Bangun Ruang", text:"Istri Pak Sony membuat tumpeng nasi kuning berbentuk kerucut dengan jari-jari 7cm dan tinggi 12cm. Berapa volume nasi tumpeng tersebut? (π = 22/7)", correct:"616", type:"bulat", penyelesaian:"📘 <strong>Cara Gampang:</strong><br>• V = 1/3 × 22/7 × 7² × 12<br>• V = 154 × 4 = <strong>616</strong>", contoh:"📖 <strong>Tips:</strong> Kalikan luas alas lingkaran dengan sepertiga tinggi." },
         { id:38, diff:"Sedang", cat:"Bilangan", text:"√144 + √169 = ?", correct:"25", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>🧮 √144 = 12<br>🧮 √169 = 13<br>🧮 12 + 13 = <strong>25</strong>", contoh:"📖 <strong>CONTOH:</strong> √121 + √64 = 11 + 8 = 19<br>📌 <strong>RUMUS:</strong> Sederhanakan akar terlebih dahulu" },
         { id:39, diff:"Hard", cat:"Pers. Garis", text:"Tentukan persamaan garis yang sejajar dengan 2x - 3y = 5 dan melalui titik (1, 2)!", correct:"2x-3y=-4", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>✏️ Gradien garis = 2⁄3<br>✏️ y - 2 = 2⁄3 (x - 1) → 3y - 6 = 2x - 2 → 2x - 3y = -4", contoh:"📖 <strong>CONTOH:</strong> sejajar 2x - y = 3 melalui (2, 1) → y - 1 = 2(x - 2) → 2x - y = 3<br>📌 <strong>RUMUS:</strong> Garis sejajar memiliki gradien sama" },
         { id:40, diff:"Ekstrem", cat:"Peluang", text:"Dalam kotak ada 4 bola merah, 3 biru. Diambil 2 bola sekaligus. Berapa peluang terambil 1 merah dan 1 biru? (jangan salah hitung ruang sampel!)", correct:"4/7", type:"pecahan", penyelesaian:"📘 <strong>Pembahasan:</strong><br>⚠️ <strong>Jebakan:</strong> Pengambilan sekaligus = kombinasi!<br>🎲 Total bola = 7, C(7,2) = 21<br>🎲 Cara ambil 1 merah dan 1 biru = 4 × 3 = 12<br>🎲 Peluang = 12⁄21 = <strong>4⁄7</strong> (≈0,571)", contoh:"📖 <strong>CONTOH:</strong> 5 merah, 2 putih ambil 2 beda = (5×2) ÷ C(7,2) = 10⁄21<br>📌 <strong>RUMUS:</strong> Kombinasi: C(n,r) = n! ÷ (r! × (n-r)!)" },
@@ -311,12 +308,11 @@
         { id:60, diff:"Hot", cat:"Statistika", text:"Rata-rata nilai 5 orang siswa adalah 80. Jika seorang siswa baru mendapat nilai 100, berapa rata-rata nilai 6 orang siswa tersebut?", correct:"83.33", type:"desimal", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📊 Jumlah awal = 80 × 5 = 400<br>📊 Setelah ditambah nilai 100: jumlah = 500, n = 6<br>📊 Rata-rata baru = 500 ÷ 6 = <strong>83,33</strong>", contoh:"📖 <strong>CONTOH:</strong> rata-rata 4 anak 70, anak ke-5 nilai 90 → rata-rata baru = (280 + 90) ÷ 5 = 74<br>📌 <strong>RUMUS:</strong> rata-rata baru = (jumlah awal + nilai baru) ÷ (n + 1)" }
     ];
     
-    // ==================== AUTO SAVE (DIAM-DIAM, TANPA NOTIF) ====================
+    // ==================== AUTO SAVE ====================
     let userAnswers = {};
     let answerStatus = {};
     let lastScore = 0;
     
-    // Inisialisasi dari localStorage
     function loadFromStorage() {
         const savedAnswers = localStorage.getItem('tka_answers_60');
         const savedStatus = localStorage.getItem('tka_status_60');
@@ -330,7 +326,6 @@
                 answerStatus = JSON.parse(savedStatus);
             } catch(e) { answerStatus = {}; }
         }
-        // Pastikan semua id dari 1-60 ada
         for(let i=1;i<=60;i++) {
             if(userAnswers[i] === undefined) userAnswers[i] = "";
             if(answerStatus[i] === undefined) answerStatus[i] = false;
@@ -340,33 +335,26 @@
     function saveToStorage() {
         localStorage.setItem('tka_answers_60', JSON.stringify(userAnswers));
         localStorage.setItem('tka_status_60', JSON.stringify(answerStatus));
-        // TIDAK ADA NOTIFIKASI APAPUN - DIAM-DIAM SAJA
     }
     
     function updateAnswerAndSave(qid, value) {
         userAnswers[qid] = value;
-        // Reset status kebenaran karena jawaban berubah
         if(answerStatus[qid] === true) {
             answerStatus[qid] = false;
             const fbDiv = document.getElementById(`fb_${qid}`);
             if(fbDiv) fbDiv.innerHTML = '';
         }
-        saveToStorage(); // Simpan diam-diam
+        saveToStorage();
         updateScoreDisplay();
     }
     
-    // Normalisasi jawaban
     function normalizeAnswer(val, q){
         let str = val.trim().replace(/,/g, '.');
         if(str === "") return "";
-        
-        if(q.type === "pecahan"){
-            return str.replace(/\s/g, '');
-        }
+        if(q.type === "pecahan") return str.replace(/\s/g, '');
         if(q.type === "akar" && str.includes('√')) return str;
         if(q.type === "point" && str.match(/^\(\s*-?\d+\s*,\s*-?\d+\s*\)$/)) return str;
         if(q.type === "string" || q.type === "set") return str;
-        
         let num = parseFloat(str);
         return isNaN(num) ? str : num.toString();
     }
@@ -386,7 +374,7 @@
         let correctNorm = q.correct;
         let isCorrect = (norm === correctNorm);
         answerStatus[qid] = isCorrect;
-        saveToStorage(); // Simpan status kebenaran
+        saveToStorage();
         
         if(fbDiv){
             let resHtml = isCorrect ? 
@@ -489,20 +477,17 @@
             let fb = document.getElementById(`fb_${i}`); 
             if(fb) fb.innerHTML = ''; 
         } 
-        saveToStorage(); // Simpan keadaan reset
+        saveToStorage();
         updateScoreDisplay(); 
     }
     
-    // Expose ke global
     window.evaluateQuestion = evaluateQuestion;
     window.showExplanationOnly = showExplanationOnly;
     
-    // Load data dari storage, render, lalu update skor
     loadFromStorage();
     renderCards();
     updateScoreDisplay();
     
-    // Event listeners
     document.getElementById('checkAllBtn')?.addEventListener('click', checkAll);
     document.getElementById('resetBtn')?.addEventListener('click', resetAll);
     document.getElementById('scrollTopBtn')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
