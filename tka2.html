@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>TKA | Bahasa Indonesia - Latihan Olimpiade Premium</title>
+    <title>TKA | Bahasa Indonesia - Olimpiade Premium (Sulit & Menjebak)</title>
     <style>
         * {
             margin: 0;
@@ -31,7 +31,6 @@
             backdrop-filter: blur(2px);
         }
 
-        /* Hero Section dengan animasi */
         .hero {
             background: linear-gradient(135deg, #1e3a5f 0%, #0f2b44 100%);
             padding: 2rem 1.5rem;
@@ -113,7 +112,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Info Bar - RAPI & TIDAK TABRAKAN */
         .info-bar {
             background: #ffffff;
             padding: 12px 20px;
@@ -181,7 +179,6 @@
             transform: translateY(1px);
         }
 
-        /* Soal Grid dengan animasi card */
         .quiz-grid {
             padding: 1.5rem;
             display: flex;
@@ -244,12 +241,12 @@
         }
 
         .teks-tag {
-            background: #fef3c7;
             padding: 5px 14px;
             border-radius: 50px;
             font-size: 0.65rem;
             font-weight: 600;
             color: #b45309;
+            background: #fef3c7;
         }
 
         .question-text {
@@ -270,7 +267,6 @@
             color: #334155;
             border-left: 5px solid #facc15;
             font-family: 'Georgia', serif;
-            transition: all 0.2s;
         }
 
         .options {
@@ -313,7 +309,6 @@
             font-weight: 500;
         }
 
-        /* TOMBOL VERTICAL */
         .button-group-vertical {
             display: flex;
             flex-direction: column;
@@ -422,7 +417,6 @@
             color: #475569;
         }
 
-        /* Scroll Top dengan animasi */
         .scroll-top {
             position: fixed;
             bottom: 24px;
@@ -461,7 +455,6 @@
             transform: scale(1.1);
         }
 
-        /* Modal Animasi */
         .modal {
             display: none;
             position: fixed;
@@ -533,7 +526,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        /* SPLASH SCREEN PREMIUM */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -687,12 +679,12 @@
     <div class="splash-content">
         <div class="splash-logo">📖</div>
         <h1 class="splash-title">TKA BAHASA INDONESIA</h1>
-        <p class="splash-sub">OLIMPIADE • 40 SOAL PREMIUM</p>
+        <p class="splash-sub">OLIMPIADE • 40 SOAL PREMIUM • SULIT & MENJEBAK</p>
         <div class="splash-loader"><div class="splash-loader-fill"></div></div>
         <div class="splash-text-animate">
-            <span>📚 Pemahaman Tekstual</span>
-            <span>🔍 Inferensial</span>
-            <span>⭐ Evaluasi & Apresiasi</span>
+            <span>⚡ Analisis Kritis</span>
+            <span>🎯 Inferensi Kompleks</span>
+            <span>🧠 Evaluasi Mendalam</span>
         </div>
     </div>
 </div>
@@ -700,16 +692,15 @@
 <div class="container">
     <div class="hero">
         <h1>📖 TKA BAHASA INDONESIA <span>40 SOAL</span></h1>
-        <p>Latihan Olimpiade | Pemahaman Tekstual | Inferensial | Evaluasi & Apresiasi</p>
+        <p>Olimpiade | Pemahaman Tekstual | Inferensial | Evaluasi & Apresiasi</p>
         <div class="badge-group">
-            <span class="badge-mapel">📄 Teks Informasi</span>
-            <span class="badge-mapel">📚 Teks Fiksi</span>
-            <span class="badge-mapel">🎯 3 Kompetensi Utama</span>
+            <span class="badge-mapel">🔥 Level Sulit & Menjebak</span>
+            <span class="badge-mapel">🎯 Tanpa Pengulangan</span>
         </div>
     </div>
 
     <div class="info-bar">
-        <div class="score-card" id="liveScoreDisplay">SKOR: 0 / 40</div>
+        <div class="score-card" id="liveScoreDisplay">🏆 SKOR: 0 / 40</div>
         <div class="btn-group">
             <a href="index.html" class="btn btn-home">🏠 HOME</a>
             <button class="btn btn-primary" id="checkAllBtn">✅ CEK SEMUA</button>
@@ -722,7 +713,7 @@
     
     <div class="footer-note">
         💡 <strong>Petunjuk:</strong> Pilih jawaban, klik CEK untuk melihat pembahasan lengkap. Jawaban otomatis tersimpan.<br>
-        📌 Setiap soal dilengkapi pembahasan detail & alasan logis.
+        📌 Setiap soal dirancang dengan jebakan khas olimpiade, pastikan membaca dengan cermat.
     </div>
 </div>
 
@@ -743,50 +734,64 @@
 <div id="toast-save" class="toast-save">💾 Jawaban tersimpan</div>
 
 <script>
-    // ======================= DATA SOAL LENGKAP (20 SOAL ORIGINAL + DUPLIKASI SAMPAI 40) =======================
-    const baseSoal = [
-        { id: 1, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Pembangunan Ibu Kota Nusantara (IKN) di Kalimantan Timur merupakan proyek strategis nasional yang bertujuan memindahkan pusat pemerintahan dari Jakarta. Proyek ini diharapkan mendorong pemerataan pembangunan dan mengurangi beban Jakarta.", soal: "Apa tujuan utama pemindahan IKN ke Kalimantan Timur?", options: ["A. Mengurangi kemacetan di Jakarta", "B. Memindahkan pusat pemerintahan dari Jakarta dan mendorong pemerataan pembangunan", "C. Membuka lahan baru di Kalimantan", "D. Meningkatkan pariwisata Kalimantan"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Teks secara eksplisit menyatakan: 'bertujuan memindahkan pusat pemerintahan dari Jakarta' dan 'diharapkan mendorong pemerataan pembangunan'. Jawaban B merupakan ringkasan akurat dari kedua tujuan tersebut. Opsi A hanya efek samping, C dan D tidak disebut dalam teks." },
-        { id: 2, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Matahari mulai tenggelam di ufuk barat. Ombak kecil membasuh kaki Laras yang duduk termenung di atas pasir putih. 'Ayah, kapan pulang?' bisiknya lirih sambil memegang erat foto usang di tangannya.", soal: "Apa yang sedang dilakukan Laras?", options: ["A. Bermain pasir", "B. Menunggu kepulangan ayahnya sambil termenung di pantai", "C. Berenang di laut", "D. Membaca buku"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Informasi tersurat: Laras 'duduk termenung' dan bertanya 'Ayah, kapan pulang?' menandakan ia sedang menunggu ayahnya. Tidak ada aktivitas bermain pasir atau berenang." },
-        { id: 3, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Kebiasaan membaca masyarakat Indonesia masih tergolong rendah. Berdasarkan data UNESCO, minat baca masyarakat Indonesia hanya 0,001% atau 1 dari 1.000 orang.", soal: "Kesimpulan yang tepat berdasarkan teks adalah...", options: ["A. Masyarakat Indonesia sangat gemar membaca", "B. Perlu upaya serius untuk meningkatkan minat baca di Indonesia", "C. UNESCO tidak peduli dengan minat baca", "D. Semua orang Indonesia suka membaca"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Data menunjukkan minat baca sangat rendah (0,001%). Kesimpulan logis adalah perlunya peningkatan minat baca. Ini adalah inferensi dari fakta yang disajikan." },
-        { id: 4, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Kutipan novel: 'Hidup adalah pilihan. Setiap detik kita memutuskan untuk melangkah atau berhenti. Dan Rani memilih untuk terus berjalan meski kakinya terasa berat.'", soal: "Pernyataan berikut yang paling sesuai dengan nilai yang terkandung dalam kutipan tersebut adalah...", options: ["A. Hidup harus selalu santai", "B. Keberanian untuk terus melangkah meski sulit adalah sikap terpuji", "C. Berhenti adalah pilihan terbaik", "D. Rani adalah orang yang malas"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Kutipan menekankan pada pilihan untuk 'terus berjalan meski berat'. Nilai yang terkandung adalah keberanian dan ketekunan. Opsi B paling tepat mengapresiasi pesan moral tersebut." },
-        { id: 5, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Sampah plastik menjadi masalah global. Diperlukan waktu 500 tahun bagi plastik untuk terurai secara alami.", soal: "Berapa lama waktu yang dibutuhkan plastik untuk terurai?", options: ["A. 50 tahun", "B. 100 tahun", "C. 500 tahun", "D. 1000 tahun"], correct: "C", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Teks menyebutkan secara eksplisit: 'Diperlukan waktu 500 tahun bagi plastik untuk terurai secara alami.' Jawaban C adalah kutipan langsung." },
-        { id: 6, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Sejak kepergian ibunya, Dika jarang tersenyum. Ia lebih banyak menghabiskan waktu di kamar, memandangi foto ibunya.", soal: "Apa yang dapat disimpulkan tentang perasaan Dika?", options: ["A. Dika bahagia", "B. Dika sedang bersedih dan merindukan ibunya", "C. Dika marah pada ibunya", "D. Dika tidak peduli"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> 'Jarang tersenyum' dan 'memandangi foto ibu' menunjukkan kesedihan dan kerinduan. Ini adalah inferensi dari perilaku tokoh." },
-        { id: 7, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Penggunaan gadget berlebihan pada anak dapat mengganggu perkembangan sosial dan kemampuan komunikasi interpersonal.", soal: "Sikap yang paling tepat sebagai orang tua adalah...", options: ["A. Membiarkan anak menggunakan gadget sepuasnya", "B. Melarang total penggunaan gadget", "C. Membatasi waktu penggunaan gadget dan mengarahkan pada aktivitas sosial", "D. Memberikan gadget terbaru setiap bulan"], correct: "C", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Berdasarkan dampak negatif, solusi bijak adalah membatasi waktu dan mengarahkan ke aktivitas sosial. Opsi C paling rasional dan seimbang." },
-        { id: 8, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Di sebuah desa terpencil, hiduplah seorang gadis bernama Sari. Ia memiliki keistimewaan dapat berbicara dengan hewan-hewan di hutan.", soal: "Keistimewaan Sari adalah...", options: ["A. Dapat terbang", "B. Dapat berbicara dengan hewan", "C. Dapat menghilang", "D. Dapat menyembuhkan penyakit"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Teks menyebutkan: 'ia memiliki keistimewaan dapat berbicara dengan hewan-hewan di hutan.' Jawaban B adalah informasi literal." },
-        { id: 9, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Berdasarkan data BMKG, suhu rata-rata global terus meningkat setiap tahun. Fenomena ini disebabkan oleh emisi gas rumah kaca.", soal: "Apa yang mungkin terjadi jika emisi gas rumah kaca tidak dikurangi?", options: ["A. Suhu bumi akan stabil", "B. Pemanasan global akan semakin parah", "C. Tidak ada perubahan", "D. Bumi akan semakin dingin"], correct: "B", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Logika sebab-akibat: jika penyebab (emisi) tidak dikurangi, maka dampak (pemanasan global) akan memburuk. Ini inferensi ilmiah yang tepat." },
-        { id: 10, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Karya sastra 'Laskar Pelangi' mengajarkan tentang pentingnya semangat belajar meski dalam keterbatasan.", soal: "Nilai yang paling menonjol dalam novel Laskar Pelangi adalah...", options: ["A. Materialisme", "B. Individualisme", "C. Semangat juang dan pantang menyerah", "D. Kekayaan materi"], correct: "C", explanation: "📌 <strong>Pembahasan Lengkap:</strong> Laskar Pelangi terkenal dengan pesan semangat belajar, perjuangan, dan pantang menyerah dalam keterbatasan. Nilai utama adalah semangat juang." }
+    // ======================= 40 SOAL BAHASA INDONESIA LEVEL SULIT & MENJEBAK (TIDAK ADA YANG SAMA) =======================
+    const soalData = [
+        { id: 1, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Pembangunan Ibu Kota Nusantara (IKN) di Kalimantan Timur menelan biaya triliunan rupiah. Proyek ini diklaim akan mendorong pertumbuhan ekonomi di kawasan timur Indonesia, meskipun banyak kritik dari pemerhati lingkungan.", soal: "Berdasarkan teks, pernyataan berikut yang PALING TEPAT adalah...", options: ["A. Proyek IKN bertujuan menghijaukan Kalimantan", "B. IKN hanya mendapat dukungan penuh tanpa kritik", "C. Ada pihak yang mengkritik proyek IKN dari sisi lingkungan", "D. Semua warga Kalimantan mendukung IKN"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A salah karena tidak disebut. Opsi B bertentangan dengan 'banyak kritik'. Opsi C tepat karena teks menyebut 'kritik dari pemerhati lingkungan'. Opsi D generalisasi berlebihan. Jebakan sering pada opsi yang terlalu mutlak." },
+        { id: 2, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Matahari belum sepenuhnya terbit. Di emperan toko, seorang kakek menggigil memeluk tubuhnya yang kurus. Sesekali ia memunguti puntung rokok yang masih tersisa.", soal: "Kesimpulan paling logis tentang kondisi kakek adalah...", options: ["A. Kakek sedang berolahraga pagi", "B. Kakek adalah seorang perokok berat yang sedang mencari rokok", "C. Kakek dalam keadaan miskin dan kelaparan", "D. Kakek sedang menunggu teman"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A salah karena menggigil bukan ciri olahraga. Opsi B hanya spekulasi (memunguti puntung karena miskin). Opsi C paling logis: menggigil (dingin/lemah), tubuh kurus (malnutrisi), memunguti puntung (tanda kemiskinan ekstrem). Opsi D tidak didukung teks. Jebakan pada opsi yang terlalu sempit (B) atau tidak relevan." },
+        { id: 3, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Kebijakan larangan ekspor bijih nikel mentah bertujuan membangun hilirisasi industri dalam negeri. Namun, kebijakan ini digugat oleh Uni Eropa ke WTO.", soal: "Pernyataan yang PALING KRITIS terhadap kebijakan tersebut adalah...", options: ["A. Kebijakan ini sangat baik karena melindungi kepentingan nasional", "B. Hilirisasi industri harus tetap berjalan meskipun ada gugatan", "C. Kebijakan yang mengabaikan aturan perdagangan internasional berisiko merugikan negara", "D. Uni Eropa seharusnya mendukung kebijakan Indonesia"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A tidak kritis (hanya memuji). Opsi B netral. Opsi C kritis karena menyoroti risiko pelanggaran aturan global. Opsi D tidak kritis. Jebakan pada opsi yang tampak 'nasionalis' tapi tidak mempertimbangkan konsekuensi." },
+        { id: 4, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Di tengah hutan jati, berdirilah sebuah rumah tua beratap rumbia. Konon, rumah itu milik Eyang Karti yang sudah meninggal sepuluh tahun lalu.", soal: "Informasi berikut yang TERSURAT dalam teks adalah...", options: ["A. Rumah itu angker", "B. Rumah itu terbuat dari kayu jati", "C. Rumah itu beratap rumbia", "D. Eyang Karti masih tinggal di sana"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Tersurat artinya tertulis jelas. Opsi C: 'rumah tua beratap rumbia' ada di teks. Opsi A tidak disebut. Opsi B tidak disebut (hutan jati ≠ rumah dari kayu jati). Opsi D salah karena Eyang Karti sudah meninggal. Jebakan pada opsi yang logis tapi tidak tersurat." },
+        { id: 5, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Berdasarkan data BPS 2023, tingkat pengangguran terbuka di Indonesia turun menjadi 5,45% dibandingkan tahun sebelumnya 5,86%. Penurunan ini terutama terjadi di sektor industri dan jasa.", soal: "Dari data tersebut, dapat disimpulkan bahwa...", options: ["A. Semua lulusan perguruan tinggi langsung mendapat kerja", "B. Sektor pertanian mengalami peningkatan pengangguran", "C. Ada perbaikan kondisi ketenagakerjaan di sektor industri dan jasa", "D. Pemerintah gagal mengatasi pengangguran"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A generalisasi salah. Opsi B tidak ada data. Opsi C tepat karena penurunan terjadi di sektor industri dan jasa. Opsi D bertentangan dengan data (pengangguran turun). Jebakan pada opsi yang terlalu ekstrem." },
+        { id: 6, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Puisi: 'Aku ingin mencintaimu dengan sederhana; seperti kata yang tak sempat diucapkan kayu kepada api yang menjadikannya abu.'", soal: "Makna yang paling mendalam dari puisi tersebut adalah...", options: ["A. Cinta yang rumit dan penuh drama", "B. Cinta yang sederhana namun destruktif", "C. Cinta yang membosankan", "D. Cinta yang penuh kebencian"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Kata kunci: 'sederhana' tetapi 'kayu menjadi abu oleh api' menunjukkan kehancuran. Opsi B paling tepat: sederhana namun destruktif. Opsi A bertentangan dengan 'sederhana'. Opsi C tidak tepat karena api membakar. Opsi D berlebihan." },
+        { id: 7, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "WHO resmi mencabut status darurat kesehatan global untuk COVID-19 pada 5 Mei 2023. Keputusan ini berdasarkan tren penurunan kasus dan meningkatnya kekebalan populasi.", soal: "Apa alasan utama WHO mencabut status darurat COVID-19?", options: ["A. Vaksin sudah tidak diperlukan", "B. Kasus menurun dan kekebalan populasi meningkat", "C. Semua negara sudah bebas COVID-19", "D. Tekanan dari negara-negara maju"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Teks: 'berdasarkan tren penurunan kasus dan meningkatnya kekebalan populasi'. Opsi B kutipan langsung. Opsi A, C, D tidak disebut atau salah. Jebakan pada opsi yang berbau konspirasi (D) atau absolut (C)." },
+        { id: 8, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Rani mematikan ponselnya. Ia kemudian meraih buku catatan dan mulai menulis. Matanya berkaca-kaca sesekali.", soal: "Apa yang mungkin sedang dirasakan Rani?", options: ["A. Kebahagiaan karena mendapat ponsel baru", "B. Kemarahan karena kehilangan data", "C. Kesedihan yang mendalam hingga menangis", "D. Kebosanan karena tidak ada hiburan"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> 'Matanya berkaca-kaca' menandakan menahan tangis atau sedih. Opsi C paling tepat. Opsi A bertentangan. Opsi B tidak didukung (tidak disebut kehilangan data). Opsi D tidak menyebabkan berkaca-kaca." },
+        { id: 9, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Program 'Makan Siang Gratis' di sekolah bertujuan meningkatkan gizi anak. Namun, anggaran yang besar dikhawatirkan membebani APBN.", soal: "Sikap paling bijak terhadap program tersebut adalah...", options: ["A. Menolak program karena terlalu mahal", "B. Menerima tanpa perubahan karena tujuan baik", "C. Mendukung dengan catatan perlu efisiensi dan pengawasan ketat", "D. Mengalihkan dana ke program lain"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A ekstrem, Opsi B naif, Opsi D tidak solutif. Opsi C seimbang: mendukung tujuan baik namun mengkritisi anggaran dengan efisiensi. Sikap bijak adalah moderat dan konstruktif." },
+        { id: 10, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Lelaki itu terus berlari tanpa menoleh ke belakang. Keringat bercucuran membasahi kemejanya. Langkahnya terhuyung karena kelelahan.", soal: "Dari teks, dapat ditemukan bahwa lelaki itu...", options: ["A. Sedang dikejar sesuatu", "B. Berlari karena senang", "C. Berlari sambil menoleh", "D. Kelelahan karena berlari"], correct: "D", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Tersurat: 'Langkahnya terhuyung karena kelelahan.' Opsi D tepat. Opsi A inferensi mungkin benar tapi tidak tersurat. Opsi B salah. Opsi C bertentangan dengan 'tanpa menoleh'." },
+        { id: 11, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Penjualan mobil listrik di Indonesia naik 300% pada kuartal I 2024. Meski demikian, jumlah Stasiun Pengisian Kendaraan Listrik Umum (SPKLU) masih sangat terbatas.", soal: "Kesimpulan yang dapat ditarik adalah...", options: ["A. Mobil listrik sudah lebih unggul dari mobil konvensional", "B. Infrastruktur pendukung belum sebanding dengan pertumbuhan penjualan", "C. Pemerintah melarang mobil bensin", "D. Semua orang beralih ke mobil listrik"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Penjualan naik drastis, tapi SPKLU terbatas → infrastruktur tertinggal. Opsi B tepat. Opsi A, C, D generalisasi dan tidak didukung teks." },
+        { id: 12, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Dalam novel 'Cantik Itu Luka', Eka Kurniawan menggambarkan kekerasan dan objektifikasi perempuan secara gamblang.", soal: "Kritik yang paling relevan terhadap novel tersebut adalah...", options: ["A. Novel ini terlalu vulgar dan tidak pantas dibaca", "B. Penggambaran kekerasan justru mengkritisi realitas sosial yang patriarkis", "C. Novel ini tidak memiliki nilai sastra", "D. Semua tokoh perempuan digambarkan lemah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi A dangkal. Opsi B apresiasi kritis: penggambaran kekerasan bisa menjadi kritik sosial. Opsi C salah. Opsi D tidak akurat." },
+        { id: 13, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Bandara Soekarno-Hatta menempati peringkat ke-28 bandara tersibuk di dunia versi ACI 2023 dengan 49 juta penumpang.", soal: "Berapa juta penumpang yang dilayani Bandara Soetta pada 2023?", options: ["A. 28 juta", "B. 35 juta", "C. 49 juta", "D. 50 juta"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Angka 49 juta disebut eksplisit. Opsi C tepat. Jebakan pada opsi yang mirip (peringkat 28 vs jumlah 49)." },
+        { id: 14, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Setiap hari Jumat, Andi selalu membawa sekantong nasi dan lauk. Ia memberikannya pada seorang pemulung di dekat pasar.", soal: "Watak Andi yang paling menonjol adalah...", options: ["A. Pelit", "B. Peduli sosial", "C. Sombong", "D. Pemarah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Memberi makan pemulung secara rutin menunjukkan kepedulian sosial. Opsi B tepat. Opsi A, C, D bertentangan." },
+        { id: 15, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Penggunaan AI seperti ChatGPT di kalangan pelajar memicu pro kontra. Ada yang bilang membantu belajar, ada yang khawatir mengurangi kemampuan berpikir kritis.", soal: "Pendapat yang paling seimbang tentang fenomena ini adalah...", options: ["A. AI harus dilarang total di sekolah", "B. AI boleh digunakan asal untuk bahan referensi, bukan menggantikan proses berpikir", "C. AI lebih pintar dari guru", "D. AI hanya untuk bermain"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Opsi B moderat dan solutif. Opsi A ekstrem, Opsi C provokatif, Opsi D meremehkan." },
+        { id: 16, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Laut malam itu gelap dan sunyi. Hanya suara ombak yang sesekali memecah kesunyian. Di kejauhan, sesosok bayangan berdiri di atas tebing.", soal: "Apa yang TIDAK disebutkan dalam teks?", options: ["A. Suara ombak", "B. Warna laut", "C. Bayangan di tebing", "D. Bulan bersinar terang"], correct: "D", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Bulan tidak disebut. Opsi D benar sebagai yang tidak disebut. Jebakan pada opsi yang logis tapi tidak ada." },
+        { id: 17, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Harga beras naik 15% dalam tiga bulan terakhir akibat gagal panen di beberapa sentra produksi.", soal: "Dampak yang paling mungkin terjadi adalah...", options: ["A. Daya beli masyarakat meningkat", "B. Inflasi bahan pokok dan beban belanja rumah tangga membesar", "C. Petani makmur tanpa masalah", "D. Ekspor beras meningkat"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Harga naik → daya beli turun, beban belanja naik. Opsi B tepat. Opsi A, C, D tidak logis." },
+        { id: 18, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Cerpen 'Robohnya Surau Kami' karya AA Navis mengkritik ritual keagamaan yang kosong tanpa pemaknaan.", soal: "Nilai utama yang disampaikan cerpen tersebut adalah...", options: ["A. Pentingnya kekayaan materi", "B. Ibadah ritual harus disertai pemahaman dan amal sosial", "C. Surau tidak berguna", "D. Semua orang harus menjadi kiai"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Kritik terhadap ritual kosong → pesan: ibadah harus bermakna dan disertai amal. Opsi B tepat." },
+        { id: 19, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Taman Nasional Komodo di NTT menjadi satu-satunya habitat asli komodo. Populasi komodo saat ini sekitar 3.000 ekor.", soal: "Pernyataan yang sesuai teks adalah...", options: ["A. Komodo banyak ditemukan di seluruh Indonesia", "B. Taman Nasional Komodo ada di Jawa", "C. Populasi komodo sekitar 3.000 ekor", "D. Komodo adalah hewan buas yang tidak dilindungi"], correct: "C", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Teks: 'populasi komodo saat ini sekitar 3.000 ekor'. Opsi C tepat. Opsi A, B, D salah atau tidak disebut." },
+        { id: 20, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Ani tidak masuk sekolah selama tiga hari. Ketika ditanya, ia hanya diam dan menunduk.", soal: "Penyebab paling mungkin Ani tidak masuk sekolah adalah...", options: ["A. Liburan ke luar kota", "B. Ada masalah pribadi yang membuatnya malu atau sedih", "C. Malas belajar", "D. Pindah sekolah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN + Jebakan:</strong> Sikap diam dan menunduk mengindikasikan masalah pribadi (malu, sedih, takut). Opsi B paling logis. Opsi A, C, D tidak didukung." }
     ];
 
-    // Lanjutkan sampai 20 soal (11-20)
-    const tambahanSoal = [
-        { id: 11, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Kampung Batik Laweyan di Solo menjadi destinasi wisata edukasi. Pengunjung dapat belajar membatik langsung dari pengrajin.", soal: "Apa yang dapat dilakukan pengunjung di Kampung Batik Laweyan?", options: ["A. Berbelanja barang impor", "B. Belajar membatik langsung dari pengrajin", "C. Bermain air", "D. Melihat pertunjukan sirkus"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> Teks: 'Pengunjung dapat belajar membatik langsung dari pengrajin.' Jawaban B." },
-        { id: 12, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Setiap malam, Andi selalu mendengarkan suara langkah kaki di loteng. Namun saat ia naik, tidak ada siapa pun.", soal: "Apa yang mungkin dirasakan Andi?", options: ["A. Senang", "B. Takut atau penasaran", "C. Biasa saja", "D. Marah"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> Suara misterius tanpa sumber menimbulkan rasa takut atau penasaran." },
-        { id: 13, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Program Makan Siang Gratis bertujuan meningkatkan gizi anak sekolah. Namun pelaksanaannya perlu pengawasan ketat.", soal: "Pernyataan yang paling logis terhadap program tersebut adalah...", options: ["A. Program ini pasti gagal", "B. Program ini baik namun perlu pengawasan agar tepat sasaran", "C. Program ini tidak penting", "D. Dana program sebaiknya dialihkan"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> Evaluasi seimbang: tujuan baik, tetapi perlu pengawasan. Opsi B paling logis." },
-        { id: 14, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Lima belas tahun sudah Rina merantau. Kini ia pulang ke kampung halaman dengan membawa segudang pengalaman.", soal: "Berapa lama Rina merantau?", options: ["A. 5 tahun", "B. 10 tahun", "C. 15 tahun", "D. 20 tahun"], correct: "C", explanation: "📌 <strong>Pembahasan:</strong> 'Lima belas tahun sudah Rina merantau' → 15 tahun." },
-        { id: 15, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Harga cabai naik drastis akibat gagal panen di sejumlah daerah.", soal: "Apa dampak langsung dari kenaikan harga cabai?", options: ["A. Petani semakin miskin", "B. Inflasi bahan pangan dan beban belanja masyarakat meningkat", "C. Cabai impor murah", "D. Tidak ada dampak"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> Harga naik → daya beli turun → beban belanja masyarakat meningkat." },
-        { id: 16, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Puisi: 'Rindu yang tak sampai, menjadi luka yang menganga di dada.'", soal: "Majas yang digunakan dalam puisi tersebut adalah...", options: ["A. Personifikasi", "B. Hiperbola", "C. Metafora", "D. Litotes"], correct: "C", explanation: "📌 <strong>Pembahasan:</strong> 'Rindu menjadi luka' adalah perbandingan implisit tanpa kata pembanding → metafora." },
-        { id: 17, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Perpustakaan Nasional memiliki koleksi lebih dari 4 juta buku.", soal: "Berapa koleksi buku Perpustakaan Nasional?", options: ["A. 1 juta", "B. 2 juta", "C. 3 juta", "D. Lebih dari 4 juta"], correct: "D", explanation: "📌 <strong>Pembahasan:</strong> 'lebih dari 4 juta buku' → jawaban D." },
-        { id: 18, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Langkahnya gontai, matanya sayu, dan sesekali ia menghela napas panjang.", soal: "Kondisi tokoh dapat disimpulkan sebagai...", options: ["A. Bersemangat", "B. Lelah atau bersedih", "C. Bahagia", "D. Terburu-buru"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> Deskripsi fisik (gontai, sayu, napas panjang) mengindikasikan kelelahan atau kesedihan." },
-        { id: 19, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Hoaks menyebar cepat di media sosial. Masyarakat perlu literasi digital.", soal: "Sikap terbaik dalam menghadapi hoaks adalah...", options: ["A. Langsung membagikan", "B. Memeriksa kebenaran informasi sebelum menyebarkan", "C. Mengabaikan semua berita", "D. Membuat hoaks baru"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> Literasi digital mengajarkan verifikasi sebelum membagikan informasi." },
-        { id: 20, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Di tengah hiruk-pikuk kota, Rindu merindukan suasana desa yang tenang.", soal: "Apa yang dirindukan Rindu?", options: ["A. Keramaian kota", "B. Suasana desa yang tenang", "C. Mall", "D. Pantai"], correct: "B", explanation: "📌 <strong>Pembahasan:</strong> 'merindukan suasana desa yang tenang' → B." }
+    // Lanjutkan hingga 40 soal (21-40) dengan tingkat kesulitan tinggi dan tidak berulang
+    const soalTambahan = [
+        { id: 21, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Candi Borobudur dibangun pada abad ke-8 oleh dinasti Syailendra. Candi ini sempat terkubur debu vulkanik selama berabad-abad.", soal: "Penyebab Candi Borobudur terkubur adalah...", options: ["A. Gempa bumi", "B. Letusan gunung berapi", "C. Banjir bandang", "D. Ulah manusia"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> 'terkubur debu vulkanik' → akibat letusan gunung berapi. Opsi B tepat." },
+        { id: 22, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Tangan Budi gemetar saat memegang amplop coklat itu. Ia menelan ludah, lalu membuka amplop perlahan.", soal: "Perasaan Budi yang paling mungkin adalah...", options: ["A. Senang", "B. Gugup atau takut", "C. Biasa saja", "D. Marah"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Gemetar, menelan ludah → tanda gugup atau takut akan isi amplop." },
+        { id: 23, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Fenomena 'quiet quitting' yaitu pekerja hanya melakukan tugas minimal sesuai jobdesc, marak di kalangan Gen Z.", soal: "Pandangan paling bijak terhadap fenomena ini adalah...", options: ["A. Pekerja malas harus dipecat", "B. Perusahaan perlu mengevaluasi beban kerja dan kesejahteraan karyawan", "C. Fenomena ini tidak nyata", "D. Gen Z tidak layak bekerja"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Solusi konstruktif: evaluasi internal perusahaan. Opsi B paling bijak." },
+        { id: 24, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Kicau burung terdengar merdu di pagi buta. Embun masih membasahi dedaunan. Semburat merah mulai terlihat di timur.", soal: "Waktu yang digambarkan dalam teks adalah...", options: ["A. Siang hari", "B. Malam hari", "C. Pagi hari menjelang matahari terbit", "D. Sore hari"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> 'pagi buta', 'embun', 'semburat merah di timur' → pagi menjelang sunrise." },
+        { id: 25, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Penelitian menunjukkan bahwa 80% anak muda lebih percaya pada influencer daripada berita mainstream.", soal: "Dampak dari temuan ini adalah...", options: ["A. Media mainstream akan bangkrut", "B. Kredibilitas media tradisional menurun di mata generasi muda", "C. Semua influencer jujur", "D. Anak muda tidak peduli informasi"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Kepercayaan lebih tinggi pada influencer → kredibilitas media tradisional menurun relatif." },
+        { id: 26, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Lagu 'Lathi' oleh Weird Genius menggabungkan musik elektronik dengan tembang Jawa dan lirik berbahasa Inggris.", soal: "Keunikan lagu tersebut terletak pada...", options: ["A. Hanya menggunakan satu bahasa", "B. Perpaduan budaya Timur dan Barat serta kolaborasi genre", "C. Lirik yang tidak bermakna", "D. Tempo yang sangat lambat"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Gabungan elektronik (Barat) + tembang Jawa (Timur) → perpaduan budaya dan genre." },
+        { id: 27, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Indonesia menduduki peringkat ke-5 sebagai negara penghasil sampah plastik terbesar di dunia.", soal: "Peringkat Indonesia sebagai penghasil sampah plastik adalah...", options: ["A. Ke-1", "B. Ke-3", "C. Ke-5", "D. Ke-10"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> Eksplisit 'peringkat ke-5'." },
+        { id: 28, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Lia selalu membawa payung kemanapun pergi, meski cuaca cerah.", soal: "Karakter Lia yang paling mungkin adalah...", options: ["A. Pencemas dan suka berjaga-jaga", "B. Sok sibuk", "C. Pemboros", "D. Tukang pamer"], correct: "A", explanation: "📌 <strong>PEMBAHASAN:</strong> Perilaku antisipatif berlebihan → ciri pencemas atau sangat berhati-hati." },
+        { id: 29, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Media sosial memicu fenomena Fear of Missing Out (FOMO) pada remaja.", soal: "Solusi paling tepat untuk mengatasi FOMO adalah...", options: ["A. Mematikan semua akses internet", "B. Membatasi waktu bermedsos dan meningkatkan aktivitas nyata", "C. Mengikuti semua tren", "D. Membeli barang yang sedang viral"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Batasan sehat dan alihkan ke dunia nyata." },
+        { id: 30, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Di sudut ruangan, seorang gadis kecil memeluk boneka usangnya erat-erat. Matanya terpejam, bibirnya komat-kamit.", soal: "Aktivitas yang sedang dilakukan gadis kecil adalah...", options: ["A. Bermain boneka", "B. Berdoa atau tidur", "C. Menonton TV", "D. Belajar"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Mata terpejam, bibir komat-kamit → tanda sedang berdoa atau tidur (mimpi)." },
+        { id: 31, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Setiap tahun, Indonesia kehilangan 684.000 hektar hutan akibat deforestasi.", soal: "Dampak jangka panjang dari deforestasi adalah...", options: ["A. Peningkatan oksigen", "B. Kepunahan spesies dan perubahan iklim", "C. Kesuburan tanah meningkat", "D. Banjir tidak akan terjadi"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Hilangnya habitat → kepunahan, juga emisi karbon → perubahan iklim." },
+        { id: 32, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Film 'Penyanyi Malam' mengangkat kisah perjuangan seniman jalanan.", soal: "Pesan moral yang paling kuat dalam film tersebut adalah...", options: ["A. Uang adalah segalanya", "B. Seni tidak penting", "C. Kegigihan dan semangat pantang menyerah", "D. Jalanan adalah tempat terbaik"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> Perjuangan seniman jalanan → nilai kegigihan." },
+        { id: 33, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Badan Pusat Statistik mencatat jumlah penduduk miskin Maret 2024 sebesar 9,03% dari total penduduk.", soal: "Persentase penduduk miskin pada Maret 2024 adalah...", options: ["A. 8,5%", "B. 9,03%", "C. 10,2%", "D. 12%"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> 9,03% disebut eksplisit." },
+        { id: 34, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Rina menyusuri lorong gelap sendirian. Ia mendengar suara langkah kaki di belakangnya.", soal: "Yang mungkin dirasakan Rina adalah...", options: ["A. Tenang", "B. Senang", "C. Takut dan was-was", "D. Lapar"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> Lorong gelap + suara langkah kaki misterius → takut." },
+        { id: 35, kompetensi: "Evaluasi & Apresiasi", teks: "informasi", bacaan: "Kenaikan BBM bersubsidi selalu menuai protes. Namun, subsidi yang membebani APBN perlu dikurangi.", soal: "Pendapat yang paling rasional adalah...", options: ["A. Harga BBM tidak boleh naik selamanya", "B. Subsidi perlu dialihkan ke program yang lebih tepat sasaran seperti bansos", "C. Biarkan APBN defisit", "D. Harga BBM dinaikkan 500%"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Solusi rasional: realokasi subsidi ke yang lebih tepat sasaran." },
+        { id: 36, kompetensi: "Pemahaman Tekstual", teks: "fiksi", bacaan: "Pak Tani menggarap sawahnya sejak subuh. Kerbau setia menemani di sampingnya.", soal: "Hewan yang menemani Pak Tani adalah...", options: ["A. Sapi", "B. Kambing", "C. Kerbau", "D. Ayam"], correct: "C", explanation: "📌 <strong>PEMBAHASAN:</strong> 'Kerbau setia menemani' → jelas." },
+        { id: 37, kompetensi: "Pemahaman Inferensial", teks: "informasi", bacaan: "Pelaku UMKM mengeluh sulit bersaing dengan produk impor yang lebih murah.", soal: "Akar masalah yang paling mendasar adalah...", options: ["A. Pengusaha UMKM malas", "B. Biaya produksi dalam negeri lebih tinggi dan kurangnya perlindungan", "C. Produk impor lebih berkualitas", "D. Konsumen tidak patriotik"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Biaya produksi tinggi (efisiensi) dan kurangnya proteksi." },
+        { id: 38, kompetensi: "Evaluasi & Apresiasi", teks: "fiksi", bacaan: "Novel 'Bumi Manusia' karya Pramoedya Ananta Toer menggambarkan penindasan kolonial.", soal: "Nilai perjuangan yang paling menonjol adalah...", options: ["A. Pasrah terhadap penjajah", "B. Melawan ketidakadilan dengan intelektualitas dan kesadaran", "C. Kerjasama dengan penjajah", "D. Lari dari kenyataan"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Tokoh Minke melawan dengan intelektualitas." },
+        { id: 39, kompetensi: "Pemahaman Tekstual", teks: "informasi", bacaan: "Bendera Merah Putih pertama kali dikibarkan pada 17 Agustus 1945 di Jalan Pegangsaan Timur 56, Jakarta.", soal: "Alamat pengibaran bendera Merah Putih pertama adalah...", options: ["A. Jalan Medan Merdeka", "B. Jalan Pegangsaan Timur 56", "C. Istana Negara", "D. Monas"], correct: "B", explanation: "📌 <strong>PEMBAHASAN:</strong> Eksplisit di teks." },
+        { id: 40, kompetensi: "Pemahaman Inferensial", teks: "fiksi", bacaan: "Sejak kecelakaan itu, Rama tidak lagi berani mengendarai motor. Ia memilih berjalan kaki atau naik angkutan umum.", soal: "Kondisi psikologis Rama adalah...", options: ["A. Trauma", "B. Malas", "C. Bangga", "D. Sombong"], correct: "A", explanation: "📌 <strong>PEMBAHASAN:</strong> Tidak berani mengendarai motor setelah kecelakaan → trauma." }
     ];
-    
-    let soalData = [...baseSoal, ...tambahanSoal];
-    // Duplikasi sampai 40
-    while(soalData.length < 40) {
-        let base = soalData[soalData.length % 20];
-        let newId = soalData.length + 1;
-        soalData.push({ ...base, id: newId, soal: base.soal + " (Latihan)", explanation: base.explanation + " [Soal latihan Olimpiade]" });
-    }
-    soalData.sort((a,b) => a.id - b.id);
+
+    const fullSoal = [...soalData, ...soalTambahan];
+    fullSoal.sort((a,b) => a.id - b.id);
 
     // State
     let userAnswers = {};
     let answerStatus = {};
 
     function loadStorage() {
-        let saved = localStorage.getItem('bindo_40_fix');
-        let savedStatus = localStorage.getItem('bindo_40_status');
+        let saved = localStorage.getItem('bindo_40_hard');
+        let savedStatus = localStorage.getItem('bindo_40_hard_status');
         if(saved) userAnswers = JSON.parse(saved);
         if(savedStatus) answerStatus = JSON.parse(savedStatus);
         for(let i=1;i<=40;i++) {
@@ -796,8 +801,8 @@
     }
 
     function saveStorage() {
-        localStorage.setItem('bindo_40_fix', JSON.stringify(userAnswers));
-        localStorage.setItem('bindo_40_status', JSON.stringify(answerStatus));
+        localStorage.setItem('bindo_40_hard', JSON.stringify(userAnswers));
+        localStorage.setItem('bindo_40_hard_status', JSON.stringify(answerStatus));
         let toast = document.getElementById('toast-save');
         toast.style.opacity = '1';
         setTimeout(() => toast.style.opacity = '0', 1000);
@@ -810,7 +815,7 @@
     }
 
     window.evaluateQuestion = function(id) {
-        let q = soalData.find(x=>x.id===id);
+        let q = fullSoal.find(x=>x.id===id);
         let jawab = userAnswers[id];
         if(!jawab) {
             document.getElementById(`fb_${id}`).innerHTML = `<div class="result-warning">⚠️ Pilih jawaban terlebih dahulu!</div>`;
@@ -824,14 +829,14 @@
         let resultHtml = benar ? 
             `<div class="result-correct">✅ <strong>BENAR!</strong> Jawaban Anda: ${jawab} (Kunci: ${q.correct})</div>` :
             `<div class="result-wrong">❌ <strong>SALAH!</strong><br>Jawaban Anda: ${jawab}<br>Jawaban benar: <strong>${q.correct}</strong></div>`;
-        resultHtml += `<div class="explanation-box"><strong>📘 PEMBAHASAN DETAIL:</strong><br>${q.explanation}</div>`;
+        resultHtml += `<div class="explanation-box"><strong>📘 PEMBAHASAN DETAIL + ANALISIS JEBAKAN:</strong><br>${q.explanation}</div>`;
         fbDiv.innerHTML = resultHtml;
         updateScore();
     };
 
     window.showExplanation = function(id) {
-        let q = soalData.find(x=>x.id===id);
-        document.getElementById(`fb_${id}`).innerHTML = `<div class="explanation-box"><strong>📘 PEMBAHASAN LENGKAP:</strong><br>${q.explanation}</div>`;
+        let q = fullSoal.find(x=>x.id===id);
+        document.getElementById(`fb_${id}`).innerHTML = `<div class="explanation-box"><strong>📘 PEMBAHASAN LENGKAP & STRATEGI MENJAWAB:</strong><br>${q.explanation}</div>`;
     };
 
     function checkAll() { for(let i=1;i<=40;i++) evaluateQuestion(i); }
@@ -850,13 +855,13 @@
     function showAllAnswers() {
         let modal = document.getElementById('answerModal');
         let container = document.getElementById('answerListContainer');
-        container.innerHTML = soalData.map(q => `<div class="answer-item"><span>${q.id}. ${q.soal.substring(0,35)}...</span><span><strong>${q.correct}</strong></span></div>`).join('');
+        container.innerHTML = fullSoal.map(q => `<div class="answer-item"><span>${q.id}. ${q.soal.substring(0,35)}...</span><span><strong>${q.correct}</strong></span></div>`).join('');
         modal.style.display = 'flex';
     }
 
     function copyAnswers() {
-        let text = "KUNCI JAWABAN BAHASA INDONESIA (40 SOAL)\n\n";
-        soalData.forEach(q => { text += `${q.id}. ${q.correct}\n`; });
+        let text = "KUNCI JAWABAN BAHASA INDONESIA (40 SOAL - SULIT & MENJEBAK)\n\n";
+        fullSoal.forEach(q => { text += `${q.id}. ${q.correct} - ${q.soal.substring(0,50)}\n`; });
         navigator.clipboard.writeText(text);
         alert("✅ Kunci jawaban disalin!");
     }
@@ -864,10 +869,10 @@
     function render() {
         let grid = document.getElementById('quizGrid');
         grid.innerHTML = '';
-        soalData.forEach((q, idx) => {
+        fullSoal.forEach((q, idx) => {
             let card = document.createElement('div');
             card.className = 'question-card';
-            card.style.animationDelay = `${idx * 0.03}s`;
+            card.style.animationDelay = `${idx * 0.02}s`;
             let kompetensiColor = q.kompetensi === "Pemahaman Tekstual" ? "#3b82f6" : (q.kompetensi === "Pemahaman Inferensial" ? "#10b981" : "#8b5cf6");
             card.innerHTML = `
                 <div class="card-header">
