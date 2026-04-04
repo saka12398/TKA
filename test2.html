@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>TKA | Bahasa Indonesia - Olimpiade Premium (Sulit & Menjebak)</title>
-    <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -144,6 +144,282 @@
         .score-card::before {
             content: "🏆";
             font-size: 1rem;
+        }
+
+        /* ========== SPLASH SCREEN - WARNA BARU (BIRU KEUNGUAN) ========== */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: radial-gradient(ellipse at 30% 40%, #0f172a 0%, #020024 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s;
+            overflow: hidden;
+        }
+
+        /* Canvas partikel */
+        #splashCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .splash-bg-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .splash-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(139, 92, 246, 0.03) 70%);
+            animation: floatCircle 12s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes floatCircle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            33% { transform: translate(40px, -40px) scale(1.1); opacity: 0.7; }
+            66% { transform: translate(-20px, 30px) scale(0.95); opacity: 0.4; }
+        }
+
+        .splash-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            animation: contentZoom 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 20px;
+        }
+
+        @keyframes contentZoom {
+            0% { opacity: 0; transform: scale(0.85); filter: blur(10px); }
+            100% { opacity: 1; transform: scale(1); filter: blur(0); }
+        }
+
+        /* Logo dengan efek glow berdenyut - WARNA BARU */
+        .splash-logo-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 25px;
+        }
+
+        .splash-logo {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 65px;
+            position: relative;
+            z-index: 3;
+            animation: logoPulse 2s ease-in-out infinite;
+            box-shadow: 0 30px 50px -15px rgba(56, 189, 248, 0.5);
+            transition: all 0.3s;
+        }
+
+        .splash-logo-glow {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, #38bdf8, #a78bfa);
+            border-radius: 50px;
+            opacity: 0.4;
+            filter: blur(20px);
+            z-index: 1;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 30px 50px -15px rgba(56, 189, 248, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 40px 60px -10px rgba(129, 140, 248, 0.7); }
+        }
+
+        @keyframes logoGlow {
+            0% { opacity: 0.3; filter: blur(15px); }
+            100% { opacity: 0.7; filter: blur(30px); }
+        }
+
+        /* Title dengan animasi per kata - WARNA BARU */
+        .splash-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .title-word {
+            background: linear-gradient(135deg, #38bdf8, #a78bfa, #c084fc);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGradient 3s ease infinite, wordFloat 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .title-word:nth-child(1) { animation-delay: 0.1s, 0.1s; }
+        .title-word:nth-child(2) { animation-delay: 0.3s, 0.1s; }
+        .title-word:nth-child(3) { animation-delay: 0.5s, 0.1s; }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes wordFloat {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .splash-sub {
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            text-shadow: 0 0 10px rgba(165,180,252,0.3);
+        }
+
+        /* Loader dengan persentase - WARNA BARU */
+        .splash-loader-container {
+            width: 280px;
+            margin: 35px auto 20px;
+        }
+
+        .splash-loader {
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+        }
+
+        .splash-loader-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #a78bfa, #c084fc);
+            background-size: 200% auto;
+            border-radius: 10px;
+            animation: loadingBar 2.5s cubic-bezier(0.25, 0.9, 0.5, 1) forwards, loaderShine 1.5s ease infinite;
+        }
+
+        @keyframes loadingBar {
+            0% { width: 0%; background-position: 0% 50%; }
+            30% { width: 45%; background-position: 50% 50%; }
+            60% { width: 78%; background-position: 80% 50%; }
+            100% { width: 100%; background-position: 200% 50%; }
+        }
+
+        @keyframes loaderShine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .loader-percent {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #38bdf8;
+            letter-spacing: 1px;
+            font-family: monospace;
+            animation: pulseText 1s ease infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.7; text-shadow: 0 0 5px #38bdf8; }
+            50% { opacity: 1; text-shadow: 0 0 12px #a78bfa; }
+        }
+
+        /* Teks animasi bergantian - WARNA BARU */
+        .splash-text-animate {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .animate-item {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            padding: 5px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            animation: itemFade 2.5s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .animate-item:nth-child(1) { animation-delay: 0s; }
+        .animate-item:nth-child(2) { animation-delay: 0.8s; }
+        .animate-item:nth-child(3) { animation-delay: 1.6s; }
+
+        @keyframes itemFade {
+            0%, 100% { opacity: 0.3; transform: translateY(0px); color: #94a3b8; }
+            50% { opacity: 1; transform: translateY(-3px); text-shadow: 0 0 8px #38bdf8; color: #38bdf8; }
+        }
+
+        .splash-footer-text {
+            margin-top: 30px;
+            font-size: 0.6rem;
+            color: #475569;
+            letter-spacing: 3px;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .splash-logo-wrapper {
+                width: 90px;
+                height: 90px;
+            }
+            .splash-logo {
+                width: 90px;
+                height: 90px;
+                font-size: 45px;
+                border-radius: 28px;
+            }
+            .splash-title {
+                font-size: 1.4rem;
+                gap: 6px;
+            }
+            .splash-loader-container {
+                width: 220px;
+            }
+            .animate-item {
+                font-size: 0.6rem;
+                padding: 4px 10px;
+            }
         }
 
         .btn-group {
@@ -466,165 +742,50 @@
             white-space: nowrap;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            background: radial-gradient(ellipse at 30% 40%, #0f2b44 0%, #020617 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s;
-            overflow: hidden;
-        }
-
-        .splash-bg-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .splash-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(250,204,21,0.06);
-            animation: floatCircle 12s infinite ease-in-out;
-        }
-
-        @keyframes floatCircle {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(40px, -40px) scale(1.1); }
-            66% { transform: translate(-20px, 30px) scale(0.95); }
-        }
-
-        .splash-content {
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            animation: contentZoom 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-
-        @keyframes contentZoom {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .splash-logo {
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, #facc15, #f59e0b);
-            border-radius: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 55px;
-            animation: logoPulse 1.8s ease-in-out infinite;
-            box-shadow: 0 25px 45px -12px rgba(250,204,21,0.5);
-        }
-
-        @keyframes logoPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 25px 45px -12px rgba(250,204,21,0.4); }
-            50% { transform: scale(1.08); box-shadow: 0 35px 55px -8px rgba(250,204,21,0.7); }
-        }
-
-        .splash-title {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #facc15, #f97316);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-        }
-
-        .splash-sub {
-            color: #a5b4fc;
-            font-size: 0.85rem;
-            margin-top: 8px;
-            letter-spacing: 2px;
-        }
-
-        .splash-loader {
-            width: 240px;
-            height: 4px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
-            margin: 28px auto 0;
-            overflow: hidden;
-        }
-
-        .splash-loader-fill {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, #facc15, #f97316);
-            animation: loadingBar 2.3s cubic-bezier(0.25, 0.9, 0.5, 1) forwards;
-        }
-
-        @keyframes loadingBar {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-
-        .splash-text-animate {
-            margin-top: 18px;
-            font-size: 0.7rem;
-            color: #94a3b8;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .splash-text-animate span {
-            animation: textFade 1.8s infinite;
-        }
-
-        @keyframes textFade {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .fade-out {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        @media (max-width: 600px) {
-            body { padding: 10px; }
-            .hero h1 { font-size: 1.3rem; }
-            .info-bar { flex-direction: column; align-items: stretch; }
-            .score-card { justify-content: center; white-space: normal; }
-            .btn-group { justify-content: center; }
-            .option label { font-size: 0.75rem; }
-            .splash-logo { width: 80px; height: 80px; font-size: 42px; }
-            .splash-title { font-size: 1.5rem; }
-            .toast-save { white-space: nowrap; font-size: 0.65rem; bottom: 80px; }
-        }
     </style>
 </head>
 <body>
 
 <div id="splash-screen">
+    <!-- Canvas untuk partikel animasi -->
+    <canvas id="splashCanvas"></canvas>
+    
+    <!-- Lingkaran dekoratif background -->
     <div class="splash-bg-animation">
-        <div class="splash-circle" style="width: 350px; height: 350px; top: -120px; left: -100px; animation-delay: 0s;"></div>
-        <div class="splash-circle" style="width: 250px; height: 250px; bottom: -60px; right: -50px; animation-delay: 2s;"></div>
-        <div class="splash-circle" style="width: 180px; height: 180px; top: 40%; right: 10%; animation-delay: 4s;"></div>
-        <div class="splash-circle" style="width: 120px; height: 120px; bottom: 25%; left: 5%; animation-delay: 1.5s;"></div>
+        <div class="splash-circle" style="width: 450px; height: 450px; top: -150px; left: -150px; animation-delay: 0s;"></div>
+        <div class="splash-circle" style="width: 300px; height: 300px; bottom: -80px; right: -80px; animation-delay: 2s;"></div>
+        <div class="splash-circle" style="width: 200px; height: 200px; top: 30%; right: 5%; animation-delay: 4s;"></div>
+        <div class="splash-circle" style="width: 150px; height: 150px; bottom: 20%; left: 0%; animation-delay: 1.5s;"></div>
+        <div class="splash-circle" style="width: 100px; height: 100px; top: 60%; left: 20%; animation-delay: 3s;"></div>
     </div>
+    
     <div class="splash-content">
-        <div class="splash-logo">📖</div>
-        <h1 class="splash-title">TKA BAHASA INDONESIA</h1>
+        <div class="splash-logo-wrapper">
+            <div class="splash-logo-glow"></div>
+            <div class="splash-logo">📖</div>
+        </div>
+        <h1 class="splash-title">
+            <span class="title-word">TKA</span>
+            <span class="title-word">BAHASA</span>
+            <span class="title-word">INDONESIA</span>
+        </h1>
         <p class="splash-sub">OLIMPIADE • 60 SOAL PREMIUM • SULIT & MENJEBAK</p>
-        <div class="splash-loader"><div class="splash-loader-fill"></div></div>
+        
+        <div class="splash-loader-container">
+            <div class="splash-loader">
+                <div class="splash-loader-fill"></div>
+            </div>
+            <div class="loader-percent" id="loaderPercent">0%</div>
+        </div>
+        
         <div class="splash-text-animate">
-            <span>⚡ Analisis Kritis</span>
-            <span>🎯 Inferensi Kompleks</span>
-            <span>🧠 Evaluasi Mendalam</span>
+            <span class="animate-item">⚡ Analisis Kritis</span>
+            <span class="animate-item">🎯 Inferensi Kompleks</span>
+            <span class="animate-item">🧠 Evaluasi Mendalam</span>
+        </div>
+        
+        <div class="splash-footer-text">
+            <span>✨ TKA B.INDO Edition ✨</span>
         </div>
     </div>
 </div>
