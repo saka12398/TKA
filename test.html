@@ -359,32 +359,96 @@
         return isNaN(num) ? str : num.toString();
     }
     
-    function evaluateQuestion(qid){
-        let q = questions.find(qq => qq.id === qid);
-        if(!q) return;
-        let raw = userAnswers[qid] || "";
-        let fbDiv = document.getElementById(`fb_${qid}`);
-        
-        if(raw === ""){ 
-            if(fbDiv) fbDiv.innerHTML = `<div class="warning-message">⚠️ Isi jawaban dulu!</div>`; 
-            return; 
+function normalizeAnswer(val, q){
+    let str = val.trim().replace(/\s/g, '');
+    if(str === "") return "";
+    
+    // Untuk tipe point (koordinat) - lebih fleksibel
+    if(q.type === "point"){
+        // Terima format (5,6) atau (5,6) dengan spasi atau tanpa spasi
+        let match = str.match(/\(?\s*(-?\d+)\s*,\s*(-?\d+)\s*\)?/);
+        if(match){
+            return `(${match[1]},${match[2]})`;
         }
-        
-        let norm = normalizeAnswer(raw, q);
-        let correctNorm = q.correct;
-        let isCorrect = (norm === correctNorm);
-        answerStatus[qid] = isCorrect;
-        saveToStorage();
-        
-        if(fbDiv){
-            let resHtml = isCorrect ? 
-                `<div class="result-correct">✅ BENAR! Jawaban Anda: ${raw}</div>` : 
-                `<div class="result-wrong">❌ SALAH! Jawaban Anda: ${raw}<br>📌 Kunci Jawaban: ${q.correct}</div>`;
-            resHtml += `<div class="explanation-box">${q.penyelesaian}</div>`;
-            fbDiv.innerHTML = resHtml;
-        }
-        updateScoreDisplay();
+        return str;
     }
+    
+    // Untuk tipe pecahan seperti 1/6 atau 31/45
+    if(q.type === "pecahan"){
+        // Sederhanakan pecahan ke bentuk paling sederhana
+        if(str.includes('/')){
+            let [num, den] = str.split('/').map(Number);
+            if(den && num){
+                let gcd = (a,b) => b === 0 ? a : gcd(b, a % b);
+                let g = gcd(num, den);
+                return `${num/g}/${den/g}`;
+            }
+        }
+        return str;
+    }
+    
+    // Untuk tipe akar
+    if(q.type === "akar"){
+        // Normalisasi: 8√3 vs 8√3 (sama)
+        return str.replace(/\*/g, '').toLowerCase();
+    }
+    
+    // Untuk tipe set seperti {1,2,3,4,5,6}
+    if(q.type === "set"){
+        // Hilangkan kurung kurawal, urutkan angka
+        let numbers = str.match(/\d+/g) || [];
+        numbers.sort((a,b) => Number(a) - Number(b));
+        return `{${numbers.join(',')}}`;
+    }
+    
+    // Untuk tipe string (persamaan garis)
+    if(q.type === "string"){
+        // Hilangkan spasi semua untuk perbandingan
+        return str.replace(/\s/g, '');
+    }
+    
+    // Untuk tipe desimal atau bulat
+    let num = parseFloat(str.replace(',', '.'));
+    if(isNaN(num)) return str;
+    // Hapus .0 jika bilangan bulat
+    if(q.type === "bulat" && Number.isInteger(num)){
+        return Math.floor(num).toString();
+    }
+    return num.toString();
+}
+
+function evaluateQuestion(qid){
+    let q = questions.find(qq => qq.id === qid);
+    if(!q) return;
+    let raw = userAnswers[qid] || "";
+    let fbDiv = document.getElementById(`fb_${qid}`);
+    
+    if(raw === ""){ 
+        if(fbDiv) fbDiv.innerHTML = `<div class="warning-message">⚠️ Isi jawaban dulu!</div>`; 
+        return; 
+    }
+    
+    let norm = normalizeAnswer(raw, q);
+    let correctNorm = q.correct;
+    
+    // Normalisasi jawaban benar juga
+    let normalizedCorrect = normalizeAnswer(correctNorm, q);
+    let isCorrect = (norm === normalizedCorrect);
+    
+    // Debug: console.log(`Q${qid}: user="${norm}" vs correct="${normalizedCorrect}" → ${isCorrect}`);
+    
+    answerStatus[qid] = isCorrect;
+    saveToStorage();
+    
+    if(fbDiv){
+        let resHtml = isCorrect ? 
+            `<div class="result-correct">✅ BENAR! Jawaban Anda: ${raw}</div>` : 
+            `<div class="result-wrong">❌ SALAH! Jawaban Anda: ${raw}<br>📌 Kunci Jawaban: ${q.correct}</div>`;
+        resHtml += `<div class="explanation-box">${q.penyelesaian}</div>`;
+        fbDiv.innerHTML = resHtml;
+    }
+    updateScoreDisplay();
+}
     
     function showExplanationOnly(qid){
         let q = questions.find(qq => qq.id === qid);
