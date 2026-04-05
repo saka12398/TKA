@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>📚 E-BOOK MATEMATIKA SMP | Rumus + Trik Cepat Olimpiade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #1e2a3a;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(11, 43, 64, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #FFE8C5;
+        }
+        .logo i { color: #facc15; margin-right: 8px; }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #f0f3f8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: #facc15; }
+        .mobile-menu { display: none; font-size: 1.6rem; color: white; cursor: pointer; }
+
+        .hero {
+            background: linear-gradient(125deg, #0f172a 0%, #1e1b4b 100%);
+            padding: 3rem 2rem 4rem;
+            text-align: center;
+            color: white;
+            border-bottom: 3px solid #facc15;
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; }
+        .hero h1 i { color: #facc15; }
+        .hero p { max-width: 850px; margin: 1rem auto; opacity: 0.9; font-size: 1rem; }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filter-panel {
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            padding: 1.8rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            margin-bottom: 2.5rem;
+        }
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            font-family: 'Inter', sans-serif;
+        }
+        #searchInput:focus {
+            border-color: #facc15;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(250,204,21,0.2);
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .filter-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+        .filter-btn i { margin-right: 6px; }
+        .filter-btn.active, .filter-btn:hover {
+            background: #facc15;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.25s ease;
+            border-left: 6px solid #facc15;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+        }
+        .card-category {
+            display: inline-block;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #fef3c7;
+            color: #b45309;
+            margin-bottom: 0.8rem;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+        }
+        .card-desc {
+            color: #334155;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .highlight-box {
+            background: #F8FAFE;
+            border-radius: 20px;
+            padding: 0.9rem 1rem;
+            margin-top: 1rem;
+            border: 1px solid #e9edf2;
+        }
+        .label-mini {
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #b45309;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .rumus-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            font-family: monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 8px 0;
+        }
+        .trik-box {
+            background: #dbeafe;
+            padding: 0.6rem 0.9rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            border-left: 4px solid #3b82f6;
+            margin-top: 8px;
+        }
+        .contoh-text {
+            background: #fef9e6;
+            padding: 0.6rem 0.9rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            border-left: 4px solid #facc15;
+            line-height: 1.5;
+        }
+        .empty-msg {
+            text-align: center;
+            padding: 4rem;
+            background: white;
+            border-radius: 2rem;
+            color: #5a6e7c;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 720px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 1.8rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .filter-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-calculator"></i> E-BOOK MATH SMP</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="filterByCategory('all');return false">🏠 Semua</a></li>
+                <li><a href="#" onclick="filterByCategory('bilangan');return false">🔢 Bilangan</a></li>
+                <li><a href="#" onclick="filterByCategory('aljabar');return false">📐 Aljabar</a></li>
+                <li><a href="#" onclick="filterByCategory('geometri');return false">📏 Geometri</a></li>
+                <li><a href="#" onclick="filterByCategory('statistika');return false">📊 Statistika</a></li>
+                <li><a href="#" onclick="filterByCategory('trik');return false">⚡ Trik Cepat</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container" style="padding: 0 1rem;">
+            <h1><i class="fas fa-star"></i> E-Book Matematika SMP <i class="fas fa-star"></i></h1>
+            <p>📚 Rumus Lengkap + Trik Cepat Olimpiade + Contoh Soal | Bilangan, Aljabar, Geometri, Statistika, Peluang</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">✨ Khusus untuk siswa SMP | Cara mudah & cepat memahami matematika ✨</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="filter-panel">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="🔍 Cari rumus: phytagoras, luas lingkaran, aljabar, FPB, KPK, mean, median, modus...">
+            </div>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Semua (50+ Rumus)</button>
+                <button class="filter-btn" data-filter="bilangan"><i class="fas fa-calculator"></i> Bilangan</button>
+                <button class="filter-btn" data-filter="aljabar"><i class="fas fa-chart-line"></i> Aljabar</button>
+                <button class="filter-btn" data-filter="geometri"><i class="fas fa-square"></i> Geometri</button>
+                <button class="filter-btn" data-filter="statistika"><i class="fas fa-chart-bar"></i> Statistika</button>
+                <button class="filter-btn" data-filter="trik"><i class="fas fa-bolt"></i> Trik Cepat</button>
+            </div>
+        </div>
+        <div id="cardsContainer" class="cards-grid"></div>
+    </div>
+
+    <footer>
+        <p>© 2025 E-BOOK MATEMATIKA SMP | Rumus Lengkap + Trik Olimpiade | Persiapan Ujian & OSN</p>
+        <p style="margin-top: 8px;">📖 50+ Materi | Contoh Soal | Pembahasan Mudah | Tips & Trik Cepat</p>
+    </footer>
+
+    <script>
+        // ======================== DATABASE RUMUS MATEMATIKA SMP LENGKAP ========================
+        const materiDatabase = [
+            // ==================== BILANGAN (10+ materi) ====================
+            { judul: "Bilangan Berpangkat", kategori: "bilangan", desc: "Perkalian bilangan yang sama secara berulang.", rumus: "aⁿ = a × a × a × ... × a (sebanyak n kali)", contoh: "2³ = 2 × 2 × 2 = 8", trik: "✨ TRIK: a⁰ = 1, a⁻ⁿ = 1/aⁿ. Untuk pangkat negatif, balik jadi pecahan!" },
+            { judul: "Akar Kuadrat", kategori: "bilangan", desc: "Kebalikan dari pangkat dua.", rumus: "√a = b → b² = a", contoh: "√144 = 12, √169 = 13", trik: "✨ TRIK CEPAT: √(a×b) = √a × √b. Contoh: √75 = √(25×3) = 5√3" },
+            { judul: "FPB (Faktor Persekutuan Terbesar)", kategori: "bilangan", desc: "Bilangan terbesar yang membagi habis dua bilangan atau lebih.", rumus: "Cari faktor prima lalu ambil pangkat terkecil", contoh: "FPB 24 dan 36 = 2² × 3 = 12", trik: "✨ TRIK CEPAT: Gunakan metode sengkedan (Euclidean): 36 ÷ 24 sisa 12, 24 ÷ 12 sisa 0 → FPB = 12" },
+            { judul: "KPK (Kelipatan Persekutuan Terkecil)", kategori: "bilangan", desc: "Bilangan terkecil yang habis dibagi oleh dua bilangan atau lebih.", rumus: "Cari faktor prima lalu ambil pangkat terbesar", contoh: "KPK 12 dan 18 = 2² × 3² = 36", trik: "✨ TRIK CEPAT: KPK = (a × b) ÷ FPB(a,b). Contoh: (12×18)÷6 = 216÷6 = 36" },
+            { judul: "Operasi Pecahan", kategori: "bilangan", desc: "Penjumlahan, pengurangan, perkalian, pembagian pecahan.", rumus: "a/b + c/d = (ad + bc)/bd | a/b × c/d = ac/bd", contoh: "1/2 + 1/3 = (3+2)/6 = 5/6", trik: "✨ TRIK: Perkalian silang untuk penjumlahan/pengurangan. Pembagian: balik pecahan kedua lalu kali." },
+            { judul: "Bilangan Prima", kategori: "bilangan", desc: "Bilangan yang hanya habis dibagi 1 dan dirinya sendiri.", rumus: "2, 3, 5, 7, 11, 13, 17, 19, 23, 29, ...", contoh: "Bilangan prima kurang dari 20: 2,3,5,7,11,13,17,19", trik: "✨ TRIK: Cek apakah habis dibagi 2,3,5,7. Jika tidak, kemungkinan prima." },
+            { judul: "Bilangan Bulat (Positif & Negatif)", kategori: "bilangan", desc: "Operasi hitung dengan bilangan negatif.", rumus: "(-) + (-) = (-); (+) × (-) = (-); (-) × (-) = (+)", contoh: "-5 + (-3) = -8; (-4) × (-2) = 8", trik: "✨ TRIK: Negatif × negatif = positif. Negatif × positif = negatif." },
+            
+            // ==================== ALJABAR (12+ materi) ====================
+            { judul: "Persamaan Linear Satu Variabel (PLSV)", kategori: "aljabar", desc: "Persamaan dengan satu variabel berpangkat 1.", rumus: "ax + b = c → x = (c - b)/a", contoh: "3x + 5 = 14 → 3x = 9 → x = 3", trik: "✨ TRIK: Pindahkan variabel ke satu ruas, konstanta ke ruas lain. Tanda berubah!" },
+            { judul: "Pertidaksamaan Linear", kategori: "aljabar", desc: "Persamaan dengan tanda >, <, ≥, ≤.", rumus: "Jika dikali/dibagi negatif, tanda berbalik", contoh: "-2x > 6 → x < -3", trik: "✨ TRIK: Kalau dikali minus, tanda > jadi <, dan sebaliknya!" },
+            { judul: "Sistem Persamaan Linear Dua Variabel (SPLDV)", kategori: "aljabar", desc: "Dua persamaan dengan dua variabel.", rumus: "Metode substitusi, eliminasi, atau gabungan", contoh: "x + y = 10, x - y = 2 → x = 6, y = 4", trik: "✨ TRIK CEPAT: Eliminasi: jumlahkan/kurangkan untuk menghilangkan satu variabel." },
+            { judul: "Fungsi Linear", kategori: "aljabar", desc: "Fungsi dengan bentuk f(x) = ax + b.", rumus: "f(x) = ax + b, gradien = a", contoh: "f(x) = 2x + 3 → f(4) = 2×4 + 3 = 11", trik: "✨ TRIK: f(a) = substitusi a ke x." },
+            { judul: "Perbandingan Senilai", kategori: "aljabar", desc: "Jika x naik, y juga naik dengan perbandingan tetap.", rumus: "x₁/y₁ = x₂/y₂", contoh: "2 kg harga 20rb → 5 kg harga 50rb", trik: "✨ TRIK: Kali silang: x₁ × y₂ = x₂ × y₁" },
+            { judul: "Perbandingan Berbalik Nilai", kategori: "aljabar", desc: "Jika x naik, y turun dengan perbandingan tetap.", rumus: "x₁ × y₁ = x₂ × y₂", contoh: "4 pekerja selesai 6 hari → 8 pekerja selesai 3 hari", trik: "✨ TRIK: Hasil kali selalu sama! x₁ × y₁ = x₂ × y₂" },
+            { judul: "Aljabar (Penjumlahan & Pengurangan Suku Sejenis)", kategori: "aljabar", desc: "Operasi aljabar dengan suku-suku sejenis.", rumus: "ax + bx = (a+b)x", contoh: "3x² + 5x² = 8x²; 4xy - 2xy = 2xy", trik: "✨ TRIK: Hanya suku dengan variabel sama yang bisa dijumlah/dikurang." },
+            { judul: "Perkalian Aljabar (Distributif)", kategori: "aljabar", desc: "Perkalian suku satu dengan suku dua.", rumus: "a(b + c) = ab + ac; (a+b)(c+d) = ac + ad + bc + bd", contoh: "(x + 3)(x - 2) = x² - 2x + 3x - 6 = x² + x - 6", trik: "✨ TRIK: FOIL (First, Outer, Inner, Last) untuk perkalian dua binomial." },
+            { judul: "Pemfaktoran Bentuk ax² + bx + c", kategori: "aljabar", desc: "Mengubah bentuk aljabar menjadi perkalian faktor.", rumus: "x² + bx + c = (x + p)(x + q) dengan p+q = b, p×q = c", contoh: "x² + 5x + 6 = (x+2)(x+3)", trik: "✨ TRIK: Cari dua bilangan yang jumlah = b dan hasil kali = c" },
+            
+            // ==================== GEOMETRI (15+ materi) ====================
+            { judul: "Teorema Pythagoras", kategori: "geometri", desc: "Hubungan sisi segitiga siku-siku.", rumus: "a² + b² = c² (c = sisi miring)", contoh: "a=3, b=4 → c = √(9+16) = √25 = 5", trik: "✨ TRIK: Pasangan triple Pythagoras: (3,4,5), (5,12,13), (7,24,25), (8,15,17)" },
+            { judul: "Luas Segitiga", kategori: "geometri", desc: "Luas daerah segitiga.", rumus: "L = ½ × a × t", contoh: "a=10 cm, t=8 cm → L = 40 cm²", trik: "✨ TRIK: a = alas, t = tinggi (tegak lurus alas)" },
+            { judul: "Keliling & Luas Persegi", kategori: "geometri", desc: "Bangun datar dengan 4 sisi sama panjang.", rumus: "K = 4 × s; L = s × s = s²", contoh: "s=7 cm → K=28 cm, L=49 cm²", trik: "✨ TRIK: Diagonal persegi = s√2" },
+            { judul: "Keliling & Luas Persegi Panjang", kategori: "geometri", desc: "Bangun datar dengan 2 pasang sisi sejajar.", rumus: "K = 2(p + l); L = p × l", contoh: "p=10, l=5 → K=30, L=50", trik: "✨ TRIK: Diagonal = √(p² + l²)" },
+            { judul: "Keliling & Luas Lingkaran", kategori: "geometri", desc: "Bangun datar dengan jari-jari r.", rumus: "K = 2πr = πd; L = πr²", contoh: "r=7 cm → K=44 cm, L=154 cm²", trik: "✨ TRIK: π = 22/7 untuk r kelipatan 7, π = 3,14 untuk lainnya" },
+            { judul: "Luas Juring Lingkaran", kategori: "geometri", desc: "Luas potongan lingkaran dengan sudut pusat.", rumus: "L = (α/360°) × πr²", contoh: "α=90°, r=14 cm → L = ¼ × 616 = 154 cm²", trik: "✨ TRIK: α/360 = perbandingan luas terhadap lingkaran penuh" },
+            { judul: "Keliling & Luas Trapesium", kategori: "geometri", desc: "Bangun datar dengan sepasang sisi sejajar.", rumus: "K = a + b + c + d; L = ½ × (a+b) × t", contoh: "sisi sejajar 10 & 6, t=4 → L = 32 cm²", trik: "✨ TRIK: Jumlah sisi sejajar dikali tinggi dibagi 2" },
+            { judul: "Keliling & Luas Jajar Genjang", kategori: "geometri", desc: "Bangun datar dengan 2 pasang sisi sejajar.", rumus: "K = 2(a+b); L = a × t", contoh: "a=10, t=5 → L=50", trik: "✨ TRIK: t = tinggi (tegak lurus alas)" },
+            { judul: "Luas Belah Ketupat", kategori: "geometri", desc: "Bangun datar dengan 4 sisi sama, diagonal berbeda.", rumus: "L = (d₁ × d₂) ÷ 2", contoh: "d₁=12, d₂=16 → L = 96 cm²", trik: "✨ TRIK: Sisi = √((d₁/2)² + (d₂/2)²)" },
+            { judul: "Luas Layang-layang", kategori: "geometri", desc: "Bangun datar dengan diagonal saling tegak lurus.", rumus: "L = (d₁ × d₂) ÷ 2", contoh: "d₁=20, d₂=15 → L = 150 cm²", trik: "✨ TRIK: Sama seperti belah ketupat, diagonalnya tidak harus sama" },
+            { judul: "Volume Kubus", kategori: "geometri", desc: "Bangun ruang dengan 6 sisi persegi.", rumus: "V = s³", contoh: "s=5 cm → V=125 cm³", trik: "✨ TRIK: Diagonal sisi = s√2, diagonal ruang = s√3" },
+            { judul: "Volume Balok", kategori: "geometri", desc: "Bangun ruang dengan 3 pasang sisi persegi panjang.", rumus: "V = p × l × t", contoh: "p=10, l=6, t=4 → V=240 cm³", trik: "✨ TRIK: Diagonal ruang = √(p² + l² + t²)" },
+            { judul: "Volume Tabung", kategori: "geometri", desc: "Bangun ruang dengan alas lingkaran.", rumus: "V = πr²t", contoh: "r=7, t=10 → V = 22/7 × 49 × 10 = 1.540 cm³", trik: "✨ TRIK: Luas alas × tinggi" },
+            { judul: "Volume Kerucut", kategori: "geometri", desc: "Bangun ruang dengan alas lingkaran dan puncak.", rumus: "V = ⅓ × πr²t", contoh: "r=7, t=12 → V = ⅓ × 1.540 = 616 cm³", trik: "✨ TRIK: ⅓ × volume tabung" },
+            { judul: "Volume Bola", kategori: "geometri", desc: "Bangun ruang berbentuk bulat sempurna.", rumus: "V = 4/3 × πr³", contoh: "r=7 → V = 4/3 × 22/7 × 343 = 1.437,33 cm³", trik: "✨ TRIK: Luas permukaan bola = 4πr²" },
+            { judul: "Luas Permukaan Kubus", kategori: "geometri", desc: "Jumlah luas 6 sisi kubus.", rumus: "LP = 6 × s²", contoh: "s=5 → LP = 150 cm²", trik: "✨ TRIK: Hitung luas satu sisi lalu kali 6" },
+            { judul: "Luas Permukaan Balok", kategori: "geometri", desc: "Jumlah luas 6 sisi balok.", rumus: "LP = 2(pl + pt + lt)", contoh: "p=10,l=6,t=4 → LP = 2(60+40+24) = 248 cm²", trik: "✨ TRIK: 2 × (luas depan + luas samping + luas alas)" },
+            
+            // ==================== STATISTIKA & PELUANG (8+ materi) ====================
+            { judul: "Rata-rata (Mean)", kategori: "statistika", desc: "Nilai rata-rata dari sekumpulan data.", rumus: "Mean = jumlah semua data ÷ banyak data", contoh: "6,7,8,8,9 → jumlah=38, n=5 → mean=7,6", trik: "✨ TRIK: Untuk data besar, kurangi dengan bilangan tertentu (metode rataan sementara)" },
+            { judul: "Median (Nilai Tengah)", kategori: "statistika", desc: "Nilai tengah data setelah diurutkan.", rumus: "n ganjil = data ke-(n+1)/2; n genap = (x_n/2 + x_n/2+1)/2", contoh: "5,6,7,8,9 → median=7", trik: "✨ TRIK: Urutkan dulu datanya!" },
+            { judul: "Modus (Nilai Terbanyak)", kategori: "statistika", desc: "Nilai yang paling sering muncul.", rumus: "Cari frekuensi tertinggi", contoh: "5,5,6,7,7,7,8 → modus=7", trik: "✨ TRIK: Bisa lebih dari satu modus (multimodus)" },
+            { judul: "Jangkauan (Range)", kategori: "statistika", desc: "Selisih data terbesar dan terkecil.", rumus: "Jangkauan = x_maks - x_min", contoh: "10,15,20,25,30 → jangkauan=20", trik: "✨ TRIK: Cek data terbesar dan terkecil dengan cepat" },
+            { judul: "Peluang Suatu Kejadian", kategori: "statistika", desc: "Kemungkinan terjadinya suatu kejadian.", rumus: "P(A) = n(A) ÷ n(S)", contoh: "Peluang muncul angka 3 pada dadu = 1/6", trik: "✨ TRIK: n(A) = banyak kejadian yang diinginkan, n(S) = semua kemungkinan" },
+            { judul: "Peluang Komplemen", kategori: "statistika", desc: "Peluang kejadian TIDAK terjadi.", rumus: "P(A') = 1 - P(A)", contoh: "Peluang tidak muncul angka 3 = 5/6", trik: "✨ TRIK: P(A') = 1 - P(A) selalu!" },
+            { judul: "Frekuensi Harapan", kategori: "statistika", desc: "Banyak kejadian yang diharapkan dalam n percobaan.", rumus: "Fh = P(A) × n", contoh: "Dadu dilempar 60 kali, harapan muncul angka 3 = (1/6)×60 = 10", trik: "✨ TRIK: Kalikan peluang dengan banyak percobaan" },
+            
+            // ==================== TRIK CEPAT LAINNYA (10+ materi) ====================
+            { judul: "TRIK: Perkalian 11 Cepat", kategori: "trik", desc: "Kalikan bilangan dengan 11 dalam sekejap.", rumus: "ab × 11 = a (a+b) b", contoh: "35 × 11 = 3 (3+5) 5 = 385", trik: "✨ SUPER TRIK: 47 × 11 = 4 (4+7) 7 = 517 (jika jumlah >9, simpan 1)" },
+            { judul: "TRIK: Kuadrat Bilangan Berakhiran 5", kategori: "trik", desc: "Kuadrat bilangan yang berakhiran 5 dengan cepat.", rumus: "a5² = a×(a+1) diikuti 25", contoh: "35² = 3×4=12 diikuti 25 = 1225", trik: "✨ SUPER TRIK: 75² = 7×8=56 diikuti 25 = 5625" },
+            { judul: "TRIK: Perkalian Mendekati 100", kategori: "trik", desc: "Kalikan dua bilangan mendekati 100.", rumus: "(100-a)×(100-b) = (100-a-b) diikuti a×b", contoh: "98 × 97 = (100-2)×(100-3) = (100-5) diikuti 6 = 9506", trik: "✨ SUPER TRIK: 95 × 93 = (100-5)×(100-7) = (100-12) diikuti 35 = 8835" },
+            { judul: "TRIK: Mencari FPB dengan Sengkedan", kategori: "trik", desc: "Cara cepat mencari FPB dengan metode Euclidean.", rumus: "Bagi bilangan besar dengan kecil, ambil sisanya", contoh: "FPB 48 dan 18: 48÷18 sisa 12, 18÷12 sisa 6, 12÷6 sisa 0 → FPB=6", trik: "✨ SUPER TRIK: Ulangi sampai sisa 0, pembagi terakhir adalah FPB" },
+            { judul: "TRIK: Mencari KPK dengan Rumus Cepat", kategori: "trik", desc: "KPK = (a × b) ÷ FPB(a,b)", rumus: "KPK(a,b) = (a×b) ÷ FPB(a,b)", contoh: "KPK 12 dan 18 = (12×18)÷6 = 216÷6 = 36", trik: "✨ SUPER TRIK: Cari FPB dulu, lalu gunakan rumus ini" },
+            { judul: "TRIK: Akar Kuadrat Bilangan Besar", kategori: "trik", desc: "Menaksir akar kuadrat bilangan besar.", rumus: "√(n) ≈ taksiran", contoh: "√2500 = 50, √2704 = 52 (karena 52²=2704)", trik: "✨ SUPER TRIK: Perhatikan dua digit terakhir untuk menentukan satuan" },
+            { judul: "TRIK: Selisih Kuadrat", kategori: "trik", desc: "a² - b² = (a+b)(a-b) sangat cepat.", rumus: "a² - b² = (a-b)(a+b)", contoh: "37² - 23² = (37-23)(37+23) = 14 × 60 = 840", trik: "✨ SUPER TRIK: Gunakan untuk selisih kuadrat bilangan besar" },
+            { judul: "TRIK: Jumlah n Bilangan Asli Pertama", kategori: "trik", desc: "1 + 2 + 3 + ... + n dengan cepat.", rumus: "S = n(n+1)/2", contoh: "1+2+...+100 = 100×101/2 = 5050", trik: "✨ SUPER TRIK: Untuk n genap: (n/2) × (n+1)" },
+            { judul: "TRIK: Jumlah n Bilangan Ganjil", kategori: "trik", desc: "1 + 3 + 5 + ... + (2n-1)", rumus: "S = n²", contoh: "1+3+5+7+9 = 5² = 25", trik: "✨ SUPER TRIK: Banyak bilangan = n, hasilnya n²" },
+            { judul: "TRIK: Perkalian Silang (Pecahan)", kategori: "trik", desc: "Membandingkan dua pecahan dengan cepat.", rumus: "a/b > c/d jika a×d > b×c", contoh: "3/4 vs 4/5 → 3×5=15, 4×4=16 → 3/4 < 4/5", trik: "✨ SUPER TRIK: Kali silang, bandingkan hasilnya!" },
+            { judul: "TRIK: Persentase Cepat", kategori: "trik", desc: "Mencari persentase dengan cara mudah.", rumus: "x% dari y = (x×y)/100", contoh: "20% dari 80 = (20×80)/100 = 16", trik: "✨ SUPER TRIK: 10% = bagi 10, 5% = 10% ÷ 2, 1% = bagi 100" }
+        ];
+
+        const fullData = [...materiDatabase];
+        let activeFilter = "all";
+        let searchTerm = "";
+
+        function renderCards() {
+            const container = document.getElementById("cardsContainer");
+            let filtered = fullData.filter(item => {
+                if (activeFilter !== "all" && item.kategori !== activeFilter) return false;
+                if (searchTerm.trim() !== "") {
+                    const term = searchTerm.toLowerCase();
+                    return item.judul.toLowerCase().includes(term) || 
+                           item.desc.toLowerCase().includes(term) ||
+                           (item.rumus && item.rumus.toLowerCase().includes(term)) ||
+                           (item.contoh && item.contoh.toLowerCase().includes(term)) ||
+                           (item.trik && item.trik.toLowerCase().includes(term));
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="empty-msg"><i class="fas fa-calculator" style="font-size: 3rem; opacity: 0.6;"></i><h3>Tidak ditemukan rumus</h3><p>Coba kata kunci: phytagoras, luas lingkaran, aljabar, FPB, KPK, atau trik cepat</p></div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(item => {
+                let categoryColor = "#facc15";
+                let categoryLabel = "📘 Materi";
+                let categoryBg = "#fef3c7";
+                if (item.kategori === "bilangan") { categoryLabel = "🔢 Bilangan"; categoryColor = "#3b82f6"; categoryBg = "#dbeafe"; }
+                else if (item.kategori === "aljabar") { categoryLabel = "📐 Aljabar"; categoryColor = "#10b981"; categoryBg = "#d1fae5"; }
+                else if (item.kategori === "geometri") { categoryLabel = "📏 Geometri"; categoryColor = "#f59e0b"; categoryBg = "#fef3c7"; }
+                else if (item.kategori === "statistika") { categoryLabel = "📊 Statistika"; categoryColor = "#8b5cf6"; categoryBg = "#ede9fe"; }
+                else if (item.kategori === "trik") { categoryLabel = "⚡ Trik Cepat"; categoryColor = "#ef4444"; categoryBg = "#fee2e2"; }
+                
+                let rumusHtml = "";
+                if (item.rumus) {
+                    rumusHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-square-root-alt"></i> 📐 RUMUS</div><div class="rumus-box">${escapeHtml(item.rumus)}</div></div>`;
+                }
+                let contohHtml = "";
+                if (item.contoh) {
+                    contohHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-quote-left"></i> 📌 CONTOH SOAL</div><div class="contoh-text">${escapeHtml(item.contoh)}</div></div>`;
+                }
+                let trikHtml = "";
+                if (item.trik) {
+                    trikHtml = `<div class="trik-box"><i class="fas fa-bolt" style="color: #f59e0b;"></i> ${escapeHtml(item.trik)}</div>`;
+                }
+                return `
+                    <div class="card" style="border-left-color: ${categoryColor};">
+                        <div class="card-category" style="background: ${categoryBg}; color: ${categoryColor};">${categoryLabel}</div>
+                        <h3>${escapeHtml(item.judul)}</h3>
+                        <div class="card-desc">${escapeHtml(item.desc)}</div>
+                        ${rumusHtml}
+                        ${contohHtml}
+                        ${trikHtml}
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
+
+        function filterByCategory(cat) {
+            activeFilter = cat;
+            document.querySelectorAll(".filter-btn").forEach(btn => {
+                const btnCat = btn.getAttribute("data-filter");
+                if ((cat === "all" && btnCat === "all") || (btnCat === cat)) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            renderCards();
+        }
+
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", (e) => {
+            searchTerm = e.target.value;
+            renderCards();
+        });
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const filterVal = btn.getAttribute("data-filter");
+                filterByCategory(filterVal);
+            });
+        });
+
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.querySelector(".nav-links");
+        if(mobileBtn){
+            mobileBtn.addEventListener("click", () => {
+                if(navLinks.style.display === "flex") navLinks.style.display = "none";
+                else navLinks.style.display = "flex";
+            });
+        }
+        renderCards();
+    </script>
+</body>
+</html>
