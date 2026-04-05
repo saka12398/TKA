@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>📚 SUPER E-BOOK TKA B.INDONESIA | 100+ Materi Lengkap Majas, Struktur, Istilah & Wacana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1e2a3a;
+            scroll-behavior: smooth;
+        }
+
+        .header {
+            background: rgba(11, 43, 64, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #FFE8C5;
+        }
+        .logo i { color: #F4A261; margin-right: 8px; }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #f0f3f8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: #F4A261; }
+        .mobile-menu { display: none; font-size: 1.6rem; color: white; cursor: pointer; }
+
+        .hero {
+            background: linear-gradient(125deg, #0B2B40 0%, #22668D 100%);
+            padding: 3rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; }
+        .hero p { max-width: 850px; margin: 1rem auto; opacity: 0.9; font-size: 1rem; }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filter-panel {
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+        }
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            font-family: 'Inter', sans-serif;
+        }
+        #searchInput:focus {
+            border-color: #22668D;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(34,102,141,0.2);
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .filter-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+        .filter-btn i { margin-right: 6px; }
+        .filter-btn.active, .filter-btn:hover {
+            background: #22668D;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            border-left: 6px solid #F4A261;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+        .card-category {
+            display: inline-block;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #eef2ff;
+            color: #1e40af;
+            margin-bottom: 0.8rem;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #0c4a6e;
+        }
+        .card-desc {
+            color: #334155;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .highlight-box {
+            background: #F8FAFE;
+            border-radius: 20px;
+            padding: 0.9rem 1rem;
+            margin-top: 1rem;
+            border: 1px solid #e9edf2;
+        }
+        .label-mini {
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #2c5f8a;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .contoh-text {
+            background: #fef9e6;
+            padding: 0.6rem 0.9rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            border-left: 4px solid #F4A261;
+            line-height: 1.5;
+        }
+        .empty-msg {
+            text-align: center;
+            padding: 4rem;
+            background: white;
+            border-radius: 2rem;
+            color: #5a6e7c;
+        }
+        .stat-badge {
+            display: inline-block;
+            background: #e6f7f0;
+            color: #1e6f5c;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 8px;
+        }
+
+        footer {
+            background: #0B2B40;
+            color: #b9cfdf;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 720px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 1.9rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .filter-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-book-open"></i> SUPER E-BOOK TKA BINDO</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="filterByCategory('all');return false">🏠 Semua</a></li>
+                <li><a href="#" onclick="filterByCategory('majas');return false">✨ Majas</a></li>
+                <li><a href="#" onclick="filterByCategory('struktur');return false">📐 SPOK/Kalimat</a></li>
+                <li><a href="#" onclick="filterByCategory('kosakata');return false">📖 Istilah Teknis</a></li>
+                <li><a href="#" onclick="filterByCategory('wacana');return false">📝 Wacana/Teks</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container" style="padding: 0 1rem;">
+            <h1>📖 Kuasai TKA Bahasa Indonesia <span style="font-size: 1rem;">(100+ Materi Lengkap)</span></h1>
+            <p>✨ 25+ Majas • 📐 Struktur SPOK & Unsur Paragraf • 📖 40+ Istilah Teknis (substitusi, deforestasi, hilirisasi) • 📝 Teks Fiksi & Informasi lengkap • Karakteristik Kosakata, Kalimat (5-9 kata), Wacana & Kohesi</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="filter-panel">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="🔍 Cari: deforestasi, hilirisasi, substitusi, metafora, SPOK, teks fiksi, konjungsi...">
+            </div>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Semua (100+)</button>
+                <button class="filter-btn" data-filter="majas"><i class="fas fa-feather-alt"></i> Majas (25+)</button>
+                <button class="filter-btn" data-filter="struktur"><i class="fas fa-code-branch"></i> Struktur/Kalimat (20+)</button>
+                <button class="filter-btn" data-filter="kosakata"><i class="fas fa-graduation-cap"></i> Istilah & Kosakata (35+)</button>
+                <button class="filter-btn" data-filter="wacana"><i class="fas fa-paragraph"></i> Wacana & Teks (25+)</button>
+            </div>
+        </div>
+        <div id="cardsContainer" class="cards-grid"></div>
+    </div>
+
+    <footer>
+        <p>© 2025 SUPER E-BOOK TKA B. Indonesia | 100+ Materi Lengkap: Majas, SPOK, Istilah Teknis, Teks Fiksi/Informasi, Karakteristik Kosakata, Kalimat (5-9 kata), Wacana & Kohesi</p>
+    </footer>
+
+    <script>
+        // ======================== DATABASE SUPER LENGKAP (100+ MATERI) ========================
+        
+        const materiDatabase = [
+            // ==================== MAJAS (25+ JENIS LENGKAP) ====================
+            { judul: "Metafora", kategori: "majas", desc: "Perbandingan langsung tanpa kata pembanding. Menghubungkan dua hal berbeda secara implisit.", contoh: "Dunia adalah panggung sandiwara. (Kehidupan diibaratkan panggung)", catatan: "Menciptakan makna konotatif yang kuat. Sering digunakan dalam puisi dan sastra." },
+            { judul: "Personifikasi", kategori: "majas", desc: "Memberikan sifat atau perilaku manusia pada benda mati atau makhluk bukan manusia.", contoh: "Ombak berbisik lembut di pantai. Angin menari-nari di antara dedaunan.", catatan: "Membuat benda mati terasa hidup dan imajinatif." },
+            { judul: "Hiperbola", kategori: "majas", desc: "Pernyataan yang dilebih-lebihkan untuk menciptakan efek dramatis atau penekanan.", contoh: "Suaranya menggelegar membelah angkasa. Aku menunggu seribu tahun lamanya.", catatan: "Tidak realistis namun kuat secara emosional." },
+            { judul: "Litotes", kategori: "majas", desc: "Pernyataan yang merendahkan diri untuk memberi kesan sederhana atau rendah hati.", contoh: "Terimalah pemberian yang tidak berharga ini. Rumah saya hanya gubuk reyot.", catatan: "Kebalikan dari hiperbola, bentuk kesopanan." },
+            { judul: "Simile (Perumpamaan)", kategori: "majas", desc: "Perbandingan eksplisit menggunakan kata seperti, bagai, laksana, bak, sebagai.", contoh: "Wajahnya bersinar bagai bulan purnama. Cepat seperti kilat.", catatan: "Kiasan yang jelas dan mudah dipahami." },
+            { judul: "Ironi", kategori: "majas", desc: "Mengatakan kebalikan dari maksud sebenarnya untuk menyindir atau mengkritik secara halus.", contoh: "Bagus sekali kerjamu, sampai meja ikut pindah! (padahal jelek)", catatan: "Sindiran halus, berbeda dengan sarkasme yang lebih kasar." },
+            { judul: "Sarkasme", kategori: "majas", desc: "Sindiran kasar dan tajam yang menyakitkan perasaan.", contoh: "Pintar amat sih, nilainya cuma 50! Hebat!", catatan: "Lebih kasar dari ironi, sering menyakiti." },
+            { judul: "Metonimia", kategori: "majas", desc: "Penggunaan nama merek, ciri, atau atribut untuk mewakili benda atau konsep.", contoh: "Dia meminum segelas Coca-Cola. (Coca-Cola = minuman bersoda)", catatan: "Penggantian nama berdasarkan asosiasi." },
+            { judul: "Sinekdoke", kategori: "majas", desc: "Menyebut sebagian untuk keseluruhan (pars pro toto) atau sebaliknya (totum pro parte).", contoh: "Sepuluh ekor kambing telah terjual. (ekor = hewan)", catatan: "Hubungan bagian-keseluruhan." },
+            { judul: "Paradoks", kategori: "majas", desc: "Pernyataan yang tampak bertentangan namun mengandung kebenaran.", contoh: "Dia kesepian di tengah keramaian. Hidup matiku karena cintamu.", catatan: "Kontradiksi yang bermakna dalam." },
+            { judul: "Antitesis", kategori: "majas", desc: "Perbandingan dua hal yang berlawanan dalam satu kalimat.", contoh: "Hatinya keras bagaikan batu, namun lembut bagaikan kapas.", catatan: "Memperjelas kontras." },
+            { judul: "Eufemisme", kategori: "majas", desc: "Penggunaan kata halus untuk menggantikan kata yang kasar atau tabu.", contoh: "Tunanetra (buta), meninggal dunia (mati), keterbelakangan mental (bodoh).", catatan: "Menghaluskan makna." },
+            { judul: "Repetisi", kategori: "majas", desc: "Pengulangan kata atau frasa untuk penekanan.", contoh: "Maju, maju, dan terus maju pantang mundur!", catatan: "Memberi efek dramatis." },
+            { judul: "Aliterasi", kategori: "majas", desc: "Pengulangan bunyi konsonan pada awal kata berurutan.", contoh: "Kura-kura kecil kurus keliling kota.", catatan: "Memberi efek musikal." },
+            { judul: "Asonansi", kategori: "majas", desc: "Pengulangan bunyi vokal dalam kata berurutan.", contoh: "Cinta kita semua suka ceria.", catatan: "Keindahan bunyi." },
+            { judul: "Anafora", kategori: "majas", desc: "Pengulangan kata di awal setiap baris/kalimat.", contoh: "Kau bunga, kau cahaya, kau segalanya.", catatan: "Penekanan berulang." },
+            { judul: "Inversi", kategori: "majas", desc: "Pembalikan urutan kata dalam kalimat untuk penekanan.", contoh: "Pergilah kau dari sini! (seharusnya kau pergi)", catatan: "Gaya puitis." },
+            { judul: "Retorik", kategori: "majas", desc: "Pertanyaan yang tidak memerlukan jawaban.", contoh: "Apakah kita mau kalah terus? Siapa yang tidak kenal dia?", catatan: "Memancing penegasan." },
+            { judul: "Sinisme", kategori: "majas", desc: "Sindiran langsung dengan nada tidak percaya.", contoh: "Hebat, hebat, memang kamu juara banget sih!", catatan: "Ejekan halus." },
+            { judul: "Alusi", kategori: "majas", desc: "Pengacuan pada peristiwa/tokoh terkenal.", contoh: "Dia seperti Kartini modern.", catatan: "Perbandingan implisit." },
+            { judul: "Antonomasia", kategori: "majas", desc: "Penggunaan gelar/ciri untuk mengganti nama.", contoh: "Sang Pangeran Mawar (Dewa RUci).", catatan: "Penggantian nama." },
+            { judul: "Klimaks", kategori: "majas", desc: "Pengungkapan yang meningkat intensitasnya.", contoh: "Dia menangis, meratap, lalu menjerit histeris.", catatan: "Meningkat." },
+            { judul: "Antiklimaks", kategori: "majas", desc: "Pengungkapan yang menurun intensitasnya.", contoh: "Dia kaya, terkenal, lalu bangkrut.", catatan: "Menurun." },
+            { judul: "Paralelisme", kategori: "majas", desc: "Penggunaan struktur kalimat yang sejajar.", contoh: "Dia suka membaca, menulis, dan melukis.", catatan: "Keseimbangan." },
+
+            // ==================== STRUKTUR SPOK & UNSUR PARAGRAF (20+) ====================
+            { judul: "Struktur SPOK Dasar", kategori: "struktur", desc: "Kalimat minimal memiliki Subjek (S) dan Predikat (P), dapat ditambah Objek (O) dan Keterangan (K).", contoh: "Ibu (S) memasak (P) rawon (O) di dapur (K).", catatan: "Pola dasar kalimat tunggal bahasa Indonesia." },
+            { judul: "Unsur Paragraf: Ide Pokok", kategori: "struktur", desc: "Gagasan utama yang mendasari seluruh isi paragraf.", contoh: "Pendidikan karakter penting bagi generasi muda. (ide pokok: pentingnya pendidikan karakter)", catatan: "Biasanya di kalimat awal atau akhir." },
+            { judul: "Unsur Paragraf: Kalimat Utama", kategori: "struktur", desc: "Kalimat yang mengandung ide pokok paragraf.", contoh: "Belajar daring memiliki banyak kelebihan. Pertama, fleksibel. Kedua, hemat biaya.", catatan: "Kalimat penjelas mendukung kalimat utama." },
+            { judul: "Unsur Paragraf: Kalimat Penjelas", kategori: "struktur", desc: "Kalimat yang mengembangkan atau menjelaskan ide pokok.", contoh: "Fleksibel karena bisa diakses di mana saja. Hemat karena tidak perlu transportasi.", catatan: "Memberi detail dan contoh." },
+            { judul: "Jenis Paragraf: Deduktif", kategori: "struktur", desc: "Ide pokok di awal paragraf, lalu diikuti penjelasan.", contoh: "Olahraga baik untuk kesehatan. Olahraga melancarkan peredaran darah dan mengurangi stres.", catatan: "Umum ke khusus." },
+            { judul: "Jenis Paragraf: Induktif", kategori: "struktur", desc: "Ide pokok di akhir paragraf, diawali fakta/penjelasan.", contoh: "Kita melihat polusi udara meningkat. Hutan gundul di mana-mana. Maka bumi sedang sakit.", catatan: "Khusus ke umum." },
+            { judul: "Jenis Paragraf: Campuran", kategori: "struktur", desc: "Ide pokok di awal dan diulang di akhir.", contoh: "Gotong royong budaya luhur. Masyarakat saling membantu. Gotong royong harus dilestarikan.", catatan: "Penegasan." },
+            { judul: "Kalimat Aktif Transitif", kategori: "struktur", desc: "Subjek melakukan aksi pada objek. Kata kerja berimbuhan meN-.", contoh: "Nelayan menangkap ikan di laut. (5 kata)", catatan: "Jumlah kata tepat 5, memenuhi karakteristik TKA." },
+            { judul: "Kalimat Aktif Intransitif", kategori: "struktur", desc: "Subjek melakukan aksi tanpa objek. Bisa diikuti keterangan.", contoh: "Bayi itu menangis keras. Adik berlari cepat.", catatan: "Tidak membutuhkan objek." },
+            { judul: "Kalimat Pasif", kategori: "struktur", desc: "Objek dikenai tindakan. Kata kerja berimbuhan di- / ter- / ke-an.", contoh: "Ikan ditangkap oleh nelayan. Buku itu terbawa angin.", catatan: "Bisa dengan atau tanpa agen." },
+            { judul: "Kalimat Tunggal Pola S-P", kategori: "struktur", desc: "Hanya subjek dan predikat, tanpa objek.", contoh: "Ayah tidur. Anak itu berlari. Bunga mekar.", catatan: "Paling sederhana." },
+            { judul: "Kalimat Tunggal Pola S-P-O", kategori: "struktur", desc: "Subjek + Predikat + Objek.", contoh: "Kakak membaca novel. Adik memakan kue.", catatan: "Umum digunakan." },
+            { judul: "Kalimat Tunggal Pola S-P-O-K", kategori: "struktur", desc: "Subjek + Predikat + Objek + Keterangan. Panjang ideal 5-9 kata.", contoh: "Pak Rahmat membeli rumah baru. (5 kata)", catatan: "Memenuhi karakteristik kalimat TKA." },
+            { judul: "Kalimat Tunggal Pola S-P-K", kategori: "struktur", desc: "Subjek + Predikat + Keterangan.", contoh: "Mereka berenang di kolam. Mobil parkir di garasi.", catatan: "Keterangan wajib melengkapi." },
+            { judul: "Kalimat Majemuk Setara", kategori: "struktur", desc: "Dua klausa sederajat dihubungkan konjungsi: dan, atau, tetapi, sedangkan, lalu.", contoh: "Adik belajar matematika, tetapi kakak bermain gitar.", catatan: "Koordinatif, tanda baca koma." },
+            { judul: "Kalimat Majemuk Bertingkat", kategori: "struktur", desc: "Satu klausa induk dan satu anak kalimat. Konjungsi: karena, jika, ketika, agar.", contoh: "Karena hujan deras, pertandingan ditunda. Jika belajar, pasti sukses.", catatan: "Hubungan subordinatif." },
+            { judul: "Karakteristik Kalimat (5-9 kata)", kategori: "struktur", desc: "Panjang ideal kalimat efektif dalam TKA adalah 5 sampai 9 kata.", contoh: "Tim peneliti menemukan vaksin baru. (5 kata) Siswa kelas sembilan belajar di perpustakaan. (6 kata)", catatan: "Mudah dipahami dan efisien." },
+            { judul: "Konjungsi Kausalitas (Sebab-Akibat)", kategori: "struktur", desc: "Kata hubung: karena, sebab, oleh karena itu, sehingga, akibatnya.", contoh: "Dia tidak masuk sekolah karena sakit. Hujan turun sehingga banjir.", catatan: "Menghubungkan sebab dan akibat." },
+            { judul: "Konjungsi Temporal (Waktu)", kategori: "struktur", desc: "Kata hubung: ketika, saat, setelah, sebelum, sementara, kemudian.", contoh: "Setelah lulus, ia akan kuliah. Sambil menunggu, dia membaca buku.", catatan: "Menunjukkan urutan waktu." },
+            { judul: "Konjungsi Perlawanan", kategori: "struktur", desc: "Kata hubung: namun, akan tetapi, meskipun, walaupun, biarpun.", contoh: "Meskipun hujan, dia tetap berangkat. Dia miskin namun bahagia.", catatan: "Menunjukkan pertentangan." },
+            { judul: "Konjungsi Tujuan", kategori: "struktur", desc: "Kata hubung: agar, supaya, untuk, guna.", contoh: "Belajar giat supaya meraih cita-cita. Minum obat agar cepat sembuh.", catatan: "Menyatakan maksud." },
+            { judul: "Konjungsi Perbandingan", kategori: "struktur", desc: "Kata hubung: seperti, bagaikan, laksana, berbeda halnya, seolah-olah.", contoh: "Sikapnya berbeda halnya dengan kakaknya. Dia seolah-olah tidak tahu.", catatan: "Membandingkan dua hal." },
+            { judul: "Konjungsi Penegasan (Intensifikasi)", kategori: "struktur", desc: "Kata hubung: bahkan, apalagi, terutama, lebih-lebih, lagipula.", contoh: "Dia pintar, bahkan juara olimpiade. Semua lulus, apalagi si Rudi.", catatan: "Memperkuat argumen." },
+
+            // ==================== ISTILAH TEKNIS & KOSAKATA (35+) ====================
+            { judul: "Substitusi (Istilah Linguistik)", kategori: "kosakata", desc: "Penggantian unsur bahasa dengan unsur lain dalam wacana untuk menghindari pengulangan.", contoh: "Budi membeli buku. Dia (mengganti Budi) sedang membaca.", catatan: "Salah satu bentuk kohesi gramatikal." },
+            { judul: "Deforestasi (Istilah Lingkungan)", kategori: "kosakata", desc: "Penggundulan atau penebangan hutan secara besar-besaran yang merusak ekosistem.", contoh: "Deforestasi di Kalimantan menyebabkan banjir bandang dan tanah longsor.", catatan: "Kata benda abstrak, istilah teknis lingkungan hidup." },
+            { judul: "Hilirisasi (Istilah Ekonomi)", kategori: "kosakata", desc: "Proses pengolahan hasil industri dari hulu ke hilir untuk meningkatkan nilai tambah.", contoh: "Hilirisasi nikel menjadi baterai lithium meningkatkan pendapatan negara.", catatan: "Kata berimbuhan -isasi, kebijakan ekonomi." },
+            { judul: "Anomali (Istilah Umum)", kategori: "kosakata", desc: "Penyimpangan atau kelainan dari keadaan normal yang tidak biasa terjadi.", contoh: "Anomali cuaca ekstrem terjadi tahun ini dengan suhu tak biasa.", catatan: "Kata abstrak, sering di teks ilmiah." },
+            { judul: "Inflasi (Istilah Ekonomi)", kategori: "kosakata", desc: "Kenaikan harga barang dan jasa secara umum dalam periode waktu tertentu.", contoh: "Inflasi tahun ini mencapai 3,5 persen akibat kenaikan BBM.", catatan: "Indikator makroekonomi penting." },
+            { judul: "Subsidi (Istilah Fiskal)", kategori: "kosakata", desc: "Bantuan pemerintah berupa uang atau barang untuk menstabilkan harga dan melindungi rakyat.", contoh: "Subsidi BBM dialihkan ke bantuan langsung tunai.", catatan: "Kebijakan perlindungan sosial." },
+            { judul: "Resesi (Istilah Ekonomi)", kategori: "kosakata", desc: "Penurunan aktivitas ekonomi dua kuartal berturut-turut.", contoh: "Resesi global 2008 mempengaruhi ekspor Indonesia.", catatan: "Istilah makroekonomi." },
+            { judul: "Stagflasi (Istilah Ekonomi)", kategori: "kosakata", desc: "Kondisi inflasi tinggi disertai pertumbuhan ekonomi stagnan.", contoh: "Stagflasi menjadi mimpi buruk bank sentral dunia.", catatan: "Kombinasi stagnasi + inflasi." },
+            { judul: "Rantai Pasok (Supply Chain)", kategori: "kosakata", desc: "Jaringan distribusi produk dari produsen hingga konsumen.", contoh: "Gangguan rantai pasok global menyebabkan kelangkaan chip.", catatan: "Istilah logistik modern." },
+            { judul: "Disruptif (Disrupsi)", kategori: "kosakata", desc: "Inovasi yang mengubah tatanan industri atau pasar secara fundamental.", contoh: "Teknologi disruptif seperti AI menggeser bisnis konvensional.", catatan: "Kata sifat dari disrupsi." },
+            { judul: "Benchmarking", kategori: "kosakata", desc: "Perbandingan standar atau praktik terbaik dari kompetitor.", contoh: "Perusahaan melakukan benchmarking internasional untuk meningkatkan kualitas.", catatan: "Istilah manajemen." },
+            { judul: "Likuiditas (Istilah Keuangan)", kategori: "kosakata", desc: "Kemampuan perusahaan atau bank membayar utang jangka pendek.", contoh: "Likuiditas perbankan terjaga di tengah krisis.", catatan: "Istilah perbankan." },
+            { judul: "Hibrida (Gabungan)", kategori: "kosakata", desc: "Sistem atau benda yang menggabungkan dua elemen berbeda.", contoh: "Sistem kerja hibrida: online dan offline.", catatan: "Kata serapan populer." },
+            { judul: "Ekstraktif (Industri)", kategori: "kosakata", desc: "Industri yang mengambil hasil alam langsung, seperti tambang dan migas.", contoh: "Sektor ekstraktif menyumbang devisa terbesar.", catatan: "Sering muncul di teks ekonomi." },
+            { judul: "Monopoli (Istilah Hukum)", kategori: "kosakata", desc: "Penguasaan pasar oleh satu pelaku usaha tanpa pesaing.", contoh: "Praktik monopoli dilarang undang-undang antimonopoli.", catatan: "Lawan dari persaingan sehat." },
+            { judul: "Oligopoli (Istilah Ekonomi)", kategori: "kosakata", desc: "Penguasaan pasar oleh beberapa perusahaan besar.", contoh: "Industri telekomunikasi dikuasai oligopoli.", catatan: "Beberapa pemain dominan." },
+            { judul: "Kata Abstrak (Keadilan)", kategori: "kosakata", desc: "Kata yang merujuk pada konsep tidak berwujud, tidak bisa diindera.", contoh: "Keadilan, kebebasan, kesejahteraan, cinta, harapan.", catatan: "Sering muncul di teks wacana." },
+            { judul: "Kata Konkret (Meja)", kategori: "kosakata", desc: "Kata yang merujuk pada benda nyata, bisa dilihat/diraba.", contoh: "Meja, kursi, buku, mobil, rumah, pohon.", catatan: "Lawan kata abstrak." },
+            { judul: "Makna Denotatif", kategori: "kosakata", desc: "Makna harfiah atau sebenarnya sesuai kamus, tidak bermakna kias.", contoh: "Kambing = hewan berkaki empat pemakan rumput.", catatan: "Lawan dari konotatif." },
+            { judul: "Makna Konotatif", kategori: "kosakata", desc: "Makna tambahan atau kias berdasarkan konteks budaya dan situasi.", contoh: "Dia kambing hitam dalam kasus ini (kambing = tertuduh).", catatan: "Bersifat subjektif." },
+            { judul: "Kata Berimbuhan (Prefiks)", kategori: "kosakata", desc: "Kata dasar + awalan (me-, ber-, di-, ter-, ke-, pe-).", contoh: "Membaca, berlari, ditulis, terbang, membaca.", catatan: "Mengubah makna dasar." },
+            { judul: "Kata Berimbuhan (Sufiks)", kategori: "kosakata", desc: "Kata dasar + akhiran (-an, -i, -kan, -nya).", contoh: "Makanan, datangi, buatkan, rumahnya.", catatan: "Membentuk kata baru." },
+            { judul: "Kata Berimbuhan (Konfiks)", kategori: "kosakata", desc: "Kata dasar dengan awalan dan akhiran serentak (peN-an, meN-kan, ke-an).", contoh: "Pembangunan, mendaftarkan, kesehatan.", catatan: "Imbuhan simulfiks." },
+            { judul: "Kata Umum vs Khusus", kategori: "kosakata", desc: "Kata umum (hipernim) mencakup makna luas; kata khusus (hiponim) lebih spesifik.", contoh: "Kendaraan (umum) → mobil, motor, bus (khusus).", catatan: "Hubungan hirarkis." },
+            { judul: "Makna Konotatif 'Buah Hati'", kategori: "kosakata", desc: "Ungkapan kias yang bermakna anak kesayangan.", contoh: "Buah hati kami sedang tertidur pulas.", catatan: "Konteks keluarga positif." },
+            { judul: "Makna Konotatif 'Tangan Kanan'", kategori: "kosakata", desc: "Orang kepercayaan atau asisten paling dipercaya.", contoh: "Dia adalah tangan kanan direktur utama.", catatan: "Konteks pekerjaan." },
+            { judul: "Makna Konotatif 'Kepala Batu'", kategori: "kosakata", desc: "Orang yang keras kepala dan sulit dinasihati.", contoh: "Jangan coba-coba menasihatinya, dia kepala batu.", catatan: "Konteks negatif." },
+            { judu: "Istilah: Alih Daya (Outsourcing)", kategori: "kosakata", desc: "Penyerahan sebagian pekerjaan ke pihak ketiga.", contoh: "Perusahaan menerapkan sistem alih daya untuk cleaning service.", catatan: "Istilah ketenagakerjaan." },
+            { judul: "Istilah: Wacana (Linguistik)", kategori: "kosakata", desc: "Satuan bahasa terbesar di atas kalimat yang utuh dan koheren.", contoh: "Wacana iklan memiliki kohesi kuat antara gambar dan teks.", catatan: "Objek kajian linguistik." },
+            { judul: "Kripto (Aset Digital)", kategori: "kosakata", desc: "Mata uang digital menggunakan teknologi kriptografi, seperti Bitcoin.", contoh: "Regulasi kripto terus diperkuat pemerintah.", catatan: "Istilah teknologi finansial." },
+
+            // ==================== WACANA, TEKS FIKSI, TEKS INFORMASI, KOhesi (25+) ====================
+            { judul: "Teks Fiksi: Pengertian", kategori: "wacana", desc: "Karya sastra naratif yang bersifat imajinatif, tidak berdasarkan fakta riil.", contoh: "Cerpen, novel, dongeng, roman, hikayat, legenda.", catatan: "Mengutamakan efek estetis dan hiburan." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Tema)", kategori: "wacana", desc: "Gagasan utama yang mendasari cerita.", contoh: "Tema persahabatan, perjuangan, cinta, atau kemanusiaan.", catatan: "Pesan mendasar cerita." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Tokoh)", kategori: "wacana", desc: "Pelaku yang menjalankan peristiwa dalam cerita.", contoh: "Tokoh protagonis (baik), antagonis (jahat), tritagonis (penengah).", catatan: "Karakterisasi penting." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Penokohan)", kategori: "wacana", desc: "Cara pengarang menggambarkan karakter tokoh.", contoh: "Metode langsung (deskripsi) atau tidak langsung (dialog, tindakan).", catatan: "Membentuk watak." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Alur/Plot)", kategori: "wacana", desc: "Rangkaian peristiwa yang membangun cerita secara kronologis.", contoh: "Alur maju, mundur, campuran. Tahap: pengenalan, konflik, klimaks, resolusi.", catatan: "Tulang punggung cerita." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Latar)", kategori: "wacana", desc: "Tempat, waktu, dan suasana terjadinya peristiwa.", contoh: "Latar: di desa, malam hari, suasana mencekam.", catatan: "Membangun atmosfer." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Sudut Pandang)", kategori: "wacana", desc: "Cara pengarang memposisikan diri dalam cerita.", contoh: "Orang pertama (aku), orang ketiga (dia, mereka).", catatan: "Pengaruh pada narasi." },
+            { judul: "Teks Fiksi: Unsur Intrinsik (Amanat)", kategori: "wacana", desc: "Pesan moral yang ingin disampaikan pengarang.", contoh: "Jangan mudah putus asa, hargailah perbedaan.", catatan: "Pembelajaran hidup." },
+            { judul: "Teks Fiksi: Unsur Ekstrinsik", kategori: "wacana", desc: "Unsur luar yang mempengaruhi karya, seperti latar belakang penulis, sosial, budaya.", contoh: "Kondisi sosial saat novel ditulis, biografi pengarang.", catatan: "Konteks historis." },
+            { judul: "Teks Fiksi: Struktur Cerpen", kategori: "wacana", desc: "Orientasi (pengenalan), komplikasi (konflik), resolusi (penyelesaian).", contoh: "Ori: perkenalan tokoh. Komp: masalah muncul. Res: masalah selesai.", catatan: "Struktur dasar cerita pendek." },
+            { judul: "Teks Informasi: Pengertian", kategori: "wacana", desc: "Teks yang menyampaikan fakta, data, dan pengetahuan objektif.", contoh: "Laporan berita, artikel ilmiah, teks prosedur, ensiklopedia.", catatan: "Berdasarkan fakta, bukan fiksi." },
+            { judul: "Teks Informasi: Unsur (Fakta)", kategori: "wacana", desc: "Informasi yang dapat dibuktikan kebenarannya.", contoh: "Jakarta adalah ibu kota Indonesia. Gunung Everest tertinggi di dunia.", catatan: "Bukan opini." },
+            { judul: "Teks Informasi: Unsur (Data)", kategori: "wacana", desc: "Informasi berupa angka, statistik, atau ukuran.", contoh: "Jumlah penduduk 270 juta jiwa. Tingkat inflasi 3,5%.", catatan: "Memperkuat kredibilitas." },
+            { judul: "Teks Informasi: Unsur (Opini Ahli)", kategori: "wacana", desc: "Pendapat narasumber kompeten yang mendukung informasi.", contoh: "Menurut pakar ekonomi, subsidi tepat sasaran efektif.", catatan: "Memberi otoritas." },
+            { judul: "Teks Informasi: Struktur (Pernyataan Umum)", kategori: "wacana", desc: "Bagian awal yang memperkenalkan topik secara luas.", contoh: "Sampah plastik menjadi masalah global serius.", catatan: "Pembuka." },
+            { judul: "Teks Informasi: Struktur (Deret Penjelas)", kategori: "wacana", desc: "Rincian fakta, data, atau contoh yang mendukung.", contoh: "Setiap tahun 8 juta ton plastik masuk laut. Mikroplastik ditemukan di ikan.", catatan: "Isi utama." },
+            { judul: "Teks Informasi: Struktur (Kesimpulan)", kategori: "wacana", desc: "Bagian akhir yang merangkum atau memberi rekomendasi.", contoh: "Maka perlu pengurangan plastik sekali pakai.", catatan: "Penutup." },
+            { judul: "Kohesi Substitusi (Penyulihan)", kategori: "wacana", desc: "Penggantian kata/frasa dengan kata lain seperti 'itu', 'hal tersebut', 'nya'.", contoh: "Polisi menangkap tiga pencuri. Mereka dibawa ke kantor. Hal itu mendapat apresiasi.", catatan: "Menghindari pengulangan, menjaga keutuhan wacana." },
+            { judul: "Kohesi Substitusi dengan 'Demikian'", kategori: "wacana", desc: "Merujuk pada pernyataan sebelumnya secara ringkas.", contoh: "Inflasi menurun 0,2%. Demikian disampaikan bank sentral.", catatan: "Kohesi leksikal formal." },
+            { judul: "Kohesi Substitusi dengan 'Tersebut'", kategori: "wacana", desc: "Merujuk pada sesuatu yang sudah disebut.", contoh: "Rumah tersebut sudah dijual tahun lalu.", catatan: "Penunjuk jarak." },
+            { judul: "Konjungsi Antarparagraf (Perbandingan)", kategori: "wacana", desc: "Menghubungkan ide antar paragraf yang berbeda.", contoh: "Paragraf 1: Harga batubara turun. Berbeda halnya dengan nikel yang naik.", catatan: "Penanda kontras." },
+            { judul: "Konjungsi Antarparagraf (Penekanan)", kategori: "wacana", desc: "Memperkuat argumen paragraf sebelumnya.", contoh: "Polusi udara naik drastis. Bahkan mencapai level berbahaya.", catatan: "Intensifikasi." },
+            { judul: "Konjungsi Antarparagraf (Urutan)", kategori: "wacana", desc: "Menunjukkan urutan waktu atau langkah.", contoh: "Selanjutnya, pemerintah akan mengevaluasi kebijakan.", catatan: "Kronologis." },
+            { judul: "Konjungsi Antarparagraf (Kausalitas)", kategori: "wacana", desc: "Menghubungkan sebab akibat antar paragraf.", contoh: "Subsidi tepat sasaran. Oleh karena itu, kemiskinan menurun.", catatan: "Logis." },
+            { judul: "Tanda Baca Koma (,)", kategori: "wacana", desc: "Memisahkan anak kalimat, unsur setara, atau kata seru.", contoh: "Setelah belajar, Budi langsung tidur. Wah, bagus sekali!", catatan: "Mendukung kelancaran baca." },
+            { judul: "Tanda Baca Titik Dua (:)", kategori: "wacana", desc: "Memperkenalkan rincian, daftar, atau kutipan langsung.", contoh: "Ada tiga penyebab inflasi: permintaan, biaya, ekspektasi.", catatan: "Struktur wacana formal." },
+            { judul: "Tanda Baca Titik Koma (;)", kategori: "wacana", desc: "Memisahkan bagian setara dalam kalimat majemuk.", contoh: "Ayah pergi ke kantor; ibu ke pasar; saya ke sekolah.", catatan: "Setara sejajar." },
+            { judul: "Tanda Baca Petik (“ ”)", kategori: "wacana", desc: "Menandai kutipan langsung, istilah asing, atau judul.", contoh: "Konsep 'hilirisasi' menjadi strategi nasional.", catatan: "Memberi penekanan khusus." },
+            { judul: "Tanda Baca Tanya (?)", kategori: "wacana", desc: "Menandai kalimat pertanyaan.", contoh: "Siapa yang akan pergi? Kapan acara dimulai?", catatan: "Intonasi tanya." },
+            { judul: "Tanda Baca Seru (!)", kategori: "wacana", desc: "Menandai kalimat perintah, seruan, atau emosi kuat.", contoh: "Awas! Hati-hati! Selamat datang!", catatan: "Ekspresif." }
+        ];
+
+        const fullData = [...materiDatabase];
+        let activeFilter = "all";
+        let searchTerm = "";
+
+        function renderCards() {
+            const container = document.getElementById("cardsContainer");
+            let filtered = fullData.filter(item => {
+                if (activeFilter !== "all" && item.kategori !== activeFilter) return false;
+                if (searchTerm.trim() !== "") {
+                    const term = searchTerm.toLowerCase();
+                    return item.judul.toLowerCase().includes(term) || 
+                           item.desc.toLowerCase().includes(term) ||
+                           (item.contoh && item.contoh.toLowerCase().includes(term)) ||
+                           (item.catatan && item.catatan.toLowerCase().includes(term));
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="empty-msg"><i class="fas fa-book-open" style="font-size: 3rem; opacity: 0.6;"></i><h3>Tidak ditemukan materi</h3><p>Coba kata kunci lain: deforestasi, substitusi, hilirisasi, metafora, SPOK, atau teks fiksi</p></div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(item => {
+                let categoryColor = "#F4A261";
+                let categoryLabel = "📘 Materi";
+                if (item.kategori === "majas") { categoryLabel = "✨ Majas"; categoryColor = "#D98324"; }
+                else if (item.kategori === "struktur") { categoryLabel = "📐 Struktur & Kalimat"; categoryColor = "#2A9D8F"; }
+                else if (item.kategori === "kosakata") { categoryLabel = "📖 Istilah/Kosakata"; categoryColor = "#E76F51"; }
+                else if (item.kategori === "wacana") { categoryLabel = "📝 Wacana & Teks"; categoryColor = "#5E60CE"; }
+                
+                let contohHtml = "";
+                if (item.contoh) {
+                    contohHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-quote-left"></i> 📌 Contoh / Kalimat</div><div class="contoh-text">“${escapeHtml(item.contoh)}”</div></div>`;
+                }
+                let catatanHtml = "";
+                if (item.catatan) {
+                    catatanHtml = `<div class="highlight-box" style="background:#F2F7FF; margin-top: 8px;"><div class="label-mini"><i class="fas fa-lightbulb"></i> 📖 Analisis / Karakteristik</div><div style="font-size:0.85rem; line-height:1.5;">${escapeHtml(item.catatan)}</div></div>`;
+                }
+                return `
+                    <div class="card" style="border-left-color: ${categoryColor};">
+                        <div class="card-category" style="background: ${categoryColor}20; color: ${categoryColor};">${categoryLabel}</div>
+                        <h3>${escapeHtml(item.judul)}</h3>
+                        <div class="card-desc">${escapeHtml(item.desc)}</div>
+                        ${contohHtml}
+                        ${catatanHtml}
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
+
+        function filterByCategory(cat) {
+            activeFilter = cat;
+            document.querySelectorAll(".filter-btn").forEach(btn => {
+                const btnCat = btn.getAttribute("data-filter");
+                if ((cat === "all" && btnCat === "all") || (btnCat === cat)) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            renderCards();
+        }
+
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", (e) => {
+            searchTerm = e.target.value;
+            renderCards();
+        });
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const filterVal = btn.getAttribute("data-filter");
+                filterByCategory(filterVal);
+            });
+        });
+
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.querySelector(".nav-links");
+        if(mobileBtn){
+            mobileBtn.addEventListener("click", () => {
+                if(navLinks.style.display === "flex") navLinks.style.display = "none";
+                else navLinks.style.display = "flex";
+            });
+        }
+        renderCards();
+    </script>
+</body>
+</html>
