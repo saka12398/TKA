@@ -245,16 +245,17 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo"><i class="fas fa-book-open"></i> E-BOOK TKA BINDO</div>
-            <ul class="nav-links">
-                <li><a onclick="filterByCategory('all');return false">🏠 Beranda</a></li>
-                <li><a onclick="filterByCategory('majas');return false">✨ Majas</a></li>
-                <li><a onclick="filterByCategory('struktur');return false">📐 Struktur SPOK</a></li>
-                <li><a onclick="filterByCategory('kalimat');return false">📝 Kalimat</a></li>
-                <li><a onclick="filterByCategory('kosakata');return false">📖 Istilah</a></li>
-                <li><a onclick="filterByCategory('wacana');return false">🔗 Wacana</a></li>
-                <li><a onclick="filterByCategory('fiksi');return false">📖 Fiksi</a></li>
-                <li><a onclick="filterByCategory('informasi');return false">📰 Informasi</a></li>
-            </ul>
+             <ul class="nav-links">
+            <li><a href="index.html" class="nav-item home-btn"><i class="fas fa-home"></i> HOME</a></li>
+            
+            <li><a href="ebook-mtk.html" class="nav-item">
+                <i class="fas fa-book"></i> E-Book Math
+            </a></li>
+
+            <li><a href="#" class="nav-item trick-btn" onclick="filterByCategory('trik'); return false;">
+                <i class="fas fa-lightbulb"></i> Trik Cepat
+            </a></li>
+        </ul>
             <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
         </div>
     </header>
