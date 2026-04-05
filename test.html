@@ -245,7 +245,7 @@
     }
 
     // ==================== 60 SOAL LENGKAP (TIDAK ADA YANG DIUBAH, HANYA DIPERBAIKI STRUKTUR ARRAY NYA) ====================
-const soalMatematikaSulit = [
+const questions = [
   { id: 1, diff: "Hard", cat: "Aljabar", text: "Jika (x + y)² = 49 dan xy = 10, maka nilai x² + y² = ?", correct: "29", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (x + y)² = x² + 2xy + y²<br>📌 49 = x² + y² + 2(10)<br>📌 49 = x² + y² + 20<br>📌 x² + y² = 49 - 20 = <strong>29</strong>", contoh: "📖 <strong>CONTOH:</strong> (a+b)²=36, ab=8 → a²+b²=36-16=20<br>📌 <strong>TRIK:</strong> a²+b² = (a+b)² - 2ab" },
 
   { id: 2, diff: "Hot", cat: "Aljabar", text: "Jika a + b = 5 dan a² + b² = 17, maka nilai ab = ?", correct: "4", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (a + b)² = a² + 2ab + b²<br>📌 5² = 17 + 2ab<br>📌 25 = 17 + 2ab<br>📌 2ab = 8 → ab = <strong>4</strong>", contoh: "📖 <strong>CONTOH:</strong> a+b=7, a²+b²=25 → ab=(49-25)/2=12<br>📌 <strong>TRIK:</strong> ab = [(a+b)² - (a²+b²)]/2" },
@@ -304,11 +304,8 @@ const soalMatematikaSulit = [
 
   { id: 29, diff: "Hot", cat: "Statistika", text: "Median dari data: 4, 6, 8, 5, 7, 9, 5, 8, 6, 7 adalah...", correct: "6.5", type: "desimal", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📊 Urutkan data: 4,5,5,6,6,7,7,8,8,9<br>📊 n = 10 (genap)<br>📊 Median = (data ke-5 + data ke-6) ÷ 2<br>📊 = (6 + 7) ÷ 2 = 13 ÷ 2 = <strong>6,5</strong>", contoh: "📖 <strong>CONTOH:</strong> 2,3,4,5 → median=(3+4)/2=3,5<br>📌 <strong>TRIK:</strong> Urutkan data terlebih dahulu!" },
 
-  { id: 30, diff: "Ekstrem", cat: "Statistika", text: "Dari 5 bilangan, rata-ratanya 12. Jika bilangan terbesar 20 dan terkecil 8, maka rata-rata tiga bilangan lainnya adalah...", correct: "10.67", type: "desimal", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📊 Jumlah 5 bilangan = 12 × 5 = 60<br>📊 Jumlah 3 bilangan lainnya = 60 - (20 + 8) = 60 - 28 = 32<br>📊 Rata-rata 3 bilangan = 32 ÷ 3 = <strong>10,67</strong>", contoh: "📖 <strong>CONTOH:</strong> 6 bilangan rata-rata 10, terbesar 15, terkecil 5 → 4 lainnya = 60-20=40, rata=10<br>📌 <strong>TRIK:</strong> Kurangi total dengan nilai ekstrem!" }
-];
-
-const soalMatematikaSulitLanjutan = [
-  { id: 31, diff: "Hard", cat: "Aljabar", text: "Hasil kali (x - 3)(x + 5) adalah...", correct: "x²+2x-15", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (x-3)(x+5) = x·x + x·5 - 3·x - 3·5<br>📌 = x² + 5x - 3x - 15<br>📌 = <strong>x² + 2x - 15</strong>", contoh: "📖 <strong>CONTOH:</strong> (x-2)(x+4) = x²+2x-8<br>📌 <strong>TRIK:</strong> FOIL (First, Outer, Inner, Last)" },
+  { id: 30, diff: "Ekstrem", cat: "Statistika", text: "Dari 5 bilangan, rata-ratanya 12. Jika bilangan terbesar 20 dan terkecil 8, maka rata-rata tiga bilangan lainnya adalah...", correct: "10.67", type: "desimal", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📊 Jumlah 5 bilangan = 12 × 5 = 60<br>📊 Jumlah 3 bilangan lainnya = 60 - (20 + 8) = 60 - 28 = 32<br>📊 Rata-rata 3 bilangan = 32 ÷ 3 = <strong>10,67</strong>", contoh: "📖 <strong>CONTOH:</strong> 6 bilangan rata-rata 10, terbesar 15, terkecil 5 → 4 lainnya = 60-20=40, rata=10<br>📌 <strong>TRIK:</strong> Kurangi total dengan nilai ekstrem!" },
+   { id: 31, diff: "Hard", cat: "Aljabar", text: "Hasil kali (x - 3)(x + 5) adalah...", correct: "x²+2x-15", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (x-3)(x+5) = x·x + x·5 - 3·x - 3·5<br>📌 = x² + 5x - 3x - 15<br>📌 = <strong>x² + 2x - 15</strong>", contoh: "📖 <strong>CONTOH:</strong> (x-2)(x+4) = x²+2x-8<br>📌 <strong>TRIK:</strong> FOIL (First, Outer, Inner, Last)" },
 
   { id: 32, diff: "Hot", cat: "Aljabar", text: "Pemfaktoran dari x² + 7x + 12 adalah...", correct: "(x+3)(x+4)", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Cari dua bilangan: p+q=7, p×q=12<br>📌 p=3, q=4<br>📌 x²+7x+12 = <strong>(x+3)(x+4)</strong>", contoh: "📖 <strong>CONTOH:</strong> x²+5x+6 = (x+2)(x+3)<br>📌 <strong>TRIK:</strong> Cari dua bilangan yang jumlah = b dan hasil kali = c" },
 
@@ -370,7 +367,6 @@ const soalMatematikaSulitLanjutan = [
 ];
 
 // Gabungkan semua soal
-const semuaSoalMatematikaSulit = [...soalMatematikaSulit, ...soalMatematikaSulitLanjutan];
     
     // ==================== AUTO SAVE ====================
     let userAnswers = {};
