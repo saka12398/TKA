@@ -243,49 +243,43 @@
 </head>
 <body>
     <header class="header">
-        <div class="nav-container">
-            <div class="logo"><i class="fas fa-book-open"></i> E-BOOK TKA BINDO</div>
-             <ul class="nav-links">
+     <header>
+    <div class="nav-container">
+        <div class="logo"><i class="fas fa-book-open"></i> E-BOOK TKA BINDO</div>
+        <ul class="nav-links">
             <li><a href="index.html" class="nav-item home-btn"><i class="fas fa-home"></i> HOME</a></li>
-            
-            <li><a href="ebook-mtk.html" class="nav-item">
-                <i class="fas fa-book"></i> E-Book Math
-            </a></li>
-
-            <li><a href="#" class="nav-item trick-btn" onclick="filterByCategory('trik'); return false;">
-                <i class="fas fa-lightbulb"></i> Trik Cepat
-            </a></li>
+            <li><a href="ebook-mtk.html" class="nav-item"><i class="fas fa-book"></i> E-Book Math</a></li>
+            <li><a href="#" class="nav-item All-btn" onclick="filterByCategory('all'); return false;"><i class="fas fa-lightbulb"></i> ALL MATERI</a></li>
         </ul>
-            <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container" style="padding: 0 1rem;">
-            <h1>📖 Kuasai TKA Bahasa Indonesia</h1>
-            <p>Majas, Struktur SPOK, Kalimat Aktif-Pasif, Istilah teknis (deforestasi, hilirisasi, substitusi), Teks fiksi & informasi, <br> Karakteristik kosakata, kalimat 5–9 kata, kohesi wacana & konjungsi.</p>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="filter-panel">
-            <div class="search-wrapper">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Cari: deforestasi, hilirisasi, metafora, SPOK, kalimat tunggal, konjungsi perbandingan...">
-            </div>
-            <div class="filter-buttons" id="filterButtons">
-                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Semua</button>
-                <button class="filter-btn" data-filter="majas"><i class="fas fa-feather-alt"></i> Majas</button>
-                <button class="filter-btn" data-filter="struktur"><i class="fas fa-code-branch"></i> Struktur</button>
-                <button class="filter-btn" data-filter="kalimat"><i class="fas fa-file-alt"></i> Kalimat</button>
-                <button class="filter-btn" data-filter="kosakata"><i class="fas fa-graduation-cap"></i> Kosakata</button>
-                <button class="filter-btn" data-filter="wacana"><i class="fas fa-paragraph"></i> Wacana</button>
-                <button class="filter-btn" data-filter="fiksi"><i class="fas fa-book"></i> Fiksi</button>
-                <button class="filter-btn" data-filter="informasi"><i class="fas fa-newspaper"></i> Informasi</button>
-            </div>
-        </div>
-        <div id="cardsContainer" class="cards-grid"></div>
+        <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
     </div>
+</header>
+
+<section class="hero">
+    <div class="container" style="padding: 0 1rem;">
+        <h1>📖 Kuasai TKA Bahasa Indonesia</h1>
+        <p>Majas, Struktur SPOK, Kalimat Aktif-Pasif, Istilah teknis (deforestasi, hilirisasi, substitusi), Teks fiksi & informasi, <br> Karakteristik kosakata, kalimat 5–9 kata, kohesi wacana & konjungsi.</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="filter-panel">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Cari: deforestasi, metafora, SPOK, konjungsi...">
+        </div>
+        <div class="filter-buttons" id="filterButtons">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Semua</button>
+            <button class="filter-btn" data-filter="majas"><i class="fas fa-feather-alt"></i> Majas</button>
+            <button class="filter-btn" data-filter="struktur"><i class="fas fa-code-branch"></i> Struktur</button>
+            <button class="filter-btn" data-filter="kosakata"><i class="fas fa-graduation-cap"></i> Kosakata</button>
+            <button class="filter-btn" data-filter="wacana"><i class="fas fa-paragraph"></i> Wacana</button>
+            <button class="filter-btn" data-filter="fiksi"><i class="fas fa-book"></i> Fiksi</button>
+            <button class="filter-btn" data-filter="informasi"><i class="fas fa-newspaper"></i> Informasi</button>
+        </div>
+    </div>
+    <div id="cardsContainer" class="cards-grid"></div>
+</div>
 
     <footer>
         <p>© 2025 Master TKA B. Indonesia | Materi lengkap berdasarkan kisi-kisi: majas, struktur SPOK, kalimat aktif/pasif, istilah teknis, teks fiksi/informasi, kohesi, konjungsi & tanda baca</p>
@@ -418,7 +412,7 @@ const materiInformasiLengkap = [
 ];
 
         // GABUNGKAN SEMUA MATERI
-        const fullData = [...materiMajas, ...materiStruktur, ...materiKalimat, ...materiKosakata, ...materiWacana, ...materiFiksi, ...materiInformasi];
+        const fullData = [...materiMajas, ...materiStruktur, ...materiKalimat, ...materiKosakata, ...materiWacana, ...materiFiksiLengkap, ...materiInformasiLengkap];
 
         let activeFilter = "all";
         let searchTerm = "";
