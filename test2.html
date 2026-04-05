@@ -1001,7 +1001,40 @@
             if(userAnswers[q.id] && answerStatus[q.id]) evaluateQuestion(q.id);
         });
     }
+// Animasi loading persen untuk splash screen
+function startLoaderAnimation() {
+    let startTime = null;
+    const duration = 2500; // 2.5 detik (sama dengan timeout splash)
+    const loaderElement = document.getElementById('loaderPercent');
+    
+    if (!loaderElement) return;
+    
+    function updatePercent(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const percent = Math.min(Math.floor((elapsed / duration) * 100), 100);
+        loaderElement.textContent = percent + '%';
+        
+        if (elapsed < duration) {
+            requestAnimationFrame(updatePercent);
+        }
+    }
+    
+    requestAnimationFrame(updatePercent);
+}
 
+// Panggil saat window load
+window.addEventListener('load', () => {
+    startLoaderAnimation(); // Mulai animasi persen
+    
+    setTimeout(() => {
+        let splash = document.getElementById('splash-screen');
+        if(splash) {
+            splash.classList.add('fade-out');
+            setTimeout(() => splash.remove(), 800);
+        }
+    }, 2500);
+});
     // Scroll Top
     window.addEventListener('scroll', () => {
         let btn = document.getElementById('scrollTopBtn');
