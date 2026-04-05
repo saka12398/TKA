@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Learning Management Sistem | TKA VERSION</title>
+    <title>Learning Management System | TKA SMP VERSION</title>
     <style>
         * {
             margin: 0;
@@ -192,10 +191,10 @@
             color: #facc15;
         }
 
-        /* MODE CARDS - grid 2 kolom */
+        /* MODE CARDS - grid 3 kolom untuk mode + ebook */
         .modes-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
@@ -207,12 +206,24 @@
             color: white;
             transition: all 0.25s ease;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
         }
 
         .mode-item:hover {
             transform: translateY(-4px);
             background: rgba(250, 204, 21, 0.12);
             border-color: #facc15;
+        }
+
+        .ebook-item {
+            background: linear-gradient(145deg, rgba(139, 92, 246, 0.15), rgba(0, 0, 0, 0.25));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .ebook-item:hover {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.2);
         }
 
         .mode-icon {
@@ -233,6 +244,12 @@
             border-radius: 30px;
             font-size: 0.7rem;
             margin: 12px 0 8px;
+            align-self: flex-start;
+        }
+
+        .ebook-tag {
+            background: rgba(139, 92, 246, 0.3);
+            color: #a78bfa;
         }
 
         .mode-desc {
@@ -262,6 +279,10 @@
             content: "✓";
             color: #facc15;
             font-size: 0.7rem;
+        }
+
+        .ebook-features li::before {
+            color: #a78bfa;
         }
 
         .footer {
@@ -354,7 +375,7 @@
             visibility: hidden;
         }
 
-        /* RESPONSIVE: HP (max-width 640px) ukuran lebih kecil */
+        /* RESPONSIVE: HP (max-width 640px) */
         @media (max-width: 640px) {
             body {
                 padding: 16px 12px;
@@ -451,7 +472,7 @@
             }
 
             .mode-item h4 {
-                font-size: 1.15rem;
+                font-size: 1rem;
             }
 
             .mode-tag {
@@ -476,8 +497,12 @@
             }
         }
 
-        /* HP sangat kecil (max-width 400px) */
+        /* HP sangat kecil (max-width 480px) */
         @media (max-width: 480px) {
+            .modes-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
             .subject-card h2 {
                 font-size: 1rem;
             }
@@ -487,12 +512,6 @@
             .subject-desc {
                 font-size: 0.55rem;
             }
-            .mode-item h4 {
-                font-size: 1rem;
-            }
-            .mode-icon {
-                font-size: 28px;
-            }
         }
     </style>
 </head>
@@ -501,8 +520,8 @@
 <div id="splash-screen">
     <div class="splash-content">
         <div class="splash-logo">🏅</div>
-        <h2>Learning Management Sistem</h2>
-        <p>Prepare-TKA VERSION</p>
+        <h2>Learning Management System</h2>
+        <p>Matematika & Bahasa Indonesia + E-Book Lengkap</p>
         <div class="loader"><div class="loader-fill"></div></div>
     </div>
 </div>
@@ -510,8 +529,8 @@
 <div class="main-container">
     <div class="header">
         <div class="logo">🏅</div>
-        <h1>TKA CHALLENGE</h1>
-        <p>Pilih mata pelajaran • lalu pilih mode</p>
+        <h1>TKA Preparation</h1>
+        <p>Pilih mata pelajaran • Lalu pilih mode latihan, test, atau baca E-Book</p>
     </div>
 
     <!-- DUA KOTAK - GRID 2 KOLOM -->
@@ -519,13 +538,13 @@
         <div class="subject-card" id="cardMath">
             <div class="subject-icon">📐</div>
             <h2>Matematika</h2>
-            <div class="subject-desc">Aljabar • Geometri • Bilangan • Statistika<br>60+ Soal Olimpiade</div>
+            <div class="subject-desc">Aljabar • Geometri • Bilangan • Statistika<br>60+ Soal Olimpiade + E-Book Materi</div>
             <div class="subject-badge">⭐ Klik untuk mulai</div>
         </div>
         <div class="subject-card" id="cardIndo">
             <div class="subject-icon">📖</div>
             <h2>Bahasa Indonesia</h2>
-            <div class="subject-desc">Literasi • Ejaan • Tata Bahasa • Pemahaman Teks<br>60+ Soal</div>
+            <div class="subject-desc">Literasi • Ejaan • Tata Bahasa • Pemahaman Teks<br>60+ Soal + E-Book Lengkap</div>
             <div class="subject-badge">⭐ Klik untuk mulai</div>
         </div>
     </div>
@@ -533,8 +552,8 @@
     <div id="modePanelContainer" class="mode-panel-wrapper"></div>
 
     <div class="footer">
-        <p>© 2025 Tes KEMAMPUAN AKADEMIK FUNDAMENTAL | Persiapan Untuk TKA SMP/MTs</p>
-        <p>📁 Latihan MTK: tka.html | Test MTK: test.html | Latihan B.Indo: tka2.html | Test B.Indo: test2.html</p>
+        <p>© 2025 Learning Management System | Persiapan Olimpiade SMP/MTs | By-Rich</p>
+        <p>📘 E-Book Matematika & Bahasa Indonesia | 📝 E-book | ⏱️ Test Soal</p>
     </div>
 </div>
 
@@ -596,6 +615,18 @@
                                 <li>Review hasil setelah selesai</li>
                             </ul>
                         </a>
+                        <a href="ebook-mtk.html" class="mode-item ebook-item">
+                            <div class="mode-icon">📘</div>
+                            <h4>E-Book MTK</h4>
+                            <div class="mode-tag ebook-tag">📖 Materi Lengkap</div>
+                            <div class="mode-desc">Baca materi Matematika lengkap: rumus, contoh, pembahasan</div>
+                            <ul class="mode-features ebook-features">
+                                <li>Aljabar, Geometri, Statistika</li>
+                                <li>Rumus cepat & trik olimpiade</li>
+                                <li>Contoh soal + penyelesaian</li>
+                                <li>Materi SMP/MTs lengkap</li>
+                            </ul>
+                        </a>
                     </div>
                 </div>
             `;
@@ -625,12 +656,24 @@
                             <div class="mode-icon">📜</div>
                             <h4>Test</h4>
                             <div class="mode-tag">🏆 Full Challenge</div>
-                            <div class="mode-desc">Uji kemampuan literasi dengan cepat, tepat & akurat</div>
+                            <div class="mode-desc">Uji kemampuan level olimpiade dengan tekanan waktu</div>
                             <ul class="mode-features">
                                 <li>60 soal setara olimpiade</li>
                                 <li>Mode ujian sebenarnya</li>
                                 <li>Timer & penilaian otomatis</li>
                                 <li>Laporan skor akhir & review</li>
+                            </ul>
+                        </a>
+                        <a href="ebook-indo.html" class="mode-item ebook-item">
+                            <div class="mode-icon">📖</div>
+                            <h4>E-Book Indo</h4>
+                            <div class="mode-tag ebook-tag">📚 Master B.Indo</div>
+                            <div class="mode-desc">Materi lengkap: Majas, SPOK, Istilah, Wacana, Teks Fiksi/Informasi</div>
+                            <ul class="mode-features ebook-features">
+                                <li>20+ Jenis Majas + Contoh</li>
+                                <li>Struktur SPOK & Kalimat Aktif/Pasif</li>
+                                <li>50+ Istilah Teknis (deforestasi, hilirisasi, dll)</li>
+                                <li>Karakteristik Wacana & Kohesi</li>
                             </ul>
                         </a>
                     </div>
