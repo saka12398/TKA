@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>📚 E-BOOK MATEMATIKA UTER | Lengkap + Rumus Cepat + Trik Olimpiade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #1e2a3a;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(11, 43, 64, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #FFE8C5;
+        }
+        .logo i { color: #8b5cf6; margin-right: 8px; }
+        
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #f0f3f8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .nav-links a:hover { color: #8b5cf6; }
+        .mobile-menu { display: none; font-size: 1.6rem; color: white; cursor: pointer; }
+
+        .hero {
+            background: linear-gradient(125deg, #0f172a 0%, #1e1b4b 100%);
+            padding: 2.5rem 2rem 3rem;
+            text-align: center;
+            color: white;
+            border-bottom: 3px solid #8b5cf6;
+        }
+        .hero h1 { font-size: 2.2rem; font-weight: 800; }
+        .hero h1 i { color: #8b5cf6; }
+        .hero p { max-width: 950px; margin: 0.8rem auto; opacity: 0.9; font-size: 0.9rem; }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filter-panel {
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            margin-bottom: 2rem;
+        }
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 3rem;
+            font-size: 0.95rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            font-family: 'Inter', sans-serif;
+        }
+        #searchInput:focus {
+            border-color: #8b5cf6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139,92,246,0.2);
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        .filter-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.75rem;
+            color: #1e293b;
+        }
+        .filter-btn i { margin-right: 5px; }
+        .filter-btn.active, .filter-btn:hover {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.4rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.25s ease;
+            border-left: 5px solid #8b5cf6;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+        }
+        .card-category {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.7rem;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .card-desc {
+            color: #334155;
+            line-height: 1.45;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+        .highlight-box {
+            background: #F8FAFE;
+            border-radius: 18px;
+            padding: 0.7rem 0.9rem;
+            margin-top: 0.8rem;
+            border: 1px solid #e9edf2;
+        }
+        .label-mini {
+            font-weight: 700;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: #8b5cf6;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .rumus-box {
+            background: linear-gradient(135deg, #ede9fe 0%, #c4b5fd 100%);
+            padding: 0.6rem 0.9rem;
+            border-radius: 14px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 6px 0;
+        }
+        .trik-box {
+            background: #fef3c7;
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            border-left: 3px solid #f59e0b;
+            margin-top: 6px;
+        }
+        .contoh-text {
+            background: #fef9e6;
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            border-left: 3px solid #f59e0b;
+            line-height: 1.45;
+        }
+        .empty-msg {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 2rem;
+            color: #5a6e7c;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+        }
+        @media (max-width: 720px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 1.6rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .filter-buttons { justify-content: center; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-calculator"></i> MATH UTER</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item"><i class="fas fa-home"></i> HOME</a></li>
+                <li><a href="uter-mtk-latihan.html" class="nav-item"><i class="fas fa-pencil-alt"></i> LATIHAN</a></li>
+                <li><a href="uter-mtk-test.html" class="nav-item"><i class="fas fa-clock"></i> TEST</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container" style="padding: 0 1rem;">
+            <h1><i class="fas fa-star"></i> E-Book Matematika UTER Super Lengkap <i class="fas fa-star"></i></h1>
+            <p>📚 Sesuai Kisi-Kisi: Perbandingan | Aljabar | Kesebangunan | Pangkat & Akar | Pythagoras | PLSV/PtLSV | Persamaan Garis | Statistika | Bangun Ruang | Pola Bilangan | SPLDV | Transformasi | Peluang</p>
+            <p style="font-size: 0.8rem; margin-top: 8px;">✨ Rumus Cepat + Trik Olimpiade + Contoh Soal + Pembahasan ✨</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="filter-panel">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="🔍 Cari materi: perbandingan, aljabar, pythagoras, peluang, transformasi...">
+            </div>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Semua</button>
+                <button class="filter-btn" data-filter="perbandingan"><i class="fas fa-chart-line"></i> Perbandingan</button>
+                <button class="filter-btn" data-filter="aljabar"><i class="fas fa-calculator"></i> Aljabar</button>
+                <button class="filter-btn" data-filter="kesebangunan"><i class="fas fa-shapes"></i> Kesebangunan</button>
+                <button class="filter-btn" data-filter="pangkatakar"><i class="fas fa-square-root-alt"></i> Pangkat & Akar</button>
+                <button class="filter-btn" data-filter="pythagoras"><i class="fas fa-chalkboard"></i> Pythagoras</button>
+                <button class="filter-btn" data-filter="plsv"><i class="fas fa-equals"></i> PLSV/PtLSV</button>
+                <button class="filter-btn" data-filter="persamaangaris"><i class="fas fa-chart-line"></i> Persamaan Garis</button>
+                <button class="filter-btn" data-filter="statistika"><i class="fas fa-chart-bar"></i> Statistika</button>
+                <button class="filter-btn" data-filter="bangunruang"><i class="fas fa-cube"></i> Bangun Ruang</button>
+                <button class="filter-btn" data-filter="polabilangan"><i class="fas fa-sort-numeric-up"></i> Pola Bilangan</button>
+                <button class="filter-btn" data-filter="spldv"><i class="fas fa-code-branch"></i> SPLDV</button>
+                <button class="filter-btn" data-filter="transformasi"><i class="fas fa-vector-square"></i> Transformasi</button>
+                <button class="filter-btn" data-filter="peluang"><i class="fas fa-dice"></i> Peluang</button>
+                <button class="filter-btn" data-filter="trik"><i class="fas fa-lightbulb"></i> Trik Cepat</button>
+            </div>
+        </div>
+        <div id="cardsContainer" class="cards-grid"></div>
+    </div>
+
+    <footer>
+        <p>© 2025 E-BOOK MATEMATIKA UTER | Lengkap Semua Materi + Rumus Cepat + Trik Olimpiade</p>
+        <p style="margin-top: 6px;">📖 Perbandingan | Aljabar | Kesebangunan | Pangkat & Akar | Pythagoras | PLSV | Persamaan Garis | Statistika | Bangun Ruang | Pola Bilangan | SPLDV | Transformasi | Peluang</p>
+    </footer>
+
+    <script>
+        // ======================== DATABASE LENGKAP SESUAI KISI-KISI ========================
+        const materiDatabase = [
+            // ==================== PERBANDINGAN ====================
+            { judul: "Perbandingan Senilai", kategori: "perbandingan", desc: "Jika satu variabel naik, variabel lain juga naik dengan perbandingan tetap.", rumus: "a₁/b₁ = a₂/b₂ atau a₁ × b₂ = a₂ × b₁", contoh: "3 buku = 15.000, maka 5 buku = 25.000", trik: "✨ TRIK CEPAT: Gunakan perkalian silang! a₁ × b₂ = a₂ × b₁" },
+            { judul: "Perbandingan Berbalik Nilai", kategori: "perbandingan", desc: "Jika satu variabel naik, variabel lain justru turun.", rumus: "a₁ × b₁ = a₂ × b₂", contoh: "10 orang selesai 6 hari, 15 orang selesai 4 hari", trik: "✨ TRIK CEPAT: Hasil kali selalu tetap (konstan)!" },
+            { judul: "Skala Peta", kategori: "perbandingan", desc: "Perbandingan jarak pada peta dengan jarak sebenarnya.", rumus: "Skala = Jarak Peta : Jarak Sebenarnya", contoh: "Skala 1:200.000 → 1 cm = 2 km", trik: "✨ TRIK CEPAT: Skala 1:S → 1 cm peta = S cm sebenarnya" },
+            { judul: "Kecepatan Rata-rata", kategori: "perbandingan", desc: "Perbandingan jarak terhadap waktu tempuh.", rumus: "v = s/t, s = v × t, t = s/v", contoh: "100 km / 2 jam = 50 km/jam", trik: "✨ TRIK CEPAT: Segitiga JKW (Jarak = Kecepatan × Waktu)" },
+            { judul: "Debit Air", kategori: "perbandingan", desc: "Perbandingan volume terhadap waktu.", rumus: "D = V/t", contoh: "60 liter / 2 menit = 30 liter/menit", trik: "✨ TRIK CEPAT: Konsep sama dengan kecepatan!" },
+            
+            // ==================== ALJABAR ====================
+            { judul: "Sifat Komutatif", kategori: "aljabar", desc: "Urutan bilangan tidak mempengaruhi hasil.", rumus: "a + b = b + a, a × b = b × a", contoh: "3 + 5 = 5 + 3 = 8", trik: "✨ TRIK: Boleh dibolak-balik!" },
+            { judul: "Sifat Asosiatif", kategori: "aljabar", desc: "Cara mengelompokkan tidak mempengaruhi hasil.", rumus: "(a+b)+c = a+(b+c), (a×b)×c = a×(b×c)", contoh: "(2+3)+4 = 2+(3+4)=9", trik: "✨ TRIK: Kelompokkan yang mudah dihitung!" },
+            { judul: "Sifat Distributif", kategori: "aljabar", desc: "Perkalian dengan jumlah/selisih.", rumus: "a(b+c) = ab + ac, a(b-c) = ab - ac", contoh: "3(4+5)=3×4+3×5=12+15=27", trik: "✨ TRIK: Kalikan masing-masing lalu jumlahkan!" },
+            { judul: "Operasi Penjumlahan Aljabar", kategori: "aljabar", desc: "Menjumlahkan suku-suku sejenis.", rumus: "ax + bx = (a+b)x", contoh: "3x + 5x = 8x", trik: "✨ TRIK: Hanya suku dengan variabel SAMA yang bisa dijumlah!" },
+            { judul: "Perkalian Suku Dua (FOIL)", kategori: "aljabar", desc: "Perkalian (a+b)(c+d).", rumus: "(a+b)(c+d) = ac + ad + bc + bd", contoh: "(x+3)(x+2)=x²+5x+6", trik: "✨ TRIK: FOIL (First, Outer, Inner, Last)!" },
+            { judul: "Pemfaktoran x²+bx+c", kategori: "aljabar", desc: "Mencari faktor dari bentuk kuadrat.", rumus: "x²+bx+c = (x+p)(x+q) dengan p+q=b, p×q=c", contoh: "x²+5x+6 = (x+2)(x+3)", trik: "✨ TRIK: Cari 2 bilangan yang jumlah = b, hasil kali = c" },
+            { judul: "Kuadrat Jumlah (a+b)²", kategori: "aljabar", desc: "Mengkuadratkan jumlah dua suku.", rumus: "(a+b)² = a² + 2ab + b²", contoh: "(x+3)² = x² + 6x + 9", trik: "✨ TRIK: Kuadrat depan + 2×depan×belakang + kuadrat belakang!" },
+            { judul: "Kuadrat Selisih (a-b)²", kategori: "aljabar", desc: "Mengkuadratkan selisih dua suku.", rumus: "(a-b)² = a² - 2ab + b²", contoh: "(x-5)² = x² - 10x + 25", trik: "✨ TRIK: Tanda tengah jadi MINUS!" },
+            { judul: "Selisih Dua Kuadrat", kategori: "aljabar", desc: "Perkalian (a+b)(a-b).", rumus: "(a+b)(a-b) = a² - b²", contoh: "(x+4)(x-4)=x²-16", trik: "✨ TRIK: Paling mudah! Depan kuadrat dikurang belakang kuadrat!" },
+            
+            // ==================== KESEBANGUNAN ====================
+            { judul: "Kesebangunan Segitiga", kategori: "kesebangunan", desc: "Dua segitiga sebangun jika sisi-sisi bersesuaian sebanding dan sudut-sudut bersesuaian sama.", rumus: "a₁/a₂ = b₁/b₂ = c₁/c₂", contoh: "Segitiga 3,4,5 sebangun dengan 6,8,10 (skala 2)", trik: "✨ TRIK: Perbandingan sisi = konstan!" },
+            { judul: "Kekongruenan Segitiga", kategori: "kesebangunan", desc: "Dua segitiga kongruen jika bentuk dan ukuran sama persis.", rumus: "Sisi-sisi bersesuaian sama panjang", contoh: "Sisi 3,4,5 kongruen dengan 3,4,5", trik: "✨ TRIK: Kongruen = sama persis (sisi & sudut)" },
+            { judul: "Teorema Segitiga Sebangun", kategori: "kesebangunan", desc: "Garis sejajar dalam segitiga membagi sisi-sisi sebanding.", rumus: "AD/DB = AE/EC", contoh: "Jika DE ∥ BC, maka AD/DB = AE/EC", trik: "✨ TRIK: Gunakan perbandingan sisi-sisi yang bersesuaian!" },
+            
+            // ==================== PANGKAT DAN BENTUK AKAR ====================
+            { judul: "Perkalian Berpangkat", kategori: "pangkatakar", desc: "Basis sama, pangkat dijumlah.", rumus: "aᵐ × aⁿ = aᵐ⁺ⁿ", contoh: "2³ × 2⁴ = 2⁷ = 128", trik: "✨ TRIK: JUMLAHKAN pangkatnya!" },
+            { judul: "Pembagian Berpangkat", kategori: "pangkatakar", desc: "Basis sama, pangkat dikurang.", rumus: "aᵐ ÷ aⁿ = aᵐ⁻ⁿ", contoh: "2⁵ ÷ 2² = 2³ = 8", trik: "✨ TRIK: KURANGKAN pangkatnya!" },
+            { judul: "Pangkat dari Pangkat", kategori: "pangkatakar", desc: "Pangkat dipangkatkan, dikalikan.", rumus: "(aᵐ)ⁿ = aᵐˣⁿ", contoh: "(2³)² = 2⁶ = 64", trik: "✨ TRIK: KALIKAN pangkatnya!" },
+            { judul: "Pangkat Nol", kategori: "pangkatakar", desc: "Bilangan bukan nol pangkat nol = 1.", rumus: "a⁰ = 1 (a ≠ 0)", contoh: "5⁰ = 1, 100⁰ = 1", trik: "✨ TRIK: Apapun bilangannya (kecuali 0), pangkat 0 = 1!" },
+            { judul: "Pangkat Negatif", kategori: "pangkatakar", desc: "Bilangan pangkat negatif = kebalikannya.", rumus: "a⁻ⁿ = 1/aⁿ", contoh: "2⁻³ = 1/8 = 0,125", trik: "✨ TRIK: Pangkat negatif = 1/(bilangan pangkat positif)" },
+            { judul: "Pangkat Pecahan", kategori: "pangkatakar", desc: "Pangkat pecahan = bentuk akar.", rumus: "aᵐ/ⁿ = ⁿ√aᵐ", contoh: "8²/³ = ∛8² = 2² = 4", trik: "✨ TRIK: Penyebut = indeks akar, pembilang = pangkat di dalam akar" },
+            { judul: "Menyederhanakan Akar", kategori: "pangkatakar", desc: "Mengeluarkan faktor kuadrat dari akar.", rumus: "√(a²×b) = a√b", contoh: "√12 = √(4×3) = 2√3", trik: "✨ TRIK: Cari faktor bilangan kuadrat (4,9,16,25) dalam akar!" },
+            { judul: "Merasionalkan Penyebut", kategori: "pangkatakar", desc: "Menghilangkan akar pada penyebut.", rumus: "a/√b = (a√b)/b", contoh: "6/√3 = (6√3)/3 = 2√3", trik: "✨ TRIK: Kalikan pembilang & penyebut dengan akar yang sama!" },
+            { judul: "Penjumlahan Akar", kategori: "pangkatakar", desc: "Hanya akar sejenis yang bisa dijumlah.", rumus: "a√c + b√c = (a+b)√c", contoh: "3√2 + 5√2 = 8√2", trik: "✨ TRIK: Sederhanakan dulu, lalu jumlahkan koefisiennya!" },
+            
+            // ==================== TEOREMA PYTHAGORAS ====================
+            { judul: "Teorema Pythagoras", kategori: "pythagoras", desc: "Hubungan sisi pada segitiga siku-siku.", rumus: "a² + b² = c² (c = sisi miring)", contoh: "a=3, b=4 → c=√(9+16)=5", trik: "✨ TRIK: Triple Pythagoras: (3,4,5), (5,12,13), (7,24,25), (8,15,17)" },
+            { judul: "Mencari Sisi Tegak", kategori: "pythagoras", desc: "Mencari sisi tegak jika sisi miring diketahui.", rumus: "b² = c² - a²", contoh: "c=13, a=5 → b=√(169-25)=√144=12", trik: "✨ TRIK: Akar dari (sisi miring² - sisi tegak lain²)" },
+            { judul: "Tripel Pythagoras", kategori: "pythagoras", desc: "Tiga bilangan bulat yang memenuhi a²+b²=c².", rumus: "a = m²-n², b = 2mn, c = m²+n²", contoh: "m=2,n=1 → (3,4,5)", trik: "✨ TRIK: Hafalkan: (3,4,5), (5,12,13), (7,24,25), (8,15,17), (9,40,41)" },
+            
+            // ==================== PLSV DAN PtLSV ====================
+            { judul: "Persamaan Linear Satu Variabel", kategori: "plsv", desc: "Persamaan dengan satu variabel berpangkat 1.", rumus: "ax + b = c → x = (c-b)/a", contoh: "3x+7=22 → 3x=15 → x=5", trik: "✨ TRIK: Kumpulkan variabel di kiri, konstanta di kanan!" },
+            { judul: "Pertidaksamaan Linear", kategori: "plsv", desc: "Pertidaksamaan dengan tanda >, <, ≥, ≤.", rumus: "Jika dikali/dibagi negatif, tanda berbalik", contoh: "-2x > 8 → x < -4", trik: "✨ TRIK: Kalau dikali/dibagi MINUS, tanda > jadi < !" },
+            
+            // ==================== PERSAMAAN GARIS LURUS ====================
+            { judul: "Gradien (Kemiringan Garis)", kategori: "persamaangaris", desc: "Kemiringan garis lurus.", rumus: "m = (y₂-y₁)/(x₂-x₁)", contoh: "(2,3) dan (5,9) → m=(9-3)/(5-2)=6/3=2", trik: "✨ TRIK: y/x, delta y per delta x!" },
+            { judul: "Persamaan Garis (y = mx + c)", kategori: "persamaangaris", desc: "Bentuk umum persamaan garis.", rumus: "y = mx + c", contoh: "m=2, c=3 → y=2x+3", trik: "✨ TRIK: m = gradien, c = titik potong sumbu Y" },
+            { judul: "Persamaan Garis (melalui 1 titik)", kategori: "persamaangaris", desc: "Membuat persamaan garis dengan gradien m melalui (x₁,y₁).", rumus: "y - y₁ = m(x - x₁)", contoh: "m=3, titik (2,5) → y-5=3(x-2) → y=3x-1", trik: "✨ TRIK: y dikurang y1 = m dikali (x dikurang x1)" },
+            { judul: "Persamaan Garis (2 titik)", kategori: "persamaangaris", desc: "Membuat persamaan garis melalui dua titik.", rumus: "(y-y₁)/(y₂-y₁) = (x-x₁)/(x₂-x₁)", contoh: "(2,3) dan (5,9) →  y=2x-1", trik: "✨ TRIK: Cari gradien dulu, lalu pakai rumus satu titik!" },
+            
+            // ==================== STATISTIKA ====================
+            { judul: "Mean (Rata-rata)", kategori: "statistika", desc: "Jumlah data dibagi banyak data.", rumus: "x̄ = (∑x)/n", contoh: "6,8,7,5,9 → (35)/5=7", trik: "✨ TRIK: Jumlahkan semua data, lalu bagi dengan banyak data!" },
+            { judul: "Median (Nilai Tengah)", kategori: "statistika", desc: "Nilai tengah data yang sudah diurutkan.", rumus: "n ganjil: data ke-(n+1)/2, n genap: rata-rata data ke-n/2 dan (n/2+1)", contoh: "5,6,7,8,9 → median = 7", trik: "✨ TRIK: Urutkan datanya dulu!" },
+            { judul: "Modus (Nilai Terbanyak)", kategori: "statistika", desc: "Nilai yang paling sering muncul.", rumus: "Cari frekuensi tertinggi", contoh: "5,6,7,5,8,5 → modus=5", trik: "✨ TRIK: Data yang paling sering muncul!" },
+            
+            // ==================== BANGUN RUANG SISI DATAR ====================
+            { judul: "Volume Kubus", kategori: "bangunruang", desc: "Bangun ruang dengan 6 sisi persegi.", rumus: "V = s³", contoh: "s=5 cm → V=125 cm³", trik: "✨ TRIK: s × s × s" },
+            { judul: "Luas Permukaan Kubus", kategori: "bangunruang", desc: "Jumlah luas 6 sisi kubus.", rumus: "LP = 6 × s²", contoh: "s=5 → LP=150 cm²", trik: "✨ TRIK: 6 × luas satu sisi" },
+            { judul: "Volume Balok", kategori: "bangunruang", desc: "Bangun ruang dengan 3 pasang sisi persegi panjang.", rumus: "V = p × l × t", contoh: "p=10,l=6,t=4 → V=240 cm³", trik: "✨ TRIK: panjang × lebar × tinggi" },
+            { judul: "Luas Permukaan Balok", kategori: "bangunruang", desc: "Jumlah luas 6 sisi balok.", rumus: "LP = 2(pl + pt + lt)", contoh: "p=10,l=6,t=4 → LP=2(60+40+24)=248 cm²", trik: "✨ TRIK: 2 × (luas depan + luas samping + luas alas)" },
+            { judul: "Jaring-jaring Kubus", kategori: "bangunruang", desc: "Bentuk 2D yang dapat dilipat menjadi kubus.", rumus: "Ada 11 macam jaring-jaring kubus", contoh: "Bentuk seperti salib (4 persegi vertikal + 2 horizontal)", trik: "✨ TRIK: Pastikan ada 6 persegi dan bisa dilipat!" },
+            { judul: "Jaring-jaring Balok", kategori: "bangunruang", desc: "Bentuk 2D yang dapat dilipat menjadi balok.", rumus: "Terdiri dari 3 pasang persegi panjang", contoh: "Ada 3 pasang sisi dengan ukuran berbeda", trik: "✨ TRIK: 3 pasang sisi yang berbeda ukuran" },
+            { judul: "Jaring-jaring Prisma Segitiga", kategori: "bangunruang", desc: "Jaring-jaring prisma segitiga.", rumus: "2 segitiga + 3 persegi panjang", contoh: "Dua segitiga di ujung, tiga persegi panjang di tengah", trik: "✨ TRIK: Sisi tegak = persegi panjang sebanyak sisi alas" },
+            { judul: "Jaring-jaring Limas Segiempat", kategori: "bangunruang", desc: "Jaring-jaring limas segiempat.", rumus: "1 persegi (alas) + 4 segitiga (sisi tegak)", contoh: "Persegi di tengah, 4 segitiga di sekelilingnya", trik: "✨ TRIK: Alas + segitiga sebanyak sisi alas" },
+            { judul: "Volume Prisma", kategori: "bangunruang", desc: "Apapun bentuk alasnya, volume = luas alas × tinggi.", rumus: "V = Luas alas × tinggi", contoh: "Prisma segitiga, L.alas=20, t=10 → V=200 cm³", trik: "✨ TRIK: Luas alas × tinggi prisma" },
+            { judul: "Luas Permukaan Prisma", kategori: "bangunruang", desc: "Jumlah luas semua sisi prisma.", rumus: "LP = (2 × Luas alas) + (Keliling alas × tinggi)", contoh: "Prisma segitiga, K.alas=12, t=10 → LP=2×20+120=160", trik: "✨ TRIK: Luas selimut = keliling alas × tinggi" },
+            { judul: "Volume Limas", kategori: "bangunruang", desc: "Bangun ruang dengan alas segi-n dan puncak.", rumus: "V = ⅓ × Luas alas × tinggi", contoh: "Limas segiempat, L.alas=25, t=12 → V=100 cm³", trik: "✨ TRIK: ⅓ × volume prisma (dengan alas & tinggi sama)" },
+            { judul: "Luas Permukaan Limas", kategori: "bangunruang", desc: "Jumlah luas alas dan sisi tegak segitiga.", rumus: "LP = Luas alas + jumlah luas segitiga sisi tegak", contoh: "Limas segiempat, L.alas=25, 4 segitiga @15 → LP=85", trik: "✨ TRIK: Hitung luas masing-masing segitiga tegak!" },
+            
+            // ==================== POLA BILANGAN ====================
+            { judul: "Barisan Aritmetika", kategori: "polabilangan", desc: "Barisan dengan beda tetap.", rumus: "Un = a + (n-1)b", contoh: "2,5,8,11 → U₁₀=2+9×3=29", trik: "✨ TRIK: Un = suku pertama + (n-1)×beda" },
+            { judul: "Barisan Geometri", kategori: "polabilangan", desc: "Barisan dengan rasio tetap.", rumus: "Un = a × rⁿ⁻¹", contoh: "3,6,12,24 → U₅=3×2⁴=3×16=48", trik: "✨ TRIK: Un = suku pertama × rasio pangkat (n-1)" },
+            { judul: "Pola Bilangan Persegi", kategori: "polabilangan", desc: "Bilangan kuadrat: 1,4,9,16...", rumus: "Un = n²", contoh: "U₇ = 49", trik: "✨ TRIK: n²" },
+            { judul: "Pola Bilangan Segitiga", kategori: "polabilangan", desc: "1,3,6,10,15...", rumus: "Un = n(n+1)/2", contoh: "U₁₀ = 10×11/2=55", trik: "✨ TRIK: n(n+1)/2" },
+            { judul: "Jumlah n Suku Barisan Aritmetika", kategori: "polabilangan", desc: "Jumlah n suku pertama barisan aritmetika.", rumus: "Sn = n/2 × (2a + (n-1)b)", contoh: "2,5,8,11 → S₄ = 4/2×(4+9)=2×13=26", trik: "✨ TRIK: Sn = n/2 × (suku pertama + suku ke-n)" },
+            { judul: "Pola Bilangan Ganjil", kategori: "polabilangan", desc: "1,3,5,7,9... (bilangan ganjil)", rumus: "Un = 2n-1, Jumlah n suku = n²", contoh: "1+3+5+7+9=25=5²", trik: "✨ TRIK: Jumlah n bilangan ganjil = n²" },
+            
+            // ==================== SPLDV ====================
+            { judul: "SPLDV Metode Substitusi", kategori: "spldv", desc: "Menyelesaikan SPLDV dengan mengganti variabel.", rumus: "Ubah salah satu, lalu substitusi", contoh: "x+y=10, x-y=2 → x=6, y=4", trik: "✨ TRIK: Nyatakan x dalam y atau sebaliknya!" },
+            { judul: "SPLDV Metode Eliminasi", kategori: "spldv", desc: "Menghilangkan satu variabel dengan menjumlah/mengurang.", rumus: "Samakan koefisien, lalu eliminasi", contoh: "2x+3y=13, x-3y=-4 → jumlah: 3x=9→x=3, y=7/3", trik: "✨ TRIK: Jumlahkan jika koefisien berlawanan!" },
+            { judul: "SPLDV Metode Gabungan", kategori: "spldv", desc: "Eliminasi lalu substitusi.", rumus: "Eliminasi dapat satu variabel, substitusi cari variabel lain", contoh: "3x+2y=16, 2x-y=6 → x=4, y=2", trik: "✨ TRIK: Pilih metode paling cepat!" },
+            { judul: "SPLDV Rumus Cepat", kategori: "spldv", desc: "Rumus determinan untuk SPLDV a₁x+b₁y=c₁, a₂x+b₂y=c₂.", rumus: "x = (c₁b₂-c₂b₁)/(a₁b₂-a₂b₁), y = (a₁c₂-a₂c₁)/(a₁b₂-a₂b₁)", contoh: "x+2y=8, 2x-y=1 → x=2, y=3", trik: "✨ TRIK: x = (Δx)/(Δ), y = (Δy)/(Δ), Δ = a₁b₂-a₂b₁" },
+            
+            // ==================== TRANSFORMASI GEOMETRI ====================
+            { judul: "Refleksi (Sumbu X)", kategori: "transformasi", desc: "Pencerminan terhadap sumbu X.", rumus: "(x,y) → (x, -y)", contoh: "A(3,4) → A'(3,-4)", trik: "✨ TRIK: y berubah tanda!" },
+            { judul: "Refleksi (Sumbu Y)", kategori: "transformasi", desc: "Pencerminan terhadap sumbu Y.", rumus: "(x,y) → (-x, y)", contoh: "A(3,4) → A'(-3,4)", trik: "✨ TRIK: x berubah tanda!" },
+            { judul: "Refleksi (Garis y=x)", kategori: "transformasi", desc: "Pencerminan terhadap garis y=x.", rumus: "(x,y) → (y,x)", contoh: "A(3,4) → A'(4,3)", trik: "✨ TRIK: Tukar x dan y!" },
+            { judul: "Refleksi (Garis y=-x)", kategori: "transformasi", desc: "Pencerminan terhadap garis y=-x.", rumus: "(x,y) → (-y,-x)", contoh: "A(3,4) → A'(-4,-3)", trik: "✨ TRIK: Tukar dan beri tanda negatif!" },
+            { judul: "Refleksi (Titik Asal O)", kategori: "transformasi", desc: "Pencerminan terhadap titik (0,0).", rumus: "(x,y) → (-x,-y)", contoh: "A(3,4) → A'(-3,-4)", trik: "✨ TRIK: Keduanya berubah tanda!" },
+            { judul: "Translasi (Pergeseran)", kategori: "transformasi", desc: "Memindahkan titik sejauh (a,b).", rumus: "(x,y) → (x+a, y+b)", contoh: "A(2,3) + (4,5) → A'(6,8)", trik: "✨ TRIK: Tambahkan vektor translasi ke koordinat!" },
+            { judul: "Rotasi 90° Berlawanan Jarum Jam", kategori: "transformasi", desc: "Memutar titik 90° CCW terhadap pusat O.", rumus: "(x,y) → (-y,x)", contoh: "A(3,4) → A'(-4,3)", trik: "✨ TRIK: Rotasi +90°: (x,y)→(-y,x)" },
+            { judul: "Rotasi 90° Searah Jarum Jam", kategori: "transformasi", desc: "Memutar titik 90° CW terhadap pusat O.", rumus: "(x,y) → (y,-x)", contoh: "A(3,4) → A'(4,-3)", trik: "✨ TRIK: Rotasi -90°: (x,y)→(y,-x)" },
+            { judul: "Rotasi 180°", kategori: "transformasi", desc: "Memutar titik 180° terhadap pusat O.", rumus: "(x,y) → (-x,-y)", contoh: "A(3,4) → A'(-3,-4)", trik: "✨ TRIK: Sama seperti refleksi titik asal!" },
+            { judul: "Dilatasi (Skala k)", kategori: "transformasi", desc: "Memperbesar/memperkecil titik dengan faktor k.", rumus: "(x,y) → (kx, ky)", contoh: "A(2,3) dilatasi k=3 → A'(6,9)", trik: "✨ TRIK: Kalikan semua koordinat dengan faktor skala!" },
+            { judul: "Komposisi Transformasi", kategori: "transformasi", desc: "Dua atau lebih transformasi berurutan.", rumus: "Kerjakan dari kanan ke kiri", contoh: "Refleksi X lalu translasi (2,3): (x,y)→(x,-y)→(x+2,-y+3)", trik: "✨ TRIK: Kerjakan transformasi yang paling dekat dengan titik terlebih dahulu!" },
+            
+            // ==================== PELUANG ====================
+            { judul: "Peluang Suatu Kejadian", kategori: "peluang", desc: "Kemungkinan terjadinya suatu kejadian.", rumus: "P(A) = n(A)/n(S)", contoh: "Peluang muncul angka 3 pada dadu = 1/6", trik: "✨ TRIK: n(A) = kejadian diinginkan, n(S) = ruang sampel" },
+            { judul: "Frekuensi Harapan", kategori: "peluang", desc: "Banyak kejadian yang diharapkan dalam n percobaan.", rumus: "Fh = P(A) × n", contoh: "Dadu 60 kali, harapan muncul 3 = 1/6×60=10", trik: "✨ TRIK: Kalikan peluang dengan banyak percobaan!" },
+            { judul: "Peluang Komplemen", kategori: "peluang", desc: "Peluang kejadian TIDAK terjadi.", rumus: "P(A') = 1 - P(A)", contoh: "Peluang tidak muncul 3 = 1 - 1/6 = 5/6", trik: "✨ TRIK: 1 dikurang peluang kejadian!" },
+            { judul: "Peluang Kejadian Saling Lepas", kategori: "peluang", desc: "Dua kejadian yang tidak bisa terjadi bersamaan.", rumus: "P(A∪B) = P(A) + P(B)", contoh: "Peluang muncul 1 atau 2 pada dadu = 1/6+1/6=1/3", trik: "✨ TRIK: Kejadian saling lepas = tidak ada irisan!" },
+            { judul: "Peluang Kejadian Tidak Saling Lepas", kategori: "peluang", desc: "Dua kejadian yang memiliki irisan.", rumus: "P(A∪B) = P(A) + P(B) - P(A∩B)", contoh: "Peluang angka genap/ prima = 3/6+3/6-1/6=5/6", trik: "✨ TRIK: Jangan lupa kurangi irisan (bagian yang sama)!" },
+            { judul: "Peluang Kejadian Saling Bebas", kategori: "peluang", desc: "Dua kejadian yang tidak saling mempengaruhi.", rumus: "P(A∩B) = P(A) × P(B)", contoh: "Koin angka DAN dadu 6 = 1/2×1/6=1/12", trik: "✨ TRIK: Kata kunci 'DAN' → peluang dikalikan!" },
+            { judul: "Ruang Sampel Dadu & Koin", kategori: "peluang", desc: "Ruang sampel untuk pelemparan dadu dan koin.", rumus: "Dadu: 6, Koin: 2, Dadu+Koin: 12", contoh: "2 dadu → n(S)=36, 3 koin → n(S)=8", trik: "✨ TRIK: Banyak ruang sampel = hasil kali kemungkinan tiap kejadian!" },
+            { judul: "Titik Sampel Dua Dadu", kategori: "peluang", desc: "Jumlah ruang sampel untuk dua buah dadu.", rumus: "n(S) = 6² = 36", contoh: "Peluang jumlah 10 = 3/36 = 1/12", trik: "✨ TRIK: Gunakan tabel 6×6 untuk mempermudah!" },
+            
+            // ==================== TRIK CEPAT ====================
+            { judul: "TRIK: Perkalian 11", kategori: "trik", desc: "Kalikan bilangan dengan 11 dengan cepat.", rumus: "ab × 11 = a (a+b) b", contoh: "35 × 11 = 385", trik: "⚡ SUPER TRIK: 47×11 = 517 (4+7=11, simpan 1)" },
+            { judul: "TRIK: Kuadrat Akhiran 5", kategori: "trik", desc: "Kuadrat bilangan berakhiran 5.", rumus: "a5² = a×(a+1) diikuti 25", contoh: "35² = 1225", trik: "⚡ SUPER TRIK: 75² = 5625" },
+            { judul: "TRIK: Perkalian Mendekati 100", kategori: "trik", desc: "Kalikan dua bilangan mendekati 100.", rumus: "(100-a)×(100-b) = (100-a-b) diikuti a×b", contoh: "98×97 = 9506", trik: "⚡ SUPER TRIK: 95×93 = 8835" },
+            { judul: "TRIK: Selisih Kuadrat", kategori: "trik", desc: "a² - b² = (a+b)(a-b) untuk hitung cepat.", rumus: "a² - b² = (a-b)(a+b)", contoh: "37²-23² = 14×60 = 840", trik: "⚡ SUPER TRIK: Untuk selisih kuadrat besar!" },
+            { judul: "TRIK: Jumlah n Bilangan Asli", kategori: "trik", desc: "1+2+3+...+n dengan cepat.", rumus: "S = n(n+1)/2", contoh: "1+2+...+100 = 5050", trik: "⚡ SUPER TRIK: n×(n+1)÷2" },
+            { judul: "TRIK: Perbandingan Pecahan", kategori: "trik", desc: "Membandingkan dua pecahan.", rumus: "a/b > c/d jika a×d > b×c", contoh: "3/4 < 4/5 (15 < 16)", trik: "⚡ SUPER TRIK: Kali silang!" },
+            { judul: "TRIK: Persentase Cepat", kategori: "trik", desc: "Mencari persentase dengan mudah.", rumus: "x% dari y = (x×y)/100", contoh: "20% dari 80 = 16", trik: "⚡ SUPER TRIK: 10% = bagi 10, 5% = 10%÷2" }
+        ];
+
+        const fullData = [...materiDatabase];
+        let activeFilter = "all";
+        let searchTerm = "";
+
+        function renderCards() {
+            const container = document.getElementById("cardsContainer");
+            let filtered = fullData.filter(item => {
+                if (activeFilter !== "all" && item.kategori !== activeFilter) return false;
+                if (searchTerm.trim() !== "") {
+                    const term = searchTerm.toLowerCase();
+                    return item.judul.toLowerCase().includes(term) || 
+                           item.desc.toLowerCase().includes(term) ||
+                           (item.rumus && item.rumus.toLowerCase().includes(term)) ||
+                           (item.contoh && item.contoh.toLowerCase().includes(term)) ||
+                           (item.trik && item.trik.toLowerCase().includes(term));
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="empty-msg"><i class="fas fa-calculator" style="font-size: 2.5rem; opacity: 0.6;"></i><h3>Tidak ditemukan materi</h3><p>Coba kata kunci: perbandingan, aljabar, pythagoras, peluang, transformasi</p></div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(item => {
+                let categoryColor = "";
+                let categoryLabel = "";
+                let categoryBg = "";
+                
+                const categoryMap = {
+                    perbandingan: { label: "📊 Perbandingan", color: "#f59e0b", bg: "#fef3c7" },
+                    aljabar: { label: "🔤 Aljabar", color: "#3b82f6", bg: "#dbeafe" },
+                    kesebangunan: { label: "📐 Kesebangunan", color: "#06b6d4", bg: "#cffafe" },
+                    pangkatakar: { label: "√ Pangkat & Akar", color: "#10b981", bg: "#d1fae5" },
+                    pythagoras: { label: "📐 Pythagoras", color: "#8b5cf6", bg: "#ede9fe" },
+                    plsv: { label: "⚖️ PLSV/PtLSV", color: "#ef4444", bg: "#fee2e2" },
+                    persamaangaris: { label: "📈 Persamaan Garis", color: "#f97316", bg: "#ffedd5" },
+                    statistika: { label: "📊 Statistika", color: "#ec4899", bg: "#fce7f3" },
+                    bangunruang: { label: "🧊 Bangun Ruang", color: "#8b5cf6", bg: "#ede9fe" },
+                    polabilangan: { label: "🔢 Pola Bilangan", color: "#14b8a6", bg: "#ccfbf1" },
+                    spldv: { label: "🔀 SPLDV", color: "#eab308", bg: "#fef9c3" },
+                    transformasi: { label: "🔄 Transformasi", color: "#ef4444", bg: "#fee2e2" },
+                    peluang: { label: "🎲 Peluang", color: "#ec4899", bg: "#fce7f3" },
+                    trik: { label: "💡 Trik Cepat", color: "#8b5cf6", bg: "#ede9fe" }
+                };
+                
+                const info = categoryMap[item.kategori] || { label: "📘 Materi", color: "#64748b", bg: "#f1f5f9" };
+                categoryLabel = info.label;
+                categoryColor = info.color;
+                categoryBg = info.bg;
+
+                let rumusHtml = "";
+                if (item.rumus) {
+                    rumusHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-square-root-alt"></i> RUMUS</div><div class="rumus-box">${escapeHtml(item.rumus)}</div></div>`;
+                }
+                let contohHtml = "";
+                if (item.contoh) {
+                    contohHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-quote-left"></i> CONTOH</div><div class="contoh-text">${escapeHtml(item.contoh)}</div></div>`;
+                }
+                let trikHtml = "";
+                if (item.trik) {
+                    trikHtml = `<div class="trik-box"><i class="fas fa-bolt" style="color: #f59e0b;"></i> ${escapeHtml(item.trik)}</div>`;
+                }
+                return `
+                    <div class="card" style="border-left-color: ${categoryColor};">
+                        <div class="card-category" style="background: ${categoryBg}; color: ${categoryColor};">${categoryLabel}</div>
+                        <h3>${escapeHtml(item.judul)}</h3>
+                        <div class="card-desc">${escapeHtml(item.desc)}</div>
+                        ${rumusHtml}
+                        ${contohHtml}
+                        ${trikHtml}
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
+
+        function filterByCategory(cat) {
+            activeFilter = cat;
+            document.querySelectorAll(".filter-btn").forEach(btn => {
+                const btnCat = btn.getAttribute("data-filter");
+                if ((cat === "all" && btnCat === "all") || (btnCat === cat)) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            renderCards();
+        }
+
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", (e) => {
+            searchTerm = e.target.value;
+            renderCards();
+        });
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const filterVal = btn.getAttribute("data-filter");
+                filterByCategory(filterVal);
+            });
+        });
+
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.querySelector(".nav-links");
+        if(mobileBtn){
+            mobileBtn.addEventListener("click", () => {
+                if(navLinks.style.display === "flex") navLinks.style.display = "none";
+                else navLinks.style.display = "flex";
+            });
+        }
+        renderCards();
+    </script>
+</body>
+</html>
