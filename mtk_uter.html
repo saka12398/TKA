@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>MTK UTER | 40 Soal + Pembahasan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: linear-gradient(145deg, #eef2ff 0%, #c7d2fe 100%);
+            color: #0f172a;
+            line-height: 1.45;
+            padding: 16px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.96);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #0a0f2a 0%, #020617 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .stars { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+        .star { position: absolute; background: white; border-radius: 50%; animation: twinkle 3s infinite ease-in-out; }
+        @keyframes twinkle { 0%,100%{opacity:0;} 50%{opacity:1;} }
+        .splash-content { text-align: center; z-index: 2; width: 90%; max-width: 400px; margin: 0 auto; }
+        .math-logo {
+            width: clamp(80px, 25vw, 120px); height: clamp(80px, 25vw, 120px);
+            margin: 0 auto 20px; background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            border-radius: 35px; display: flex; align-items: center; justify-content: center;
+            font-size: clamp(2.5rem, 8vw, 3.5rem); color: white;
+            box-shadow: 0 20px 35px -8px rgba(139,92,246,0.5);
+            animation: pulseLogo 1.8s ease-in-out infinite;
+        }
+        @keyframes pulseLogo { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+        .splash-title { font-size: clamp(1.5rem,6vw,2.2rem); font-weight:800; background:linear-gradient(135deg,#c084fc,#8b5cf6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .loader-track { height: 6px; background: rgba(255,255,255,0.15); border-radius: 10px; overflow: hidden; margin: 20px 0 10px; }
+        .loader-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #c084fc, #8b5cf6); animation: loadingFill 2.5s ease-out forwards; }
+        @keyframes loadingFill { 0% { width: 0%; } 100% { width: 100%; } }
+        .fade-out { opacity: 0; visibility: hidden; }
+        .hero {
+            background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 100%);
+            padding: 1.6rem 1rem; color: white; text-align: center;
+            border-bottom: 4px solid #8b5cf6;
+        }
+        .hero h1 { font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .badge-40 { background: #8b5cf6; color: white; padding: 4px 14px; border-radius: 60px; font-size: 0.8rem; font-weight: 800; }
+        .subhead { font-size: 0.7rem; opacity: 0.9; margin-top: 4px; }
+        .info-bar {
+            background: #ffffffdd; backdrop-filter: blur(8px); padding: 10px 20px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+            gap: 10px; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 20;
+        }
+        .score-card { background: #1e1b4b; padding: 6px 18px; border-radius: 50px; font-weight: bold; color: #c084fc; }
+        .btn-group { display: flex; gap: 10px; }
+        .btn { border: none; padding: 6px 18px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.8rem; }
+        .btn-primary { background: #8b5cf6; color: white; }
+        .btn-warning { background: #f59e0b; color: white; }
+        .btn-home { background: #64748b; color: white; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .btn:active { transform: scale(0.96); }
+        .quiz-grid { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+        .question-card { background: white; border-radius: 28px; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.08); border: 1px solid #eef2ff; }
+        .card-header { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: #f5f3ff; border-radius: 28px 28px 20px 20px; flex-wrap: wrap; }
+        .num-badge { width: 34px; height: 34px; background: #8b5cf6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; }
+        .difficulty-tag, .category-tag { padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; }
+        .diff-mudah { background: #dcfce7; color: #166534; }
+        .diff-sedang { background: #fef3c7; color: #b45309; }
+        .diff-sulit { background: #fee2e2; color: #b91c1c; }
+        .category-tag { background: #ede9fe; color: #5b21b6; }
+        .question-text { font-size: 0.95rem; font-weight: 600; padding: 0.8rem 1.2rem 0.2rem; color: #0c4a6e; }
+        .input-wrapper { padding: 0.2rem 1.2rem; }
+        .answer-input { width: 100%; padding: 10px 16px; border: 2px solid #e2e8f0; border-radius: 60px; font-family: monospace; background: #fafcff; }
+        .answer-input:focus { border-color: #8b5cf6; outline: none; }
+        .button-group-dual { display: flex; gap: 10px; margin: 12px 1.2rem 8px; width: calc(100% - 2.4rem); }
+        .check-btn, .pembahasan-btn { flex: 1; padding: 9px; border-radius: 60px; font-weight: 700; border: none; cursor: pointer; transition: 0.2s; }
+        .check-btn { background: linear-gradient(95deg, #8b5cf6, #6d28d9); color: white; }
+        .pembahasan-btn { background: linear-gradient(95deg, #f59e0b, #d97706); color: white; }
+        .feedback-area { padding: 0.6rem 1.2rem 1.2rem; }
+        .result-correct { background: #d1fae5; color: #065f46; border-left: 6px solid #10b981; padding: 10px; border-radius: 20px; margin-bottom: 8px; font-weight: bold; }
+        .result-wrong { background: #fee2e2; color: #991b1b; border-left: 6px solid #ef4444; padding: 10px; border-radius: 20px; margin-bottom: 8px; font-weight: bold; }
+        .warning-message { background: #fef3c7; color: #92400e; border-left: 6px solid #f59e0b; padding: 10px; border-radius: 20px; }
+        .explanation-box { background: #f8fafc; padding: 14px; border-radius: 20px; font-size: 0.85rem; line-height: 1.6; border: 1px solid #e2e8f0; }
+        .scroll-top { position: fixed; bottom: 20px; right: 20px; background: #1e1b4b; width: 44px; height: 44px; border-radius: 30px; display: flex; align-items: center; justify-content: center; color: #c084fc; cursor: pointer; z-index: 99; }
+        #confetti-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 1000; }
+        .toast-once {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e1b4b;
+            color: #c084fc;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 550px) { 
+            body { padding: 8px; } 
+            .button-group-dual { flex-direction: column; }
+            .toast-once { font-size: 0.7rem; white-space: nowrap; bottom: 20px; padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<div id="toast-once" class="toast-once">💾 Jawaban otomatis tersimpan (refresh aman)</div>
+
+<div class="container">
+    <div class="hero">
+        <h1>📘 MATEMATIKA UTER <span class="badge-40">40 SOAL</span></h1>
+        <div class="subhead">Perbandingan | Aljabar | Kesebangunan | Pangkat Akar | Pythagoras | PLSV | Persamaan Garis | Statistika | Bangun Ruang | Pola Bilangan | SPLDV | Transformasi | Peluang</div>
+        <div style="margin-top:5px;">🎯 Semangat Latihan Soal UTER 🎉</div>
+    </div>
+   <div class="info-bar">
+    <div class="score-card" id="liveScoreDisplay">🏆 SKOR: 0 / 40</div>
+    <div class="btn-group">
+        <a href="index.html" class="btn btn-home" style="text-decoration: none;">🏠 HOME</a>
+        <button class="btn btn-primary" id="checkAllBtn">🔍 CEK SEMUA</button>
+        <button class="btn btn-warning" id="resetBtn">🔄 RESET</button>
+    </div>
+</div>
+    <div class="quiz-grid" id="quizGrid"></div>
+    <div class="footer-note" style="background:#f1f5f9; text-align:center; padding:12px; font-size:0.7rem;">
+        💡 <strong>Panduan:</strong> CEK JAWABAN → muncul benar/salah + penyelesaian. LIHAT PEMBAHASAN → contoh soal serupa + rumus.<br>
+        🔒 <strong>Auto-Save aktif:</strong> Jawaban tersimpan otomatis, tetap ada meskipun refresh halaman!
+    </div>
+</div>
+<div class="scroll-top" id="scrollTopBtn">↑</div>
+
+<div id="splash-screen">
+    <div class="stars" id="stars"></div>
+    <div class="splash-content">
+        <div class="math-logo">🧮</div>
+        <h1 class="splash-title">MTK UTER CHALLENGE</h1>
+        <p class="splash-sub" style="color:#a5b4fc;">40 SOAL LENGKAP + PEMBAHASAN</p>
+        <div class="loader-track"><div class="loader-fill"></div></div>
+        <div class="loader-percent" style="color:#c084fc; margin-top:10px;" id="loadingPercent">0%</div>
+    </div>
+</div>
+
+<script>
+    function createStars(){
+        const starsDiv = document.getElementById('stars');
+        if(!starsDiv) return;
+        for(let i=0;i<120;i++){
+            let s = document.createElement('div');
+            s.classList.add('star');
+            s.style.left = Math.random()*100+'%';
+            s.style.top = Math.random()*100+'%';
+            s.style.width = Math.random()*3+1+'px';
+            s.style.height = s.style.width;
+            s.style.animationDelay = Math.random()*4+'s';
+            s.style.animationDuration = Math.random()*2+2+'s';
+            starsDiv.appendChild(s);
+        }
+    }
+    createStars();
+    let percentVal=0;
+    const pInterval = setInterval(()=>{
+        if(percentVal<100){ percentVal+=Math.floor(Math.random()*6)+3; if(percentVal>100) percentVal=100;
+        document.getElementById('loadingPercent') && (document.getElementById('loadingPercent').innerText=percentVal+'%');}
+    },70);
+    
+    let toastOnceShown = false;
+    
+    window.addEventListener('load',()=>{
+        setTimeout(()=>{
+            clearInterval(pInterval);
+            const splash = document.getElementById('splash-screen');
+            if(splash){ splash.classList.add('fade-out'); setTimeout(()=>{ if(splash.parentNode) splash.remove(); },700);}
+            
+            if(!toastOnceShown){
+                toastOnceShown = true;
+                const toast = document.getElementById('toast-once');
+                if(toast){
+                    toast.style.opacity = '1';
+                    setTimeout(() => {
+                        if(toast) toast.style.opacity = '0';
+                    }, 2500);
+                }
+            }
+        },2500);
+    });
+
+    const canvas = document.getElementById('confetti-canvas');
+    let ctx = canvas.getContext('2d');
+    let animId = null;
+    let particles = [];
+    function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize',resizeCanvas); resizeCanvas();
+    class ConfettiP{
+        constructor(){
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height - canvas.height;
+            this.size = Math.random()*8+4;
+            this.speedY = Math.random()*6+4;
+            this.speedX = Math.random()*2-1;
+            this.color = `hsl(${Math.random()*360},80%,65%)`;
+            this.rot = Math.random()*360;
+            this.rotSpeed = Math.random()*10-5;
+        }
+        update(){ this.y+=this.speedY; this.x+=this.speedX; this.rot+=this.rotSpeed; return this.y < canvas.height+80; }
+        draw(){ ctx.save(); ctx.translate(this.x,this.y); ctx.rotate(this.rot*Math.PI/180); ctx.fillStyle=this.color; ctx.fillRect(-this.size/2,-this.size/2,this.size,this.size); ctx.restore(); }
+    }
+    function startConfetti(){
+        if(animId) cancelAnimationFrame(animId);
+        particles = [];
+        for(let i=0;i<180;i++) particles.push(new ConfettiP());
+        function animate(){
+            if(!ctx) return;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            let alive=false;
+            for(let p of particles) { if(p.update()) alive=true; p.draw(); }
+            if(alive) animId = requestAnimationFrame(animate);
+            else { cancelAnimationFrame(animId); animId=null; ctx.clearRect(0,0,canvas.width,canvas.height); }
+        }
+        animate();
+        setTimeout(()=>{ if(animId){ cancelAnimationFrame(animId); animId=null; ctx.clearRect(0,0,canvas.width,canvas.height); }},4500);
+    }
+
+// ==================== 40 SOAL MTK UTER ====================
+const questions = [
+    // 1-2 Perbandingan Senilai dan Berbalik Nilai
+    { id: 1, diff: "Mudah", cat: "Perbandingan Senilai", text: "Harga 5 kg beras adalah Rp75.000. Harga 8 kg beras adalah...", correct: "120000", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 5 kg → Rp75.000<br>📌 1 kg → 75.000 ÷ 5 = Rp15.000<br>📌 8 kg → 15.000 × 8 = <strong>Rp120.000</strong>", contoh: "📖 <strong>CONTOH:</strong> 3 kg telur Rp45.000 → 5 kg = 45.000÷3×5 = Rp75.000<br>📌 <strong>TRIK:</strong> Cari harga per unit terlebih dahulu!" },
+    
+    { id: 2, diff: "Sedang", cat: "Perbandingan Berbalik Nilai", text: "Suatu pekerjaan dapat diselesaikan oleh 12 orang dalam 15 hari. Jika dikerjakan oleh 20 orang, berapa hari selesai?", correct: "9", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 12 orang → 15 hari<br>📌 20 orang → x hari<br>📌 12 × 15 = 20 × x<br>📌 180 = 20x → x = 180 ÷ 20 = <strong>9 hari</strong>", contoh: "📖 <strong>CONTOH:</strong> 8 orang selesai 10 hari, 16 orang selesai = 8×10÷16 = 5 hari<br>📌 <strong>TRIK:</strong> Perbandingan berbalik nilai: a₁ × b₁ = a₂ × b₂" },
+
+    // 3-4 Bentuk Aljabar
+    { id: 3, diff: "Mudah", cat: "Operasi Aljabar", text: "Hasil dari (3x + 2y) + (4x - 5y) adalah...", correct: "7x-3y", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (3x+2y)+(4x-5y)<br>📌 = 3x+4x + 2y-5y<br>📌 = <strong>7x - 3y</strong>", contoh: "📖 <strong>CONTOH:</strong> (5a+3b)+(2a-4b)=7a-b<br>📌 <strong>TRIK:</strong> Kelompokkan suku sejenis!" },
+    
+    { id: 4, diff: "Sedang", cat: "Operasi Aljabar", text: "Hasil perkalian (x - 4)(x + 6) adalah...", correct: "x²+2x-24", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (x-4)(x+6) = x·x + x·6 -4·x -4·6<br>📌 = x² + 6x - 4x - 24<br>📌 = <strong>x² + 2x - 24</strong>", contoh: "📖 <strong>CONTOH:</strong> (x+3)(x-5)=x²-2x-15<br>📌 <strong>TRIK:</strong> Gunakan metode FOIL (First, Outer, Inner, Last)" },
+
+    // 5-6 Kesebangunan dan Kekongruenan
+    { id: 5, diff: "Sedang", cat: "Kesebangunan", text: "Sebuah pohon memiliki bayangan sepanjang 8 m. Pada saat yang sama, tongkat setinggi 1,5 m memiliki bayangan 2 m. Tinggi pohon adalah...", correct: "6", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Kesebangunan: t/8 = 1,5/2<br>📌 t = 8 × 1,5 ÷ 2<br>📌 t = 12 ÷ 2 = <strong>6 m</strong>", contoh: "📖 <strong>CONTOH:</strong> Bayangan tiang 12 m, tongkat 2 m bayangan 3 m → tinggi tiang = 12×2÷3=8 m<br>📌 <strong>TRIK:</strong> Perbandingan sisi yang bersesuaian sama!" },
+    
+    { id: 6, diff: "Sulit", cat: "Kekongruenan", text: "Dua segitiga dikatakan kongruen jika... (jawab dengan huruf: a/s/s/s/sd/sd/s/sd)", correct: "sssssdssd", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Syarat kekongruenan segitiga:<br>📌 1. Sisi-Sisi-Sisi (SSS)<br>📌 2. Sisi-Sudut-Sisi (SAS)<br>📌 3. Sudut-Sisi-Sudut (ASA)<br>📌 <strong>Jawaban: SSS, SAS, ASA</strong>", contoh: "📖 <strong>CONTOH:</strong> Segitiga dengan sisi 3,4,5 kongruen dengan segitiga sisi 3,4,5<br>📌 <strong>TRIK:</strong> Ingat 3 syarat utama kekongruenan!" },
+
+    // 7-8 Pangkat dan Bentuk Akar
+    { id: 7, diff: "Mudah", cat: "Bilangan Berpangkat", text: "Nilai dari 3² × 3⁴ ÷ 3³ = ?", correct: "27", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 3² × 3⁴ = 3⁶<br>📌 3⁶ ÷ 3³ = 3³ = <strong>27</strong>", contoh: "📖 <strong>CONTOH:</strong> 2³×2⁵÷2⁴=2⁴=16<br>📌 <strong>TRIK:</strong> aᵐ × aⁿ = aᵐ⁺ⁿ, aᵐ ÷ aⁿ = aᵐ⁻ⁿ" },
+    
+    { id: 8, diff: "Sedang", cat: "Bentuk Akar", text: "Bentuk sederhana dari √75 - √48 adalah...", correct: "√3", type: "akar", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 √75 = √(25×3) = 5√3<br>📌 √48 = √(16×3) = 4√3<br>📌 5√3 - 4√3 = <strong>√3</strong>", contoh: "📖 <strong>CONTOH:</strong> √27-√12 = 3√3-2√3=√3<br>📌 <strong>TRIK:</strong> Sederhanakan akar dengan mencari faktor kuadrat!" },
+
+    // 9-10 Teorema Pythagoras
+    { id: 9, diff: "Mudah", cat: "Pythagoras", text: "Panjang sisi miring segitiga siku-siku dengan sisi 6 cm dan 8 cm adalah...", correct: "10", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 c² = a² + b²<br>📌 c² = 6² + 8² = 36 + 64 = 100<br>📌 c = √100 = <strong>10 cm</strong>", contoh: "📖 <strong>CONTOH:</strong> Sisi 5 cm dan 12 cm → miring=13 cm<br>📌 <strong>TRIK:</strong> Ingat triple Pythagoras: 3,4,5 dan 5,12,13!" },
+    
+    { id: 10, diff: "Sedang", cat: "Pythagoras", text: "Sebuah tangga disandarkan pada tembok dengan jarak kaki tangga ke tembok 2 m dan tinggi tembok 6 m. Panjang tangga adalah...", correct: "√40", type: "akar", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 c² = a² + b² = 2² + 6² = 4 + 36 = 40<br>📌 c = √40 = <strong>2√10 m</strong>", contoh: "📖 <strong>CONTOH:</strong> Jarak 3 m, tinggi 4 m → tangga=5 m<br>📌 <strong>TRIK:</strong> Gunakan rumus Pythagoras untuk mencari sisi miring!" },
+
+    // 11-12 PLSV
+    { id: 11, diff: "Mudah", cat: "PLSV", text: "Penyelesaian dari 3x + 7 = 2x - 5 adalah x = ...", correct: "-12", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 3x + 7 = 2x - 5<br>📌 3x - 2x = -5 - 7<br>📌 x = <strong>-12</strong>", contoh: "📖 <strong>CONTOH:</strong> 5x-3=2x+9 → 3x=12 → x=4<br>📌 <strong>TRIK:</strong> Kumpulkan variabel di kiri, konstanta di kanan!" },
+    
+    { id: 12, diff: "Sedang", cat: "Pertidaksamaan", text: "Himpunan penyelesaian dari 2x - 5 ≤ 3x + 1 adalah...", correct: "x≥-6", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 2x - 5 ≤ 3x + 1<br>📌 2x - 3x ≤ 1 + 5<br>📌 -x ≤ 6<br>📌 x ≥ <strong>-6</strong>", contoh: "📖 <strong>CONTOH:</strong> 4x-7≤2x+5 → 2x≤12 → x≤6<br>📌 <strong>TRIK:</strong> Perhatikan tanda saat mengalikan/membagi negatif!" },
+
+    // 13-14 Persamaan Garis Lurus
+    { id: 13, diff: "Mudah", cat: "Persamaan Garis", text: "Gradien dari garis y = 4x - 7 adalah...", correct: "4", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Bentuk y = mx + c, m adalah gradien<br>📌 y = 4x - 7 → m = <strong>4</strong>", contoh: "📖 <strong>CONTOH:</strong> y = -2x + 5 → gradien = -2<br>📌 <strong>TRIK:</strong> Koefisien x adalah gradien!" },
+    
+    { id: 14, diff: "Sedang", cat: "Persamaan Garis", text: "Persamaan garis yang melalui titik (2,5) dengan gradien 3 adalah...", correct: "y=3x-1", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Rumus: y - y₁ = m(x - x₁)<br>📌 y - 5 = 3(x - 2)<br>📌 y - 5 = 3x - 6<br>📌 y = 3x - 1<br>📌 <strong>y = 3x - 1</strong>", contoh: "📖 <strong>CONTOH:</strong> (1,2) gradien 4 → y=4x-2<br>📌 <strong>TRIK:</strong> y - y₁ = m(x - x₁)" },
+
+    // 15-16 Statistika
+    { id: 15, diff: "Mudah", cat: "Mean", text: "Rata-rata dari data 6, 8, 7, 5, 9 adalah...", correct: "7", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Jumlah = 6+8+7+5+9 = 35<br>📌 Banyak data = 5<br>📌 Mean = 35 ÷ 5 = <strong>7</strong>", contoh: "📖 <strong>CONTOH:</strong> 4,6,8,10 → jumlah=28, rata=7<br>📌 <strong>TRIK:</strong> Jumlah data dibagi banyak data!" },
+    
+    { id: 16, diff: "Sedang", cat: "Median", text: "Median dari data 7, 9, 5, 8, 6, 10, 8 adalah...", correct: "8", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Urutkan: 5,6,7,8,8,9,10<br>📌 n = 7 (ganjil), median = data ke-(7+1)/2 = data ke-4<br>📌 Data ke-4 = <strong>8</strong>", contoh: "📖 <strong>CONTOH:</strong> 3,5,7,9,11 → median=7<br>📌 <strong>TRIK:</strong> Urutkan data dulu, cari nilai tengah!" },
+
+    // 17-18 Bangun Ruang Sisi Datar
+    { id: 17, diff: "Mudah", cat: "Kubus", text: "Volume kubus dengan panjang rusuk 9 cm adalah...", correct: "729", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 V = s³ = 9³ = 9×9×9 = <strong>729 cm³</strong>", contoh: "📖 <strong>CONTOH:</strong> Rusuk 5 cm → V=125 cm³<br>📌 <strong>TRIK:</strong> Volume kubus = sisi × sisi × sisi" },
+    
+    { id: 18, diff: "Sedang", cat: "Balok", text: "Luas permukaan balok berukuran 10 cm × 6 cm × 4 cm adalah...", correct: "248", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 L = 2(pl + pt + lt)<br>📌 = 2(10×6 + 10×4 + 6×4)<br>📌 = 2(60 + 40 + 24)<br>📌 = 2 × 124 = <strong>248 cm²</strong>", contoh: "📖 <strong>CONTOH:</strong> 8×5×3 → L=2(40+24+15)=158<br>📌 <strong>TRIK:</strong> Luas permukaan = 2(pl + pt + lt)" },
+
+    // 19-20 Pola Bilangan
+    { id: 19, diff: "Mudah", cat: "Pola Bilangan", text: "Suku ke-10 dari barisan 2, 5, 8, 11, ... adalah...", correct: "29", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 a = 2, b = 3<br>📌 Un = a + (n-1)b<br>📌 U₁₀ = 2 + (9)×3 = 2 + 27 = <strong>29</strong>", contoh: "📖 <strong>CONTOH:</strong> Barisan 3,7,11 → U₈=3+7×4=31<br>📌 <strong>TRIK:</strong> Un = a + (n-1)b" },
+    
+    { id: 20, diff: "Sedang", cat: "Pola Bilangan", text: "Rumus suku ke-n dari barisan 4, 7, 12, 19, ... adalah...", correct: "n²+3", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 4 = 1²+3, 7=2²+3, 12=3²+3, 19=4²+3<br>📌 Un = <strong>n² + 3</strong>", contoh: "📖 <strong>CONTOH:</strong> 2,5,10,17 → Un=n²+1<br>📌 <strong>TRIK:</strong> Cari pola kuadrat atau perkalian!" },
+
+    // 21-22 SPLDV
+    { id: 21, diff: "Sedang", cat: "SPLDV", text: "Dari sistem persamaan 2x + y = 8 dan x - y = 1, nilai x + y = ...", correct: "7", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 2x+y=8 dan x-y=1<br>📌 Jumlahkan: 3x = 9 → x = 3<br>📌 x-y=1 → 3-y=1 → y=2<br>📌 x+y = 3+2 = <strong>5</strong>", contoh: "📖 <strong>CONTOH:</strong> x+y=10, x-y=2 → x=6,y=4 → x+y=10<br>📌 <strong>TRIK:</strong> Eliminasi atau substitusi!" },
+    
+    { id: 22, diff: "Sulit", cat: "SPLDV", text: "Harga 2 buku dan 3 pensil Rp12.000. Harga 3 buku dan 2 pensil Rp13.000. Harga 1 buku adalah...", correct: "3000", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 2b+3p=12.000 ...(1)<br>📌 3b+2p=13.000 ...(2)<br>📌 (1)×2: 4b+6p=24.000<br>📌 (2)×3: 9b+6p=39.000<br>📌 Kurangkan: 5b=15.000 → b=3.000<br>📌 Jadi 1 buku = <strong>Rp3.000</strong>", contoh: "📖 <strong>CONTOH:</strong> 5 apel+3 mangga=45rb, 3 apel+5 mangga=43rb → apel=6rb<br>📌 <strong>TRIK:</strong> Eliminasi salah satu variabel!" },
+
+    // 23-24 Transformasi Geometri
+    { id: 23, diff: "Mudah", cat: "Translasi", text: "Titik A(3,-2) ditranslasikan oleh T(4,5) menghasilkan titik A' = ...", correct: "(7,3)", type: "point", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 A' = (x+a, y+b)<br>📌 A' = (3+4, -2+5) = <strong>(7,3)</strong>", contoh: "📖 <strong>CONTOH:</strong> (2,3) translasi (5,-1) → (7,2)<br>📌 <strong>TRIK:</strong> Translasi: (x,y) → (x+a, y+b)" },
+    
+    { id: 24, diff: "Sedang", cat: "Refleksi", text: "Bayangan titik B(-4,6) jika dicerminkan terhadap sumbu X adalah...", correct: "(-4,-6)", type: "point", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Refleksi sumbu X: (x,y) → (x,-y)<br>📌 B(-4,6) → <strong>(-4,-6)</strong>", contoh: "📖 <strong>CONTOH:</strong> (5,-3) refleksi X → (5,3)<br>📌 <strong>TRIK:</strong> Sumbu X: y berubah tanda, sumbu Y: x berubah tanda!" },
+
+    // 25-26 Rotasi
+    { id: 25, diff: "Sedang", cat: "Rotasi", text: "Titik C(5,3) diputar 90° berlawanan arah jarum jam dengan pusat O(0,0) menghasilkan...", correct: "(-3,5)", type: "point", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Rotasi 90° CCW: (x,y) → (-y,x)<br>📌 C(5,3) → (-3,5)<br>📌 Jadi <strong>(-3,5)</strong>", contoh: "📖 <strong>CONTOH:</strong> (2,4) rotasi 90° CCW → (-4,2)<br>📌 <strong>TRIK:</strong> Rotasi 90° CCW: (x,y)→(-y,x)" },
+    
+    { id: 26, diff: "Sulit", cat: "Dilatasi", text: "Titik D(2,-4) didilatasi dengan pusat O(0,0) faktor skala 3 menghasilkan D' = ...", correct: "(6,-12)", type: "point", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Dilatasi pusat O: (x,y) → (kx, ky)<br>📌 (2×3, -4×3) = <strong>(6,-12)</strong>", contoh: "📖 <strong>CONTOH:</strong> (3,-2) skala 4 → (12,-8)<br>📌 <strong>TRIK:</strong> Kalikan keduanya dengan faktor skala!" },
+
+    // 27-28 Peluang
+    { id: 27, diff: "Mudah", cat: "Peluang", text: "Sebuah dadu dilempar sekali. Peluang muncul mata dadu prima adalah...", correct: "1/2", type: "pecahan", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Ruang sampel = 6<br>📌 Mata dadu prima: 2,3,5 → 3 kejadian<br>📌 P = 3/6 = <strong>1/2</strong>", contoh: "📖 <strong>CONTOH:</strong> Peluang muncul angka genap = 3/6=1/2<br>📌 <strong>TRIK:</strong> Peluang = banyak kejadian / ruang sampel" },
+    
+    { id: 28, diff: "Sedang", cat: "Peluang", text: "Dua koin dilempar bersama. Peluang muncul minimal satu gambar adalah...", correct: "3/4", type: "pecahan", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Ruang sampel: (A,A),(A,G),(G,A),(G,G) = 4<br>📌 Minimal 1 gambar: (A,G),(G,A),(G,G) = 3<br>📌 P = <strong>3/4</strong>", contoh: "📖 <strong>CONTOH:</strong> Pelemparan 2 dadu → peluang jumlah 7 = 6/36=1/6<br>📌 <strong>TRIK:</strong> Gunakan komplemen jika lebih mudah!" },
+
+    // 29-30 Perbandingan Lanjutan
+    { id: 29, diff: "Sedang", cat: "Perbandingan", text: "Perbandingan uang A dan B adalah 3:5. Jika selisih uang mereka Rp24.000, jumlah uang mereka adalah...", correct: "96000", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Selisih = 5-3 = 2 bagian → Rp24.000<br>📌 1 bagian = 12.000<br>📌 Jumlah = 3+5 = 8 bagian<br>📌 Jumlah = 8 × 12.000 = <strong>Rp96.000</strong>", contoh: "📖 <strong>CONTOH:</strong> Perbandingan 2:3, selisih 15.000 → jumlah=5×15.000=75.000<br>📌 <strong>TRIK:</strong> Cari nilai per bagian dari selisih yang diketahui!" },
+    
+    { id: 30, diff: "Sulit", cat: "Perbandingan", text: "Skala peta 1:500.000. Jarak pada peta 8 cm. Jarak sebenarnya adalah... km", correct: "40", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Jarak sebenarnya = 8 × 500.000 = 4.000.000 cm<br>📌 4.000.000 cm = 40.000 m = <strong>40 km</strong>", contoh: "📖 <strong>CONTOH:</strong> Skala 1:200.000, peta 5 cm → jarak sebenarnya = 10 km<br>📌 <strong>TRIK:</strong> Skala 1:n → jarak sebenarnya = jarak peta × n" },
+
+    // 31-32 Kesebangunan Lanjutan
+    { id: 31, diff: "Sedang", cat: "Kesebangunan", text: "Pada segitiga siku-siku, panjang sisi miring 25 cm dan salah satu sisi tegak 7 cm, panjang sisi tegak lainnya adalah...", correct: "24", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 c² = a² + b²<br>📌 25² = 7² + b²<br>📌 625 = 49 + b²<br>📌 b² = 576 → b = <strong>24 cm</strong>", contoh: "📖 <strong>CONTOH:</strong> c=13, a=5 → b=12 (triple 5,12,13)<br>📌 <strong>TRIK:</strong> Gunakan rumus Pythagoras!" },
+    
+    { id: 32, diff: "Sulit", cat: "Kesebangunan", text: "Pada segitiga ABC, DE sejajar dengan AB. CD = 6 cm, DA = 4 cm, CE = 9 cm. Panjang EB adalah...", correct: "6", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 CD/DA = CE/EB<br>📌 6/4 = 9/EB<br>📌 6 × EB = 9 × 4<br>📌 6EB = 36 → EB = <strong>6 cm</strong>", contoh: "📖 <strong>CONTOH:</strong> CD=8,DA=4,CE=12 → EB=6<br>📌 <strong>TRIK:</strong> Perbandingan sisi pada segitiga sebangun!" },
+
+    // 33-34 Aljabar Lanjutan
+    { id: 33, diff: "Sedang", cat: "Aljabar", text: "Faktor dari x² - 7x + 12 adalah...", correct: "(x-3)(x-4)", type: "string", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Cari p+q = -7, p×q = 12<br>📌 p = -3, q = -4<br>📌 x²-7x+12 = <strong>(x-3)(x-4)</strong>", contoh: "📖 <strong>CONTOH:</strong> x²-5x+6 = (x-2)(x-3)<br>📌 <strong>TRIK:</strong> Cari dua bilangan yang dijumlah = b, dikali = c!" },
+    
+    { id: 34, diff: "Sulit", cat: "Aljabar", text: "Jika a² + b² = 34 dan a + b = 8, maka nilai ab = ...", correct: "15", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 (a+b)² = a² + 2ab + b²<br>📌 8² = 34 + 2ab<br>📌 64 = 34 + 2ab<br>📌 2ab = 30 → ab = <strong>15</strong>", contoh: "📖 <strong>CONTOH:</strong> a²+b²=25, a+b=7 → ab=12<br>📌 <strong>TRIK:</strong> ab = [(a+b)² - (a²+b²)]/2" },
+
+    // 35-36 Pangkat Lanjutan
+    { id: 35, diff: "Sedang", cat: "Pangkat", text: "Nilai dari (3⁴ × 3⁵) ÷ 3⁶ = ...", correct: "27", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 3⁴ × 3⁵ = 3⁹<br>📌 3⁹ ÷ 3⁶ = 3³ = <strong>27</strong>", contoh: "📖 <strong>CONTOH:</strong> (2⁵×2³)÷2⁴=2⁴=16<br>📌 <strong>TRIK:</strong> Jumlahkan saat kali, kurangkan saat bagi!" },
+    
+    { id: 36, diff: "Sulit", cat: "Bentuk Akar", text: "Bentuk rasional dari 10/√5 adalah...", correct: "2√5", type: "akar", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 10/√5 × √5/√5 = (10√5)/5 = <strong>2√5</strong>", contoh: "📖 <strong>CONTOH:</strong> 8/√2 = 8√2/2 = 4√2<br>📌 <strong>TRIK:</strong> Kalikan pembilang dan penyebut dengan akar penyebut!" },
+
+    // 37-38 Statistika Lanjutan
+    { id: 37, diff: "Sedang", cat: "Statistika", text: "Mean dari data 8, 7, 9, 6, 10, 8, 9 adalah...", correct: "8.14", type: "desimal", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Jumlah = 8+7+9+6+10+8+9 = 57<br>📌 n = 7<br>📌 Mean = 57 ÷ 7 = <strong>8,14</strong>", contoh: "📖 <strong>CONTOH:</strong> 5,7,8,4 → 24÷4=6<br>📌 <strong>TRIK:</strong> Rata-rata = jumlah ÷ banyak data" },
+    
+    { id: 38, diff: "Sulit", cat: "Statistika", text: "Modus dari data 5,6,7,5,8,9,5,7,8,5 adalah...", correct: "5", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 5 muncul 4 kali<br>📌 6 muncul 1 kali<br>📌 7 muncul 2 kali<br>📌 8 muncul 2 kali<br>📌 9 muncul 1 kali<br>📌 Modus = <strong>5</strong>", contoh: "📖 <strong>CONTOH:</strong> 2,3,2,4,2 → modus=2<br>📌 <strong>TRIK:</strong> Modus adalah nilai yang paling sering muncul!" },
+
+    // 39-40 SPLDV & Transformasi
+    { id: 39, diff: "Sedang", cat: "SPLDV", text: "Jika 2x + 3y = 12 dan x - y = 1, maka nilai 4x + 2y = ...", correct: "18", type: "bulat", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 x = y + 1<br>📌 2(y+1)+3y=12 → 2y+2+3y=12 → 5y=10 → y=2<br>📌 x = 3<br>📌 4x+2y = 12+4 = <strong>16</strong>", contoh: "📖 <strong>CONTOH:</strong> 3x+2y=8, x+y=3 → x=2,y=1 → 3x+y=7" },
+    
+    { id: 40, diff: "Sulit", cat: "Transformasi", text: "Titik P(2,5) ditranslasikan oleh T(3,-2) lalu direfleksikan terhadap sumbu Y. Koordinat akhir P adalah...", correct: "(-5,3)", type: "point", penyelesaian: "📘 <strong>Pembahasan:</strong><br>📌 Translasi: (2+3,5-2) = (5,3)<br>📌 Refleksi sumbu Y: (5,3) → (-5,3)<br>📌 Jadi <strong>(-5,3)</strong>", contoh: "📖 <strong>CONTOH:</strong> (1,2) translasi (2,1) → (3,3) refleksi Y → (-3,3)<br>📌 <strong>TRIK:</strong> Kerjakan dari kiri ke kanan sesuai urutan transformasi!" }
+];
+
+    // ==================== AUTO SAVE ====================
+    let userAnswers = {};
+    let answerStatus = {};
+    let lastScore = 0;
+    
+    function loadFromStorage() {
+        const savedAnswers = localStorage.getItem('uter_mtk_answers_40');
+        const savedStatus = localStorage.getItem('uter_mtk_status_40');
+        if (savedAnswers) {
+            try {
+                userAnswers = JSON.parse(savedAnswers);
+            } catch(e) { userAnswers = {}; }
+        }
+        if (savedStatus) {
+            try {
+                answerStatus = JSON.parse(savedStatus);
+            } catch(e) { answerStatus = {}; }
+        }
+        for(let i=1;i<=40;i++) {
+            if(userAnswers[i] === undefined) userAnswers[i] = "";
+            if(answerStatus[i] === undefined) answerStatus[i] = false;
+        }
+    }
+    
+    function saveToStorage() {
+        localStorage.setItem('uter_mtk_answers_40', JSON.stringify(userAnswers));
+        localStorage.setItem('uter_mtk_status_40', JSON.stringify(answerStatus));
+    }
+    
+    function updateAnswerAndSave(qid, value) {
+        userAnswers[qid] = value;
+        if(answerStatus[qid] === true) {
+            answerStatus[qid] = false;
+            const fbDiv = document.getElementById(`fb_${qid}`);
+            if(fbDiv) fbDiv.innerHTML = '';
+        }
+        saveToStorage();
+        updateScoreDisplay();
+    }
+    
+    function normalizeAnswer(val, q){
+        let str = val.trim().replace(/\s/g, '');
+        if(str === "") return "";
+        
+        if(q.type === "point"){
+            let match = str.match(/\(?\s*(-?\d+)\s*,\s*(-?\d+)\s*\)?/);
+            if(match){
+                return `(${match[1]},${match[2]})`;
+            }
+            return str;
+        }
+        
+        if(q.type === "pecahan"){
+            if(str.includes('/')){
+                let [num, den] = str.split('/').map(Number);
+                if(den && num){
+                    let gcd = (a,b) => b === 0 ? a : gcd(b, a % b);
+                    let g = gcd(num, den);
+                    return `${num/g}/${den/g}`;
+                }
+            }
+            return str;
+        }
+        
+        if(q.type === "akar"){
+            return str.replace(/\*/g, '').toLowerCase();
+        }
+        
+        if(q.type === "string"){
+            return str.replace(/\s/g, '');
+        }
+        
+        let num = parseFloat(str.replace(',', '.'));
+        if(isNaN(num)) return str;
+        if(q.type === "bulat" && Number.isInteger(num)){
+            return Math.floor(num).toString();
+        }
+        if(q.type === "desimal"){
+            return num.toFixed(2).replace(/\.?0+$/, '');
+        }
+        return num.toString();
+    }
+
+    function evaluateQuestion(qid){
+        let q = questions.find(qq => qq.id === qid);
+        if(!q) return;
+        let raw = userAnswers[qid] || "";
+        let fbDiv = document.getElementById(`fb_${qid}`);
+        
+        if(raw === ""){ 
+            if(fbDiv) fbDiv.innerHTML = `<div class="warning-message">⚠️ Isi jawaban dulu!</div>`; 
+            return; 
+        }
+        
+        let norm = normalizeAnswer(raw, q);
+        let correctNorm = normalizeAnswer(q.correct, q);
+        let isCorrect = (norm === correctNorm);
+        
+        answerStatus[qid] = isCorrect;
+        saveToStorage();
+        
+        if(fbDiv){
+            let resHtml = isCorrect ? 
+                `<div class="result-correct">✅ BENAR! Jawaban Anda: ${raw}</div>` : 
+                `<div class="result-wrong">❌ SALAH! Jawaban Anda: ${raw}<br>📌 Kunci Jawaban: ${q.correct}</div>`;
+            resHtml += `<div class="explanation-box">${q.penyelesaian}</div>`;
+            fbDiv.innerHTML = resHtml;
+        }
+        updateScoreDisplay();
+        if(computeScore() === 40 && lastScore !== 40){
+            startConfetti();
+        }
+        lastScore = computeScore();
+    }
+    
+    function showExplanationOnly(qid){
+        let q = questions.find(qq => qq.id === qid);
+        if(!q) return;
+        let fbDiv = document.getElementById(`fb_${qid}`);
+        if(fbDiv){
+            fbDiv.innerHTML = `<div class="explanation-box">${q.contoh}</div>`;
+        }
+    }
+    
+    function getPlaceholder(q){
+        if(q.type === "desimal") return "contoh: 12.5";
+        if(q.type === "pecahan") return "contoh: 3/4";
+        if(q.type === "bulat") return "contoh: 12";
+        if(q.type === "akar") return "contoh: 2√5";
+        if(q.type === "point") return "contoh: (5,6)";
+        if(q.type === "string") return "contoh: (x-3)(x-4)";
+        return "ketik jawaban di sini";
+    }
+    
+    function renderCards(){
+        const grid = document.getElementById('quizGrid');
+        if(!grid) return;
+        grid.innerHTML = '';
+        for(let i=1;i<=40;i++){
+            let q = questions.find(qq => qq.id === i);
+            if(!q) continue;
+            let card = document.createElement('div');
+            card.className = 'question-card';
+            let diffClass = '';
+            if(q.diff === 'Mudah') diffClass = 'diff-mudah';
+            else if(q.diff === 'Sedang') diffClass = 'diff-sedang';
+            else diffClass = 'diff-sulit';
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="num-badge">${i}</div>
+                    <div class="difficulty-tag ${diffClass}">${q.diff === 'Mudah' ? '🌟' : q.diff === 'Sedang' ? '⚡' : '🔥'} ${q.diff}</div>
+                    <div class="category-tag">📌 ${q.cat}</div>
+                </div>
+                <div class="question-text">${q.text}</div>
+                <div class="input-wrapper"><input type="text" class="answer-input" id="input_${i}" placeholder="${getPlaceholder(q)}" value="${userAnswers[i] || ''}"></div>
+                <div class="button-group-dual">
+                    <button class="check-btn" onclick="evaluateQuestion(${i})">✅ CEK JAWABAN</button>
+                    <button class="pembahasan-btn" onclick="showExplanationOnly(${i})">📖 PEMBAHASAN SOAL</button>
+                </div>
+                <div class="feedback-area" id="fb_${i}"></div>
+            `;
+            grid.appendChild(card);
+            
+            const inp = document.getElementById(`input_${i}`);
+            if(inp){
+                inp.addEventListener('input', (e) => {
+                    updateAnswerAndSave(i, e.target.value);
+                });
+            }
+        }
+    }
+    
+    function computeScore(){ 
+        let c = 0; 
+        for(let i=1;i<=40;i++) if(answerStatus[i]) c++; 
+        return c; 
+    }
+    
+    function updateScoreDisplay(){
+        let sc = computeScore();
+        let span = document.getElementById('liveScoreDisplay');
+        if(span) span.innerHTML = `🏆 SKOR: ${sc} / 40`;
+    }
+    
+    function checkAll(){ 
+        for(let i=1;i<=40;i++){ 
+            evaluateQuestion(i); 
+        } 
+    }
+    
+    function resetAll(){ 
+        for(let i=1;i<=40;i++){ 
+            let inp = document.getElementById(`input_${i}`); 
+            if(inp) inp.value = ''; 
+            userAnswers[i] = ''; 
+            answerStatus[i] = false; 
+            let fb = document.getElementById(`fb_${i}`); 
+            if(fb) fb.innerHTML = ''; 
+        } 
+        saveToStorage();
+        updateScoreDisplay(); 
+    }
+    
+    window.evaluateQuestion = evaluateQuestion;
+    window.showExplanationOnly = showExplanationOnly;
+    
+    loadFromStorage();
+    renderCards();
+    updateScoreDisplay();
+    
+    document.getElementById('checkAllBtn')?.addEventListener('click', checkAll);
+    document.getElementById('resetBtn')?.addEventListener('click', resetAll);
+    document.getElementById('scrollTopBtn')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+</script>
+</body>
+</html>
