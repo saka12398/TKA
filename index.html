@@ -3,928 +3,1447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>LMS Terpadu | TKA + UTER | SMP Version</title>
+    <title>✨ LMS Stellar | TKA + UTER | Constellation Edition ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --cosmos-black: #03010a;
+            --cosmos-deep: #060318;
+            --nebula-blue: #0d1b4b;
+            --nebula-purple: #1a0d3b;
+            --star-white: #e8f0ff;
+            --star-silver: #b8c8f0;
+            --aurora-blue: #4a9eff;
+            --aurora-cyan: #00d4ff;
+            --aurora-violet: #9b59ff;
+            --aurora-indigo: #5b4fff;
+            --gold-star: #ffd97d;
+            --silver-star: #c8d8ff;
+            --glow-blue: rgba(74,158,255,0.4);
+            --glow-purple: rgba(155,89,255,0.3);
+            --glow-cyan: rgba(0,212,255,0.3);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, 'Poppins', 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+            font-family: 'Raleway', sans-serif;
+            background: var(--cosmos-black);
             min-height: 100vh;
-            padding: 20px;
-            position: relative;
             overflow-x: hidden;
-        }
-
-        /* Particle Canvas */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .main-container {
-            max-width: 100%;
-            margin: 0 auto;
             position: relative;
-            z-index: 1;
         }
 
-        /* Header dengan animasi */
+        /* ===== COSMIC CANVAS ===== */
+        #cosmos-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== NEBULA LAYERS ===== */
+        .nebula-layer {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 1;
+            animation: nebulaDrift 30s ease-in-out infinite;
+        }
+        .nebula-1 {
+            width: 800px; height: 600px;
+            top: -200px; left: -200px;
+            background: radial-gradient(ellipse, rgba(74,158,255,0.12) 0%, rgba(91,79,255,0.08) 40%, transparent 70%);
+            animation-duration: 35s;
+        }
+        .nebula-2 {
+            width: 700px; height: 700px;
+            bottom: -300px; right: -200px;
+            background: radial-gradient(ellipse, rgba(155,89,255,0.1) 0%, rgba(0,212,255,0.06) 40%, transparent 70%);
+            animation-duration: 28s;
+            animation-direction: reverse;
+        }
+        .nebula-3 {
+            width: 500px; height: 400px;
+            top: 40%; left: 30%;
+            background: radial-gradient(ellipse, rgba(0,212,255,0.06) 0%, rgba(74,158,255,0.04) 50%, transparent 70%);
+            animation-duration: 40s;
+            animation-delay: -10s;
+        }
+        .nebula-4 {
+            width: 400px; height: 300px;
+            top: 20%; right: 10%;
+            background: radial-gradient(ellipse, rgba(200,160,255,0.08) 0%, transparent 70%);
+            animation-duration: 22s;
+            animation-delay: -5s;
+        }
+
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0,0) scale(1); opacity: 0.7; }
+            33% { transform: translate(30px, -20px) scale(1.05); opacity: 1; }
+            66% { transform: translate(-20px, 25px) scale(0.95); opacity: 0.8; }
+        }
+
+        /* ===== AURORA STREAKS ===== */
+        .aurora {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 350px;
+            background: linear-gradient(180deg,
+                rgba(74,158,255,0.06) 0%,
+                rgba(155,89,255,0.04) 30%,
+                rgba(0,212,255,0.02) 60%,
+                transparent 100%
+            );
+            animation: auroraShimmer 8s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+        @keyframes auroraShimmer {
+            0%, 100% { opacity: 0.5; transform: skewX(0deg); }
+            50% { opacity: 1; transform: skewX(1deg); }
+        }
+
+        /* ===== SHOOTING STARS ===== */
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .shooting-star::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), white);
+            transform-origin: right center;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ===== HEADER ===== */
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            animation: fadeInDown 0.8s ease-out;
+            margin-bottom: 65px;
+            animation: cosmicReveal 1.2s cubic-bezier(0.2,0.9,0.4,1) both;
+        }
+        @keyframes cosmicReveal {
+            from { opacity: 0; transform: translateY(-30px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #facc15, #f59e0b);
-            border-radius: 24px;
+        .logo-constellation {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .logo-core {
+            width: 100px; height: 100px;
+            background: linear-gradient(135deg, var(--nebula-blue), var(--nebula-purple));
+            border-radius: 30px;
+            border: 1px solid rgba(74,158,255,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 40px;
-            box-shadow: 0 10px 30px -8px rgba(250,204,21,0.3);
-            animation: pulseLogo 2s ease-in-out infinite, float 3s ease-in-out infinite;
+            font-size: 48px;
+            position: relative;
+            z-index: 2;
+            box-shadow:
+                0 0 0 1px rgba(74,158,255,0.15),
+                0 0 30px rgba(74,158,255,0.2),
+                0 0 60px rgba(155,89,255,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            animation: logoOrbit 6s ease-in-out infinite;
+        }
+        @keyframes logoOrbit {
+            0%, 100% { box-shadow: 0 0 30px rgba(74,158,255,0.3), 0 0 60px rgba(155,89,255,0.15); transform: translateY(0); }
+            50% { box-shadow: 0 0 50px rgba(74,158,255,0.5), 0 0 80px rgba(0,212,255,0.2); transform: translateY(-6px); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+        /* Orbiting dots */
+        .orbit-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            border: 1px solid rgba(74,158,255,0.15);
+            border-radius: 50%;
+            animation: spin linear infinite;
         }
-
-        @keyframes pulseLogo {
-            0%, 100% { box-shadow: 0 10px 30px -8px rgba(250,204,21,0.3); }
-            50% { box-shadow: 0 10px 40px 0px rgba(250,204,21,0.6); }
+        .orbit-ring-1 {
+            width: 130px; height: 130px;
+            margin: -65px 0 0 -65px;
+            animation-duration: 8s;
         }
+        .orbit-ring-2 {
+            width: 160px; height: 160px;
+            margin: -80px 0 0 -80px;
+            animation-duration: 12s;
+            animation-direction: reverse;
+            border-color: rgba(155,89,255,0.1);
+        }
+        .orbit-dot {
+            width: 6px; height: 6px;
+            background: var(--aurora-blue);
+            border-radius: 50%;
+            position: absolute;
+            top: -3px; left: 50%;
+            margin-left: -3px;
+            box-shadow: 0 0 8px var(--aurora-blue);
+        }
+        .orbit-dot-2 {
+            background: var(--aurora-violet);
+            box-shadow: 0 0 8px var(--aurora-violet);
+        }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .header h1 {
-            font-size: 2rem;
-            background: linear-gradient(135deg, #facc15, #f97316, #facc15);
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--star-white) 0%, var(--aurora-cyan) 30%, var(--aurora-blue) 60%, var(--aurora-violet) 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: gradientShift 3s ease infinite;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+            animation: textCosmic 5s ease infinite;
         }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
+        @keyframes textCosmic {
+            0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
-        .header p {
-            color: #a5b4fc;
+        .header-subtitle {
+            color: var(--star-silver);
             font-size: 0.85rem;
-            margin-top: 6px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.7;
         }
 
-        /* GRID 2x2 */
+        .stellar-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 24px auto 0;
+            width: 300px;
+        }
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(74,158,255,0.4), transparent);
+        }
+        .divider-star {
+            color: var(--aurora-cyan);
+            font-size: 10px;
+            animation: starTwinkle 2s ease-in-out infinite;
+            text-shadow: 0 0 8px var(--aurora-cyan);
+        }
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ===== SUBJECT CARDS ===== */
         .subjects-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
         .subject-card {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
+            background: linear-gradient(145deg,
+                rgba(13,27,75,0.6) 0%,
+                rgba(6,3,24,0.8) 100%
+            );
+            backdrop-filter: blur(20px);
             border-radius: 32px;
-            padding: 32px 20px;
+            padding: 38px 28px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
+            transition: all 0.5s cubic-bezier(0.2,0.9,0.4,1.1);
+            border: 1px solid rgba(74,158,255,0.15);
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 0.6s ease-out both;
         }
 
-        .subject-card:nth-child(1) { animation-delay: 0.1s; }
-        .subject-card:nth-child(2) { animation-delay: 0.2s; }
-        .subject-card:nth-child(3) { animation-delay: 0.3s; }
-        .subject-card:nth-child(4) { animation-delay: 0.4s; }
-
-        /* Efek shimmer pada kartu */
+        /* Star field inside card */
         .subject-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.6s ease;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 50% 70%, rgba(74,158,255,0.8) 0%, transparent 100%),
+                radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 60% 45%, rgba(200,200,255,0.4) 0%, transparent 100%);
+            opacity: 0.4;
+            transition: opacity 0.5s;
         }
 
-        .subject-card:hover::before {
-            left: 100%;
+        /* Glow sweep on hover */
+        .subject-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(74,158,255,0.06) 60deg,
+                transparent 120deg
+            );
+            opacity: 0;
+            transition: opacity 0.4s;
+            animation: cardSweep 4s linear infinite;
         }
+        @keyframes cardSweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .subject-card:hover::before { opacity: 0.8; }
+        .subject-card:hover::after { opacity: 1; }
 
         .subject-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            background: rgba(25, 35, 70, 0.95);
-            border-color: #facc15;
-            box-shadow: 0 25px 40px -15px rgba(250,204,21,0.3);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(74,158,255,0.4);
+            box-shadow:
+                0 30px 50px -20px rgba(0,0,0,0.6),
+                0 0 30px rgba(74,158,255,0.15),
+                0 0 60px rgba(74,158,255,0.05),
+                inset 0 1px 0 rgba(255,255,255,0.08);
         }
 
         .subject-card.active {
-            border: 2px solid #facc15;
-            background: rgba(250, 204, 21, 0.15);
-            box-shadow: 0 0 0 3px rgba(250,204,21,0.4), 0 20px 35px -12px rgba(0,0,0,0.4);
-            animation: glowPulse 1.5s ease-in-out infinite;
+            border-color: rgba(74,158,255,0.5);
+            background: linear-gradient(145deg, rgba(13,27,75,0.8), rgba(26,13,59,0.9));
+            box-shadow:
+                0 0 0 1px rgba(74,158,255,0.3),
+                0 0 40px rgba(74,158,255,0.2),
+                0 0 80px rgba(155,89,255,0.1);
+            animation: activeConstellation 3s ease-in-out infinite;
         }
-
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 0 3px rgba(250,204,21,0.4), 0 20px 35px -12px rgba(0,0,0,0.4); }
-            50% { box-shadow: 0 0 0 6px rgba(250,204,21,0.2), 0 20px 35px -12px rgba(0,0,0,0.4); }
-        }
-
-        .subject-card.uter-style {
-            border-top: 3px solid #8b5cf6;
-        }
-        .subject-card.uter-style.active {
-            border: 2px solid #c084fc;
-            background: rgba(139, 92, 246, 0.15);
-            box-shadow: 0 0 0 3px rgba(139,92,246,0.4);
-            animation: glowPulsePurple 1.5s ease-in-out infinite;
-        }
-
-        @keyframes glowPulsePurple {
-            0%, 100% { box-shadow: 0 0 0 3px rgba(139,92,246,0.4); }
-            50% { box-shadow: 0 0 0 6px rgba(139,92,246,0.2); }
+        @keyframes activeConstellation {
+            0%, 100% { box-shadow: 0 0 30px rgba(74,158,255,0.15), 0 0 60px rgba(155,89,255,0.08); }
+            50% { box-shadow: 0 0 50px rgba(74,158,255,0.3), 0 0 90px rgba(155,89,255,0.15); }
         }
 
         .subject-icon {
-            font-size: 70px;
-            margin-bottom: 16px;
-            transition: transform 0.3s ease;
+            font-size: 60px;
+            margin-bottom: 18px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 0 12px rgba(74,158,255,0.3));
         }
-
         .subject-card:hover .subject-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) translateY(-3px);
+            filter: drop-shadow(0 0 20px rgba(0,212,255,0.5));
         }
 
         .subject-card h2 {
-            font-size: 1.8rem;
-            color: white;
-            margin-bottom: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
             font-weight: 600;
+            color: var(--star-white);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.05em;
         }
 
         .subject-desc {
-            color: #cbd5e1;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
+            color: rgba(184,200,240,0.6);
+            font-size: 0.75rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
         }
 
         .subject-badge {
-            display: inline-block;
-            background: rgba(250, 204, 21, 0.18);
-            color: #facc15;
-            padding: 8px 18px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: auto;
-            align-self: center;
-            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74,158,255,0.1);
+            color: var(--aurora-cyan);
+            padding: 7px 20px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border: 1px solid rgba(74,158,255,0.2);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
         }
-
         .subject-card:hover .subject-badge {
-            background: rgba(250, 204, 21, 0.3);
-            transform: scale(1.05);
+            background: rgba(74,158,255,0.2);
+            border-color: rgba(74,158,255,0.4);
+            box-shadow: 0 0 15px rgba(74,158,255,0.2);
         }
 
         .badge-uter {
-            background: rgba(139, 92, 246, 0.25);
+            background: rgba(155,89,255,0.1);
             color: #c084fc;
+            border-color: rgba(155,89,255,0.2);
+        }
+        .subject-card:hover .badge-uter {
+            background: rgba(155,89,255,0.2);
+            border-color: rgba(155,89,255,0.4);
+            box-shadow: 0 0 15px rgba(155,89,255,0.2);
         }
 
-        /* PANEL MODE */
+        /* ===== MODE PANEL ===== */
         .mode-panel-wrapper {
-            margin-top: 32px;
-            max-width: 900px;
+            margin-top: 50px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .mode-panel {
-            background: rgba(10, 15, 35, 0.96);
-            backdrop-filter: blur(20px);
-            border-radius: 36px;
-            padding: 24px 28px;
-            border: 1px solid rgba(250, 204, 21, 0.35);
-            animation: panelSlideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: linear-gradient(145deg, rgba(6,3,24,0.95), rgba(13,27,75,0.5));
+            backdrop-filter: blur(30px);
+            border-radius: 40px;
+            padding: 36px 40px;
+            border: 1px solid rgba(74,158,255,0.2);
+            animation: panelCosmic 0.6s cubic-bezier(0.2,0.9,0.4,1.1) both;
+            box-shadow:
+                0 30px 60px -20px rgba(0,0,0,0.6),
+                0 0 40px rgba(74,158,255,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        @keyframes panelCosmic {
+            from { opacity: 0; transform: translateY(35px) scale(0.95); filter: blur(8px); }
+            to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        @keyframes panelSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        /* Card ripple burst on click */
+        .card-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74,158,255,0.35) 0%, rgba(0,212,255,0.1) 50%, transparent 70%);
+            transform: scale(0);
+            animation: rippleBurst 0.7s cubic-bezier(0.2,0.9,0.4,1) forwards;
+            pointer-events: none;
+            z-index: 5;
+        }
+        @keyframes rippleBurst {
+            0%   { transform: scale(0); opacity: 1; }
+            60%  { opacity: 0.6; }
+            100% { transform: scale(3.5); opacity: 0; }
+        }
+
+        /* Star burst particles on click */
+        .star-particle {
+            position: absolute;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 6;
+            animation: starShoot var(--dur, 0.6s) ease-out forwards;
+        }
+        @keyframes starShoot {
+            0%   { transform: translate(0,0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+
+        /* Panel header reveal */
+        .panel-header {
+            animation: slideDown 0.5s cubic-bezier(0.2,0.9,0.4,1) both;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mode items stagger in */
+        .mode-item {
+            opacity: 0;
+            animation: modeReveal 0.5s cubic-bezier(0.2,0.9,0.4,1) both;
+        }
+        .mode-item:nth-child(1) { animation-delay: 0.12s; }
+        .mode-item:nth-child(2) { animation-delay: 0.22s; }
+        .mode-item:nth-child(3) { animation-delay: 0.32s; }
+
+        @keyframes modeReveal {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(4px); }
+            to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        /* Active card pulse flash */
+        @keyframes cardFlash {
+            0%   { box-shadow: 0 0 0 0 rgba(74,158,255,0.7), 0 0 40px rgba(74,158,255,0.3); }
+            40%  { box-shadow: 0 0 0 16px rgba(74,158,255,0), 0 0 60px rgba(74,158,255,0.5); }
+            100% { box-shadow: 0 0 30px rgba(74,158,255,0.15), 0 0 60px rgba(155,89,255,0.08); }
+        }
+        .subject-card.active {
+            animation: cardFlash 0.8s ease forwards, activeConstellation 3s 0.8s ease-in-out infinite;
         }
 
         .panel-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed rgba(250, 204, 21, 0.25);
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(74,158,255,0.12);
         }
 
         .panel-title {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
         }
-
-        .panel-title span {
-            font-size: 32px;
-            animation: bounce 0.5s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
+        .panel-title span { font-size: 36px; }
         .panel-title h3 {
+            font-family: 'Cinzel', serif;
             font-size: 1.6rem;
-            color: #facc15;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-
-        .mode-panel.uter-panel .panel-title h3 {
-            color: #c084fc;
-        }
-        .mode-panel.uter-panel {
-            border-color: rgba(139, 92, 246, 0.5);
+        .uter-panel .panel-title h3 {
+            background: linear-gradient(135deg, var(--aurora-violet), #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
         .close-panel-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: none;
-            color: #94a3b8;
-            padding: 8px 20px;
-            border-radius: 40px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(74,158,255,0.2);
+            color: var(--star-silver);
+            padding: 8px 22px;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
         }
-
         .close-panel-btn:hover {
-            background: rgba(250, 204, 21, 0.2);
-            color: #facc15;
-            transform: scale(1.05);
+            background: rgba(74,158,255,0.1);
+            border-color: rgba(74,158,255,0.4);
+            color: var(--aurora-cyan);
+            box-shadow: 0 0 15px rgba(74,158,255,0.15);
         }
 
-        /* MODE CARDS */
+        /* ===== MODE GRID ===== */
         .modes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 22px;
         }
 
         .mode-item {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-            border-radius: 28px;
-            padding: 24px 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2));
+            border-radius: 26px;
+            padding: 28px 20px;
             text-decoration: none;
-            color: white;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.2,0.9,0.4,1.1), border-color 0.4s, box-shadow 0.4s, background 0.4s;
+            border: 1px solid rgba(74,158,255,0.1);
             position: relative;
             overflow: hidden;
         }
 
-        .mode-item::after {
+        /* Mini star field in mode item */
+        .mode-item::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #facc15, #8b5cf6, #facc15);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 15%, rgba(74,158,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 55%, rgba(200,180,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 30% 85%, rgba(255,255,255,0.4) 0%, transparent 100%);
+            opacity: 0.3;
+            transition: opacity 0.4s;
         }
-
-        .mode-item:hover::after {
-            transform: scaleX(1);
-        }
+        .mode-item:hover::before { opacity: 0.9; }
 
         .mode-item:hover {
-            transform: translateY(-6px) scale(1.02);
-            background: rgba(250, 204, 21, 0.12);
-            border-color: #facc15;
+            transform: translateY(-7px);
+            border-color: rgba(74,158,255,0.35);
+            background: linear-gradient(145deg, rgba(13,27,75,0.5), rgba(6,3,24,0.7));
+            box-shadow:
+                0 20px 40px -15px rgba(0,0,0,0.5),
+                0 0 20px rgba(74,158,255,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
         .ebook-item {
-            background: linear-gradient(145deg, rgba(139, 92, 246, 0.15), rgba(0, 0, 0, 0.25));
-            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-color: rgba(155,89,255,0.12);
         }
-
         .ebook-item:hover {
-            border-color: #8b5cf6;
-            background: rgba(139, 92, 246, 0.25);
+            border-color: rgba(155,89,255,0.35);
+            box-shadow:
+                0 20px 40px -15px rgba(0,0,0,0.5),
+                0 0 20px rgba(155,89,255,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
         .mode-icon {
-            font-size: 52px;
-            margin-bottom: 12px;
-            transition: transform 0.3s ease;
+            font-size: 50px;
+            margin-bottom: 16px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
         }
-
         .mode-item:hover .mode-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.08) translateY(-4px);
+            filter: drop-shadow(0 0 15px rgba(0,212,255,0.4));
         }
 
         .mode-item h4 {
-            font-size: 1.6rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--star-white);
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
         }
 
         .mode-tag {
             display: inline-block;
-            background: rgba(250, 204, 21, 0.2);
-            color: #facc15;
+            background: rgba(74,158,255,0.1);
+            color: var(--aurora-cyan);
             padding: 4px 14px;
             border-radius: 30px;
-            font-size: 0.7rem;
-            margin: 12px 0 8px;
-            align-self: flex-start;
+            font-size: 0.62rem;
+            font-weight: 600;
+            margin: 8px 0;
+            letter-spacing: 0.1em;
+            border: 1px solid rgba(74,158,255,0.15);
+            position: relative;
+            z-index: 1;
         }
-
         .ebook-tag {
-            background: rgba(139, 92, 246, 0.3);
-            color: #a78bfa;
+            background: rgba(155,89,255,0.1);
+            color: #c084fc;
+            border-color: rgba(155,89,255,0.2);
         }
 
         .mode-desc {
-            color: #cbd5e6;
-            font-size: 0.8rem;
-            line-height: 1.4;
-            margin-bottom: 12px;
+            color: rgba(184,200,240,0.5);
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
         }
 
         .mode-features {
             list-style: none;
             margin-top: 12px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            position: relative;
+            z-index: 1;
         }
-
         .mode-features li {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             padding: 4px 0;
-            color: #a5b4fc;
+            color: rgba(184,200,240,0.6);
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: transform 0.2s ease;
+            gap: 8px;
+            transition: all 0.2s;
         }
-
-        .mode-features li:hover {
-            transform: translateX(5px);
-        }
-
+        .mode-features li:hover { color: var(--aurora-cyan); transform: translateX(4px); }
         .mode-features li::before {
-            content: "✓";
-            color: #facc15;
-            font-size: 0.7rem;
+            content: "★";
+            color: var(--aurora-blue);
+            font-size: 0.6rem;
         }
+        .ebook-features li::before { color: #c084fc; }
 
+        /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            margin-top: 48px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #5a6a8a;
-            font-size: 0.7rem;
+            margin-top: 70px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(74,158,255,0.08);
+            color: rgba(184,200,240,0.3);
+            font-size: 0.68rem;
+            letter-spacing: 0.05em;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
         }
 
-        /* Splash Screen */
+        /* ===== SPLASH ===== */
         #splash-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(ellipse at center, #0a0f2a 0%, #020617 100%);
+            inset: 0;
+            background: radial-gradient(ellipse at center, #060318 0%, #03010a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s;
+            z-index: 10000;
+            transition: opacity 1s ease, visibility 1s;
         }
 
-        .splash-content {
-            text-align: center;
-            padding: 20px;
-            animation: fadeInScale 0.8s ease;
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .splash-content { text-align: center; animation: splashFloat 0.8s ease; }
+        @keyframes splashFloat {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .splash-logo {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #facc15, #f59e0b);
+            width: 100px; height: 100px;
+            background: linear-gradient(135deg, var(--nebula-blue), var(--nebula-purple));
             border-radius: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 44px;
-            animation: splashPulse 1.5s ease-in-out infinite;
+            border: 1px solid rgba(74,158,255,0.3);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 50px;
+            animation: splashPulse 2s ease-in-out infinite;
+            box-shadow: 0 0 0 0 rgba(74,158,255,0.3);
         }
-
         @keyframes splashPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250,204,21,0.7); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(250,204,21,0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(74,158,255,0.3), 0 0 30px rgba(74,158,255,0.2); }
+            50% { box-shadow: 0 0 0 20px rgba(74,158,255,0), 0 0 60px rgba(74,158,255,0.4); }
         }
 
         .splash-content h2 {
-            color: #facc15;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #facc15, #f97316);
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-violet));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: 0.1em;
         }
-
         .splash-content p {
-            color: #a5b4fc;
+            color: rgba(184,200,240,0.5);
             font-size: 0.8rem;
+            margin-top: 8px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
-        .loader {
-            width: 250px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            margin: 20px auto 0;
+        .splash-stars {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .splash-star {
+            width: 4px; height: 4px;
+            background: var(--aurora-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--aurora-cyan);
+            animation: starSequence 1.5s ease-in-out infinite;
+        }
+        .splash-star:nth-child(2) { animation-delay: 0.2s; background: var(--aurora-blue); box-shadow: 0 0 8px var(--aurora-blue); }
+        .splash-star:nth-child(3) { animation-delay: 0.4s; }
+        .splash-star:nth-child(4) { animation-delay: 0.6s; background: var(--aurora-violet); box-shadow: 0 0 8px var(--aurora-violet); }
+        .splash-star:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes starSequence {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        .splash-loader {
+            width: 200px;
+            height: 2px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 2px;
+            margin: 24px auto 0;
             overflow: hidden;
-            position: relative;
         }
-
-        .loader-fill {
+        .splash-loader-fill {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #facc15, #f97316, #8b5cf6, #facc15);
-            background-size: 300% auto;
-            animation: loadingFill 2s ease-out forwards, shimmer 1s linear infinite;
+            background: linear-gradient(90deg, var(--aurora-blue), var(--aurora-cyan), var(--aurora-violet));
+            animation: loaderFill 2.2s ease-out forwards;
         }
+        @keyframes loaderFill { 0% { width: 0%; } 100% { width: 100%; } }
 
-        @keyframes loadingFill {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
+        .fade-out { opacity: 0; visibility: hidden; }
 
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-
-        .fade-out {
+        /* Reveal animations */
+        .scroll-reveal {
             opacity: 0;
-            visibility: hidden;
+            transform: translateY(25px);
+            transition: all 0.8s cubic-bezier(0.2,0.9,0.4,1);
         }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+        .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
+        .scroll-reveal:nth-child(3) { transition-delay: 0.15s; }
+        .scroll-reveal:nth-child(4) { transition-delay: 0.2s; }
+        .scroll-reveal:nth-child(5) { transition-delay: 0.25s; }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @media (max-width: 768px) {
+            .main-container { padding: 20px 16px 50px; }
+            .header h1 { font-size: 2rem; }
+            .subjects-grid { gap: 16px; }
+            .subject-card { padding: 28px 18px; }
+            .subject-icon { font-size: 48px; }
+            .subject-card h2 { font-size: 1.2rem; }
+            .mode-panel { padding: 24px 20px; }
+            .modes-grid { gap: 14px; }
+            .mode-item { padding: 22px 16px; }
+            .mode-icon { font-size: 40px; }
+            .mode-item h4 { font-size: 1.1rem; }
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 640px) {
-            body { padding: 16px 12px; }
-            .header { margin-bottom: 24px; }
-            .logo { width: 56px; height: 56px; font-size: 30px; border-radius: 18px; }
-            .header h1 { font-size: 1.4rem; }
-            .header p { font-size: 0.7rem; }
-            .subjects-grid { gap: 14px; }
-            .subject-card { padding: 18px 12px; border-radius: 24px; }
-            .subject-icon { font-size: 42px; margin-bottom: 8px; }
-            .subject-card h2 { font-size: 1.2rem; margin-bottom: 6px; }
-            .subject-desc { font-size: 0.6rem; line-height: 1.35; margin-bottom: 12px; }
-            .subject-badge { padding: 5px 12px; font-size: 0.6rem; }
-            .mode-panel-wrapper { margin-top: 20px; }
-            .mode-panel { padding: 16px 14px; border-radius: 24px; }
-            .panel-header { margin-bottom: 14px; padding-bottom: 8px; }
-            .panel-title span { font-size: 22px; }
-            .panel-title h3 { font-size: 1.15rem; }
-            .close-panel-btn { padding: 5px 12px; font-size: 0.65rem; }
-            .modes-grid { gap: 12px; }
-            .mode-item { padding: 14px 12px; border-radius: 20px; }
-            .mode-icon { font-size: 32px; margin-bottom: 6px; }
-            .mode-item h4 { font-size: 1rem; }
-            .mode-tag { font-size: 0.55rem; padding: 3px 10px; margin: 8px 0 5px; }
-            .mode-desc { font-size: 0.6rem; margin-bottom: 8px; }
-            .mode-features li { font-size: 0.55rem; padding: 2px 0; }
-            .footer { margin-top: 28px; font-size: 0.55rem; }
+            .modes-grid { grid-template-columns: 1fr; }
+            .panel-header { flex-direction: column; gap: 12px; align-items: flex-start; }
         }
 
-        @media (max-width: 480px) {
-            .modes-grid { grid-template-columns: 1fr; gap: 14px; }
-            .subject-card h2 { font-size: 1rem; }
-            .subject-icon { font-size: 36px; }
-            .subject-desc { font-size: 0.55rem; }
+        /* === CLICK ANIMATIONS === */
+        .card-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74,158,255,0.4) 0%, rgba(0,212,255,0.15) 50%, transparent 70%);
+            transform: scale(0);
+            animation: rippleBurst 0.7s cubic-bezier(0.2,0.9,0.4,1) forwards;
+            pointer-events: none;
+            z-index: 20;
+        }
+        @keyframes rippleBurst {
+            0%   { transform: scale(0); opacity: 1; }
+            60%  { opacity: 0.5; }
+            100% { transform: scale(3.5); opacity: 0; }
+        }
+        .star-particle {
+            position: absolute;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 21;
+            animation: starShoot var(--dur, 0.6s) ease-out forwards;
+        }
+        @keyframes starShoot {
+            0%   { transform: translate(0,0) scale(1.2); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+        /* Panel + mode items animate in */
+        .mode-panel { animation: panelSlideIn 0.55s cubic-bezier(0.2,0.9,0.4,1) both; }
+        @keyframes panelSlideIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.96); filter: blur(6px); }
+            to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        .modes-grid .mode-item {
+            opacity: 0;
+            animation: modeCardIn 0.5s cubic-bezier(0.2,0.9,0.4,1) forwards;
+        }
+        .modes-grid .mode-item:nth-child(1) { animation-delay: 0.15s; }
+        .modes-grid .mode-item:nth-child(2) { animation-delay: 0.25s; }
+        .modes-grid .mode-item:nth-child(3) { animation-delay: 0.35s; }
+        @keyframes modeCardIn {
+            from { opacity: 0; transform: translateY(18px) scale(0.96); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        /* Card flash on activate */
+        .subject-card.active {
+            border-color: rgba(74,158,255,0.5) !important;
+            background: linear-gradient(145deg, rgba(13,27,75,0.8), rgba(26,13,59,0.9)) !important;
+            animation: cardActivate 0.7s ease forwards, activeConstellation 3s 0.7s ease-in-out infinite !important;
+        }
+        @keyframes cardActivate {
+            0%   { box-shadow: 0 0 0 0 rgba(74,158,255,0.8), 0 0 30px rgba(0,212,255,0.3); transform: scale(1.03); }
+            50%  { box-shadow: 0 0 0 20px rgba(74,158,255,0), 0 0 60px rgba(74,158,255,0.5); transform: scale(1.02); }
+            100% { box-shadow: 0 0 30px rgba(74,158,255,0.2), 0 0 60px rgba(155,89,255,0.1); transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-<canvas id="particle-canvas"></canvas>
+<!-- COSMIC CANVAS -->
+<canvas id="cosmos-canvas"></canvas>
 
+<!-- NEBULA LAYERS -->
+<div class="nebula-layer nebula-1"></div>
+<div class="nebula-layer nebula-2"></div>
+<div class="nebula-layer nebula-3"></div>
+<div class="nebula-layer nebula-4"></div>
+<div class="aurora"></div>
+
+<!-- SPLASH SCREEN -->
 <div id="splash-screen">
     <div class="splash-content">
-        <div class="splash-logo">🏅</div>
-        <h2>LMS Plus Terpadu</h2>
-        <p>TKA (Matematika & B.Indo) + UTER (MTK & IPA) | E-Book Lengkap</p>
-        <div class="loader"><div class="loader-fill"></div></div>
-        <p style="margin-top: 12px; font-size: 0.7rem;" id="loadingText">Memuat sistem pendidikan...</p>
+        <div class="splash-logo">🌟</div>
+        <h2>LMS SMP</h2>
+        <p>Belajar dengan seru UTER Edition</p>
+        <div class="splash-stars">
+            <div class="splash-star"></div>
+            <div class="splash-star"></div>
+            <div class="splash-star"></div>
+            <div class="splash-star"></div>
+            <div class="splash-star"></div>
+        </div>
+        <div class="splash-loader"><div class="splash-loader-fill"></div></div>
     </div>
 </div>
 
+<!-- MAIN -->
 <div class="main-container">
-    <div class="header">
-        <div class="logo">🏅</div>
-        <h1>Learning System</h1>
-        <p>Pilih mata pelajaran • Latihan, Test, atau E-Book • TKA + UTER</p>
+    <div class="header scroll-reveal">
+        <div class="logo-constellation">
+            <div class="orbit-ring orbit-ring-1">
+                <div class="orbit-dot"></div>
+            </div>
+            <div class="orbit-ring orbit-ring-2">
+                <div class="orbit-dot orbit-dot-2"></div>
+            </div>
+            <div class="logo-core">🌟</div>
+        </div>
+        <h1>Learning Management System</h1>
+        <p class="header-subtitle">Persiapan TKA &amp; UTER · Latihan · Test · E-Book</p>
+        <div class="stellar-divider">
+            <div class="divider-line"></div>
+            <div class="divider-star">✦</div>
+            <div class="divider-star" style="animation-delay:0.3s">★</div>
+            <div class="divider-star" style="animation-delay:0.6s">✦</div>
+            <div class="divider-line"></div>
+        </div>
     </div>
 
     <div class="subjects-grid">
-        <div class="subject-card" id="cardMathTKA">
+        <div class="subject-card scroll-reveal" id="cardMathTKA">
             <div class="subject-icon">📐</div>
             <h2>MTK TKA</h2>
-            <div class="subject-desc">Aljabar • Geometri • Bilangan • Statistika<br>60+ Soal + E-Book Materi</div>
-            <div class="subject-badge">⭐ TKA Preparation</div>
+            <div class="subject-desc">Aljabar · Geometri · Bilangan · Statistika<br>60+ Soal + E-Book Materi</div>
+            <div class="subject-badge">★ TKA Preparation</div>
         </div>
-        <div class="subject-card" id="cardBinTKA">
+        <div class="subject-card scroll-reveal" id="cardBinTKA">
             <div class="subject-icon">📖</div>
             <h2>B.Indo TKA</h2>
-            <div class="subject-desc">Literasi • Ejaan • Tata Bahasa • Pemahaman Teks<br>60+ Soal + E-Book Lengkap</div>
-            <div class="subject-badge">⭐ TKA Literasi</div>
+            <div class="subject-desc">Literasi · Ejaan · Tata Bahasa · Pemahaman<br>60+ Soal + E-Book Lengkap</div>
+            <div class="subject-badge">★ TKA Literasi</div>
         </div>
-        <div class="subject-card uter-style" id="cardMathUTER">
+        <div class="subject-card scroll-reveal" id="cardMathUTER">
             <div class="subject-icon">🧮</div>
             <h2>MTK UTER</h2>
-            <div class="subject-desc">Ujian Tertulis: Logika • Himpunan • Pola Bilangan • Peluang Lanjut<br>Soal standar UTER + E-Book intensif</div>
+            <div class="subject-desc">Logika · Himpunan · Pola Bilangan · Peluang<br>Soal standar UTER + E-Book intensif</div>
             <div class="subject-badge badge-uter">⚡ UTER Intensive</div>
         </div>
-        <div class="subject-card uter-style" id="cardIpaUTER">
+        <div class="subject-card scroll-reveal" id="cardIpaUTER">
             <div class="subject-icon">🔬</div>
             <h2>IPA UTER</h2>
-            <div class="subject-desc">Fisika Dasar • Biologi • Kimia Terapan • Eksperimen<br>Soal penalaran + E-Book materi UTER</div>
+            <div class="subject-desc">Fisika · Biologi · Kimia Terapan · Eksperimen<br>Soal penalaran + E-Book materi UTER</div>
             <div class="subject-badge badge-uter">🧪 Sains Terpadu</div>
         </div>
     </div>
 
     <div id="modePanelContainer" class="mode-panel-wrapper"></div>
 
-    <div class="footer">
-        <p>© 2025 LMS Terpadu | TKA (Matematika & Bahasa Indonesia) + UTER (MTK Lanjut & IPA) | By-Rich</p>
-        <p>📘 E-Book lengkap semua mapel | 📝 Latihan & Pembahasan | ⏱️ Test Olimpiade & UTER</p>
+    <div class="footer scroll-reveal">
+        <p>© 2025 LMS SMP · TKA (Matematika &amp; Bahasa Indonesia) + UTER (MTK Lanjut &amp; IPA)</p>
+        <p style="margin-top:8px;opacity:0.5">✦ E-Book Lengkap · Latihan &amp; Pembahasan · Test Olimpiade &amp; UTER ✦</p>
     </div>
 </div>
 
 <script>
-    // ==================== PARTICLE BACKGROUND ====================
-    const canvas = document.getElementById('particle-canvas');
-    let ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId = null;
+// ========== CONSTELLATION / STAR FIELD CANVAS ==========
+(function() {
+    const canvas = document.getElementById('cosmos-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, stars = [], constellationLines = [], shootingStars = [], glitterParticles = [];
+    let animFrame;
 
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        initStars();
     }
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 3 + 1;
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.3;
-            this.opacity = Math.random() * 0.5 + 0.2;
-            this.color = `rgba(250, 204, 21, ${this.opacity})`;
+    // Star types: tiny dim, medium, bright, blue-tinted, purple-tinted
+    function initStars() {
+        stars = [];
+        const count = Math.min(Math.floor(W * H / 3000), 400);
+        for (let i = 0; i < count; i++) {
+            const r = Math.random();
+            let size, brightness, color;
+            if (r < 0.6) {
+                // Tiny dim stars
+                size = 0.3 + Math.random() * 0.5;
+                brightness = 0.2 + Math.random() * 0.4;
+                color = `rgba(200,215,255,${brightness})`;
+            } else if (r < 0.8) {
+                // Medium stars
+                size = 0.6 + Math.random() * 0.8;
+                brightness = 0.4 + Math.random() * 0.5;
+                color = `rgba(220,230,255,${brightness})`;
+            } else if (r < 0.92) {
+                // Blue-tinted stars
+                size = 0.8 + Math.random() * 1.0;
+                brightness = 0.5 + Math.random() * 0.5;
+                color = `rgba(100,180,255,${brightness})`;
+            } else if (r < 0.97) {
+                // Purple/violet stars
+                size = 0.6 + Math.random() * 0.8;
+                brightness = 0.4 + Math.random() * 0.4;
+                color = `rgba(180,130,255,${brightness})`;
+            } else {
+                // Bright white stars
+                size = 1.2 + Math.random() * 1.5;
+                brightness = 0.7 + Math.random() * 0.3;
+                color = `rgba(255,255,255,${brightness})`;
+            }
+            stars.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                size,
+                color,
+                twinkleSpeed: 0.5 + Math.random() * 2,
+                twinkleOffset: Math.random() * Math.PI * 2,
+                hasCross: size > 1.5 && Math.random() > 0.3
+            });
         }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.y < 0) this.y = canvas.height;
-            if (this.y > canvas.height) this.y = 0;
-        }
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
-    }
 
-    function initParticles() {
-        particles = [];
-        for (let i = 0; i < 100; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function animateParticles() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let p of particles) {
-            p.update();
-            p.draw();
-        }
-        // Gambar bintang berkedip
-        for (let i = 0; i < 50; i++) {
-            if (Math.random() > 0.98) {
-                ctx.beginPath();
-                ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 1.5, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
-                ctx.fill();
+        // Constellation lines — connect nearby bright stars
+        constellationLines = [];
+        const brightStars = stars.filter(s => s.size > 1.0);
+        for (let i = 0; i < brightStars.length; i++) {
+            for (let j = i + 1; j < brightStars.length; j++) {
+                const dx = brightStars[i].x - brightStars[j].x;
+                const dy = brightStars[i].y - brightStars[j].y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 120 && Math.random() > 0.65) {
+                    constellationLines.push({
+                        s1: brightStars[i],
+                        s2: brightStars[j],
+                        opacity: 0.06 + Math.random() * 0.08
+                    });
+                }
             }
         }
-        animationId = requestAnimationFrame(animateParticles);
+
+        // Initialize glitter particles
+        glitterParticles = [];
+        for (let i = 0; i < 80; i++) {
+            glitterParticles.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                size: 1 + Math.random() * 2.5,
+                type: Math.floor(Math.random() * 3), // 0=circle, 1=diamond, 2=cross
+                hue: Math.random() > 0.5 ? 'blue' : (Math.random() > 0.5 ? 'purple' : 'silver'),
+                speed: 0.1 + Math.random() * 0.4,
+                angle: Math.random() * Math.PI * 2,
+                twinkle: Math.random() * Math.PI * 2,
+                twinkleSpeed: 0.8 + Math.random() * 2
+            });
+        }
     }
 
-    window.addEventListener('resize', () => {
-        resizeCanvas();
-        initParticles();
-    });
+    // Shooting star
+    function addShootingStar() {
+        const angle = 0.3 + Math.random() * 0.4; // ~17-23 degrees
+        shootingStars.push({
+            x: Math.random() * W * 0.7,
+            y: Math.random() * H * 0.4,
+            vx: 6 + Math.random() * 8,
+            vy: 2 + Math.random() * 4,
+            life: 0,
+            maxLife: 60 + Math.random() * 40,
+            length: 80 + Math.random() * 120,
+            alpha: 0
+        });
+    }
 
-    // ==================== SPLASH SCREEN ====================
+    let shootingTimer = 0;
+    let t = 0;
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        t += 0.005;
+        shootingTimer++;
+
+        // Constellation lines
+        constellationLines.forEach(line => {
+            ctx.beginPath();
+            ctx.moveTo(line.s1.x, line.s1.y);
+            ctx.lineTo(line.s2.x, line.s2.y);
+            ctx.strokeStyle = `rgba(74,158,255,${line.opacity})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+        });
+
+        // Stars
+        stars.forEach(star => {
+            const twinkle = Math.sin(t * star.twinkleSpeed + star.twinkleOffset);
+            const alpha = 0.5 + twinkle * 0.5;
+
+            ctx.save();
+            ctx.globalAlpha = alpha;
+
+            // Glow for larger stars
+            if (star.size > 1.0) {
+                const grd = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 4);
+                if (star.color.includes('100,180')) {
+                    grd.addColorStop(0, 'rgba(74,158,255,0.4)');
+                } else if (star.color.includes('180,130')) {
+                    grd.addColorStop(0, 'rgba(155,89,255,0.4)');
+                } else {
+                    grd.addColorStop(0, 'rgba(255,255,255,0.3)');
+                }
+                grd.addColorStop(1, 'transparent');
+                ctx.fillStyle = grd;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size * 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Star core
+            ctx.fillStyle = star.color;
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Cross flare for bright stars
+            if (star.hasCross && star.size > 1.2) {
+                ctx.globalAlpha = alpha * 0.5;
+                ctx.strokeStyle = star.color;
+                ctx.lineWidth = 0.5;
+                const arm = star.size * 5;
+                ctx.beginPath();
+                ctx.moveTo(star.x - arm, star.y);
+                ctx.lineTo(star.x + arm, star.y);
+                ctx.moveTo(star.x, star.y - arm);
+                ctx.lineTo(star.x, star.y + arm);
+                ctx.stroke();
+            }
+
+            ctx.restore();
+        });
+
+        // Glitter particles
+        glitterParticles.forEach(g => {
+            g.twinkle += g.twinkleSpeed * 0.02;
+            g.x += Math.cos(g.angle) * g.speed * 0.3;
+            g.y += Math.sin(g.angle) * g.speed * 0.3;
+
+            // Wrap
+            if (g.x < 0) g.x = W;
+            if (g.x > W) g.x = 0;
+            if (g.y < 0) g.y = H;
+            if (g.y > H) g.y = 0;
+
+            const alpha = (Math.sin(g.twinkle) * 0.5 + 0.5) * 0.8;
+            ctx.save();
+            ctx.globalAlpha = alpha;
+
+            let color;
+            if (g.hue === 'blue') color = '#4a9eff';
+            else if (g.hue === 'purple') color = '#9b59ff';
+            else color = '#c8d8ff';
+
+            if (g.type === 0) {
+                // Circle glitter
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(g.x, g.y, g.size, 0, Math.PI * 2);
+                ctx.fill();
+            } else if (g.type === 1) {
+                // Diamond glitter
+                ctx.fillStyle = color;
+                ctx.save();
+                ctx.translate(g.x, g.y);
+                ctx.rotate(Math.PI / 4 + t * 0.5);
+                ctx.fillRect(-g.size * 0.8, -g.size * 0.8, g.size * 1.6, g.size * 1.6);
+                ctx.restore();
+            } else {
+                // Cross/sparkle glitter
+                ctx.strokeStyle = color;
+                ctx.lineWidth = g.size * 0.5;
+                const arm = g.size * 2.5;
+                ctx.beginPath();
+                ctx.moveTo(g.x - arm, g.y); ctx.lineTo(g.x + arm, g.y);
+                ctx.moveTo(g.x, g.y - arm); ctx.lineTo(g.x, g.y + arm);
+                ctx.stroke();
+                // Diagonal arms
+                ctx.globalAlpha = alpha * 0.5;
+                const arm2 = g.size * 1.5;
+                ctx.beginPath();
+                ctx.moveTo(g.x - arm2, g.y - arm2); ctx.lineTo(g.x + arm2, g.y + arm2);
+                ctx.moveTo(g.x + arm2, g.y - arm2); ctx.lineTo(g.x - arm2, g.y + arm2);
+                ctx.stroke();
+            }
+            ctx.restore();
+        });
+
+        // Shooting stars
+        if (shootingTimer > 180 && Math.random() > 0.985) {
+            addShootingStar();
+            shootingTimer = 0;
+        }
+
+        shootingStars = shootingStars.filter(ss => {
+            ss.life++;
+            ss.x += ss.vx;
+            ss.y += ss.vy;
+
+            const progress = ss.life / ss.maxLife;
+            if (progress < 0.2) ss.alpha = progress / 0.2;
+            else if (progress > 0.7) ss.alpha = 1 - (progress - 0.7) / 0.3;
+            else ss.alpha = 1;
+
+            ctx.save();
+            ctx.globalAlpha = ss.alpha * 0.9;
+
+            // Trail
+            const grad = ctx.createLinearGradient(
+                ss.x - ss.vx * (ss.length / ss.vx),
+                ss.y - ss.vy * (ss.length / ss.vx),
+                ss.x, ss.y
+            );
+            grad.addColorStop(0, 'transparent');
+            grad.addColorStop(0.6, 'rgba(74,158,255,0.3)');
+            grad.addColorStop(1, 'rgba(255,255,255,0.9)');
+
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(ss.x - ss.vx * (ss.length / ss.vx), ss.y - ss.vy * (ss.length / ss.vx));
+            ctx.lineTo(ss.x, ss.y);
+            ctx.stroke();
+
+            // Head glow
+            const hGrad = ctx.createRadialGradient(ss.x, ss.y, 0, ss.x, ss.y, 4);
+            hGrad.addColorStop(0, 'white');
+            hGrad.addColorStop(1, 'transparent');
+            ctx.fillStyle = hGrad;
+            ctx.beginPath();
+            ctx.arc(ss.x, ss.y, 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+            return ss.life < ss.maxLife && ss.x < W + 200 && ss.y < H + 200;
+        });
+
+        animFrame = requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    draw();
+
+    // Splash
     window.addEventListener('load', () => {
-        resizeCanvas();
-        initParticles();
-        animateParticles();
-
-        const loadingTexts = [
-            "Memuat sistem pendidikan...",
-            "Menyiapkan materi belajar...",
-            "Memuat soal-soal terbaru...",
-            "Hampir selesai..."
-        ];
-        let textIndex = 0;
-        const textInterval = setInterval(() => {
-            textIndex = (textIndex + 1) % loadingTexts.length;
-            const loadingTextElem = document.getElementById('loadingText');
-            if (loadingTextElem) loadingTextElem.textContent = loadingTexts[textIndex];
-        }, 500);
-
         setTimeout(() => {
-            clearInterval(textInterval);
             const splash = document.getElementById('splash-screen');
             if (splash) {
                 splash.classList.add('fade-out');
-                setTimeout(() => splash.remove(), 800);
+                setTimeout(() => splash.remove(), 1000);
             }
-        }, 2200);
+        }, 2500);
     });
+})();
 
-    // ==================== CARD LOGIC ====================
-    const mathTKACard = document.getElementById('cardMathTKA');
-    const binTKACard = document.getElementById('cardBinTKA');
-    const mathUTERCard = document.getElementById('cardMathUTER');
-    const ipaUTERCard = document.getElementById('cardIpaUTER');
-    const container = document.getElementById('modePanelContainer');
-    let activeSubject = null;
+// ========== SCROLL REVEAL ==========
+const revealEls = document.querySelectorAll('.scroll-reveal');
+function revealOnScroll() {
+    revealEls.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 60) {
+            el.classList.add('revealed');
+        }
+    });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-    function removeHighlights() {
-        mathTKACard.classList.remove('active');
-        binTKACard.classList.remove('active');
-        mathUTERCard.classList.remove('active');
-        ipaUTERCard.classList.remove('active');
+// ========== CARD LOGIC ==========
+const cards = {
+    mathTKA: document.getElementById('cardMathTKA'),
+    binTKA: document.getElementById('cardBinTKA'),
+    mathUTER: document.getElementById('cardMathUTER'),
+    ipaUTER: document.getElementById('cardIpaUTER'),
+};
+const container = document.getElementById('modePanelContainer');
+let activeSubject = null;
+
+function removeHighlights() {
+    Object.values(cards).forEach(c => c.classList.remove('active'));
+}
+
+function renderModePanel(id) {
+    if (id === 'mathTKA') return `
+        <div class="mode-panel">
+            <div class="panel-header">
+                <div class="panel-title"><span>🧮</span><h3>Matematika TKA</h3></div>
+                <button class="close-panel-btn" id="closePanelBtn">✕ Tutup</button>
+            </div>
+            <div class="modes-grid">
+                <a href="tka.html" class="mode-item">
+                    <div class="mode-icon">📚</div>
+                    <h4>Latihan</h4>
+                    <div class="mode-tag">🎯 Tanpa Tekanan</div>
+                    <div class="mode-desc">Soal TKA + pembahasan lengkap, kunci jawaban tersedia</div>
+                    <ul class="mode-features"><li>40+ Soal + Pembahasan</li><li>Lihat kunci kapanpun</li><li>Skor otomatis</li></ul>
+                </a>
+                <a href="test.html" class="mode-item">
+                    <div class="mode-icon">⏱️</div>
+                    <h4>Test</h4>
+                    <div class="mode-tag">⚡ Uji Kemampuan</div>
+                    <div class="mode-desc">Mode ujian sungguhan dengan timer ketat seperti olimpiade</div>
+                    <ul class="mode-features"><li>60 Soal lanjut</li><li>Tanpa bocoran jawaban</li><li>Penilaian otomatis</li></ul>
+                </a>
+                <a href="ebook-mtk.html" class="mode-item ebook-item">
+                    <div class="mode-icon">📘</div>
+                    <h4>E-Book MTK</h4>
+                    <div class="mode-tag ebook-tag">📖 Materi Lengkap</div>
+                    <div class="mode-desc">Aljabar, Geometri, Statistika + rumus cepat olimpiade</div>
+                    <ul class="mode-features ebook-features"><li>Trik Olimpiade</li><li>Contoh soal TKA</li></ul>
+                </a>
+            </div>
+        </div>`;
+    if (id === 'binTKA') return `
+        <div class="mode-panel">
+            <div class="panel-header">
+                <div class="panel-title"><span>📖</span><h3>Bahasa Indonesia TKA</h3></div>
+                <button class="close-panel-btn" id="closePanelBtn">✕ Tutup</button>
+            </div>
+            <div class="modes-grid">
+                <a href="tka2.html" class="mode-item">
+                    <div class="mode-icon">📝</div><h4>Latihan</h4>
+                    <div class="mode-tag">🎯 Asah Terus</div>
+                    <div class="mode-desc">Ejaan, literasi, tata bahasa + pembahasan mendalam</div>
+                    <ul class="mode-features"><li>40+ Soal + kunci</li><li>Tips &amp; trik bahasa</li></ul>
+                </a>
+                <a href="test2.html" class="mode-item">
+                    <div class="mode-icon">📜</div><h4>Test</h4>
+                    <div class="mode-tag">🏆 Full Challenge</div>
+                    <div class="mode-desc">Uji kemampuan level olimpiade bahasa Indonesia</div>
+                    <ul class="mode-features"><li>60 soal setara OSN</li><li>Timer + review</li></ul>
+                </a>
+                <a href="ebook-indo.html" class="mode-item ebook-item">
+                    <div class="mode-icon">📓</div><h4>E-Book Indo</h4>
+                    <div class="mode-tag ebook-tag">📚 Master B.Indo</div>
+                    <div class="mode-desc">Majas, SPOK, wacana, istilah teknis bahasa Indonesia</div>
+                    <ul class="mode-features ebook-features"><li>20+ Majas</li><li>Kohesi &amp; koherensi</li></ul>
+                </a>
+            </div>
+        </div>`;
+    if (id === 'mathUTER') return `
+        <div class="mode-panel uter-panel">
+            <div class="panel-header">
+                <div class="panel-title"><span>🧠</span><h3>Matematika UTER</h3></div>
+                <button class="close-panel-btn" id="closePanelBtn">✕ Tutup</button>
+            </div>
+            <div class="modes-grid">
+                <a href="mtk_uter.html" class="mode-item">
+                    <div class="mode-icon">⚙️</div><h4>Latihan UTER</h4>
+                    <div class="mode-tag">🎯 Soal Standar UTER</div>
+                    <div class="mode-desc">Himpunan, Logika, Pola Bilangan, Peluang tingkat lanjut</div>
+                    <ul class="mode-features"><li>40 Soal eksklusif</li><li>Pembahasan detail</li><li>Skor progres</li></ul>
+                </a>
+                <a href="ebook-uter-mtk.html" class="mode-item ebook-item">
+                    <div class="mode-icon">📚</div><h4>E-Book MTK UTER</h4>
+                    <div class="mode-tag ebook-tag">📘 Materi Intensif</div>
+                    <div class="mode-desc">Teori Himpunan, Fungsi, Statistika Lanjut, Aljabar UTER</div>
+                    <ul class="mode-features ebook-features"><li>Soal tipe Ujian Tertulis</li><li>Rumus cepat &amp; trik</li></ul>
+                </a>
+            </div>
+        </div>`;
+    if (id === 'ipaUTER') return `
+        <div class="mode-panel uter-panel">
+            <div class="panel-header">
+                <div class="panel-title"><span>🧪</span><h3>IPA UTER Terpadu</h3></div>
+                <button class="close-panel-btn" id="closePanelBtn">✕ Tutup</button>
+            </div>
+            <div class="modes-grid">
+                <a href="ipa_uter.html" class="mode-item">
+                    <div class="mode-icon">🔬</div><h4>Latihan IPA</h4>
+                    <div class="mode-tag">📘 Eksplorasi Sains</div>
+                    <div class="mode-desc">Fisika (Gaya, Usaha), Biologi (Sistem Tubuh), Kimia Dasar</div>
+                    <ul class="mode-features"><li>40 Soal + pembahasan ilmiah</li><li>Kunci &amp; analisis</li></ul>
+                </a>
+                <a href="ebook-uter-ipa.html" class="mode-item ebook-item">
+                    <div class="mode-icon">📖</div><h4>E-Book IPA UTER</h4>
+                    <div class="mode-tag ebook-tag">🧫 Materi Lengkap</div>
+                    <div class="mode-desc">Fisika Terapan, Biologi Lintas Bab, Kimia Reaksi</div>
+                    <ul class="mode-features ebook-features"><li>Ringkasan materi UTER</li><li>Soal analisis &amp; eksperimen</li></ul>
+                </a>
+            </div>
+        </div>`;
+    return '';
+}
+
+function showPanel(id) {
+    if (!container) return;
+    container.innerHTML = renderModePanel(id);
+    const closeBtn = document.getElementById('closePanelBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            container.innerHTML = '';
+            activeSubject = null;
+            removeHighlights();
+        });
     }
+    setTimeout(() => {
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 120);
+}
 
-    function renderModePanel(subjectId) {
-        if (subjectId === 'mathTKA') {
-            return `
-                <div class="mode-panel">
-                    <div class="panel-header">
-                        <div class="panel-title">
-                            <span>🧮</span>
-                            <h3>Matematika TKA</h3>
-                        </div>
-                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
-                    </div>
-                    <div class="modes-grid">
-                        <a href="tka.html" class="mode-item">
-                            <div class="mode-icon">📚</div>
-                            <h4>Latihan</h4>
-                            <div class="mode-tag">🎯 Tanpa Tekanan</div>
-                            <div class="mode-desc">Soal TKA + pembahasan lengkap, kunci jawaban</div>
-                            <ul class="mode-features"><li>40+ Soal + Pembahasan</li><li>Lihat kapanpun kunci</li><li>Skor otomatis</li></ul>
-                        </a>
-                        <a href="test.html" class="mode-item">
-                            <div class="mode-icon">⏱️</div>
-                            <h4>Test</h4>
-                            <div class="mode-tag">⚡ Uji Kemampuan</div>
-                            <div class="mode-desc">Mode ujian sungguhan, timer ketat</div>
-                            <ul class="mode-features"><li>60 Soal lanjut</li><li>Tanpa bocoran</li><li>Penilaian otomatis</li></ul>
-                        </a>
-                        <a href="ebook-mtk.html" class="mode-item ebook-item">
-                            <div class="mode-icon">📘</div>
-                            <h4>E-Book MTK</h4>
-                            <div class="mode-tag ebook-tag">📖 Materi Lengkap</div>
-                            <div class="mode-desc">Aljabar, Geometri, Statistika + rumus cepat</div>
-                            <ul class="mode-features ebook-features"><li>Trik Olimpiade</li><li>Contoh soal TKA</li></ul>
-                        </a>
-                    </div>
-                </div>
-            `;
-        } 
-        else if (subjectId === 'binTKA') {
-            return `
-                <div class="mode-panel">
-                    <div class="panel-header">
-                        <div class="panel-title"><span>📖</span><h3>Bahasa Indonesia TKA</h3></div>
-                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
-                    </div>
-                    <div class="modes-grid">
-                        <a href="tka2.html" class="mode-item">
-                            <div class="mode-icon">📝</div><h4>Latihan</h4>
-                            <div class="mode-tag">🎯 Asah Terus</div>
-                            <div class="mode-desc">Ejaan, literasi, tata bahasa + pembahasan</div>
-                            <ul class="mode-features"><li>40+ Soal + kunci</li><li>Tips & trik</li></ul>
-                        </a>
-                        <a href="test2.html" class="mode-item">
-                            <div class="mode-icon">📜</div><h4>Test</h4>
-                            <div class="mode-tag">🏆 Full Challenge</div>
-                            <div class="mode-desc">Uji kemampuan level olimpiade bahasa</div>
-                            <ul class="mode-features"><li>60 soal setara OSN</li><li>Timer + review</li></ul>
-                        </a>
-                        <a href="ebook-indo.html" class="mode-item ebook-item">
-                            <div class="mode-icon">📓</div><h4>E-Book Indo</h4>
-                            <div class="mode-tag ebook-tag">📚 Master B.Indo</div>
-                            <div class="mode-desc">Majas, SPOK, wacana, istilah teknis</div>
-                            <ul class="mode-features ebook-features"><li>20+ Majas</li><li>Kohesi & koherensi</li></ul>
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-        else if (subjectId === 'mathUTER') {
-            return `
-                <div class="mode-panel uter-panel">
-                    <div class="panel-header">
-                        <div class="panel-title"><span>🧠</span><h3>Matematika UTER</h3></div>
-                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
-                    </div>
-                    <div class="modes-grid">
-                        <a href="mtk_uter.html" class="mode-item">
-                            <div class="mode-icon">⚙️</div><h4>Latihan UTER</h4>
-                            <div class="mode-tag">🎯 Soal Standar UTER</div>
-                            <div class="mode-desc">Himpunan, Logika, Pola Bilangan, Peluang tingkat lanjut</div>
-                            <ul class="mode-features"><li>40 Soal eksklusif</li><li>Pembahasan detail UTER</li><li>Skor progres</li></ul>
-                        </a>
-                        <a href="ebook-uter-mtk.html" class="mode-item ebook-item">
-                            <div class="mode-icon">📚</div><h4>E-Book MTK UTER</h4>
-                            <div class="mode-tag ebook-tag">📘 Materi Intensif</div>
-                            <div class="mode-desc">Teori Himpunan, Fungsi, Statistika Lanjut, Aljabar UTER</div>
-                            <ul class="mode-features ebook-features"><li>Soal tipe Ujian Tertulis</li><li>Rumus cepat & trik</li></ul>
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-        else if (subjectId === 'ipaUTER') {
-            return `
-                <div class="mode-panel uter-panel">
-                    <div class="panel-header">
-                        <div class="panel-title"><span>🧪</span><h3>IPA UTER Terpadu</h3></div>
-                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
-                    </div>
-                    <div class="modes-grid">
-                        <a href="ipa_uter.html" class="mode-item">
-                            <div class="mode-icon">🔬</div><h4>Latihan IPA</h4>
-                            <div class="mode-tag">📘 Eksplorasi Sains</div>
-                            <div class="mode-desc">Fisika (Gaya, Usaha), Biologi (Sistem Tubuh), Kimia Dasar</div>
-                            <ul class="mode-features"><li>40 Soal + pembahasan ilmiah</li><li>Kunci & analisis</li></ul>
-                        </a>
-                        <a href="ebook-uter-ipa.html" class="mode-item ebook-item">
-                            <div class="mode-icon">📖</div><h4>E-Book IPA UTER</h4>
-                            <div class="mode-tag ebook-tag">🧫 Materi Lengkap</div>
-                            <div class="mode-desc">Fisika Terapan, Biologi Lintas Bab, Kimia Reaksi</div>
-                            <ul class="mode-features ebook-features"><li>Ringkasan materi UTER</li><li>Soal analisis & eksperimen</li></ul>
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-        return '';
+function spawnRipple(card, e) {
+    const rect = card.getBoundingClientRect();
+    const cx = e ? e.clientX - rect.left : rect.width / 2;
+    const cy = e ? e.clientY - rect.top  : rect.height / 2;
+    const size = Math.max(rect.width, rect.height) * 1.2;
+
+    const rip = document.createElement('div');
+    rip.className = 'card-ripple';
+    rip.style.cssText = `width:${size}px;height:${size}px;left:${cx - size/2}px;top:${cy - size/2}px`;
+    card.appendChild(rip);
+    setTimeout(() => rip.remove(), 750);
+
+    const colors = ['#4a9eff','#00d4ff','#9b59ff','#ffffff','#c8d8ff','#a78bfa'];
+    for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2;
+        const dist = 35 + Math.random() * 50;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist;
+        const dur = (0.45 + Math.random() * 0.3).toFixed(2);
+        const p = document.createElement('div');
+        p.className = 'star-particle';
+        p.style.cssText = `left:${cx}px;top:${cy}px;background:${colors[i%colors.length]};box-shadow:0 0 6px ${colors[i%colors.length]};--tx:${tx}px;--ty:${ty}px;--dur:${dur}s`;
+        card.appendChild(p);
+        setTimeout(() => p.remove(), parseFloat(dur) * 1000 + 50);
     }
+}
 
-    function showPanel(subjectId) {
-        if (!container) return;
-        container.innerHTML = renderModePanel(subjectId);
-        const closeBtn = document.getElementById('closePanelBtn');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                container.innerHTML = '';
-                activeSubject = null;
-                removeHighlights();
-            });
-        }
-        setTimeout(() => {
-            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-    }
-
-    mathTKACard.addEventListener('click', () => {
-        if (activeSubject === 'mathTKA') return;
-        activeSubject = 'mathTKA';
+Object.entries(cards).forEach(([id, card]) => {
+    card.addEventListener('click', (e) => {
+        spawnRipple(card, e);
+        if (activeSubject === id) return;
+        activeSubject = id;
         removeHighlights();
-        mathTKACard.classList.add('active');
-        showPanel('mathTKA');
+        card.classList.add('active');
+        showPanel(id);
     });
-
-    binTKACard.addEventListener('click', () => {
-        if (activeSubject === 'binTKA') return;
-        activeSubject = 'binTKA';
-        removeHighlights();
-        binTKACard.classList.add('active');
-        showPanel('binTKA');
-    });
-
-    mathUTERCard.addEventListener('click', () => {
-        if (activeSubject === 'mathUTER') return;
-        activeSubject = 'mathUTER';
-        removeHighlights();
-        mathUTERCard.classList.add('active');
-        showPanel('mathUTER');
-    });
-
-    ipaUTERCard.addEventListener('click', () => {
-        if (activeSubject === 'ipaUTER') return;
-        activeSubject = 'ipaUTER';
-        removeHighlights();
-        ipaUTERCard.classList.add('active');
-        showPanel('ipaUTER');
-    });
+});
 </script>
 </body>
 </html>
