@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>IPA UTER | 45 Soal + Pembahasan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #03010a;
+            --surface: rgba(13,27,75,0.45);
+            --surface-raised: rgba(16,32,85,0.6);
+            --border: rgba(74,158,255,0.15);
+            --border-hover: rgba(74,158,255,0.35);
+            --blue: #4a9eff;
+            --cyan: #00d4ff;
+            --violet: #9b59ff;
+            --text: #e8f0ff;
+            --text-muted: rgba(184,200,240,0.6);
+            --green: #10d48e;
+            --red: #ff5c6a;
+            --amber: #f59e0b;
+            --easy: rgba(16,212,142,0.12);
+            --easy-text: #10d48e;
+            --med: rgba(245,158,11,0.12);
+            --med-text: #f59e0b;
+            --hard: rgba(255,92,106,0.12);
+            --hard-text: #ff5c6a;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+        body {
+            font-family: 'Raleway', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 16px 16px 60px;
+            /* Subtle star bg via CSS — zero JS cost */
+            background-image:
+                radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.55) 0%, transparent 100%),
+                radial-gradient(1px 1px at 30% 5%,  rgba(74,158,255,0.7)  0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 20%, rgba(255,255,255,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 8%,  rgba(200,180,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 5%  45%, rgba(74,158,255,0.5)  0%, transparent 100%),
+                radial-gradient(1px 1px at 20% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 50%, rgba(155,89,255,0.5)  0%, transparent 100%),
+                radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 40% 80%, rgba(74,158,255,0.6) 0%, transparent 100%),
+                radial-gradient(ellipse at 20% 0%,  rgba(74,158,255,0.07)  0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%,rgba(155,89,255,0.06) 0%, transparent 50%),
+                linear-gradient(145deg, #060318 0%, #03010a 100%);
+            background-attachment: fixed;
+        }
+
+        /* ===== SPLASH ===== */
+        #splash {
+            position: fixed; inset: 0;
+            background: radial-gradient(ellipse at center, #060318 0%, #03010a 100%);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.7s ease, visibility 0.7s;
+        }
+        .splash-inner { text-align: center; }
+        .splash-icon {
+            font-size: 60px; margin-bottom: 16px;
+            animation: splashBounce 1.5s ease-in-out infinite;
+        }
+        @keyframes splashBounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .splash-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            letter-spacing: 0.08em;
+        }
+        .splash-sub { color: var(--text-muted); font-size: 0.8rem; margin-top: 6px; letter-spacing: 0.15em; }
+        .splash-bar {
+            width: 200px; height: 2px;
+            background: rgba(255,255,255,0.08); border-radius: 2px;
+            margin: 20px auto 0; overflow: hidden;
+        }
+        .splash-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            animation: fillBar 2s ease-out forwards;
+        }
+        @keyframes fillBar { from { width: 0% } to { width: 100% } }
+        .splash-out { opacity: 0; visibility: hidden; }
+
+        /* ===== LAYOUT ===== */
+        .wrap { max-width: 820px; margin: 0 auto; }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 36px 20px 28px;
+            margin-bottom: 20px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(13,27,75,0.7), rgba(26,13,59,0.6));
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: -40px; right: -40px;
+            width: 180px; height: 180px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(74,158,255,0.12), transparent);
+            pointer-events: none;
+        }
+        .hero-icon { font-size: 48px; margin-bottom: 10px; display: block; }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 4vw, 1.7rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text), var(--cyan) 60%, var(--blue));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            letter-spacing: 0.04em; margin-bottom: 8px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(74,158,255,0.12);
+            color: var(--cyan);
+            border: 1px solid rgba(74,158,255,0.25);
+            padding: 4px 16px; border-radius: 50px;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+        }
+        .hero-topics {
+            color: var(--text-muted); font-size: 0.7rem;
+            margin-top: 10px; line-height: 1.6;
+        }
+
+        /* ===== INFO BAR ===== */
+        .info-bar {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 18px;
+            background: rgba(6,3,24,0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            position: sticky; top: 10px; z-index: 50;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+        .score-pill {
+            font-weight: 700; font-size: 0.85rem;
+            background: rgba(74,158,255,0.1);
+            color: var(--cyan);
+            border: 1px solid rgba(74,158,255,0.2);
+            padding: 7px 18px; border-radius: 50px;
+        }
+        .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn {
+            border: none; border-radius: 50px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600; font-size: 0.75rem;
+            padding: 7px 16px; cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            letter-spacing: 0.03em;
+        }
+        .btn:active { transform: scale(0.95); }
+        .btn-home {
+            background: rgba(255,255,255,0.06);
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+        }
+        .btn-home:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+        .btn-check {
+            background: linear-gradient(135deg, var(--blue), #2979cc);
+            color: white;
+            box-shadow: 0 4px 14px rgba(74,158,255,0.25);
+        }
+        .btn-check:hover { box-shadow: 0 4px 20px rgba(74,158,255,0.4); }
+        .btn-reset {
+            background: rgba(245,158,11,0.12);
+            color: var(--amber);
+            border: 1px solid rgba(245,158,11,0.2);
+        }
+        .btn-reset:hover { background: rgba(245,158,11,0.2); }
+
+        /* ===== QUIZ GRID ===== */
+        .quiz-grid { display: flex; flex-direction: column; gap: 16px; }
+
+        /* ===== QUESTION CARD ===== */
+        .q-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .q-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .q-card.correct-card { border-color: rgba(16,212,142,0.35); }
+        .q-card.wrong-card   { border-color: rgba(255,92,106,0.3); }
+
+        .card-head {
+            display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .num-badge {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(74,158,255,0.3);
+        }
+        .tag {
+            padding: 3px 12px; border-radius: 50px;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;
+        }
+        .tag-easy   { background: var(--easy); color: var(--easy-text); }
+        .tag-med    { background: var(--med);  color: var(--med-text);  }
+        .tag-hard   { background: var(--hard); color: var(--hard-text); }
+        .tag-cat    { background: rgba(74,158,255,0.1); color: var(--blue); }
+
+        .q-text {
+            padding: 14px 18px 8px;
+            font-size: 0.9rem; font-weight: 600; line-height: 1.55;
+            color: var(--text);
+        }
+
+        .q-input-wrap { padding: 4px 18px; }
+        .q-input {
+            width: 100%;
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .q-input::placeholder { color: var(--text-muted); }
+        .q-input:focus {
+            border-color: rgba(74,158,255,0.4);
+            box-shadow: 0 0 0 3px rgba(74,158,255,0.1);
+        }
+
+        .q-btns {
+            display: flex; gap: 10px;
+            padding: 10px 18px 14px;
+        }
+        .q-btn-cek, .q-btn-pem {
+            flex: 1; padding: 9px;
+            border: none; border-radius: 50px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700; font-size: 0.75rem;
+            cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+            letter-spacing: 0.03em;
+        }
+        .q-btn-cek:active, .q-btn-pem:active { transform: scale(0.96); }
+        .q-btn-cek {
+            background: linear-gradient(135deg, var(--blue), #2979cc);
+            color: white;
+            box-shadow: 0 3px 10px rgba(74,158,255,0.2);
+        }
+        .q-btn-cek:hover { box-shadow: 0 3px 16px rgba(74,158,255,0.4); }
+        .q-btn-pem {
+            background: rgba(245,158,11,0.12);
+            color: var(--amber);
+            border: 1px solid rgba(245,158,11,0.2);
+        }
+        .q-btn-pem:hover { background: rgba(245,158,11,0.2); }
+
+        /* ===== FEEDBACK ===== */
+        .feedback { padding: 0 18px 16px; }
+        .fb-correct {
+            background: rgba(16,212,142,0.1);
+            border-left: 3px solid var(--green);
+            border-radius: 14px;
+            padding: 10px 14px;
+            font-weight: 700; font-size: 0.82rem;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+        .fb-wrong {
+            background: rgba(255,92,106,0.1);
+            border-left: 3px solid var(--red);
+            border-radius: 14px;
+            padding: 10px 14px;
+            font-weight: 700; font-size: 0.82rem;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+        .fb-warn {
+            background: rgba(245,158,11,0.1);
+            border-left: 3px solid var(--amber);
+            border-radius: 14px;
+            padding: 10px 14px;
+            font-size: 0.8rem; color: var(--amber);
+        }
+        .fb-explain {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 0.8rem; line-height: 1.65;
+            color: var(--text-muted);
+        }
+        .fb-explain strong { color: var(--text); }
+
+        /* ===== FOOTER ===== */
+        .footer-tip {
+            margin-top: 30px;
+            text-align: center;
+            padding: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== SCROLL TOP ===== */
+        #scrollTop {
+            position: fixed; bottom: 24px; right: 20px;
+            width: 42px; height: 42px; border-radius: 50%;
+            background: rgba(13,27,75,0.85);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            color: var(--cyan); font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 99;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            transition: box-shadow 0.2s;
+        }
+        #scrollTop:hover { box-shadow: 0 4px 20px rgba(74,158,255,0.3); }
+
+        /* ===== CONFETTI ===== */
+        #confetti-canvas { position:fixed; top:0; left:0; pointer-events:none; z-index:1000; }
+
+        /* ===== TOAST ===== */
+        #toast {
+            position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+            background: rgba(13,27,75,0.95);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            color: var(--cyan); padding: 9px 22px;
+            border-radius: 50px; font-size: 0.78rem; font-weight: 600;
+            z-index: 200; opacity: 0; pointer-events: none;
+            transition: opacity 0.35s; white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 550px) {
+            body { padding: 10px 10px 60px; }
+            .q-btns { flex-direction: column; gap: 8px; }
+            .btn-row { gap: 6px; }
+            .btn { font-size: 0.7rem; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+<div id="toast">💾 Jawaban tersimpan otomatis</div>
+
+<!-- SPLASH -->
+<div id="splash">
+    <div class="splash-inner">
+        <div class="splash-icon">🔬</div>
+        <div class="splash-title">IPA UTER</div>
+        <div class="splash-sub">45 SOAL · PEMBAHASAN LENGKAP</div>
+        <div class="splash-bar"><div class="splash-fill"></div></div>
+    </div>
+</div>
+
+<div class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+        <span class="hero-icon">🔬</span>
+        <h1>Ilmu Pengetahuan Alam UTER</h1>
+        <div class="hero-badge">45 SOAL + PEMBAHASAN</div>
+        <div class="hero-topics">Besaran & Pengukuran · Sistem Gerak · Usaha & Energi · Pencernaan · Reproduksi · Bioteknologi · Pewarisan Sifat · Peredaran Darah · Tekanan · Listrik Statis</div>
+    </div>
+
+    <!-- INFO BAR -->
+    <div class="info-bar">
+        <div class="score-pill" id="scoreDisplay">🏆 SKOR: 0 / 45</div>
+        <div class="btn-row">
+            <a href="index.html" class="btn btn-home">🏠 Home</a>
+            <button class="btn btn-check" id="checkAllBtn">🔍 Cek Semua</button>
+            <button class="btn btn-reset" id="resetBtn">🔄 Reset</button>
+        </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-grid" id="quizGrid"></div>
+
+    <div class="footer-tip">
+        💡 <strong style="color:var(--text)">Panduan:</strong> Ketik jawaban lalu tekan <strong style="color:var(--cyan)">Cek Jawaban</strong> untuk melihat benar/salah &amp; pembahasan. Tekan <strong style="color:var(--amber)">Pembahasan</strong> untuk lihat contoh &amp; rumus.<br>
+        🔒 <strong style="color:var(--text)">Auto-Save aktif</strong> — jawaban tersimpan meski halaman di-refresh.
+    </div>
+</div>
+
+<div id="scrollTop">↑</div>
+
+<script>
+// ==================== SOAL ====================
+const questions = [
+    { id:1,  diff:"Mudah", cat:"Besaran Pokok",        text:"Besaran pokok adalah besaran yang satuannya telah ditetapkan terlebih dahulu. Berikut yang termasuk besaran pokok adalah...", correct:"massa", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Besaran pokok ada 7: panjang, massa, waktu, suhu, kuat arus, intensitas cahaya, jumlah zat.<br>📌 <strong>Jawaban: massa</strong>", contoh:"📖 <strong>Contoh:</strong> Besaran turunan: kecepatan, gaya, tekanan<br>📌 <strong>Trik:</strong> Ingat 7 besaran pokok: panjang, massa, waktu, suhu, kuat arus, intensitas cahaya, jumlah zat" },
+    { id:2,  diff:"Sedang", cat:"Jangka Sorong",        text:"Hasil pengukuran menggunakan jangka sorong menunjukkan skala utama 2,3 cm dan skala nonius 4 (ketelitian 0,01 cm). Hasil pengukurannya adalah...", correct:"2.34", type:"desimal", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Skala utama = 2,3 cm<br>📌 Skala nonius = 4 × 0,01 = 0,04 cm<br>📌 Hasil = 2,3 + 0,04 = <strong>2,34 cm</strong>", contoh:"📖 <strong>Contoh:</strong> SU=5,1 cm, nonius=7 → 5,17 cm<br>📌 <strong>Trik:</strong> Hasil = SU + (nonius × ketelitian)" },
+    { id:3,  diff:"Mudah", cat:"Metode Ilmiah",         text:"Urutan langkah-langkah metode ilmiah yang benar adalah...", correct:"observasi,hipotesis,eksperimen,analisis,kesimpulan", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 1. Observasi → 2. Rumusan masalah → 3. Hipotesis → 4. Eksperimen → 5. Analisis → 6. Kesimpulan", contoh:"📖 <strong>Contoh:</strong> Penelitian pengaruh pupuk terhadap pertumbuhan tanaman<br>📌 <strong>Trik:</strong> Observasi dulu, baru hipotesis, lalu eksperimen" },
+    { id:4,  diff:"Mudah", cat:"Tulang",                text:"Tulang yang termasuk rangka apendikular (anggota gerak) adalah...", correct:"tulang hasta", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Rangka apendikular: tulang anggota gerak atas dan bawah<br>📌 Contoh: tulang hasta, pengumpil, lengan atas, paha, betis, kering", contoh:"📖 <strong>Contoh:</strong> Tulang hasta, tulang pengumpil, tulang paha<br>📌 <strong>Trik:</strong> Apendikular = alat gerak (tangan dan kaki)" },
+    { id:5,  diff:"Sedang", cat:"Sendi",                text:"Sendi yang hanya dapat digerakkan ke satu arah (seperti engsel pintu) disebut sendi...", correct:"engsel", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi engsel: gerakan satu arah (fleksi-ekstensi)<br>📌 Contoh: sendi siku, sendi lutut, sendi ruas jari", contoh:"📖 <strong>Contoh:</strong> Sendi pelana (ibu jari), sendi putar (leher), sendi peluru (bahu, pinggul)<br>📌 <strong>Trik:</strong> Engsel = gerak seperti pintu!" },
+    { id:6,  diff:"Mudah", cat:"Usaha",                 text:"Sebuah benda didorong dengan gaya 20 N sejauh 5 meter. Besar usaha yang dilakukan adalah... joule", correct:"100", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 W = F × s = 20 × 5 = <strong>100 Joule</strong>", contoh:"📖 <strong>Contoh:</strong> Gaya 15 N, jarak 4 m → W=60 J<br>📌 <strong>Trik:</strong> Usaha = gaya × perpindahan" },
+    { id:7,  diff:"Sedang", cat:"Pesawat Sederhana",    text:"Sebuah tuas dengan panjang lengan beban 0,5 m dan lengan kuasa 2 m digunakan untuk mengangkat beban 200 N. Gaya kuasa yang diperlukan adalah... N", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 w × Lb = F × Lk<br>📌 200 × 0,5 = F × 2 → F = <strong>50 N</strong>", contoh:"📖 <strong>Contoh:</strong> Lb=0,3m, Lk=1,2m, w=400N → F=100N<br>📌 <strong>Trik:</strong> KM = Lk/Lb = w/F" },
+    { id:8,  diff:"Sedang", cat:"Energi Potensial",     text:"Sebuah benda bermassa 2 kg berada pada ketinggian 10 m. Jika g = 10 m/s², energi potensial benda adalah... J", correct:"200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ep = m × g × h = 2 × 10 × 10 = <strong>200 Joule</strong>", contoh:"📖 <strong>Contoh:</strong> m=5kg, h=4m, g=10 → Ep=200J<br>📌 <strong>Trik:</strong> Ep = m × g × h" },
+    { id:9,  diff:"Sedang", cat:"Energi Kinetik",       text:"Sebuah mobil bermassa 1.000 kg bergerak dengan kecepatan 20 m/s. Energi kinetik mobil adalah... kJ", correct:"200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ek = ½ × m × v² = ½ × 1000 × 400 = 200.000 J = <strong>200 kJ</strong>", contoh:"📖 <strong>Contoh:</strong> m=500kg, v=10m/s → Ek=25kJ<br>📌 <strong>Trik:</strong> Ek = ½ × m × v²" },
+    { id:10, diff:"Mudah", cat:"Nutrisi",               text:"Zat makanan yang berfungsi sebagai sumber energi utama adalah...", correct:"karbohidrat", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Karbohidrat = sumber energi utama (4 kkal/g)<br>📌 Lemak = energi cadangan (9 kkal/g)<br>📌 Protein = pembangun & pengatur", contoh:"📖 <strong>Contoh:</strong> Nasi, roti, jagung mengandung karbohidrat<br>📌 <strong>Trik:</strong> Karbo = energi utama" },
+    { id:11, diff:"Sedang", cat:"Uji Makanan",          text:"Uji makanan dengan larutan Lugol akan menghasilkan warna biru kehitaman jika makanan mengandung...", correct:"amilum", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Lugol (iodium) = uji amilum (pati) → biru kehitaman<br>📌 Benedict = uji glukosa → merah bata<br>📌 Biuret = uji protein → ungu", contoh:"📖 <strong>Contoh:</strong> Nasi ditetesi lugol → biru kehitaman<br>📌 <strong>Trik:</strong> Lugol → amilum (pati)" },
+    { id:12, diff:"Sulit",  cat:"Pencernaan",           text:"Enzim yang berfungsi mengubah protein menjadi pepton di lambung adalah...", correct:"pepsin", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Pepsin = protein → pepton (di lambung)<br>📌 Renin = menggumpalkan protein susu<br>📌 Tripsin = pepton → asam amino (usus)", contoh:"📖 <strong>Contoh:</strong> Amilase (mulut) mengubah amilum → maltosa<br>📌 <strong>Trik:</strong> PePsIn = Protein di Perut" },
+    { id:13, diff:"Mudah", cat:"Reproduksi",            text:"Organ reproduksi pria yang berfungsi memproduksi sperma dan hormon testosteron adalah...", correct:"testis", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Testis = menghasilkan sperma + hormon testosteron<br>📌 Ovarium = ovum, estrogen, progesteron", contoh:"📖 <strong>Contoh:</strong> Epididimis = tempat pematangan sperma<br>📌 <strong>Trik:</strong> Testis = Testosteron" },
+    { id:14, diff:"Sedang", cat:"Fertilisasi",          text:"Tempat terjadinya fertilisasi (pembuahan) pada sistem reproduksi wanita adalah...", correct:"tuba fallopi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Fertilisasi = pertemuan sperma + ovum di tuba fallopi (oviduk)<br>📌 Implantasi terjadi di uterus (rahim)", contoh:"📖 <strong>Contoh:</strong> Bayi tabung = fertilisasi di luar tubuh<br>📌 <strong>Trik:</strong> Fallopi = Fertilisasi" },
+    { id:15, diff:"Mudah", cat:"Bioteknologi",          text:"Produk bioteknologi konvensional yang menggunakan mikroorganisme Saccharomyces cerevisiae adalah...", correct:"roti", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Saccharomyces cerevisiae (ragi): roti, tape, bir<br>📌 Lactobacillus = yogurt | Acetobacter = cuka", contoh:"📖 <strong>Contoh:</strong> Tempe = Rhizopus oligosporus<br>📌 <strong>Trik:</strong> Saccharomyces = ragi roti" },
+    { id:16, diff:"Sedang", cat:"Bioteknologi Modern",  text:"Contoh produk bioteknologi modern di bidang kesehatan adalah...", correct:"insulin", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Bioteknologi modern = rekayasa genetika<br>📌 Contoh: insulin (E.coli), vaksin, antibodi monoklonal", contoh:"📖 <strong>Contoh:</strong> Hormon pertumbuhan, interferon<br>📌 <strong>Trik:</strong> Modern = rekayasa DNA" },
+    { id:17, diff:"Mudah", cat:"Genetika",              text:"Bagian kromosom yang membawa sifat keturunan disebut...", correct:"gen", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Gen = unit pewarisan sifat, terletak pada kromosom<br>📌 DNA = materi genetik | Kromosom = struktur pembawa gen", contoh:"📖 <strong>Contoh:</strong> Alel = bentuk alternatif gen<br>📌 <strong>Trik:</strong> Gen = Genetika" },
+    { id:18, diff:"Sedang", cat:"Monohibrid",           text:"Persilangan F1 (Bb × Bb) menghasilkan perbandingan fenotip F2 sebesar...", correct:"3:1", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 F2: BB, Bb, Bb, bb<br>📌 Fenotip: bulat : keriput = <strong>3 : 1</strong>", contoh:"📖 <strong>Contoh:</strong> Tinggi (TT) × pendek (tt) → F2 = 3:1<br>📌 <strong>Trik:</strong> Monohibrid dominan penuh → rasio 3:1" },
+    { id:19, diff:"Sulit",  cat:"Kelainan Genetik",     text:"Kelainan genetik hemofilia terpaut pada kromosom...", correct:"X", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hemofilia = kelainan pembekuan darah, terpaut kromosom X (resesif)<br>📌 Lebih banyak terjadi pada laki-laki", contoh:"📖 <strong>Contoh:</strong> Wanita carrier (XᴴXʰ), pria hemofilia (XʰY)<br>📌 <strong>Trik:</strong> Hemofilia & buta warna = kromosom X" },
+    { id:20, diff:"Mudah", cat:"Jantung",               text:"Serambi kanan jantung menerima darah yang mengandung banyak...", correct:"karbondioksida", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Serambi kanan ← darah dari seluruh tubuh (kotor, banyak CO₂)<br>📌 Serambi kiri ← darah dari paru-paru (bersih, banyak O₂)", contoh:"📖 <strong>Contoh:</strong> Darah kotor masuk serambi kanan → bilik kanan → paru-paru<br>📌 <strong>Trik:</strong> Kanan = Kotor (CO₂)" },
+    { id:21, diff:"Sedang", cat:"Pembuluh Darah",       text:"Pembuluh darah yang memiliki dinding paling tebal dan elastis serta mengalirkan darah keluar jantung adalah...", correct:"arteri", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Arteri: tebal, elastis, darah keluar jantung<br>📌 Vena: tipis, darah menuju jantung<br>📌 Kapiler: satu lapis, pertukaran zat", contoh:"📖 <strong>Contoh:</strong> Aorta = arteri terbesar<br>📌 <strong>Trik:</strong> Arteri = keluar jantung" },
+    { id:22, diff:"Sedang", cat:"Tekanan Zat Padat",    text:"Sebuah balok dengan berat 600 N memiliki luas alas 0,5 m². Tekanan yang diberikan balok pada lantai adalah... Pa", correct:"1200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 P = F/A = 600 / 0,5 = <strong>1.200 Pascal</strong>", contoh:"📖 <strong>Contoh:</strong> Gaya 800 N, luas 2 m² → P=400 Pa<br>📌 <strong>Trik:</strong> Tekanan = gaya ÷ luas" },
+    { id:23, diff:"Sedang", cat:"Tekanan Hidrostatis",  text:"Tekanan hidrostatis pada kedalaman 10 m di air (ρ=1000 kg/m³, g=10 m/s²) adalah... Pa", correct:"100000", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ph = ρ × g × h = 1000 × 10 × 10 = <strong>100.000 Pa</strong>", contoh:"📖 <strong>Contoh:</strong> Kedalaman 5 m → Ph=50.000 Pa<br>📌 <strong>Trik:</strong> Ph = ρgh" },
+    { id:24, diff:"Mudah", cat:"Muatan Listrik",        text:"Benda yang kelebihan elektron akan bermuatan...", correct:"negatif", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Elektron = muatan negatif (−)<br>📌 Kelebihan elektron → negatif | Kekurangan elektron → positif", contoh:"📖 <strong>Contoh:</strong> Kaca digosok kain sutra → positif<br>📌 <strong>Trik:</strong> eLektron = negatif" },
+    { id:25, diff:"Sedang", cat:"Gaya Coulomb",         text:"Dua muatan 4 μC dan 9 μC terpisah 2 cm. Jika k=9×10⁹ Nm²/C², gaya Coulombnya adalah... N", correct:"810", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 F = k×q₁×q₂/r² = 9×10⁹ × 4×10⁻⁶ × 9×10⁻⁶ / (2×10⁻²)²<br>📌 = 9×10⁹ × 9×10⁻⁸ = <strong>810 N</strong>", contoh:"📖 <strong>Contoh:</strong> q₁=q₂=2μC, r=2cm → F=90N<br>📌 <strong>Trik:</strong> F berbanding terbalik kuadrat jarak" },
+    { id:26, diff:"Mudah", cat:"Energi Terbarukan",     text:"Contoh sumber energi yang tidak dapat diperbaharui (non-renewable) adalah...", correct:"minyak bumi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Non-renewable: minyak bumi, batu bara, gas alam, uranium<br>📌 Renewable: matahari, angin, air, panas bumi, biomassa", contoh:"📖 <strong>Contoh:</strong> Panel surya = energi terbarukan<br>📌 <strong>Trik:</strong> Terbarukan = tidak akan habis" },
+    { id:27, diff:"Sedang", cat:"Daya",                 text:"Sebuah mesin melakukan usaha 6.000 J dalam waktu 2 menit. Daya mesin tersebut adalah... watt", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 t = 2 menit = 120 s<br>📌 P = W/t = 6.000/120 = <strong>50 watt</strong>", contoh:"📖 <strong>Contoh:</strong> W=3600J, t=6s → P=600W<br>📌 <strong>Trik:</strong> Daya = usaha ÷ waktu (detik)" },
+    { id:28, diff:"Sulit",  cat:"Katrol",               text:"Sebuah katrol majemuk memiliki keuntungan mekanis 4. Gaya kuasa untuk mengangkat beban 800 N adalah... N", correct:"200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 KM = w/F → 4 = 800/F → F = <strong>200 N</strong>", contoh:"📖 <strong>Contoh:</strong> Katrol tetap KM=1, katrol bergerak KM=2<br>📌 <strong>Trik:</strong> KM = jumlah tali penopang beban" },
+    { id:29, diff:"Sedang", cat:"Bidang Miring",        text:"Bidang miring panjang 5 m, tinggi 2 m, digunakan untuk menaikkan beban 400 N. Gaya kuasanya adalah... N", correct:"160", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 400 × 2 = F × 5 → F = <strong>160 N</strong>", contoh:"📖 <strong>Contoh:</strong> s=4m, h=1m, w=200N → F=50N<br>📌 <strong>Trik:</strong> KM = panjang ÷ tinggi" },
+    { id:30, diff:"Mudah", cat:"Otot",                  text:"Jenis otot yang bekerja secara sadar (volunter) dan memiliki ciri lurik adalah otot...", correct:"rangka", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Otot rangka: lurik, volunter (sadar), melekat pada rangka<br>📌 Otot polos: involunter | Otot jantung: lurik, involunter", contoh:"📖 <strong>Contoh:</strong> Otot lengan, otot paha<br>📌 <strong>Trik:</strong> Rangka = sadar (bisa dikontrol)" },
+    { id:31, diff:"Sedang", cat:"Sendi",                text:"Sendi yang memungkinkan gerakan ke segala arah (gerak bebas) adalah sendi...", correct:"peluru", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi peluru: gerak ke segala arah (bahu, pinggul)<br>📌 Sendi engsel: satu arah | Sendi putar: rotasi", contoh:"📖 <strong>Contoh:</strong> Sendi bahu → gerak melingkar<br>📌 <strong>Trik:</strong> Peluru = ke segala arah" },
+    { id:32, diff:"Sulit",  cat:"Dihibrid",             text:"Persilangan dihibrid F1 × F1 menghasilkan perbandingan fenotip F2 sebesar...", correct:"9:3:3:1", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hukum Mendel II (dihibrid): <strong>9:3:3:1</strong><br>📌 9 bulat kuning : 3 bulat hijau : 3 keriput kuning : 1 keriput hijau", contoh:"📖 <strong>Contoh:</strong> 9+3+3+1 = 16 kombinasi<br>📌 <strong>Trik:</strong> Dihibrid = 9:3:3:1" },
+    { id:33, diff:"Mudah", cat:"DNA",                   text:"Kepanjangan dari DNA adalah...", correct:"asam deoksiribonukleat", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 DNA = Deoxyribonucleic Acid = Asam Deoksiribonukleat<br>📌 RNA = Asam Ribonukleat", contoh:"📖 <strong>Contoh:</strong> DNA ditemukan oleh Watson dan Crick<br>📌 <strong>Trik:</strong> DNA = Deoksiribonukleat" },
+    { id:34, diff:"Sedang", cat:"Bioteknologi",         text:"Mikroorganisme yang digunakan dalam pembuatan tempe adalah...", correct:"rhizopus", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Tempe = Rhizopus oligosporus (jamur)<br>📌 Tape = Saccharomyces | Yogurt = Lactobacillus", contoh:"📖 <strong>Contoh:</strong> Oncom = Neurospora sitophila<br>📌 <strong>Trik:</strong> Tempe = Rhizopus" },
+    { id:35, diff:"Sulit",  cat:"Pencernaan",           text:"Gangguan pencernaan yang disebabkan oleh peradangan pada usus buntu disebut...", correct:"apendisitis", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Apendisitis = radang usus buntu (apendiks)<br>📌 Ulkus = luka pada lambung | Diare = BAB terus-menerus", contoh:"📖 <strong>Contoh:</strong> Apendisitis → operasi usus buntu<br>📌 <strong>Trik:</strong> Apendisitis = Apendiks" },
+    { id:36, diff:"Mudah", cat:"Darah",                 text:"Sel darah yang berfungsi dalam pembekuan darah adalah...", correct:"trombosit", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Trombosit = pembekuan darah<br>📌 Eritrosit = angkut oksigen | Leukosit = kekebalan tubuh", contoh:"📖 <strong>Contoh:</strong> Trombositopenia = kekurangan trombosit<br>📌 <strong>Trik:</strong> Trombosit = berhenti (pembekuan)" },
+    { id:37, diff:"Sedang", cat:"Tekanan",              text:"Pada alat suntik, tekanan yang memaksa cairan masuk ke dalam tubuh adalah tekanan...", correct:"atmosfer", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ketika piston ditarik, tekanan dalam mengecil → tekanan atmosfer lebih besar mendorong cairan masuk", contoh:"📖 <strong>Contoh:</strong> Sedotan minuman = tekanan atmosfer<br>📌 <strong>Trik:</strong> Alat hisap = tekanan atmosfer" },
+    { id:38, diff:"Sulit",  cat:"Listrik Statis",       text:"Sisir yang digosokkan pada rambut kering akan bermuatan negatif karena...", correct:"elektron berpindah dari rambut ke sisir", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Rambut melepas elektron → sisir menerima elektron → negatif<br>📌 Rambut kekurangan elektron → positif", contoh:"📖 <strong>Contoh:</strong> Penggaris plastik digosok kain wol → negatif<br>📌 <strong>Trik:</strong> Benda digosok = transfer elektron" },
+    { id:39, diff:"Sedang", cat:"Energi Mekanik",       text:"Sebuah bola (m=0,5 kg) dilempar ke atas v=20 m/s. Energi mekanik di titik tertinggi adalah... J (g=10)", correct:"100", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Di titik tertinggi v=0 → Ek=0<br>📌 Em = Ek awal = ½×0,5×400 = <strong>100 J</strong>", contoh:"📖 <strong>Contoh:</strong> Hukum kekekalan energi mekanik: Em tetap<br>📌 <strong>Trik:</strong> Em awal = Em akhir" },
+    { id:40, diff:"Sulit",  cat:"Pewarisan Sifat",      text:"Wanita carrier buta warna (XᴺXᵇ) × pria normal (XᴺY). Kemungkinan anak laki-laki buta warna adalah... %", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 P: XᴺXᵇ × XᴺY<br>📌 Anak laki-laki: XᴺY (normal), XᵇY (buta warna)<br>📌 Kemungkinan = 1/2 = <strong>50%</strong>", contoh:"📖 <strong>Contoh:</strong> Buta warna lebih sering pada laki-laki<br>📌 <strong>Trik:</strong> Laki-laki buta warna = XᵇY" },
+    { id:41, diff:"Mudah", cat:"Alat Laboratorium",     text:"Alat laboratorium yang digunakan untuk mengukur volume zat cair adalah...", correct:"gelas ukur", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Gelas ukur = mengukur volume zat cair<br>📌 Pipet volume = lebih teliti (volume kecil) | Tabung reaksi = mereaksikan zat", contoh:"📖 <strong>Contoh:</strong> Buret = untuk titrasi<br>📌 <strong>Trik:</strong> Gelas ukur = ukur volume" },
+    { id:42, diff:"Sedang", cat:"Sistem Gerak",         text:"Persendian antara tulang tengkorak yang tidak dapat digerakkan disebut sendi...", correct:"mati", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi mati (sinartrosis): tidak ada gerakan (tengkorak)<br>📌 Sendi kaku (amfiartrosis): gerakan terbatas<br>📌 Sendi gerak (diartrosis): bebas bergerak", contoh:"📖 <strong>Contoh:</strong> Tulang panggul juga termasuk sendi mati<br>📌 <strong>Trik:</strong> Mati = tidak bisa digerakkan" },
+    { id:43, diff:"Sulit",  cat:"Pencernaan",           text:"Bagian usus halus yang berfungsi menyerap sari makanan adalah...", correct:"vili", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Vili (jonjot usus) = penyerapan sari makanan<br>📌 Duodenum = pencernaan kimiawi | Ileum = penyerapan", contoh:"📖 <strong>Contoh:</strong> Mikrovili memperluas permukaan penyerapan<br>📌 <strong>Trik:</strong> Vili = penyerapan" },
+    { id:44, diff:"Sedang", cat:"Reproduksi",           text:"Hormon yang merangsang terbentuknya sel telur (ovum) pada wanita adalah...", correct:"fsh", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 FSH (Follicle Stimulating Hormone) = merangsang pembentukan ovum<br>📌 LH = memicu ovulasi", contoh:"📖 <strong>Contoh:</strong> FSH diproduksi kelenjar pituitari<br>📌 <strong>Trik:</strong> FSH = Follicle Stimulating Hormone" },
+    { id:45, diff:"Sulit",  cat:"Tekanan",              text:"Prinsip kerja dongkrak hidrolik berdasarkan hukum...", correct:"pascal", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hukum Pascal: tekanan pada zat cair tertutup diteruskan ke segala arah sama besar<br>📌 Aplikasi: dongkrak hidrolik, rem hidrolik", contoh:"📖 <strong>Contoh:</strong> P₁=P₂ → F₁/A₁ = F₂/A₂<br>📌 <strong>Trik:</strong> Pascal = dongkrak hidrolik" },
+];
+
+// ==================== STORAGE ====================
+let userAnswers = {}, answerStatus = {}, lastScore = 0;
+
+function load() {
+    try { userAnswers  = JSON.parse(localStorage.getItem('ipa_uter_ans') || '{}'); } catch { userAnswers = {}; }
+    try { answerStatus = JSON.parse(localStorage.getItem('ipa_uter_sts') || '{}'); } catch { answerStatus = {}; }
+    for (let i = 1; i <= 45; i++) {
+        if (userAnswers[i]  === undefined) userAnswers[i]  = '';
+        if (answerStatus[i] === undefined) answerStatus[i] = false;
+    }
+}
+function save() {
+    localStorage.setItem('ipa_uter_ans', JSON.stringify(userAnswers));
+    localStorage.setItem('ipa_uter_sts', JSON.stringify(answerStatus));
+}
+
+// ==================== NORMALIZE ====================
+function normalize(val, q) {
+    let s = val.trim().toLowerCase().replace(/\s+/g, ' ').trim();
+    let n = parseFloat(s.replace(',', '.'));
+    if (q.type === 'desimal' && !isNaN(n)) {
+        let r = parseFloat(n.toFixed(2));
+        return r.toString();
+    }
+    if (q.type === 'bulat' && !isNaN(n)) return Math.round(n).toString();
+    return s.replace(/\s/g, '');
+}
+
+// ==================== SCORE ====================
+function score() { let c = 0; for (let i = 1; i <= 45; i++) if (answerStatus[i]) c++; return c; }
+function updateScore() {
+    const el = document.getElementById('scoreDisplay');
+    if (el) el.textContent = '🏆 SKOR: ' + score() + ' / 45';
+}
+
+// ==================== EVALUATE ====================
+function evaluateQuestion(id) {
+    const q = questions.find(qq => qq.id === id);
+    if (!q) return;
+    const raw = userAnswers[id] || '';
+    const fb  = document.getElementById('fb_' + id);
+    const card = document.getElementById('card_' + id);
+    if (!fb) return;
+
+    if (!raw.trim()) {
+        fb.innerHTML = '<div class="fb-warn">⚠️ Isi jawaban dulu!</div>';
+        return;
+    }
+
+    const norm    = normalize(raw, q);
+    const correct = q.correct.toLowerCase().replace(/\s/g, '');
+    const ok      = norm === correct;
+
+    answerStatus[id] = ok;
+    save();
+
+    if (card) {
+        card.classList.remove('correct-card', 'wrong-card');
+        card.classList.add(ok ? 'correct-card' : 'wrong-card');
+    }
+
+    fb.innerHTML = ok
+        ? `<div class="fb-correct">✅ Benar! Jawaban: ${raw}</div><div class="fb-explain">${q.penyelesaian}</div>`
+        : `<div class="fb-wrong">❌ Salah! Jawaban kamu: ${raw}<br>📌 Kunci: ${q.correct}</div><div class="fb-explain">${q.penyelesaian}</div>`;
+
+    updateScore();
+    const sc = score();
+    if (sc === 45 && lastScore !== 45) startConfetti();
+    lastScore = sc;
+}
+
+function showPembahasan(id) {
+    const q = questions.find(qq => qq.id === id);
+    if (!q) return;
+    const fb = document.getElementById('fb_' + id);
+    if (fb) fb.innerHTML = `<div class="fb-explain">${q.contoh || q.penyelesaian}</div>`;
+}
+
+window.evaluateQuestion = evaluateQuestion;
+window.showPembahasan   = showPembahasan;
+
+// ==================== RENDER ====================
+function diffTag(d) {
+    if (d === 'Mudah') return '<span class="tag tag-easy">🌟 Mudah</span>';
+    if (d === 'Sedang') return '<span class="tag tag-med">⚡ Sedang</span>';
+    return '<span class="tag tag-hard">🔥 Sulit</span>';
+}
+function placeholder(q) {
+    if (q.type === 'desimal') return 'contoh: 2.34';
+    if (q.type === 'bulat')   return 'contoh: 100';
+    return 'ketik jawaban di sini...';
+}
+
+function render() {
+    const grid = document.getElementById('quizGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    questions.forEach(q => {
+        const card = document.createElement('div');
+        card.className = 'q-card';
+        card.id = 'card_' + q.id;
+        if (answerStatus[q.id] === true)  card.classList.add('correct-card');
+        if (answerStatus[q.id] === false && userAnswers[q.id]) card.classList.add('wrong-card');
+
+        card.innerHTML = `
+            <div class="card-head">
+                <div class="num-badge">${q.id}</div>
+                ${diffTag(q.diff)}
+                <span class="tag tag-cat">🔬 ${q.cat}</span>
+            </div>
+            <div class="q-text">${q.text}</div>
+            <div class="q-input-wrap">
+                <input class="q-input" id="inp_${q.id}" type="text"
+                    placeholder="${placeholder(q)}"
+                    value="${userAnswers[q.id] || ''}">
+            </div>
+            <div class="q-btns">
+                <button class="q-btn-cek" onclick="evaluateQuestion(${q.id})">✅ Cek Jawaban</button>
+                <button class="q-btn-pem" onclick="showPembahasan(${q.id})">📖 Pembahasan</button>
+            </div>
+            <div class="feedback" id="fb_${q.id}"></div>
+        `;
+        grid.appendChild(card);
+
+        const inp = document.getElementById('inp_' + q.id);
+        if (inp) {
+            inp.addEventListener('input', e => {
+                userAnswers[q.id] = e.target.value;
+                if (answerStatus[q.id]) {
+                    answerStatus[q.id] = false;
+                    const fb = document.getElementById('fb_' + q.id);
+                    if (fb) fb.innerHTML = '';
+                    const card = document.getElementById('card_' + q.id);
+                    if (card) card.classList.remove('correct-card', 'wrong-card');
+                }
+                save();
+                updateScore();
+            });
+        }
+    });
+}
+
+// ==================== CONFETTI ====================
+const confCanvas = document.getElementById('confetti-canvas');
+const confCtx    = confCanvas.getContext('2d');
+let confParticles = [], confAnimId = null;
+
+function resizeConf() { confCanvas.width = innerWidth; confCanvas.height = innerHeight; }
+window.addEventListener('resize', resizeConf); resizeConf();
+
+class CP {
+    constructor() {
+        this.x = Math.random() * confCanvas.width;
+        this.y = Math.random() * confCanvas.height - confCanvas.height;
+        this.size = Math.random() * 7 + 3;
+        this.vy = Math.random() * 5 + 3; this.vx = Math.random() * 2 - 1;
+        this.color = `hsl(${Math.random()*360},80%,65%)`;
+        this.rot = Math.random() * 360; this.rs = Math.random() * 8 - 4;
+    }
+    update() { this.y += this.vy; this.x += this.vx; this.rot += this.rs; return this.y < confCanvas.height + 60; }
+    draw() {
+        confCtx.save(); confCtx.translate(this.x, this.y); confCtx.rotate(this.rot * Math.PI / 180);
+        confCtx.fillStyle = this.color; confCtx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+        confCtx.restore();
+    }
+}
+function startConfetti() {
+    if (confAnimId) cancelAnimationFrame(confAnimId);
+    confParticles = Array.from({length: 160}, () => new CP());
+    function anim() {
+        confCtx.clearRect(0, 0, confCanvas.width, confCanvas.height);
+        let alive = false;
+        confParticles.forEach(p => { if (p.update()) alive = true; p.draw(); });
+        if (alive) confAnimId = requestAnimationFrame(anim);
+        else { cancelAnimationFrame(confAnimId); confCtx.clearRect(0,0,confCanvas.width,confCanvas.height); }
+    }
+    anim();
+    setTimeout(() => { if (confAnimId) { cancelAnimationFrame(confAnimId); confCtx.clearRect(0,0,confCanvas.width,confCanvas.height); } }, 4000);
+}
+
+// ==================== INIT ====================
+load();
+render();
+updateScore();
+
+document.getElementById('checkAllBtn')?.addEventListener('click', () => {
+    questions.forEach(q => evaluateQuestion(q.id));
+});
+document.getElementById('resetBtn')?.addEventListener('click', () => {
+    if (!confirm('Reset semua jawaban?')) return;
+    questions.forEach(q => {
+        userAnswers[q.id] = ''; answerStatus[q.id] = false;
+        const inp = document.getElementById('inp_' + q.id);
+        if (inp) inp.value = '';
+        const fb = document.getElementById('fb_' + q.id);
+        if (fb) fb.innerHTML = '';
+        const card = document.getElementById('card_' + q.id);
+        if (card) card.classList.remove('correct-card', 'wrong-card');
+    });
+    save(); updateScore(); lastScore = 0;
+});
+document.getElementById('scrollTop')?.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+
+// ===== SPLASH =====
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const s = document.getElementById('splash');
+        if (s) { s.classList.add('splash-out'); setTimeout(() => s.remove(), 700); }
+
+        const toast = document.getElementById('toast');
+        if (toast) {
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2400);
+        }
+    }, 2200);
+});
+</script>
+</body>
+</html>
