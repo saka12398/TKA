@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Learning Management System | TKA SMP VERSION</title>
+    <title>LMS Terpadu | TKA + UTER | SMP Version</title>
     <style>
         * {
             margin: 0;
@@ -56,7 +56,7 @@
             margin-top: 6px;
         }
 
-        /* DUA KOTAK - GRID responsif */
+        /* GRID 2x2 (dua baris, dua kolom) untuk 4 mata pelajaran */
         .subjects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -90,6 +90,16 @@
         .subject-card.active {
             border: 2px solid #facc15;
             background: rgba(250, 204, 21, 0.1);
+            box-shadow: 0 0 0 2px rgba(250,204,21,0.3);
+        }
+
+        /* Warna aksen spesifik untuk UTER (gradien ungu emas) */
+        .subject-card.uter-style {
+            border-top: 3px solid #8b5cf6;
+        }
+        .subject-card.uter-style.active {
+            border: 2px solid #c084fc;
+            background: rgba(139, 92, 246, 0.12);
         }
 
         .subject-icon {
@@ -121,6 +131,11 @@
             font-weight: 500;
             margin-top: auto;
             align-self: center;
+        }
+
+        .badge-uter {
+            background: rgba(139, 92, 246, 0.25);
+            color: #c084fc;
         }
 
         /* PANEL MODE */
@@ -173,6 +188,14 @@
         .panel-title h3 {
             font-size: 1.6rem;
             color: #facc15;
+        }
+
+        /* judul panel uter (warna ungu) */
+        .mode-panel.uter-panel .panel-title h3 {
+            color: #c084fc;
+        }
+        .mode-panel.uter-panel {
+            border-color: rgba(139, 92, 246, 0.5);
         }
 
         .close-panel-btn {
@@ -520,8 +543,8 @@
 <div id="splash-screen">
     <div class="splash-content">
         <div class="splash-logo">🏅</div>
-        <h2>Learning Management System</h2>
-        <p>Matematika & Bahasa Indonesia + E-Book Lengkap</p>
+        <h2>LMS Plus Terpadu</h2>
+        <p>TKA (Matematika & B.Indo) + UTER (MTK & IPA) | E-Book Lengkap</p>
         <div class="loader"><div class="loader-fill"></div></div>
     </div>
 </div>
@@ -529,31 +552,47 @@
 <div class="main-container">
     <div class="header">
         <div class="logo">🏅</div>
-        <h1>TKA Preparation</h1>
-        <p>Pilih mata pelajaran • Lalu pilih mode latihan, test, atau baca E-Book</p>
+        <h1>Learning System</h1>
+        <p>Pilih mata pelajaran • Latihan, Test, atau E-Book • TKA + UTER</p>
     </div>
 
-    <!-- DUA KOTAK - GRID 2 KOLOM -->
+    <!-- GRID 2x2 : MTK TKA | BINDO TKA | MTK UTER | IPA UTER -->
     <div class="subjects-grid">
-        <div class="subject-card" id="cardMath">
+        <!-- 1. Matematika TKA -->
+        <div class="subject-card" id="cardMathTKA">
             <div class="subject-icon">📐</div>
-            <h2>Matematika</h2>
-            <div class="subject-desc">Aljabar • Geometri • Bilangan • Statistika<br>60+ Soal Olimpiade + E-Book Materi</div>
-            <div class="subject-badge">⭐ Klik untuk mulai</div>
+            <h2>MTK TKA</h2>
+            <div class="subject-desc">Aljabar • Geometri • Bilangan • Statistika<br>60+ Soal + E-Book Materi</div>
+            <div class="subject-badge">⭐ TKA Preparation</div>
         </div>
-        <div class="subject-card" id="cardIndo">
+        <!-- 2. Bahasa Indonesia TKA -->
+        <div class="subject-card" id="cardBinTKA">
             <div class="subject-icon">📖</div>
-            <h2>Bahasa Indonesia</h2>
+            <h2>B.Indo TKA</h2>
             <div class="subject-desc">Literasi • Ejaan • Tata Bahasa • Pemahaman Teks<br>60+ Soal + E-Book Lengkap</div>
-            <div class="subject-badge">⭐ Klik untuk mulai</div>
+            <div class="subject-badge">⭐ TKA Literasi</div>
+        </div>
+        <!-- 3. MATEMATIKA UTER -->
+        <div class="subject-card uter-style" id="cardMathUTER">
+            <div class="subject-icon">🧮</div>
+            <h2>MTK UTER</h2>
+            <div class="subject-desc">Ujian Tertulis: Logika • Himpunan • Pola Bilangan • Peluang Lanjut<br>Soal standar UTER + E-Book intensif</div>
+            <div class="subject-badge badge-uter">⚡ UTER Intensive</div>
+        </div>
+        <!-- 4. IPA UTER -->
+        <div class="subject-card uter-style" id="cardIpaUTER">
+            <div class="subject-icon">🔬</div>
+            <h2>IPA UTER</h2>
+            <div class="subject-desc">Fisika Dasar • Biologi • Kimia Terapan • Eksperimen<br>Soal penalaran + E-Book materi UTER</div>
+            <div class="subject-badge badge-uter">🧪 Sains Terpadu</div>
         </div>
     </div>
 
     <div id="modePanelContainer" class="mode-panel-wrapper"></div>
 
     <div class="footer">
-        <p>© 2025 Learning Management System | Persiapan Olimpiade SMP/MTs | By-Rich</p>
-        <p>📘 E-Book Matematika & Bahasa Indonesia | 📝 Latihan dan Review Soal | ⏱️ Test Soal</p>
+        <p>© 2025 LMS Terpadu | TKA (Matematika & Bahasa Indonesia) + UTER (MTK Lanjut & IPA) | By-Rich</p>
+        <p>📘 E-Book lengkap semua mapel | 📝 Latihan & Pembahasan | ⏱️ Test Olimpiade & UTER</p>
     </div>
 </div>
 
@@ -569,24 +608,31 @@
         }, 1800);
     });
 
-    const mathCard = document.getElementById('cardMath');
-    const indoCard = document.getElementById('cardIndo');
+    // Elemen kartu
+    const mathTKACard = document.getElementById('cardMathTKA');
+    const binTKACard = document.getElementById('cardBinTKA');
+    const mathUTERCard = document.getElementById('cardMathUTER');
+    const ipaUTERCard = document.getElementById('cardIpaUTER');
     const container = document.getElementById('modePanelContainer');
     let activeSubject = null;
 
     function removeHighlights() {
-        mathCard.classList.remove('active');
-        indoCard.classList.remove('active');
+        mathTKACard.classList.remove('active');
+        binTKACard.classList.remove('active');
+        mathUTERCard.classList.remove('active');
+        ipaUTERCard.classList.remove('active');
     }
 
-    function renderModePanel(subject) {
-        if (subject === 'math') {
+    // ========= RENDER PANEL UNTUK SETIAP MAPEL ==========
+    function renderModePanel(subjectId) {
+        // subjectId: 'mathTKA', 'binTKA', 'mathUTER', 'ipaUTER'
+        if (subjectId === 'mathTKA') {
             return `
                 <div class="mode-panel">
                     <div class="panel-header">
                         <div class="panel-title">
                             <span>🧮</span>
-                            <h3>Matematika</h3>
+                            <h3>Matematika TKA</h3>
                         </div>
                         <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
                     </div>
@@ -595,96 +641,113 @@
                             <div class="mode-icon">📚</div>
                             <h4>Latihan</h4>
                             <div class="mode-tag">🎯 Tanpa Tekanan</div>
-                            <div class="mode-desc">Belajar dengan nyaman, lihat pembahasan & kunci jawaban</div>
-                            <ul class="mode-features">
-                                <li>40+ Soal + Pembahasan lengkap</li>
-                                <li>Bisa lihat kunci jawaban</li>
-                                <li>Contoh soal serupa & tips</li>
-                                <li>Skor otomatis & feedback</li>
-                            </ul>
+                            <div class="mode-desc">Soal TKA + pembahasan lengkap, kunci jawaban</div>
+                            <ul class="mode-features"><li>40+ Soal + Pembahasan</li><li>Lihat kapanpun kunci</li><li>Skor otomatis</li></ul>
                         </a>
                         <a href="test.html" class="mode-item">
                             <div class="mode-icon">⏱️</div>
                             <h4>Test</h4>
                             <div class="mode-tag">⚡ Uji Kemampuan</div>
-                            <div class="mode-desc">Mode ujian sungguhan! Tanpa bocoran, ada batas waktu</div>
-                            <ul class="mode-features">
-                                <li>60 Soal tingkat lanjut</li>
-                                <li>Tidak bisa lihat jawaban</li>
-                                <li>Timer & penilaian otomatis</li>
-                                <li>Review hasil setelah selesai</li>
-                            </ul>
+                            <div class="mode-desc">Mode ujian sungguhan, timer ketat</div>
+                            <ul class="mode-features"><li>60 Soal lanjut</li><li>Tanpa bocoran</li><li>Penilaian otomatis</li></ul>
                         </a>
                         <a href="ebook-mtk.html" class="mode-item ebook-item">
                             <div class="mode-icon">📘</div>
                             <h4>E-Book MTK</h4>
                             <div class="mode-tag ebook-tag">📖 Materi Lengkap</div>
-                            <div class="mode-desc">Baca materi Matematika lengkap: rumus, contoh, pembahasan</div>
-                            <ul class="mode-features ebook-features">
-                                <li>Aljabar, Geometri, Statistika</li>
-                                <li>Rumus cepat & trik olimpiade</li>
-                                <li>Contoh soal + penyelesaian</li>
-                                <li>Materi SMP/MTs lengkap</li>
-                            </ul>
+                            <div class="mode-desc">Aljabar, Geometri, Statistika + rumus cepat</div>
+                            <ul class="mode-features ebook-features"><li>Trik Olimpiade</li><li>Contoh soal TKA</li></ul>
                         </a>
                     </div>
                 </div>
             `;
-        } else {
+        } 
+        else if (subjectId === 'binTKA') {
             return `
                 <div class="mode-panel">
                     <div class="panel-header">
-                        <div class="panel-title">
-                            <span>📖</span>
-                            <h3>Bahasa Indonesia</h3>
-                        </div>
+                        <div class="panel-title"><span>📖</span><h3>Bahasa Indonesia TKA</h3></div>
                         <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
                     </div>
                     <div class="modes-grid">
                         <a href="tka2.html" class="mode-item">
-                            <div class="mode-icon">📝</div>
-                            <h4>Latihan</h4>
+                            <div class="mode-icon">📝</div><h4>Latihan</h4>
                             <div class="mode-tag">🎯 Asah Terus</div>
-                            <div class="mode-desc">Latihan soal literasi, ejaan, tata bahasa + pembahasan</div>
-                            <ul class="mode-features">
-                                <li>40+ Soal + Pembahasan detail</li>
-                                <li>Kunci jawaban & tips</li>
-                                <li>Skor & evaluasi instan</li>
-                            </ul>
+                            <div class="mode-desc">Ejaan, literasi, tata bahasa + pembahasan</div>
+                            <ul class="mode-features"><li>40+ Soal + kunci</li><li>Tips & trik</li></ul>
                         </a>
                         <a href="test2.html" class="mode-item">
-                            <div class="mode-icon">📜</div>
-                            <h4>Test</h4>
+                            <div class="mode-icon">📜</div><h4>Test</h4>
                             <div class="mode-tag">🏆 Full Challenge</div>
-                            <div class="mode-desc">Uji kemampuan level olimpiade dengan tekanan waktu</div>
-                            <ul class="mode-features">
-                                <li>60 soal setara olimpiade</li>
-                                <li>Mode ujian sebenarnya</li>
-                                <li>Timer & penilaian otomatis</li>
-                                <li>Laporan skor akhir & review</li>
-                            </ul>
+                            <div class="mode-desc">Uji kemampuan level olimpiade bahasa</div>
+                            <ul class="mode-features"><li>60 soal setara OSN</li><li>Timer + review</li></ul>
                         </a>
                         <a href="ebook-indo.html" class="mode-item ebook-item">
-                            <div class="mode-icon">📓</div>
-                            <h4>E-Book Indo</h4>
+                            <div class="mode-icon">📓</div><h4>E-Book Indo</h4>
                             <div class="mode-tag ebook-tag">📚 Master B.Indo</div>
-                            <div class="mode-desc">Materi lengkap: Majas, SPOK, Istilah, Wacana, Teks Fiksi/Informasi</div>
-                            <ul class="mode-features ebook-features">
-                                <li>20+ Jenis Majas + Contoh</li>
-                                <li>Struktur SPOK & Kalimat Aktif/Pasif</li>
-                                <li>50+ Istilah Teknis (deforestasi, hilirisasi, dll)</li>
-                                <li>Karakteristik Wacana & Kohesi</li>
-                            </ul>
+                            <div class="mode-desc">Majas, SPOK, wacana, istilah teknis</div>
+                            <ul class="mode-features ebook-features"><li>20+ Majas</li><li>Kohesi & koherensi</li></ul>
                         </a>
                     </div>
                 </div>
             `;
         }
+        else if (subjectId === 'mathUTER') {
+            return `
+                <div class="mode-panel uter-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>🧠</span><h3>Matematika UTER</h3></div>
+                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
+                    </div>
+                    <div class="modes-grid">
+                        <a href="mtk_uter.html" class="mode-item">
+                            <div class="mode-icon">⚙️</div><h4>Latihan UTER</h4>
+                            <div class="mode-tag">🎯 Soal Standar UTER</div>
+                            <div class="mode-desc">Himpunan, Logika, Pola Bilangan, Peluang tingkat lanjut</div>
+                            <ul class="mode-features"><li>40 Soal eksklusif</li><li>Pembahasan detail UTER</li><li>Skor progres</li></ul>
+                        </a>
+                       
+                        <a href="ebook-uter-mtk.html" class="mode-item ebook-item">
+                            <div class="mode-icon">📚</div><h4>E-Book MTK UTER</h4>
+                            <div class="mode-tag ebook-tag">📘 Materi Intensif</div>
+                            <div class="mode-desc">Teori Himpunan, Fungsi, Statistika Lanjut, Aljabar UTER</div>
+                            <ul class="mode-features ebook-features"><li>Soal tipe Ujian Tertulis</li><li>Rumus cepat & trik</li></ul>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+        else if (subjectId === 'ipaUTER') {
+            return `
+                <div class="mode-panel uter-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>🧪</span><h3>IPA UTER Terpadu</h3></div>
+                        <button class="close-panel-btn" id="closePanelBtn">✖ Tutup</button>
+                    </div>
+                    <div class="modes-grid">
+                        <a href="ipa_uter.html" class="mode-item">
+                            <div class="mode-icon">🔬</div><h4>Latihan IPA</h4>
+                            <div class="mode-tag">📘 Eksplorasi Sains</div>
+                            <div class="mode-desc">Fisika (Gaya, Usaha), Biologi (Sistem Tubuh), Kimia Dasar</div>
+                            <ul class="mode-features"><li>40 Soal + pembahasan ilmiah</li><li>Kunci & analisis</li></ul>
+                        </a>
+                     
+                        <a href="ebook-uter-ipa.html" class="mode-item ebook-item">
+                            <div class="mode-icon">📖</div><h4>E-Book IPA UTER</h4>
+                            <div class="mode-tag ebook-tag">🧫 Materi Lengkap</div>
+                            <div class="mode-desc">Fisika Terapan, Biologi Lintas Bab, Kimia Reaksi</div>
+                            <ul class="mode-features ebook-features"><li>Ringkasan materi UTER</li><li>Soal analisis & eksperimen</li></ul>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+        return '';
     }
 
-    function showPanel(subject) {
+    function showPanel(subjectId) {
         if (!container) return;
-        container.innerHTML = renderModePanel(subject);
+        container.innerHTML = renderModePanel(subjectId);
         const closeBtn = document.getElementById('closePanelBtn');
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
@@ -698,21 +761,38 @@
         }, 100);
     }
 
-    mathCard.addEventListener('click', () => {
-        if (activeSubject === 'math') return;
-        activeSubject = 'math';
+    mathTKACard.addEventListener('click', () => {
+        if (activeSubject === 'mathTKA') return;
+        activeSubject = 'mathTKA';
         removeHighlights();
-        mathCard.classList.add('active');
-        showPanel('math');
+        mathTKACard.classList.add('active');
+        showPanel('mathTKA');
     });
 
-    indoCard.addEventListener('click', () => {
-        if (activeSubject === 'indo') return;
-        activeSubject = 'indo';
+    binTKACard.addEventListener('click', () => {
+        if (activeSubject === 'binTKA') return;
+        activeSubject = 'binTKA';
         removeHighlights();
-        indoCard.classList.add('active');
-        showPanel('indo');
+        binTKACard.classList.add('active');
+        showPanel('binTKA');
     });
+
+    mathUTERCard.addEventListener('click', () => {
+        if (activeSubject === 'mathUTER') return;
+        activeSubject = 'mathUTER';
+        removeHighlights();
+        mathUTERCard.classList.add('active');
+        showPanel('mathUTER');
+    });
+
+    ipaUTERCard.addEventListener('click', () => {
+        if (activeSubject === 'ipaUTER') return;
+        activeSubject = 'ipaUTER';
+        removeHighlights();
+        ipaUTERCard.classList.add('active');
+        showPanel('ipaUTER');
+    });
+
 </script>
 </body>
 </html>
