@@ -16,17 +16,33 @@
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Particle Canvas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .main-container {
             max-width: 100%;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header */
+        /* Header dengan animasi */
         .header {
             text-align: center;
             margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
         }
 
         .logo {
@@ -40,23 +56,43 @@
             margin: 0 auto 12px;
             font-size: 40px;
             box-shadow: 0 10px 30px -8px rgba(250,204,21,0.3);
+            animation: pulseLogo 2s ease-in-out infinite, float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes pulseLogo {
+            0%, 100% { box-shadow: 0 10px 30px -8px rgba(250,204,21,0.3); }
+            50% { box-shadow: 0 10px 40px 0px rgba(250,204,21,0.6); }
         }
 
         .header h1 {
             font-size: 2rem;
-            background: linear-gradient(135deg, #facc15, #f97316);
+            background: linear-gradient(135deg, #facc15, #f97316, #facc15);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .header p {
             color: #a5b4fc;
             font-size: 0.85rem;
             margin-top: 6px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        /* GRID 2x2 (dua baris, dua kolom) untuk 4 mata pelajaran */
+        /* GRID 2x2 */
         .subjects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -74,37 +110,79 @@
             padding: 32px 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .subject-card:nth-child(1) { animation-delay: 0.1s; }
+        .subject-card:nth-child(2) { animation-delay: 0.2s; }
+        .subject-card:nth-child(3) { animation-delay: 0.3s; }
+        .subject-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Efek shimmer pada kartu */
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .subject-card:hover::before {
+            left: 100%;
         }
 
         .subject-card:hover {
-            transform: translateY(-6px);
-            background: rgba(25, 35, 70, 0.9);
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(25, 35, 70, 0.95);
             border-color: #facc15;
+            box-shadow: 0 25px 40px -15px rgba(250,204,21,0.3);
         }
 
         .subject-card.active {
             border: 2px solid #facc15;
-            background: rgba(250, 204, 21, 0.1);
-            box-shadow: 0 0 0 2px rgba(250,204,21,0.3);
+            background: rgba(250, 204, 21, 0.15);
+            box-shadow: 0 0 0 3px rgba(250,204,21,0.4), 0 20px 35px -12px rgba(0,0,0,0.4);
+            animation: glowPulse 1.5s ease-in-out infinite;
         }
 
-        /* Warna aksen spesifik untuk UTER (gradien ungu emas) */
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(250,204,21,0.4), 0 20px 35px -12px rgba(0,0,0,0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(250,204,21,0.2), 0 20px 35px -12px rgba(0,0,0,0.4); }
+        }
+
         .subject-card.uter-style {
             border-top: 3px solid #8b5cf6;
         }
         .subject-card.uter-style.active {
             border: 2px solid #c084fc;
-            background: rgba(139, 92, 246, 0.12);
+            background: rgba(139, 92, 246, 0.15);
+            box-shadow: 0 0 0 3px rgba(139,92,246,0.4);
+            animation: glowPulsePurple 1.5s ease-in-out infinite;
+        }
+
+        @keyframes glowPulsePurple {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(139,92,246,0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(139,92,246,0.2); }
         }
 
         .subject-icon {
             font-size: 70px;
             margin-bottom: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .subject-card:hover .subject-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .subject-card h2 {
@@ -131,6 +209,12 @@
             font-weight: 500;
             margin-top: auto;
             align-self: center;
+            transition: all 0.3s ease;
+        }
+
+        .subject-card:hover .subject-badge {
+            background: rgba(250, 204, 21, 0.3);
+            transform: scale(1.05);
         }
 
         .badge-uter {
@@ -152,17 +236,17 @@
             border-radius: 36px;
             padding: 24px 28px;
             border: 1px solid rgba(250, 204, 21, 0.35);
-            animation: panelFadeIn 0.3s ease;
+            animation: panelSlideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        @keyframes panelFadeIn {
+        @keyframes panelSlideIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(30px) scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
@@ -183,6 +267,12 @@
 
         .panel-title span {
             font-size: 32px;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         .panel-title h3 {
@@ -190,7 +280,6 @@
             color: #facc15;
         }
 
-        /* judul panel uter (warna ungu) */
         .mode-panel.uter-panel .panel-title h3 {
             color: #c084fc;
         }
@@ -206,15 +295,16 @@
             border-radius: 40px;
             cursor: pointer;
             font-size: 0.8rem;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
 
         .close-panel-btn:hover {
             background: rgba(250, 204, 21, 0.2);
             color: #facc15;
+            transform: scale(1.05);
         }
 
-        /* MODE CARDS - grid 3 kolom untuk mode + ebook */
+        /* MODE CARDS */
         .modes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -227,14 +317,32 @@
             padding: 24px 20px;
             text-decoration: none;
             color: white;
-            transition: all 0.25s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mode-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #facc15, #8b5cf6, #facc15);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .mode-item:hover::after {
+            transform: scaleX(1);
         }
 
         .mode-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px) scale(1.02);
             background: rgba(250, 204, 21, 0.12);
             border-color: #facc15;
         }
@@ -246,12 +354,17 @@
 
         .ebook-item:hover {
             border-color: #8b5cf6;
-            background: rgba(139, 92, 246, 0.2);
+            background: rgba(139, 92, 246, 0.25);
         }
 
         .mode-icon {
             font-size: 52px;
             margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .mode-item:hover .mode-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .mode-item h4 {
@@ -296,16 +409,17 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: transform 0.2s ease;
+        }
+
+        .mode-features li:hover {
+            transform: translateX(5px);
         }
 
         .mode-features li::before {
             content: "✓";
             color: #facc15;
             font-size: 0.7rem;
-        }
-
-        .ebook-features li::before {
-            color: #a78bfa;
         }
 
         .footer {
@@ -318,10 +432,7 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .footer p {
-            margin-bottom: 6px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
         }
 
         /* Splash Screen */
@@ -336,12 +447,24 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s;
+            transition: opacity 0.8s ease, visibility 0.8s;
         }
 
         .splash-content {
             text-align: center;
             padding: 20px;
+            animation: fadeInScale 0.8s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .splash-logo {
@@ -354,17 +477,21 @@
             justify-content: center;
             margin: 0 auto 12px;
             font-size: 44px;
-            animation: pulseLogo 1.5s ease-in-out infinite;
+            animation: splashPulse 1.5s ease-in-out infinite;
         }
 
-        @keyframes pulseLogo {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        @keyframes splashPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250,204,21,0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(250,204,21,0); }
         }
 
         .splash-content h2 {
             color: #facc15;
             font-size: 1.5rem;
+            background: linear-gradient(135deg, #facc15, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .splash-content p {
@@ -373,24 +500,31 @@
         }
 
         .loader {
-            width: 180px;
-            height: 3px;
+            width: 250px;
+            height: 4px;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
-            margin: 16px auto 0;
+            margin: 20px auto 0;
             overflow: hidden;
+            position: relative;
         }
 
         .loader-fill {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #facc15, #f97316);
-            animation: loadAnim 2s ease-out forwards;
+            background: linear-gradient(90deg, #facc15, #f97316, #8b5cf6, #facc15);
+            background-size: 300% auto;
+            animation: loadingFill 2s ease-out forwards, shimmer 1s linear infinite;
         }
 
-        @keyframes loadAnim {
+        @keyframes loadingFill {
             0% { width: 0%; }
             100% { width: 100%; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
         }
 
         .fade-out {
@@ -398,147 +532,68 @@
             visibility: hidden;
         }
 
-        /* RESPONSIVE: HP (max-width 640px) */
-        @media (max-width: 640px) {
-            body {
-                padding: 16px 12px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-
-            .header {
-                margin-bottom: 24px;
-            }
-
-            .logo {
-                width: 56px;
-                height: 56px;
-                font-size: 30px;
-                border-radius: 18px;
-            }
-
-            .header h1 {
-                font-size: 1.4rem;
-            }
-
-            .header p {
-                font-size: 0.7rem;
-            }
-
-            .subjects-grid {
-                gap: 14px;
-            }
-
-            .subject-card {
-                padding: 18px 12px;
-                border-radius: 24px;
-            }
-
-            .subject-icon {
-                font-size: 42px;
-                margin-bottom: 8px;
-            }
-
-            .subject-card h2 {
-                font-size: 1.2rem;
-                margin-bottom: 6px;
-            }
-
-            .subject-desc {
-                font-size: 0.6rem;
-                line-height: 1.35;
-                margin-bottom: 12px;
-            }
-
-            .subject-badge {
-                padding: 5px 12px;
-                font-size: 0.6rem;
-            }
-
-            .mode-panel-wrapper {
-                margin-top: 20px;
-            }
-
-            .mode-panel {
-                padding: 16px 14px;
-                border-radius: 24px;
-            }
-
-            .panel-header {
-                margin-bottom: 14px;
-                padding-bottom: 8px;
-            }
-
-            .panel-title span {
-                font-size: 22px;
-            }
-
-            .panel-title h3 {
-                font-size: 1.15rem;
-            }
-
-            .close-panel-btn {
-                padding: 5px 12px;
-                font-size: 0.65rem;
-            }
-
-            .modes-grid {
-                gap: 12px;
-            }
-
-            .mode-item {
-                padding: 14px 12px;
-                border-radius: 20px;
-            }
-
-            .mode-icon {
-                font-size: 32px;
-                margin-bottom: 6px;
-            }
-
-            .mode-item h4 {
-                font-size: 1rem;
-            }
-
-            .mode-tag {
-                font-size: 0.55rem;
-                padding: 3px 10px;
-                margin: 8px 0 5px;
-            }
-
-            .mode-desc {
-                font-size: 0.6rem;
-                margin-bottom: 8px;
-            }
-
-            .mode-features li {
-                font-size: 0.55rem;
-                padding: 2px 0;
-            }
-
-            .footer {
-                margin-top: 28px;
-                font-size: 0.55rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* HP sangat kecil (max-width 480px) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            body { padding: 16px 12px; }
+            .header { margin-bottom: 24px; }
+            .logo { width: 56px; height: 56px; font-size: 30px; border-radius: 18px; }
+            .header h1 { font-size: 1.4rem; }
+            .header p { font-size: 0.7rem; }
+            .subjects-grid { gap: 14px; }
+            .subject-card { padding: 18px 12px; border-radius: 24px; }
+            .subject-icon { font-size: 42px; margin-bottom: 8px; }
+            .subject-card h2 { font-size: 1.2rem; margin-bottom: 6px; }
+            .subject-desc { font-size: 0.6rem; line-height: 1.35; margin-bottom: 12px; }
+            .subject-badge { padding: 5px 12px; font-size: 0.6rem; }
+            .mode-panel-wrapper { margin-top: 20px; }
+            .mode-panel { padding: 16px 14px; border-radius: 24px; }
+            .panel-header { margin-bottom: 14px; padding-bottom: 8px; }
+            .panel-title span { font-size: 22px; }
+            .panel-title h3 { font-size: 1.15rem; }
+            .close-panel-btn { padding: 5px 12px; font-size: 0.65rem; }
+            .modes-grid { gap: 12px; }
+            .mode-item { padding: 14px 12px; border-radius: 20px; }
+            .mode-icon { font-size: 32px; margin-bottom: 6px; }
+            .mode-item h4 { font-size: 1rem; }
+            .mode-tag { font-size: 0.55rem; padding: 3px 10px; margin: 8px 0 5px; }
+            .mode-desc { font-size: 0.6rem; margin-bottom: 8px; }
+            .mode-features li { font-size: 0.55rem; padding: 2px 0; }
+            .footer { margin-top: 28px; font-size: 0.55rem; }
+        }
+
         @media (max-width: 480px) {
-            .modes-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-            }
-            .subject-card h2 {
-                font-size: 1rem;
-            }
-            .subject-icon {
-                font-size: 36px;
-            }
-            .subject-desc {
-                font-size: 0.55rem;
-            }
+            .modes-grid { grid-template-columns: 1fr; gap: 14px; }
+            .subject-card h2 { font-size: 1rem; }
+            .subject-icon { font-size: 36px; }
+            .subject-desc { font-size: 0.55rem; }
         }
     </style>
 </head>
 <body>
+
+<canvas id="particle-canvas"></canvas>
 
 <div id="splash-screen">
     <div class="splash-content">
@@ -546,6 +601,7 @@
         <h2>LMS Plus Terpadu</h2>
         <p>TKA (Matematika & B.Indo) + UTER (MTK & IPA) | E-Book Lengkap</p>
         <div class="loader"><div class="loader-fill"></div></div>
+        <p style="margin-top: 12px; font-size: 0.7rem;" id="loadingText">Memuat sistem pendidikan...</p>
     </div>
 </div>
 
@@ -556,30 +612,25 @@
         <p>Pilih mata pelajaran • Latihan, Test, atau E-Book • TKA + UTER</p>
     </div>
 
-    <!-- GRID 2x2 : MTK TKA | BINDO TKA | MTK UTER | IPA UTER -->
     <div class="subjects-grid">
-        <!-- 1. Matematika TKA -->
         <div class="subject-card" id="cardMathTKA">
             <div class="subject-icon">📐</div>
             <h2>MTK TKA</h2>
             <div class="subject-desc">Aljabar • Geometri • Bilangan • Statistika<br>60+ Soal + E-Book Materi</div>
             <div class="subject-badge">⭐ TKA Preparation</div>
         </div>
-        <!-- 2. Bahasa Indonesia TKA -->
         <div class="subject-card" id="cardBinTKA">
             <div class="subject-icon">📖</div>
             <h2>B.Indo TKA</h2>
             <div class="subject-desc">Literasi • Ejaan • Tata Bahasa • Pemahaman Teks<br>60+ Soal + E-Book Lengkap</div>
             <div class="subject-badge">⭐ TKA Literasi</div>
         </div>
-        <!-- 3. MATEMATIKA UTER -->
         <div class="subject-card uter-style" id="cardMathUTER">
             <div class="subject-icon">🧮</div>
             <h2>MTK UTER</h2>
             <div class="subject-desc">Ujian Tertulis: Logika • Himpunan • Pola Bilangan • Peluang Lanjut<br>Soal standar UTER + E-Book intensif</div>
             <div class="subject-badge badge-uter">⚡ UTER Intensive</div>
         </div>
-        <!-- 4. IPA UTER -->
         <div class="subject-card uter-style" id="cardIpaUTER">
             <div class="subject-icon">🔬</div>
             <h2>IPA UTER</h2>
@@ -597,18 +648,104 @@
 </div>
 
 <script>
-    // Splash screen
+    // ==================== PARTICLE BACKGROUND ====================
+    const canvas = document.getElementById('particle-canvas');
+    let ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId = null;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.3;
+            this.opacity = Math.random() * 0.5 + 0.2;
+            this.color = `rgba(250, 204, 21, ${this.opacity})`;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.y < 0) this.y = canvas.height;
+            if (this.y > canvas.height) this.y = 0;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animateParticles() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            p.update();
+            p.draw();
+        }
+        // Gambar bintang berkedip
+        for (let i = 0; i < 50; i++) {
+            if (Math.random() > 0.98) {
+                ctx.beginPath();
+                ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 1.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
+                ctx.fill();
+            }
+        }
+        animationId = requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles();
+    });
+
+    // ==================== SPLASH SCREEN ====================
     window.addEventListener('load', () => {
+        resizeCanvas();
+        initParticles();
+        animateParticles();
+
+        const loadingTexts = [
+            "Memuat sistem pendidikan...",
+            "Menyiapkan materi belajar...",
+            "Memuat soal-soal terbaru...",
+            "Hampir selesai..."
+        ];
+        let textIndex = 0;
+        const textInterval = setInterval(() => {
+            textIndex = (textIndex + 1) % loadingTexts.length;
+            const loadingTextElem = document.getElementById('loadingText');
+            if (loadingTextElem) loadingTextElem.textContent = loadingTexts[textIndex];
+        }, 500);
+
         setTimeout(() => {
+            clearInterval(textInterval);
             const splash = document.getElementById('splash-screen');
             if (splash) {
                 splash.classList.add('fade-out');
-                setTimeout(() => splash.remove(), 500);
+                setTimeout(() => splash.remove(), 800);
             }
-        }, 1800);
+        }, 2200);
     });
 
-    // Elemen kartu
+    // ==================== CARD LOGIC ====================
     const mathTKACard = document.getElementById('cardMathTKA');
     const binTKACard = document.getElementById('cardBinTKA');
     const mathUTERCard = document.getElementById('cardMathUTER');
@@ -623,9 +760,7 @@
         ipaUTERCard.classList.remove('active');
     }
 
-    // ========= RENDER PANEL UNTUK SETIAP MAPEL ==========
     function renderModePanel(subjectId) {
-        // subjectId: 'mathTKA', 'binTKA', 'mathUTER', 'ipaUTER'
         if (subjectId === 'mathTKA') {
             return `
                 <div class="mode-panel">
@@ -706,7 +841,6 @@
                             <div class="mode-desc">Himpunan, Logika, Pola Bilangan, Peluang tingkat lanjut</div>
                             <ul class="mode-features"><li>40 Soal eksklusif</li><li>Pembahasan detail UTER</li><li>Skor progres</li></ul>
                         </a>
-                       
                         <a href="ebook-uter-mtk.html" class="mode-item ebook-item">
                             <div class="mode-icon">📚</div><h4>E-Book MTK UTER</h4>
                             <div class="mode-tag ebook-tag">📘 Materi Intensif</div>
@@ -731,7 +865,6 @@
                             <div class="mode-desc">Fisika (Gaya, Usaha), Biologi (Sistem Tubuh), Kimia Dasar</div>
                             <ul class="mode-features"><li>40 Soal + pembahasan ilmiah</li><li>Kunci & analisis</li></ul>
                         </a>
-                     
                         <a href="ebook-uter-ipa.html" class="mode-item ebook-item">
                             <div class="mode-icon">📖</div><h4>E-Book IPA UTER</h4>
                             <div class="mode-tag ebook-tag">🧫 Materi Lengkap</div>
@@ -792,7 +925,6 @@
         ipaUTERCard.classList.add('active');
         showPanel('ipaUTER');
     });
-
 </script>
 </body>
 </html>
