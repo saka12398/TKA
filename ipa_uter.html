@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>IPA UTER | 45 Soal + Pembahasan</title>
+    <title>IPA UTER | 45 Soal + Pembahasan | Sesuai Kisi-Kisi</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -35,7 +35,6 @@
             color: var(--text);
             min-height: 100vh;
             padding: 16px 16px 60px;
-            /* Subtle star bg via CSS — zero JS cost */
             background-image:
                 radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.55) 0%, transparent 100%),
                 radial-gradient(1px 1px at 30% 5%,  rgba(74,158,255,0.7)  0%, transparent 100%),
@@ -303,23 +302,23 @@
             padding: 10px 14px;
             font-size: 0.8rem; color: var(--amber);
         }
-       .fb-explain {
-    background: rgba(15, 25, 55, 0.8);
-    border: 1px solid rgba(74,158,255,0.2);
-    border-radius: 14px;
-    padding: 12px 14px;
-    font-size: 0.8rem;
-    line-height: 1.65;
-    color: #f1f5f9 !important;  /* PUTIH TERANG */
-}
-.fb-explain strong {
-    color: #ffffff !important;  /* PUTIH PENUH */
-    font-weight: 700;
-}
-.fb-explain br {
-    display: block;
-    margin: 6px 0;
-}
+        .fb-explain {
+            background: rgba(15, 25, 55, 0.8);
+            border: 1px solid rgba(74,158,255,0.2);
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 0.8rem;
+            line-height: 1.65;
+            color: #f1f5f9 !important;
+        }
+        .fb-explain strong {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        .fb-explain br {
+            display: block;
+            margin: 6px 0;
+        }
 
         /* ===== FOOTER ===== */
         .footer-tip {
@@ -378,7 +377,6 @@
 <canvas id="confetti-canvas"></canvas>
 <div id="toast">💾 Jawaban tersimpan otomatis</div>
 
-<!-- SPLASH -->
 <div id="splash">
     <div class="splash-inner">
         <div class="splash-icon">🔬</div>
@@ -389,7 +387,6 @@
 </div>
 
 <div class="wrap">
-    <!-- HERO -->
     <div class="hero">
         <span class="hero-icon">🔬</span>
         <h1>Ilmu Pengetahuan Alam UTER</h1>
@@ -397,7 +394,6 @@
         <div class="hero-topics">Besaran & Pengukuran · Sistem Gerak · Usaha & Energi · Pencernaan · Reproduksi · Bioteknologi · Pewarisan Sifat · Peredaran Darah · Tekanan · Listrik Statis</div>
     </div>
 
-    <!-- INFO BAR -->
     <div class="info-bar">
         <div class="score-pill" id="scoreDisplay">🏆 SKOR: 0 / 45</div>
         <div class="btn-row">
@@ -407,7 +403,6 @@
         </div>
     </div>
 
-    <!-- QUIZ -->
     <div class="quiz-grid" id="quizGrid"></div>
 
     <div class="footer-tip">
@@ -419,91 +414,110 @@
 <div id="scrollTop">↑</div>
 
 <script>
-// ==================== SOAL ====================
+// ==================== 45 SOAL IPA UTER BARU SESUAI KISI-KISI ====================
 const questions = [
-    { id:1,  diff:"Mudah", cat:"Besaran Pokok",        text:"Besaran pokok adalah besaran yang satuannya telah ditetapkan terlebih dahulu. Berikut yang termasuk besaran pokok adalah...", correct:"massa", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Besaran pokok ada 7: panjang, massa, waktu, suhu, kuat arus, intensitas cahaya, jumlah zat.<br>📌 <strong>Jawaban: massa</strong>", contoh:"📖 <strong>Contoh:</strong> Besaran turunan: kecepatan, gaya, tekanan<br>📌 <strong>Trik:</strong> Ingat 7 besaran pokok: panjang, massa, waktu, suhu, kuat arus, intensitas cahaya, jumlah zat" },
-    { id:2,  diff:"Sedang", cat:"Jangka Sorong",        text:"Hasil pengukuran menggunakan jangka sorong menunjukkan skala utama 2,3 cm dan skala nonius 4 (ketelitian 0,01 cm). Hasil pengukurannya adalah...", correct:"2.34", type:"desimal", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Skala utama = 2,3 cm<br>📌 Skala nonius = 4 × 0,01 = 0,04 cm<br>📌 Hasil = 2,3 + 0,04 = <strong>2,34 cm</strong>", contoh:"📖 <strong>Contoh:</strong> SU=5,1 cm, nonius=7 → 5,17 cm<br>📌 <strong>Trik:</strong> Hasil = SU + (nonius × ketelitian)" },
-    { id:3,  diff:"Mudah", cat:"Metode Ilmiah",         text:"Urutan langkah-langkah metode ilmiah yang benar adalah...", correct:"observasi,hipotesis,eksperimen,analisis,kesimpulan", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 1. Observasi → 2. Rumusan masalah → 3. Hipotesis → 4. Eksperimen → 5. Analisis → 6. Kesimpulan", contoh:"📖 <strong>Contoh:</strong> Penelitian pengaruh pupuk terhadap pertumbuhan tanaman<br>📌 <strong>Trik:</strong> Observasi dulu, baru hipotesis, lalu eksperimen" },
-    { id:4,  diff:"Mudah", cat:"Tulang",                text:"Tulang yang termasuk rangka apendikular (anggota gerak) adalah...", correct:"tulang hasta", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Rangka apendikular: tulang anggota gerak atas dan bawah<br>📌 Contoh: tulang hasta, pengumpil, lengan atas, paha, betis, kering", contoh:"📖 <strong>Contoh:</strong> Tulang hasta, tulang pengumpil, tulang paha<br>📌 <strong>Trik:</strong> Apendikular = alat gerak (tangan dan kaki)" },
-    { id:5,  diff:"Sedang", cat:"Sendi",                text:"Sendi yang hanya dapat digerakkan ke satu arah (seperti engsel pintu) disebut sendi...", correct:"engsel", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi engsel: gerakan satu arah (fleksi-ekstensi)<br>📌 Contoh: sendi siku, sendi lutut, sendi ruas jari", contoh:"📖 <strong>Contoh:</strong> Sendi pelana (ibu jari), sendi putar (leher), sendi peluru (bahu, pinggul)<br>📌 <strong>Trik:</strong> Engsel = gerak seperti pintu!" },
-    { id:6,  diff:"Mudah", cat:"Usaha",                 text:"Sebuah benda didorong dengan gaya 20 N sejauh 5 meter. Besar usaha yang dilakukan adalah... joule", correct:"100", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 W = F × s = 20 × 5 = <strong>100 Joule</strong>", contoh:"📖 <strong>Contoh:</strong> Gaya 15 N, jarak 4 m → W=60 J<br>📌 <strong>Trik:</strong> Usaha = gaya × perpindahan" },
-    { id:7,  diff:"Sedang", cat:"Pesawat Sederhana",    text:"Sebuah tuas dengan panjang lengan beban 0,5 m dan lengan kuasa 2 m digunakan untuk mengangkat beban 200 N. Gaya kuasa yang diperlukan adalah... N", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 w × Lb = F × Lk<br>📌 200 × 0,5 = F × 2 → F = <strong>50 N</strong>", contoh:"📖 <strong>Contoh:</strong> Lb=0,3m, Lk=1,2m, w=400N → F=100N<br>📌 <strong>Trik:</strong> KM = Lk/Lb = w/F" },
-    { id:8,  diff:"Sedang", cat:"Energi Potensial",     text:"Sebuah benda bermassa 2 kg berada pada ketinggian 10 m. Jika g = 10 m/s², energi potensial benda adalah... J", correct:"200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ep = m × g × h = 2 × 10 × 10 = <strong>200 Joule</strong>", contoh:"📖 <strong>Contoh:</strong> m=5kg, h=4m, g=10 → Ep=200J<br>📌 <strong>Trik:</strong> Ep = m × g × h" },
-    { id:9,  diff:"Sedang", cat:"Energi Kinetik",       text:"Sebuah mobil bermassa 1.000 kg bergerak dengan kecepatan 20 m/s. Energi kinetik mobil adalah... kJ", correct:"200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ek = ½ × m × v² = ½ × 1000 × 400 = 200.000 J = <strong>200 kJ</strong>", contoh:"📖 <strong>Contoh:</strong> m=500kg, v=10m/s → Ek=25kJ<br>📌 <strong>Trik:</strong> Ek = ½ × m × v²" },
-    { id:10, diff:"Mudah", cat:"Nutrisi",               text:"Zat makanan yang berfungsi sebagai sumber energi utama adalah...", correct:"karbohidrat", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Karbohidrat = sumber energi utama (4 kkal/g)<br>📌 Lemak = energi cadangan (9 kkal/g)<br>📌 Protein = pembangun & pengatur", contoh:"📖 <strong>Contoh:</strong> Nasi, roti, jagung mengandung karbohidrat<br>📌 <strong>Trik:</strong> Karbo = energi utama" },
-    { id:11, diff:"Sedang", cat:"Uji Makanan",          text:"Uji makanan dengan larutan Lugol akan menghasilkan warna biru kehitaman jika makanan mengandung...", correct:"amilum", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Lugol (iodium) = uji amilum (pati) → biru kehitaman<br>📌 Benedict = uji glukosa → merah bata<br>📌 Biuret = uji protein → ungu", contoh:"📖 <strong>Contoh:</strong> Nasi ditetesi lugol → biru kehitaman<br>📌 <strong>Trik:</strong> Lugol → amilum (pati)" },
-    { id:12, diff:"Sulit",  cat:"Pencernaan",           text:"Enzim yang berfungsi mengubah protein menjadi pepton di lambung adalah...", correct:"pepsin", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Pepsin = protein → pepton (di lambung)<br>📌 Renin = menggumpalkan protein susu<br>📌 Tripsin = pepton → asam amino (usus)", contoh:"📖 <strong>Contoh:</strong> Amilase (mulut) mengubah amilum → maltosa<br>📌 <strong>Trik:</strong> PePsIn = Protein di Perut" },
-    { id:13, diff:"Mudah", cat:"Reproduksi",            text:"Organ reproduksi pria yang berfungsi memproduksi sperma dan hormon testosteron adalah...", correct:"testis", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Testis = menghasilkan sperma + hormon testosteron<br>📌 Ovarium = ovum, estrogen, progesteron", contoh:"📖 <strong>Contoh:</strong> Epididimis = tempat pematangan sperma<br>📌 <strong>Trik:</strong> Testis = Testosteron" },
-    { id:14, diff:"Sedang", cat:"Fertilisasi",          text:"Tempat terjadinya fertilisasi (pembuahan) pada sistem reproduksi wanita adalah...", correct:"tuba fallopi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Fertilisasi = pertemuan sperma + ovum di tuba fallopi (oviduk)<br>📌 Implantasi terjadi di uterus (rahim)", contoh:"📖 <strong>Contoh:</strong> Bayi tabung = fertilisasi di luar tubuh<br>📌 <strong>Trik:</strong> Fallopi = Fertilisasi" },
-    { id:15, diff:"Mudah", cat:"Bioteknologi",          text:"Produk bioteknologi konvensional yang menggunakan mikroorganisme Saccharomyces cerevisiae adalah...", correct:"roti", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Saccharomyces cerevisiae (ragi): roti, tape, bir<br>📌 Lactobacillus = yogurt | Acetobacter = cuka", contoh:"📖 <strong>Contoh:</strong> Tempe = Rhizopus oligosporus<br>📌 <strong>Trik:</strong> Saccharomyces = ragi roti" },
-    { id:16, diff:"Sedang", cat:"Bioteknologi Modern",  text:"Contoh produk bioteknologi modern di bidang kesehatan adalah...", correct:"insulin", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Bioteknologi modern = rekayasa genetika<br>📌 Contoh: insulin (E.coli), vaksin, antibodi monoklonal", contoh:"📖 <strong>Contoh:</strong> Hormon pertumbuhan, interferon<br>📌 <strong>Trik:</strong> Modern = rekayasa DNA" },
-    { id:17, diff:"Mudah", cat:"Genetika",              text:"Bagian kromosom yang membawa sifat keturunan disebut...", correct:"gen", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Gen = unit pewarisan sifat, terletak pada kromosom<br>📌 DNA = materi genetik | Kromosom = struktur pembawa gen", contoh:"📖 <strong>Contoh:</strong> Alel = bentuk alternatif gen<br>📌 <strong>Trik:</strong> Gen = Genetika" },
-    { id:18, diff:"Sedang", cat:"Monohibrid",           text:"Persilangan F1 (Bb × Bb) menghasilkan perbandingan fenotip F2 sebesar...", correct:"3:1", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 F2: BB, Bb, Bb, bb<br>📌 Fenotip: bulat : keriput = <strong>3 : 1</strong>", contoh:"📖 <strong>Contoh:</strong> Tinggi (TT) × pendek (tt) → F2 = 3:1<br>📌 <strong>Trik:</strong> Monohibrid dominan penuh → rasio 3:1" },
-    { id:19, diff:"Sulit",  cat:"Kelainan Genetik",     text:"Kelainan genetik hemofilia terpaut pada kromosom...", correct:"X", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hemofilia = kelainan pembekuan darah, terpaut kromosom X (resesif)<br>📌 Lebih banyak terjadi pada laki-laki", contoh:"📖 <strong>Contoh:</strong> Wanita carrier (XᴴXʰ), pria hemofilia (XʰY)<br>📌 <strong>Trik:</strong> Hemofilia & buta warna = kromosom X" },
-    { id:20, diff:"Mudah", cat:"Jantung",               text:"Serambi kanan jantung menerima darah yang mengandung banyak...", correct:"karbondioksida", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Serambi kanan ← darah dari seluruh tubuh (kotor, banyak CO₂)<br>📌 Serambi kiri ← darah dari paru-paru (bersih, banyak O₂)", contoh:"📖 <strong>Contoh:</strong> Darah kotor masuk serambi kanan → bilik kanan → paru-paru<br>📌 <strong>Trik:</strong> Kanan = Kotor (CO₂)" },
-    { id:21, diff:"Sedang", cat:"Pembuluh Darah",       text:"Pembuluh darah yang memiliki dinding paling tebal dan elastis serta mengalirkan darah keluar jantung adalah...", correct:"arteri", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Arteri: tebal, elastis, darah keluar jantung<br>📌 Vena: tipis, darah menuju jantung<br>📌 Kapiler: satu lapis, pertukaran zat", contoh:"📖 <strong>Contoh:</strong> Aorta = arteri terbesar<br>📌 <strong>Trik:</strong> Arteri = keluar jantung" },
-    { id:22, diff:"Sedang", cat:"Tekanan Zat Padat",    text:"Sebuah balok dengan berat 600 N memiliki luas alas 0,5 m². Tekanan yang diberikan balok pada lantai adalah... Pa", correct:"1200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 P = F/A = 600 / 0,5 = <strong>1.200 Pascal</strong>", contoh:"📖 <strong>Contoh:</strong> Gaya 800 N, luas 2 m² → P=400 Pa<br>📌 <strong>Trik:</strong> Tekanan = gaya ÷ luas" },
-    { id:23, diff:"Sedang", cat:"Tekanan Hidrostatis",  text:"Tekanan hidrostatis pada kedalaman 10 m di air (ρ=1000 kg/m³, g=10 m/s²) adalah... Pa", correct:"100000", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ph = ρ × g × h = 1000 × 10 × 10 = <strong>100.000 Pa</strong>", contoh:"📖 <strong>Contoh:</strong> Kedalaman 5 m → Ph=50.000 Pa<br>📌 <strong>Trik:</strong> Ph = ρgh" },
-    { id:24, diff:"Mudah", cat:"Muatan Listrik",        text:"Benda yang kelebihan elektron akan bermuatan...", correct:"negatif", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Elektron = muatan negatif (−)<br>📌 Kelebihan elektron → negatif | Kekurangan elektron → positif", contoh:"📖 <strong>Contoh:</strong> Kaca digosok kain sutra → positif<br>📌 <strong>Trik:</strong> eLektron = negatif" },
-    { id:25, diff:"Sedang", cat:"Gaya Coulomb",         text:"Dua muatan 4 μC dan 9 μC terpisah 2 cm. Jika k=9×10⁹ Nm²/C², gaya Coulombnya adalah... N", correct:"810", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 F = k×q₁×q₂/r² = 9×10⁹ × 4×10⁻⁶ × 9×10⁻⁶ / (2×10⁻²)²<br>📌 = 9×10⁹ × 9×10⁻⁸ = <strong>810 N</strong>", contoh:"📖 <strong>Contoh:</strong> q₁=q₂=2μC, r=2cm → F=90N<br>📌 <strong>Trik:</strong> F berbanding terbalik kuadrat jarak" },
-    { id:26, diff:"Mudah", cat:"Energi Terbarukan",     text:"Contoh sumber energi yang tidak dapat diperbaharui (non-renewable) adalah...", correct:"minyak bumi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Non-renewable: minyak bumi, batu bara, gas alam, uranium<br>📌 Renewable: matahari, angin, air, panas bumi, biomassa", contoh:"📖 <strong>Contoh:</strong> Panel surya = energi terbarukan<br>📌 <strong>Trik:</strong> Terbarukan = tidak akan habis" },
-    { id:27, diff:"Sedang", cat:"Daya",                 text:"Sebuah mesin melakukan usaha 6.000 J dalam waktu 2 menit. Daya mesin tersebut adalah... watt", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 t = 2 menit = 120 s<br>📌 P = W/t = 6.000/120 = <strong>50 watt</strong>", contoh:"📖 <strong>Contoh:</strong> W=3600J, t=6s → P=600W<br>📌 <strong>Trik:</strong> Daya = usaha ÷ waktu (detik)" },
-    { id:28, diff:"Sulit",  cat:"Katrol",               text:"Sebuah katrol majemuk memiliki keuntungan mekanis 4. Gaya kuasa untuk mengangkat beban 800 N adalah... N", correct:"200", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 KM = w/F → 4 = 800/F → F = <strong>200 N</strong>", contoh:"📖 <strong>Contoh:</strong> Katrol tetap KM=1, katrol bergerak KM=2<br>📌 <strong>Trik:</strong> KM = jumlah tali penopang beban" },
-    { id:29, diff:"Sedang", cat:"Bidang Miring",        text:"Bidang miring panjang 5 m, tinggi 2 m, digunakan untuk menaikkan beban 400 N. Gaya kuasanya adalah... N", correct:"160", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 400 × 2 = F × 5 → F = <strong>160 N</strong>", contoh:"📖 <strong>Contoh:</strong> s=4m, h=1m, w=200N → F=50N<br>📌 <strong>Trik:</strong> KM = panjang ÷ tinggi" },
-    { id:30, diff:"Mudah", cat:"Otot",                  text:"Jenis otot yang bekerja secara sadar (volunter) dan memiliki ciri lurik adalah otot...", correct:"rangka", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Otot rangka: lurik, volunter (sadar), melekat pada rangka<br>📌 Otot polos: involunter | Otot jantung: lurik, involunter", contoh:"📖 <strong>Contoh:</strong> Otot lengan, otot paha<br>📌 <strong>Trik:</strong> Rangka = sadar (bisa dikontrol)" },
-    { id:31, diff:"Sedang", cat:"Sendi",                text:"Sendi yang memungkinkan gerakan ke segala arah (gerak bebas) adalah sendi...", correct:"peluru", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi peluru: gerak ke segala arah (bahu, pinggul)<br>📌 Sendi engsel: satu arah | Sendi putar: rotasi", contoh:"📖 <strong>Contoh:</strong> Sendi bahu → gerak melingkar<br>📌 <strong>Trik:</strong> Peluru = ke segala arah" },
-    { id:32, diff:"Sulit",  cat:"Dihibrid",             text:"Persilangan dihibrid F1 × F1 menghasilkan perbandingan fenotip F2 sebesar...", correct:"9:3:3:1", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hukum Mendel II (dihibrid): <strong>9:3:3:1</strong><br>📌 9 bulat kuning : 3 bulat hijau : 3 keriput kuning : 1 keriput hijau", contoh:"📖 <strong>Contoh:</strong> 9+3+3+1 = 16 kombinasi<br>📌 <strong>Trik:</strong> Dihibrid = 9:3:3:1" },
-    { id:33, diff:"Mudah", cat:"DNA",                   text:"Kepanjangan dari DNA adalah...", correct:"asam deoksiribonukleat", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 DNA = Deoxyribonucleic Acid = Asam Deoksiribonukleat<br>📌 RNA = Asam Ribonukleat", contoh:"📖 <strong>Contoh:</strong> DNA ditemukan oleh Watson dan Crick<br>📌 <strong>Trik:</strong> DNA = Deoksiribonukleat" },
-    { id:34, diff:"Sedang", cat:"Bioteknologi",         text:"Mikroorganisme yang digunakan dalam pembuatan tempe adalah...", correct:"rhizopus", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Tempe = Rhizopus oligosporus (jamur)<br>📌 Tape = Saccharomyces | Yogurt = Lactobacillus", contoh:"📖 <strong>Contoh:</strong> Oncom = Neurospora sitophila<br>📌 <strong>Trik:</strong> Tempe = Rhizopus" },
-    { id:35, diff:"Sulit",  cat:"Pencernaan",           text:"Gangguan pencernaan yang disebabkan oleh peradangan pada usus buntu disebut...", correct:"apendisitis", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Apendisitis = radang usus buntu (apendiks)<br>📌 Ulkus = luka pada lambung | Diare = BAB terus-menerus", contoh:"📖 <strong>Contoh:</strong> Apendisitis → operasi usus buntu<br>📌 <strong>Trik:</strong> Apendisitis = Apendiks" },
-    { id:36, diff:"Mudah", cat:"Darah",                 text:"Sel darah yang berfungsi dalam pembekuan darah adalah...", correct:"trombosit", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Trombosit = pembekuan darah<br>📌 Eritrosit = angkut oksigen | Leukosit = kekebalan tubuh", contoh:"📖 <strong>Contoh:</strong> Trombositopenia = kekurangan trombosit<br>📌 <strong>Trik:</strong> Trombosit = berhenti (pembekuan)" },
-    { id:37, diff:"Sedang", cat:"Tekanan",              text:"Pada alat suntik, tekanan yang memaksa cairan masuk ke dalam tubuh adalah tekanan...", correct:"atmosfer", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ketika piston ditarik, tekanan dalam mengecil → tekanan atmosfer lebih besar mendorong cairan masuk", contoh:"📖 <strong>Contoh:</strong> Sedotan minuman = tekanan atmosfer<br>📌 <strong>Trik:</strong> Alat hisap = tekanan atmosfer" },
-    { id:38, diff:"Sulit",  cat:"Listrik Statis",       text:"Sisir yang digosokkan pada rambut kering akan bermuatan negatif karena...", correct:"elektron berpindah dari rambut ke sisir", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Rambut melepas elektron → sisir menerima elektron → negatif<br>📌 Rambut kekurangan elektron → positif", contoh:"📖 <strong>Contoh:</strong> Penggaris plastik digosok kain wol → negatif<br>📌 <strong>Trik:</strong> Benda digosok = transfer elektron" },
-    { id:39, diff:"Sedang", cat:"Energi Mekanik",       text:"Sebuah bola (m=0,5 kg) dilempar ke atas v=20 m/s. Energi mekanik di titik tertinggi adalah... J (g=10)", correct:"100", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Di titik tertinggi v=0 → Ek=0<br>📌 Em = Ek awal = ½×0,5×400 = <strong>100 J</strong>", contoh:"📖 <strong>Contoh:</strong> Hukum kekekalan energi mekanik: Em tetap<br>📌 <strong>Trik:</strong> Em awal = Em akhir" },
-    { id:40, diff:"Sulit",  cat:"Pewarisan Sifat",      text:"Wanita carrier buta warna (XᴺXᵇ) × pria normal (XᴺY). Kemungkinan anak laki-laki buta warna adalah... %", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 P: XᴺXᵇ × XᴺY<br>📌 Anak laki-laki: XᴺY (normal), XᵇY (buta warna)<br>📌 Kemungkinan = 1/2 = <strong>50%</strong>", contoh:"📖 <strong>Contoh:</strong> Buta warna lebih sering pada laki-laki<br>📌 <strong>Trik:</strong> Laki-laki buta warna = XᵇY" },
-    { id:41, diff:"Mudah", cat:"Alat Laboratorium",     text:"Alat laboratorium yang digunakan untuk mengukur volume zat cair adalah...", correct:"gelas ukur", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Gelas ukur = mengukur volume zat cair<br>📌 Pipet volume = lebih teliti (volume kecil) | Tabung reaksi = mereaksikan zat", contoh:"📖 <strong>Contoh:</strong> Buret = untuk titrasi<br>📌 <strong>Trik:</strong> Gelas ukur = ukur volume" },
-    { id:42, diff:"Sedang", cat:"Sistem Gerak",         text:"Persendian antara tulang tengkorak yang tidak dapat digerakkan disebut sendi...", correct:"mati", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi mati (sinartrosis): tidak ada gerakan (tengkorak)<br>📌 Sendi kaku (amfiartrosis): gerakan terbatas<br>📌 Sendi gerak (diartrosis): bebas bergerak", contoh:"📖 <strong>Contoh:</strong> Tulang panggul juga termasuk sendi mati<br>📌 <strong>Trik:</strong> Mati = tidak bisa digerakkan" },
-    { id:43, diff:"Sulit",  cat:"Pencernaan",           text:"Bagian usus halus yang berfungsi menyerap sari makanan adalah...", correct:"vili", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Vili (jonjot usus) = penyerapan sari makanan<br>📌 Duodenum = pencernaan kimiawi | Ileum = penyerapan", contoh:"📖 <strong>Contoh:</strong> Mikrovili memperluas permukaan penyerapan<br>📌 <strong>Trik:</strong> Vili = penyerapan" },
-    { id:44, diff:"Sedang", cat:"Reproduksi",           text:"Hormon yang merangsang terbentuknya sel telur (ovum) pada wanita adalah...", correct:"fsh", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 FSH (Follicle Stimulating Hormone) = merangsang pembentukan ovum<br>📌 LH = memicu ovulasi", contoh:"📖 <strong>Contoh:</strong> FSH diproduksi kelenjar pituitari<br>📌 <strong>Trik:</strong> FSH = Follicle Stimulating Hormone" },
-    { id:45, diff:"Sulit",  cat:"Tekanan",              text:"Prinsip kerja dongkrak hidrolik berdasarkan hukum...", correct:"pascal", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hukum Pascal: tekanan pada zat cair tertutup diteruskan ke segala arah sama besar<br>📌 Aplikasi: dongkrak hidrolik, rem hidrolik", contoh:"📖 <strong>Contoh:</strong> P₁=P₂ → F₁/A₁ = F₂/A₂<br>📌 <strong>Trik:</strong> Pascal = dongkrak hidrolik" },
+    // 1-3 Besaran, Satuan, Pengukuran
+    { id:1, diff:"Mudah", cat:"Besaran Pokok", text:"Dari kelompok berikut, yang termasuk besaran pokok adalah...", correct:"waktu", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Besaran pokok ada 7: panjang, massa, waktu, suhu, kuat arus, intensitas cahaya, jumlah zat.<br>📌 Waktu termasuk besaran pokok (satuan sekon).", contoh:"📖 <strong>Contoh:</strong> Kecepatan (besaran turunan) = panjang/waktu<br>📌 <strong>TRIK:</strong> Ingat: PaMaWa SuKu InJo (Panjang, Massa, Waktu, Suhu, Kuat arus, Intensitas, Jumlah zat)" },
+    { id:2, diff:"Sedang", cat:"Jangka Sorong", text:"Hasil pengukuran jangka sorong: skala utama 3,4 cm, skala nonius 6 (ketelitian 0,01 cm). Hasil pengukuran = ... cm", correct:"3.46", type:"desimal", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hasil = SU + (SN × 0,01)<br>📌 = 3,4 + (6 × 0,01) = 3,4 + 0,06 = <strong>3,46 cm</strong>", contoh:"📖 <strong>Contoh:</strong> SU=5,2 cm, SN=8 → 5,28 cm<br>📌 <strong>TRIK:</strong> Hasil = SU + (SN × ketelitian)" },
+    { id:3, diff:"Mudah", cat:"Metode Ilmiah", text:"Langkah pertama dalam metode ilmiah adalah...", correct:"observasi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Langkah metode ilmiah: Observasi → Rumusan masalah → Hipotesis → Eksperimen → Analisis → Kesimpulan", contoh:"📖 <strong>Contoh:</strong> Melihat daun menguning → observasi", trik:"⚡ TRIK: O-R-H-E-A-K (Observasi, Rumusan, Hipotesis, Eksperimen, Analisis, Kesimpulan)" },
+
+    // 4-6 Sistem Gerak Manusia
+    { id:4, diff:"Mudah", cat:"Tulang", text:"Tulang yang termasuk rangka aksial (sumbu tubuh) adalah...", correct:"tulang belakang", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Rangka aksial: tengkorak, tulang belakang, tulang dada, tulang rusuk<br>📌 Rangka apendikular: tulang anggota gerak (tangan dan kaki)", contoh:"📖 <strong>Contoh:</strong> Tulang belakang melindungi sumsum tulang belakang", trik:"⚡ TRIK: Aksial = sumbu (kepala, leher, badan)" },
+    { id:5, diff:"Sedang", cat:"Otot", text:"Otot yang bekerja secara tidak sadar (involunter) dan terdapat pada dinding organ dalam seperti usus dan lambung adalah otot...", correct:"polos", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Otot polos: involunter (tidak sadar), bentuk gelendong, inti satu, terletak di usus, lambung, pembuluh darah", contoh:"📖 <strong>Contoh:</strong> Gerak peristaltik usus", trik:"⚡ TRIK: Polos = pasif (tidak sadar)" },
+    { id:6, diff:"Sedang", cat:"Sendi", text:"Sendi yang memungkinkan gerakan dua arah (seperti ibu jari) disebut sendi...", correct:"pelana", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi pelana: gerak dua arah (fleksi-ekstensi dan abduksi-adduksi)<br>📌 Contoh: sendi antara tulang ibu jari dan telapak tangan", contoh:"📖 <strong>Contoh:</strong> Sendi engsel (satu arah), sendi peluru (segala arah)", trik:"⚡ TRIK: Pelana = dua arah (naik-turun, kiri-kanan)" },
+
+    // 7-10 Usaha, Energi, Pesawat Sederhana
+    { id:7, diff:"Mudah", cat:"Usaha", text:"Usaha sebesar 300 J dilakukan untuk memindahkan benda sejauh 6 m. Gaya yang diberikan adalah... N", correct:"50", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 W = F × s → 300 = F × 6 → F = 300 ÷ 6 = <strong>50 N</strong>", contoh:"📖 <strong>Contoh:</strong> W=200J, s=5m → F=40N", trik:"⚡ TRIK: F = W ÷ s" },
+    { id:8, diff:"Sedang", cat:"Daya", text:"Sebuah lift melakukan usaha 15.000 J dalam waktu 10 detik. Daya lift adalah... watt", correct:"1500", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 P = W / t = 15.000 / 10 = <strong>1.500 watt</strong>", contoh:"📖 <strong>Contoh:</strong> W=6.000J, t=2s → P=3.000W", trik:"⚡ TRIK: Daya = usaha ÷ waktu (dalam detik)" },
+    { id:9, diff:"Mudah", cat:"Energi Potensial", text:"Buah kelapa bermassa 2 kg jatuh dari pohon setinggi 5 m. Jika g=10 m/s², energi potensial buah kelapa adalah... J", correct:"100", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ep = m × g × h = 2 × 10 × 5 = <strong>100 Joule</strong>", contoh:"📖 <strong>Contoh:</strong> m=3kg, h=4m → Ep=120J", trik:"⚡ TRIK: Ep = m g h" },
+    { id:10, diff:"Sedang", cat:"Energi Kinetik", text:"Bola bermassa 0,4 kg bergerak dengan kecepatan 10 m/s. Energi kinetik bola adalah... J", correct:"20", type:"bulat", penyelesaien:"📘 <strong>Pembahasan:</strong><br>📌 Ek = ½ × m × v² = ½ × 0,4 × 100 = 0,2 × 100 = <strong>20 Joule</strong>", contoh:"📖 <strong>Contoh:</strong> m=0,5kg, v=20m/s → Ek=100J", trik:"⚡ TRIK: Ek = ½ × m × v²" },
+    { id:11, diff:"Sulit", cat:"Pesawat Sederhana", text:"Seorang pekerja menggunakan papan sepanjang 4 m sebagai bidang miring untuk menaikkan drum 200 N ke truk setinggi 1,2 m. Gaya dorong yang diperlukan adalah... N", correct:"60", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 w × h = F × s → 200 × 1,2 = F × 4 → 240 = 4F → F = <strong>60 N</strong>", contoh:"📖 <strong>Contoh:</strong> s=5m, h=1m, w=300N → F=60N", trik:"⚡ TRIK: KM = s/h = w/F" },
+    { id:12, diff:"Mudah", cat:"Energi Terbarukan", text:"Contoh sumber energi yang dapat diperbaharui (renewable) adalah...", correct:"matahari", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Energi terbarukan: matahari, angin, air, panas bumi, biomassa, gelombang laut<br>📌 Tak terbarukan: minyak bumi, batu bara, gas alam, uranium", contoh:"📖 <strong>Contoh:</strong> PLTA (air), PLTS (matahari)", trik:"⚡ TRIK: MATA-PANAS-AIR-ANGIN-BIO (Matahari, Panas bumi, Air, Angin, Biomassa)" },
+
+    // 13-15 Sistem Pencernaan
+    { id:13, diff:"Mudah", cat:"Nutrisi", text:"Zat makanan yang berfungsi sebagai sumber energi cadangan adalah...", correct:"lemak", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Lemak: sumber energi cadangan (9 kkal/g)<br>📌 Karbohidrat: sumber energi utama (4 kkal/g)<br>📌 Protein: pembangun dan pengatur (4 kkal/g)", contoh:"📖 <strong>Contoh:</strong> Minyak, mentega, keju mengandung lemak", trik:"⚡ TRIK: Lemak = tabungan energi" },
+    { id:14, diff:"Sedang", cat:"Uji Makanan", text:"Uji Biuret digunakan untuk mengetahui kandungan...", correct:"protein", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Biuret = uji protein → warna ungu<br>📌 Lugol = amilum (biru kehitaman)<br>📌 Benedict = glukosa (merah bata)", contoh:"📖 <strong>Contoh:</strong> Tahu + biuret → ungu (positif protein)", trik:"⚡ TRIK: Biuret = B (protein = Bolot)" },
+    { id:15, diff:"Sulit", cat:"Pencernaan", text:"Enzim tripsin berfungsi mengubah...", correct:"pepton menjadi asam amino", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Tripsin = enzim pankreas yang mengubah pepton → asam amino (di usus halus)<br>📌 Pepsin (lambung): protein → pepton<br>📌 Amilase (mulut): amilum → maltosa", contoh:"📖 <strong>Contoh:</strong> Tripsin bekerja dalam suasana basa", trik:"⚡ TRIK: Tripsin = T(akhir) = Tahap akhir protein" },
+
+    // 16-18 Sistem Reproduksi
+    { id:16, diff:"Mudah", cat:"Reproduksi", text:"Organ yang menghasilkan sel telur (ovum) pada wanita adalah...", correct:"ovarium", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ovarium (indung telur): menghasilkan ovum dan hormon estrogen/progesteron<br>📌 Testis: menghasilkan sperma dan testosteron", contoh:"📖 <strong>Contoh:</strong> Ovulasi = pelepasan ovum dari ovarium", trik:"⚡ TRIK: Ovarium = O(ovum)" },
+    { id:17, diff:"Sedang", cat:"Fertilisasi", text:"Hasil dari fertilisasi antara sperma dan ovum adalah...", correct:"zigot", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Fertilisasi = pertemuan sperma + ovum → zigot<br>📌 Zigot akan berkembang menjadi embrio lalu janin", contoh:"📖 <strong>Contoh:</strong> Zigot membelah secara mitosis", trik:"⚡ TRIK: Zigot = awal kehidupan baru" },
+    { id:18, diff:"Sedang", cat:"Menstruasi", text:"Hari ke-14 dalam siklus menstruasi normal (28 hari) terjadi...", correct:"ovulasi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Siklus menstruasi: Hari 1-5 (menstruasi), Hari 6-13 (proliferasi), Hari 14 (ovulasi), Hari 15-28 (sekresi)", contoh:"📖 <strong>Contoh:</strong> Ovulasi = pelepasan ovum", trik:"⚡ TRIK: Ovulasi = tanggal 14" },
+
+    // 19-21 Bioteknologi
+    { id:19, diff:"Mudah", cat:"Bioteknologi", text:"Pengertian bioteknologi yang tepat adalah...", correct:"pemanfaatan makhluk hidup untuk menghasilkan produk", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Bioteknologi = pemanfaatan makhluk hidup (mikroorganisme, tumbuhan, hewan) untuk menghasilkan produk/ jasa", contoh:"📖 <strong>Contoh:</strong> Pembuatan yoghurt, tempe, insulin", trik:"⚡ TRIK: Bio (hidup) + teknologi = pemanfaatan makhluk hidup" },
+    { id:20, diff:"Sedang", cat:"Bioteknologi Konvensional", text:"Produk bioteknologi konvensional yang dibuat dengan bantuan bakteri Lactobacillus adalah...", correct:"yogurt", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Lactobacillus = yogurt, keju<br>📌 Saccharomyces = roti, tape<br>📌 Rhizopus = tempe", contoh:"📖 <strong>Contoh:</strong> Lactobacillus bulgaricus membuat yogurt", trik:"⚡ TRIK: L(actobacillus) = L(actose) = yogurt" },
+    { id:21, diff:"Sulit", cat:"Bioteknologi Modern", text:"Insulin hasil rekayasa genetika diproduksi dengan menyisipkan gen insulin ke dalam bakteri...", correct:"Escherichia coli", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 E.coli (Escherichia coli) sering digunakan sebagai vektor dalam rekayasa genetika<br>📌 Gen insulin manusia disisipkan ke plasmid E.coli", contoh:"📖 <strong>Contoh:</strong> Hormon pertumbuhan, vaksin", trik:"⚡ TRIK: E.coli = pabrik insulin modern" },
+
+    // 22-24 Pewarisan Sifat
+    { id:22, diff:"Mudah", cat:"Genetika", text:"Hubungan antara DNA, gen, dan kromosom yang benar adalah...", correct:"DNA membentuk gen, gen membentuk kromosom", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 DNA (materi genetik) → Gen (unit pewarisan sifat) → Kromosom (pembawa gen)", contoh:"📖 <strong>Contoh:</strong> Manusia memiliki 46 kromosom", trik:"⚡ TRIK: DNA (bahan), Gen (kode), Kromosom (kotak)" },
+    { id:23, diff:"Sedang", cat:"Monohibrid", text:"Persilangan antara tanaman tinggi (TT) dan pendek (tt) menghasilkan F1 semua tinggi (Tt). Jika F1 disilangkan sesamanya, persentase tanaman tinggi adalah... %", correct:"75", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 F1 × F1: Tt × Tt → TT, Tt, Tt, tt<br>📌 Fenotip: tinggi (TT,Tt) = 3, pendek (tt)=1<br>📌 Persentase tinggi = 3/4 × 100% = <strong>75%</strong>", contoh:"📖 <strong>Contoh:</strong> Tt × Tt = rasio 3:1", trik:"⚡ TRIK: Monohibrid = 3:1 (75% : 25%)" },
+    { id:24, diff:"Sulit", cat:"Kelainan Pewarisan", text:"Penderita hemofilia lebih banyak terjadi pada laki-laki karena gen hemofilia terpaut pada kromosom...", correct:"X", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hemofilia terpaut kromosom X resesif<br>📌 Laki-laki cukup 1 gen (XʰY) sudah menderita<br>📌 Perempuan butuh 2 gen (XʰXʰ) baru menderita", contoh:"📖 <strong>Contoh:</strong> Wanita carrier (XᴺXʰ)", trik:"⚡ TRIK: Hemofilia = laki-laki lebih mudah (kromosom X)" },
+
+    // 25-27 Sistem Peredaran Darah
+    { id:25, diff:"Mudah", cat:"Jantung", text:"Darah yang mengandung banyak oksigen (darah bersih) terdapat di serambi...", correct:"kiri", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Serambi kiri ← darah dari paru-paru (bersih, banyak O₂)<br>📌 Serambi kanan ← darah dari tubuh (kotor, banyak CO₂)", contoh:"📖 <strong>Contoh:</strong> Darah bersih dipompa bilik kiri ke seluruh tubuh", trik:"⚡ TRIK: Kanan = kotor, Kiri = bersih" },
+    { id:26, diff:"Sedang", cat:"Pembuluh Darah", text:"Pembuluh darah yang mengalirkan darah menuju jantung dan memiliki katup sepanjang pembuluhnya adalah...", correct:"vena", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Vena = pembuluh balik (darah menuju jantung), dinding tipis, ada katup<br>📌 Arteri = keluar jantung, dinding tebal, elastis", contoh:"📖 <strong>Contoh:</strong> Vena cava superior/inferior", trik:"⚡ TRIK: Vena = masuk (V = Menuju)" },
+    { id:27, diff:"Mudah", cat:"Sel Darah", text:"Sel darah yang berfungsi membawa oksigen ke seluruh tubuh adalah...", correct:"eritrosit", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Eritrosit (sel darah merah): mengangkut O₂ dan CO₂ (hemoglobin)<br>📌 Leukosit: kekebalan, Trombosit: pembekuan", contoh:"📖 <strong>Contoh:</strong> Anemia = kekurangan eritrosit", trik:"⚡ TRIK: Eritrosit = E(er)ah = merah" },
+
+    // 28-30 Tekanan Zat
+    { id:28, diff:"Sedang", cat:"Tekanan Zat Padat", text:"Sebuah balok dengan gaya 800 N diletakkan pada lantai seluas 2 m². Tekanan yang dihasilkan adalah... Pa", correct:"400", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 P = F/A = 800 / 2 = <strong>400 Pascal</strong>", contoh:"📖 <strong>Contoh:</strong> F=1000N, A=0,5m² → P=2.000Pa", trik:"⚡ TRIK: P = F ÷ A" },
+    { id:29, diff:"Sedang", cat:"Tekanan Hidrostatis", text:"Seorang penyelam berada pada kedalaman 15 m di air laut (ρ=1.025 kg/m³, g=10 m/s²). Tekanan hidrostatis yang dialami adalah... Pa", correct:"153750", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ph = ρ × g × h = 1.025 × 10 × 15 = <strong>153.750 Pa</strong>", contoh:"📖 <strong>Contoh:</strong> ρ=1000, h=10m → Ph=100.000 Pa", trik:"⚡ TRIK: Ph = ρgh (rho × gravitasi × kedalaman)" },
+    { id:30, diff:"Mudah", cat:"Hukum Pascal", text:"Contoh penerapan Hukum Pascal dalam kehidupan sehari-hari adalah...", correct:"dongkrak hidrolik", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hukum Pascal: tekanan zat cair dalam ruang tertutup diteruskan ke segala arah sama besar<br>📌 Aplikasi: dongkrak hidrolik, rem hidrolik, pompa hidrolik", contoh:"📖 <strong>Contoh:</strong> Mesin press hidrolik", trik:"⚡ TRIK: Pascal = dongkrak" },
+
+    // 31-33 Listrik Statis
+    { id:31, diff:"Mudah", cat:"Muatan Listrik", text:"Benda yang kekurangan elektron akan bermuatan...", correct:"positif", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Elektron = muatan negatif (−)<br>📌 Kekurangan elektron → muatan positif (+)<br>📌 Kelebihan elektron → muatan negatif (−)", contoh:"📖 <strong>Contoh:</strong> Kaca digosok sutra → positif (melepas elektron)", trik:"⚡ TRIK: + = kekurangan e, - = kelebihan e" },
+    { id:32, diff:"Sedang", cat:"Gaya Coulomb", text:"Dua muatan masing-masing 2 μC dan 8 μC terpisah 4 cm. Jika k=9×10⁹ Nm²/C², gaya Coulombnya adalah... N", correct:"90", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 F = k × q₁ × q₂ / r² = 9×10⁹ × (2×10⁻⁶)(8×10⁻⁶) / (4×10⁻²)²<br>📌 = 9×10⁹ × 16×10⁻¹² / (16×10⁻⁴) = 9×10⁹ × 10⁻⁸ = <strong>90 N</strong>", contoh:"📖 <strong>Contoh:</strong> 3μC dan 6μC, r=3cm → F=180N", trik:"⚡ TRIK: F = k.q₁.q₂ / r²" },
+    { id:33, diff:"Sedang", cat:"Listrik Statis", text:"Sifat interaksi antara dua muatan yang sejenis adalah...", correct:"tolak menolak", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Muatan sejenis (+ dengan + atau - dengan -) → tolak menolak<br>📌 Muatan tidak sejenis (+ dengan -) → tarik menarik", contoh:"📖 <strong>Contoh:</strong> Plastik digosok wol → negatif, dengan sesama negatif tolak", trik:"⚡ TRIK: Sejenis = tolak, beda jenis = tarik" },
+
+    // 34-37 Sistem Pencernaan Lanjutan
+    { id:34, diff:"Sedang", cat:"Pencernaan", text:"Organ yang menghasilkan empedu untuk mengemulsikan lemak adalah...", correct:"hati", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hati: menghasilkan empedu (disimpan di kandung empedu)<br>📌 Empedu berfungsi mengemulsikan lemak (memperluas permukaan)", contoh:"📖 <strong>Contoh:</strong> Kolesterol di hati", trik:"⚡ TRIK: Hati = empedu = pengemulsi lemak" },
+    { id:35, diff:"Sulit", cat:"Pencernaan", text:"Bagian usus halus yang berfungsi menyerap sari makanan adalah...", correct:"ileum", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Ileum (usus penyerapan): penyerapan sari makanan melalui vili<br>📌 Duodenum (usus 12 jari): pencernaan kimiawi<br>📌 Jejunum (usus kosong): penerimaan dari duodenum", contoh:"📖 <strong>Contoh:</strong> Vili = jonjot penyerap", trik:"⚡ TRIK: Ileum = I(ler) = I(serap)" },
+    { id:36, diff:"Mudah", cat:"Kelainan Pencernaan", text:"Penyakit mag (radang lambung) disebabkan oleh...", correct:"maag", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Maag (gastritis) = radang lambung karena asam lambung berlebih<br>📌 Faktor penyebab: pola makan tidak teratur, stres, infeksi H.pylori", contoh:"📖 <strong>Contoh:</strong> Ulkus = luka pada lambung", trik:"⚡ TRIK: Mag = lambung" },
+    { id:37, diff:"Sedang", cat:"Enzim", text:"Enzim amilase dihasilkan oleh kelenjar...", correct:"saliva", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Amilase (ptialin) = dihasilkan kelenjar ludah (saliva)<br>📌 Fungsi: mengubah amilum (pati) → maltosa", contoh:"📖 <strong>Contoh:</strong> Nasi dikunyah lama terasa manis", trik:"⚡ TRIK: Amilase = Awal (mulut)" },
+
+    // 38-40 Sistem Reproduksi Lanjutan
+    { id:38, diff:"Sedang", cat:"Reproduksi Pria", text:"Tempat pematangan sperma pada sistem reproduksi pria adalah...", correct:"epididimis", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Epididimis = saluran tempat pematangan dan penyimpanan sperma<br>📌 Testis = tempat produksi sperma", contoh:"📖 <strong>Contoh:</strong> Vas deferens = saluran sperma", trik:"⚡ TRIK: Epididimis = E(pidi)mis = E(mematangkan)" },
+    { id:39, diff:"Sedang", cat:"Reproduksi Wanita", text:"Fungsi tuba fallopi (oviduk) dalam sistem reproduksi wanita adalah...", correct:"tempat fertilisasi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Tuba fallopi = saluran telur, tempat terjadinya fertilisasi<br>📌 Ovarium = produksi ovum<br>📌 Uterus = tempat perkembangan janin", contoh:"📖 <strong>Contoh:</strong> Bayi tabung = fertilisasi di luar", trik:"⚡ TRIK: Tuba = tempat bertemunya sperma dan ovum" },
+    { id:40, diff:"Sulit", cat:"Pewarisan Sifat", text:"Persilangan dihibrid antara kacang ercis biji bulat kuning (BBKK) dengan keriput hijau (bbkk) menghasilkan perbandingan fenotip F2...", correct:"9:3:3:1", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Hukum Mendel II (dihibrid): perbandingan fenotip F2 = <strong>9:3:3:1</strong><br>📌 9 bulat kuning : 3 bulat hijau : 3 keriput kuning : 1 keriput hijau", contoh:"📖 <strong>Contoh:</strong> 9+3+3+1 = 16 kombinasi", trik:"⚡ TRIK: Dihibrid = 9:3:3:1" },
+
+    // 41-45 Sistem Gerak & Energi Lanjutan
+    { id:41, diff:"Mudah", cat:"Sendi", text:"Sendi yang terdapat pada leher (memungkinkan gerakan menggeleng) adalah sendi...", correct:"putar", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Sendi putar: gerak rotasi (menggeleng)<br>📌 Contoh: antara tulang atlas dan tulang pemutar", contoh:"📖 <strong>Contoh:</strong> Sendi antara tulang hasta dan pengumpil", trik:"⚡ TRIK: Putar = rotasi (geleng)" },
+    { id:42, diff:"Sedang", cat:"Energi Mekanik", text:"Sebuah benda bermassa 0,2 kg dilempar ke atas dengan kecepatan 30 m/s. Energi mekanik saat berada di ketinggian maksimum adalah... J (g=10)", correct:"90", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Di titik tertinggi, v=0 → Ek=0, Ep maksimum<br>📌 Em = Ek awal = ½ × 0,2 × 900 = 0,1 × 900 = <strong>90 J</strong>", contoh:"📖 <strong>Contoh:</strong> Hukum kekekalan energi mekanik", trik:"⚡ TRIK: Em awal = Em akhir (kekal!)" },
+    { id:43, diff:"Sulit", cat:"Katrol", text:"Sebuah katrol majemuk memiliki 4 tali yang menopang beban. Keuntungan mekanis katrol tersebut adalah...", correct:"4", type:"bulat", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 KM katrol majemuk = jumlah tali yang menopang beban<br>📌 Jadi KM = <strong>4</strong>", contoh:"📖 <strong>Contoh:</strong> Katrol tetap KM=1, katrol bergerak KM=2", trik:"⚡ TRIK: KM = jumlah tali penopang beban" },
+    { id:44, diff:"Sedang", cat:"Alat Laboratorium", text:"Alat yang digunakan untuk memanaskan cairan dalam skala kecil di laboratorium adalah...", correct:"tabung reaksi", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Tabung reaksi = untuk mereaksikan dan memanaskan cairan dalam jumlah kecil<br>📌 Gelas kimia = untuk volume lebih besar", contoh:"📖 <strong>Contoh:</strong> Tabung reaksi dipanaskan dengan lampu spirtus", trik:"⚡ TRIK: Tabung reaksi = kecil, Gelas kimia = besar" },
+    { id:45, diff:"Sedang", cat:"Listrik Statis", text:"Benda yang digosok dengan kain wol akan menjadi bermuatan negatif, contohnya adalah...", correct:"plastik", type:"string", penyelesaian:"📘 <strong>Pembahasan:</strong><br>📌 Deret tribolistrik: wol → plastik (elektron mengalir dari wol ke plastik)<br>📌 Plastik kelebihan elektron → bermuatan negatif", contoh:"📖 <strong>Contoh:</strong> Penggaris plastik digosok rambut kering → negatif", trik:"⚡ TRIK: Wol ke plastik = plastik negatif" }
 ];
 
 // ==================== STORAGE ====================
 let userAnswers = {}, answerStatus = {}, lastScore = 0;
 
 function load() {
-    try { userAnswers  = JSON.parse(localStorage.getItem('ipa_uter_ans') || '{}'); } catch { userAnswers = {}; }
-    try { answerStatus = JSON.parse(localStorage.getItem('ipa_uter_sts') || '{}'); } catch { answerStatus = {}; }
+    try { userAnswers  = JSON.parse(localStorage.getItem('ipa_uter_ans_new') || '{}'); } catch { userAnswers = {}; }
+    try { answerStatus = JSON.parse(localStorage.getItem('ipa_uter_sts_new') || '{}'); } catch { answerStatus = {}; }
     for (let i = 1; i <= 45; i++) {
         if (userAnswers[i]  === undefined) userAnswers[i]  = '';
         if (answerStatus[i] === undefined) answerStatus[i] = false;
     }
 }
 function save() {
-    localStorage.setItem('ipa_uter_ans', JSON.stringify(userAnswers));
-    localStorage.setItem('ipa_uter_sts', JSON.stringify(answerStatus));
+    localStorage.setItem('ipa_uter_ans_new', JSON.stringify(userAnswers));
+    localStorage.setItem('ipa_uter_sts_new', JSON.stringify(answerStatus));
 }
 
-// ==================== NORMALIZE ====================
 function normalize(val, q) {
     let s = val.trim().toLowerCase().replace(/\s+/g, ' ').trim();
     let n = parseFloat(s.replace(',', '.'));
-    if (q.type === 'desimal' && !isNaN(n)) {
-        let r = parseFloat(n.toFixed(2));
-        return r.toString();
-    }
+    if (q.type === 'desimal' && !isNaN(n)) return parseFloat(n.toFixed(2)).toString();
     if (q.type === 'bulat' && !isNaN(n)) return Math.round(n).toString();
     return s.replace(/\s/g, '');
 }
 
-// ==================== SCORE ====================
 function score() { let c = 0; for (let i = 1; i <= 45; i++) if (answerStatus[i]) c++; return c; }
 function updateScore() {
     const el = document.getElementById('scoreDisplay');
     if (el) el.textContent = '🏆 SKOR: ' + score() + ' / 45';
 }
 
-// ==================== EVALUATE ====================
 function evaluateQuestion(id) {
     const q = questions.find(qq => qq.id === id);
     if (!q) return;
@@ -549,7 +563,6 @@ function showPembahasan(id) {
 window.evaluateQuestion = evaluateQuestion;
 window.showPembahasan   = showPembahasan;
 
-// ==================== RENDER ====================
 function diffTag(d) {
     if (d === 'Mudah') return '<span class="tag tag-easy">🌟 Mudah</span>';
     if (d === 'Sedang') return '<span class="tag tag-med">⚡ Sedang</span>';
@@ -672,17 +685,12 @@ document.getElementById('resetBtn')?.addEventListener('click', () => {
 });
 document.getElementById('scrollTop')?.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
 
-// ===== SPLASH =====
 window.addEventListener('load', () => {
     setTimeout(() => {
         const s = document.getElementById('splash');
         if (s) { s.classList.add('splash-out'); setTimeout(() => s.remove(), 700); }
-
         const toast = document.getElementById('toast');
-        if (toast) {
-            toast.style.opacity = '1';
-            setTimeout(() => { toast.style.opacity = '0'; }, 2400);
-        }
+        if (toast) { toast.style.opacity = '1'; setTimeout(() => { toast.style.opacity = '0'; }, 2400); }
     }, 2200);
 });
 </script>
