@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>📚 E-BOOK IPA UTER | Lengkap + Rumus Cepat + Trik Kilat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #03010a;
+            --surface: rgba(13,27,75,0.45);
+            --surface-raised: rgba(16,32,85,0.6);
+            --border: rgba(74,158,255,0.15);
+            --border-hover: rgba(74,158,255,0.35);
+            --blue: #4a9eff;
+            --cyan: #00d4ff;
+            --violet: #9b59ff;
+            --green: #10d48e;
+            --amber: #f59e0b;
+            --text: #e8f0ff;
+            --text-muted: rgba(184,200,240,0.7);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.55) 0%, transparent 100%),
+                radial-gradient(1px 1px at 30% 5%,  rgba(74,158,255,0.7)  0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 20%, rgba(255,255,255,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 8%,  rgba(200,180,255,0.6) 0%, transparent 100%),
+                radial-gradient(ellipse at 20% 0%,  rgba(74,158,255,0.07)  0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%,rgba(155,89,255,0.06) 0%, transparent 50%),
+                linear-gradient(145deg, #060318 0%, #03010a 100%);
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(6,3,24,0.85);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(74,158,255,0.2);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo i { color: var(--cyan); margin-right: 8px; }
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .nav-links a:hover { color: var(--cyan); }
+        .mobile-menu { display: none; font-size: 1.4rem; color: var(--cyan); cursor: pointer; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, rgba(13,27,75,0.6), rgba(26,13,59,0.5));
+            padding: 2rem 1.5rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(74,158,255,0.2);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text), var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p { max-width: 900px; margin: 0.5rem auto; font-size: 0.8rem; color: var(--text-muted); }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 1.5rem 2rem; }
+
+        /* Filter Panel */
+        .filter-panel {
+            background: rgba(6,3,24,0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 1.2rem;
+            border: 1px solid rgba(74,158,255,0.15);
+            margin-bottom: 1.5rem;
+        }
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(74,158,255,0.2);
+            border-radius: 60px;
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+        }
+        #searchInput:focus {
+            border-color: var(--cyan);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .filter-btn {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(74,158,255,0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .filter-btn i { margin-right: 5px; }
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, rgba(74,158,255,0.2), rgba(0,212,255,0.1));
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-1px);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+            gap: 1.2rem;
+        }
+        .card {
+            background: rgba(13,27,75,0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74,158,255,0.12);
+            border-radius: 24px;
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(74,158,255,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -12px rgba(0,0,0,0.4);
+        }
+        .card-category {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.7rem;
+            background: rgba(74,158,255,0.12);
+            color: var(--cyan);
+            letter-spacing: 0.05em;
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .card-desc {
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 0.8rem;
+            font-size: 0.75rem;
+        }
+        .highlight-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 0.7rem;
+            margin-top: 0.7rem;
+            border: 1px solid rgba(74,158,255,0.1);
+        }
+        .label-mini {
+            font-weight: 700;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .rumus-box {
+            background: linear-gradient(135deg, rgba(74,158,255,0.1), rgba(0,212,255,0.05));
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            color: var(--cyan);
+            margin: 6px 0;
+        }
+        .trik-box {
+            background: rgba(245,158,11,0.1);
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            font-size: 0.7rem;
+            border-left: 3px solid var(--amber);
+            margin-top: 6px;
+            color: #fcd34d;
+        }
+        .contoh-text {
+            background: rgba(16,212,142,0.08);
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            font-size: 0.75rem;
+            border-left: 3px solid var(--green);
+            line-height: 1.45;
+            color: #86efac;
+        }
+        .empty-msg {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(13,27,75,0.4);
+            border-radius: 24px;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background: rgba(6,3,24,0.9);
+            text-align: center;
+            padding: 1.2rem;
+            margin-top: 2rem;
+            font-size: 0.65rem;
+            border-top: 1px solid rgba(74,158,255,0.1);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 1.3rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 1rem 1.5rem; }
+            .filter-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container">
+        <div class="logo"><i class="fas fa-flask"></i> IPA UTER PREMIUM</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+            <li><a href="#" onclick="filterByCategory('semua'); return false;"><i class="fas fa-star"></i> Semua</a></li>
+            <li><a href="#" onclick="filterByCategory('trik'); return false;"><i class="fas fa-bolt"></i> Trik Kilat</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container" style="padding: 0 1rem;">
+        <h1><i class="fas fa-dna"></i> E-Book IPA UTER Super Lengkap <i class="fas fa-atom"></i></h1>
+        <p>📚 Besaran & Pengukuran | Sistem Gerak | Usaha & Energi | Pencernaan | Reproduksi | Bioteknologi | Pewarisan Sifat | Peredaran Darah | Tekanan Zat | Listrik Statis</p>
+        <p style="font-size: 0.7rem; margin-top: 6px;">✨ Rumus Cepat + Trik Kilat + Contoh Soal + Pembahasan ✨</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="filter-panel">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="🔍 Cari materi: tekanan, gaya, energi, genetika, pencernaan...">
+        </div>
+        <div class="filter-buttons" id="filterButtons">
+            <button class="filter-btn active" data-filter="semua"><i class="fas fa-th-large"></i> Semua</button>
+            <button class="filter-btn" data-filter="besaran">📏 Besaran & Pengukuran</button>
+            <button class="filter-btn" data-filter="gerak">🦴 Sistem Gerak</button>
+            <button class="filter-btn" data-filter="usaha">⚡ Usaha & Energi</button>
+            <button class="filter-btn" data-filter="pencernaan">🍽️ Pencernaan</button>
+            <button class="filter-btn" data-filter="reproduksi">👶 Reproduksi</button>
+            <button class="filter-btn" data-filter="biotek">🧬 Bioteknologi</button>
+            <button class="filter-btn" data-filter="genetika">🧬 Pewarisan Sifat</button>
+            <button class="filter-btn" data-filter="darah">🩸 Peredaran Darah</button>
+            <button class="filter-btn" data-filter="tekanan">⚙️ Tekanan Zat</button>
+            <button class="filter-btn" data-filter="listrik">⚡ Listrik Statis</button>
+            <button class="filter-btn" data-filter="trik"><i class="fas fa-bolt"></i> Trik Kilat</button>
+        </div>
+    </div>
+    <div id="cardsContainer" class="cards-grid"></div>
+</div>
+
+<footer>
+    <p>© 2025 E-BOOK IPA UTER | Lengkap Semua Materi + Rumus Cepat + Trik Kilat | Persiapan Ujian & OSN</p>
+    <p style="margin-top: 6px;">📖 Besaran | Tekanan | Energi | Genetika | Bioteknologi | Sistem Tubuh | Listrik Statis</p>
+</footer>
+
+<script>
+    // ======================== DATABASE SUPER LENGKAP ========================
+    const materiDatabase = [
+        // ==================== BESARAN, SATUAN, PENGUKURAN ====================
+        { judul: "Besaran Pokok (7 Besaran Dasar)", kategori: "besaran", desc: "Besaran yang satuannya telah ditetapkan terlebih dahulu.", rumus: "1. Panjang (m), 2. Massa (kg), 3. Waktu (s), 4. Suhu (K), 5. Kuat Arus (A), 6. Intensitas Cahaya (cd), 7. Jumlah Zat (mol)", contoh: "📌 Contoh: massa = 5 kg, panjang = 2 m, waktu = 10 s", trik: "⚡ TRIK KILAT: Ingat singkatan: P-M-W-S-K-I-J (Panjang, Massa, Waktu, Suhu, Kuat arus, Intensitas, Jumlah zat)" },
+        { judul: "Besaran Turunan", kategori: "besaran", desc: "Besaran yang diturunkan dari besaran pokok.", rumus: "Luas = panjang × lebar (m²), Volume = p × l × t (m³), Kecepatan = jarak/waktu (m/s), Gaya = massa × percepatan (N)", contoh: "📌 Kecepatan = m/s, Percepatan = m/s², Gaya = kg·m/s² (Newton)", trik: "⚡ TRIK KILAT: Besaran turunan = gabungan besaran pokok!" },
+        { judul: "Jangka Sorong - Cara Baca", kategori: "besaran", desc: "Alat ukur panjang dengan ketelitian 0,01 cm atau 0,1 mm.", rumus: "Hasil = SU + (SN × ketelitian)", contoh: "📌 SU = 2,3 cm, SN = 4, ketelitian 0,01 → 2,3 + (4×0,01) = 2,34 cm", trik: "⚡ TRIK KILAT: SU = skala utama (cm), SN = skala nonius (garis yang segaris), ketelitian = 0,01 cm" },
+        { judul: "Mikrometer Sekrup", kategori: "besaran", desc: "Alat ukur panjang dengan ketelitian 0,01 mm.", rumus: "Hasil = SU + (SN × 0,01)", contoh: "📌 SU = 4,5 mm, SN = 28 → 4,5 + (28×0,01) = 4,78 mm", trik: "⚡ TRIK KILAT: Skala utama (mm) + skala nonius × 0,01" },
+        { judul: "Metode Ilmiah - Langkah-langkah", kategori: "besaran", desc: "Urutan langkah dalam penelitian ilmiah.", rumus: "Observasi → Rumusan Masalah → Hipotesis → Eksperimen → Analisis → Kesimpulan", contoh: "📌 Contoh: Penelitian pengaruh pupuk terhadap pertumbuhan tanaman", trik: "⚡ TRIK KILAT: O-R-H-E-A-K (Observasi, Rumusan, Hipotesis, Eksperimen, Analisis, Kesimpulan)" },
+        { judul: "Jenis-jenis Variabel Penelitian", kategori: "besaran", desc: "Variabel dalam penelitian ilmiah.", rumus: "1. Variabel Bebas (manipulasi), 2. Variabel Terikat (hasil), 3. Variabel Kontrol (tetap)", contoh: "📌 Penelitian pupuk: bebas = jenis pupuk, terikat = tinggi tanaman, kontrol = jenis tanah, air", trik: "⚡ TRIK KILAT: Bebas = penyebab, Terikat = akibat, Kontrol = dikendalikan" },
+
+        // ==================== SISTEM GERAK MANUSIA ====================
+        { judul: "Nama & Bentuk Tulang (Rangka Aksial)", kategori: "gerak", desc: "Tulang penyusun sumbu tubuh.", rumus: "Tengkorak, Tulang belakang, Tulang dada, Tulang rusuk", contoh: "📌 Tulang tengkorak (melindungi otak), tulang belakang (penyangga tubuh)", trik: "⚡ TRIK KILAT: Aksial = sumbu (kepala, leher, badan)" },
+        { judul: "Tulang Apendikular (Anggota Gerak)", kategori: "gerak", desc: "Tulang anggota gerak atas dan bawah.", rumus: "Atas: humerus (lengan atas), radius (pengumpil), ulna (hasta). Bawah: femur (paha), tibia (betis), fibula (kering)", contoh: "📌 Tulang hasta dan pengumpil di lengan bawah", trik: "⚡ TRIK KILAT: Apendikular = alat gerak (tangan dan kaki)" },
+        { judul: "Jenis-jenis Otot", kategori: "gerak", desc: "Karakteristik otot rangka, polos, dan jantung.", rumus: "Otot rangka (lurik, volunter/sadar), Otot polos (polos, involunter), Otot jantung (lurik, involunter)", contoh: "📌 Otot rangka: lengan, paha. Otot polos: usus, lambung. Otot jantung: dinding jantung", trik: "⚡ TRIK KILAT: Rangka = sadar, Polos = tak sadar, Jantung = lurik tak sadar" },
+        { judul: "Sendi Berdasarkan Gerak", kategori: "gerak", desc: "Klasifikasi sendi berdasarkan kebebasan gerak.", rumus: "Sinartrosis (mati/tidak bisa gerak), Amfiartrosis (kaku/gerak terbatas), Diartrosis (bebas/gerak bebas)", contoh: "📌 Sinartrosis: tengkorak, Amfiartrosis: ruas tulang belakang, Diartrosis: lutut, siku", trik: "⚡ TRIK KILAT: Mati (tengkorak) - Kaku (belakang) - Bebas (lutut)" },
+        { judul: "Jenis Sendi Diartrosis", kategori: "gerak", desc: "Sendi gerak bebas dan jenis-jenisnya.", rumus: "Engsel (satu arah), Pelana (dua arah), Peluru (segala arah), Putar (rotasi), Geser (meluncur)", contoh: "📌 Engsel: siku, lutut; Peluru: bahu, pinggul; Putar: leher", trik: "⚡ TRIK KILAT: ENGSEL = pintu, PELURU = bebas, PUTAR = gelang" },
+
+        // ==================== USAHA, ENERGI, PESAWAT SEDERHANA ====================
+        { judul: "Usaha (Work)", kategori: "usaha", desc: "Gaya yang bekerja pada benda hingga berpindah.", rumus: "W = F × s (Joule)", contoh: "📌 Gaya 20 N, perpindahan 5 m → W = 20 × 5 = 100 J", trik: "⚡ TRIK KILAT: Usaha = gaya × jarak (searah)" },
+        { judul: "Daya (Power)", kategori: "usaha", desc: "Laju usaha atau energi per satuan waktu.", rumus: "P = W / t = F × v (watt)", contoh: "📌 Usaha 600 J dalam 2 menit (120 s) → P = 600/120 = 5 watt", trik: "⚡ TRIK KILAT: Daya = usaha ÷ waktu (dalam detik)" },
+        { judul: "Energi Potensial Gravitasi", kategori: "usaha", desc: "Energi yang tersimpan karena ketinggian.", rumus: "Ep = m × g × h (Joule)", contoh: "📌 m=2 kg, h=10 m, g=10 → Ep = 2×10×10 = 200 J", trik: "⚡ TRIK KILAT: Ep = m g h (massa × gravitasi × tinggi)" },
+        { judul: "Energi Kinetik", kategori: "usaha", desc: "Energi karena gerakan benda.", rumus: "Ek = ½ × m × v² (Joule)", contoh: "📌 m=1000 kg, v=20 m/s → Ek = ½ × 1000 × 400 = 200.000 J = 200 kJ", trik: "⚡ TRIK KILAT: Ek = setengah × massa × kecepatan kuadrat" },
+        { judul: "Energi Mekanik & Hukum Kekekalan", kategori: "usaha", desc: "Jumlah energi potensial dan kinetik tetap jika tidak ada gaya luar.", rumus: "Em = Ep + Ek = tetap", contoh: "📌 Bola dilempar ke atas: di titik tertinggi Ep max, Ek = 0. Di titik terendah sebaliknya", trik: "⚡ TRIK KILAT: Em awal = Em akhir (kekal!)" },
+        { judul: "Tuas (Pengungkit)", kategori: "usaha", desc: "Pesawat sederhana dengan titik tumpu.", rumus: "w × Lb = F × Lk, KM = Lk/Lb = w/F", contoh: "📌 Lb=0,5 m, Lk=2 m, w=200 N → F = 50 N", trik: "⚡ TRIK KILAT: KM = keuntungan mekanis = Lk ÷ Lb" },
+        { judul: "Katrol", kategori: "usaha", desc: "Katrol tetap, bergerak, majemuk.", rumus: "Katrol tetap: KM = 1, Katrol bergerak: KM = 2, Katrol majemuk: KM = jumlah tali", contoh: "📌 Katrol majemuk KM=4, beban 800 N → F = 800/4 = 200 N", trik: "⚡ TRIK KILAT: KM katrol = jumlah tali yang menopang beban" },
+        { judul: "Bidang Miring", kategori: "usaha", desc: "Mempermudah menaikkan benda ke ketinggian.", rumus: "w × h = F × s, KM = s/h = w/F", contoh: "📌 s=5 m, h=2 m, w=400 N → F = 400×2÷5 = 160 N", trik: "⚡ TRIK KILAT: KM bidang miring = panjang ÷ tinggi" },
+        { judul: "Energi Terbarukan", kategori: "usaha", desc: "Sumber energi yang dapat diperbaharui.", rumus: "Matahari, angin, air, panas bumi, biomassa, gelombang laut", contoh: "📌 Panel surya (matahari), kincir angin (angin), PLTA (air)", trik: "⚡ TRIK KILAT: MAAB-PA (Matahari, Angin, Air, Biomassa, Panas bumi, Arus laut)" },
+
+        // ==================== SISTEM PENCERNAAN ====================
+        { judul: "Nutrisi & Sumbernya", kategori: "pencernaan", desc: "Karbohidrat, protein, lemak, vitamin, mineral.", rumus: "Karbo: energi utama (nasi, roti). Protein: pembangun (telur, tahu). Lemak: cadangan energi (minyak, mentega)", contoh: "📌 Karbohidrat 4 kkal/g, Lemak 9 kkal/g, Protein 4 kkal/g", trik: "⚡ TRIK KILAT: Karbo = cepat saji (energi), Lemak = tabungan, Protein = bata" },
+        { judul: "Uji Makanan (Reagen)", kategori: "pencernaan", desc: "Uji zat makanan dengan reagen khusus.", rumus: "Lugol (amilum → biru kehitaman), Benedict (glukosa → merah bata), Biuret (protein → ungu)", contoh: "📌 Nasi + lugol → biru kehitaman (positif amilum)", trik: "⚡ TRIK KILAT: Lugol = biru (L = biru), Biuret = ungu (B = ungu), Benedict = merah (B = merah)" },
+        { judul: "Organ Pencernaan & Fungsinya", kategori: "pencernaan", desc: "Mulut, kerongkongan, lambung, usus halus, usus besar.", rumus: "Mulut: pencernaan mekanik & kimiawi (amilase). Lambung: pepsin (protein). Usus halus: penyerapan sari makanan", contoh: "📌 Vili (jonjot) di usus halus menyerap sari makanan", trik: "⚡ TRIK KILAT: Mulut = hancur & amilum, Lambung = protein, Usus = serap" },
+        { judul: "Enzim Pencernaan", kategori: "pencernaan", desc: "Enzim dan fungsinya dalam pencernaan.", rumus: "Amilase (amilum → maltosa), Pepsin (protein → pepton), Tripsin (pepton → asam amino)", contoh: "📌 Pepsin bekerja di lambung dalam suasana asam", trik: "⚡ TRIK KILAT: A = amilum (mulut), P = protein (lambung)" },
+        { judul: "Kelainan Sistem Pencernaan", kategori: "pencernaan", desc: "Penyakit/gangguan pada sistem pencernaan.", rumus: "Apendisitis (usus buntu), Ulkus (lambung/luka), Diare, Gastritis", contoh: "📌 Apendisitis = radang usus buntu → operasi", trik: "⚡ TRIK KILAT: Apendisitis = apendiks (usus buntu)" },
+
+        // ==================== SISTEM REPRODUKSI ====================
+        { judul: "Organ Reproduksi Pria", kategori: "reproduksi", desc: "Testis, epididimis, vas deferens, penis, skrotum.", rumus: "Testis: sperma & testosteron. Epididimis: pematangan sperma", contoh: "📌 Testis menghasilkan sperma dan hormon testosteron", trik: "⚡ TRIK KILAT: Testis = pabrik sperma, Epididimis = tempat parkir" },
+        { judul: "Organ Reproduksi Wanita", kategori: "reproduksi", desc: "Ovarium, tuba fallopi, uterus, vagina.", rumus: "Ovarium: ovum & hormon. Tuba fallopi: tempat fertilisasi. Uterus: tempat janin", contoh: "📌 Ovulasi: pelepasan ovum dari ovarium sekitar hari ke-14", trik: "⚡ TRIK KILAT: Ovarium = pabrik telur, Tuba = jalan bertemu, Uterus = rumah janin" },
+        { judul: "Fertilisasi & Kehamilan", kategori: "reproduksi", desc: "Pertemuan sperma dan ovum.", rumus: "Fertilisasi di tuba fallopi, implantasi di uterus", contoh: "📌 Zigot hasil fertilisasi membelah menjadi embrio", trik: "⚡ TRIK KILAT: Fertilisasi = pertemuan, Implantasi = menempel" },
+        { judul: "Menstruasi & Siklus", kategori: "reproduksi", desc: "Siklus bulanan pada wanita.", rumus: "Hari 1-5: menstruasi, Hari 6-14: proliferasi, Hari 14: ovulasi, Hari 15-28: sekresi", contoh: "📌 Ovulasi terjadi sekitar hari ke-14 dalam siklus 28 hari", trik: "⚡ TRIK KILAT: 1-5 (keluar), 14 (lepas), 15-28 (siap)" },
+
+        // ==================== BIOTEKNOLOGI ====================
+        { judul: "Bioteknologi Konvensional", kategori: "biotek", desc: "Penggunaan mikroorganisme secara langsung.", rumus: "Tempe (Rhizopus), Tape (Saccharomyces), Yogurt (Lactobacillus), Roti (ragi)", contoh: "📌 Tempe dibuat dengan jamur Rhizopus oligosporus", trik: "⚡ TRIK KILAT: Tempe = jamur, Tape = ragi, Yogurt = bakteri" },
+        { judul: "Bioteknologi Modern", kategori: "biotek", desc: "Rekayasa genetika (DNA rekombinan).", rumus: "Insulin (E.coli), Vaksin, Antibodi monoklonal, Tanaman transgenik", contoh: "📌 Insulin manusia diproduksi oleh bakteri E.coli hasil rekayasa genetika", trik: "⚡ TRIK KILAT: Modern = DNA (rekayasa genetika)" },
+        { judul: "Mikroorganisme dalam Bioteknologi", kategori: "biotek", desc: "Mikroba dan produknya.", rumus: "Rhizopus: tempe, Saccharomyces: tape/roti, Lactobacillus: yogurt, Acetobacter: cuka", contoh: "📌 Acetobacter menghasilkan asam cuka dari alkohol", trik: "⚡ TRIK KILAT: R = tempe, S = roti, L = yogurt, A = cuka" },
+
+        // ==================== PEWARISAN SIFAT (GENETIKA) ====================
+        { judul: "Kromosom, Gen, DNA", kategori: "genetika", desc: "Struktur pembawa sifat keturunan.", rumus: "DNA → Gen → Kromosom", contoh: "📌 DNA adalah materi genetik, gen adalah unit pewarisan sifat, kromosom pembawa gen", trik: "⚡ TRIK KILAT: DNA (bahan), Gen (kode), Kromosom (kotak)" },
+        { judul: "Persilangan Monohibrid", kategori: "genetika", desc: "Persilangan satu sifat beda.", rumus: "Perbandingan genotip F2 = 1:2:1, fenotip = 3:1", contoh: "📌 Bb × Bb → BB, Bb, Bb, bb → fenotip 3 bulat : 1 keriput", trik: "⚡ TRIK KILAT: Monohibrid = 3:1" },
+        { judul: "Persilangan Dihibrid", kategori: "genetika", desc: "Persilangan dua sifat beda.", rumus: "Perbandingan fenotip F2 = 9:3:3:1", contoh: "📌 BbKk × BbKk → 9 bulat kuning : 3 bulat hijau : 3 keriput kuning : 1 keriput hijau", trik: "⚡ TRIK KILAT: Dihibrid = 9:3:3:1" },
+        { judul: "Kelainan Pewarisan Sifat", kategori: "genetika", desc: "Buta warna, hemofilia, albino, sindrom down.", rumus: "Buta warna & hemofilia = terpaut kromosom X resesif", contoh: "📌 Laki-laki buta warna (XᵇY), wanita carrier (XᴺXᵇ)", trik: "⚡ TRIK KILAT: Buta warna & hemofilia = laki-laki lebih sering (kromosom X)" },
+
+        // ==================== SISTEM PEREDARAN DARAH ====================
+        { judul: "Jantung (Bagian & Fungsi)", kategori: "darah", desc: "Struktur jantung manusia.", rumus: "Serambi kanan (darah kotor CO₂), Bilik kanan (ke paru), Serambi kiri (darah bersih), Bilik kiri (ke tubuh)", contoh: "📌 Darah dari seluruh tubuh masuk serambi kanan", trik: "⚡ TRIK KILAT: Kanan = kotor (CO₂), Kiri = bersih (O₂)" },
+        { judul: "Pembuluh Darah", kategori: "darah", desc: "Arteri, vena, kapiler.", rumus: "Arteri: tebal, keluar jantung. Vena: tipis, masuk jantung. Kapiler: satu lapis, pertukaran zat", contoh: "📌 Aorta = arteri terbesar", trik: "⚡ TRIK KILAT: Arteri = keluar (Anak keluar), Vena = masuk (Istri masuk rumah)" },
+        { judul: "Sel-sel Darah", kategori: "darah", desc: "Eritrosit, leukosit, trombosit.", rumus: "Eritrosit: mengangkut O₂, Leukosit: kekebalan, Trombosit: pembekuan darah", contoh: "📌 Trombositopenia = kekurangan trombosit → pendarahan", trik: "⚡ TRIK KILAT: E = merah (Eritrosit), L = putih (Leukosit), T = pembekuan (Trombosit)" },
+        { judul: "Golongan Darah", kategori: "darah", desc: "Sistem ABO dan Rhesus.", rumus: "A (antigen A), B (antigen B), AB (A & B), O (tidak punya)", contoh: "📌 Golongan O donor universal, AB resipien universal", trik: "⚡ TRIK KILAT: O = donor untuk semua, AB = bisa terima semua" },
+
+        // ==================== TEKANAN ZAT ====================
+        { judul: "Tekanan Zat Padat", kategori: "tekanan", desc: "Gaya per satuan luas.", rumus: "P = F / A (Pascal atau N/m²)", contoh: "📌 F=600 N, A=0,5 m² → P = 600/0,5 = 1.200 Pa", trik: "⚡ TRIK KILAT: P = F ÷ A (tekanan = gaya ÷ luas)" },
+        { judul: "Tekanan Hidrostatis", kategori: "tekanan", desc: "Tekanan dalam zat cair karena kedalaman.", rumus: "Ph = ρ × g × h (Pascal)", contoh: "📌 ρ=1000 kg/m³, g=10, h=10 m → Ph = 1000×10×10 = 100.000 Pa", trik: "⚡ TRIK KILAT: Ph = ρ × g × h (rho × gravitasi × kedalaman)" },
+        { judul: "Hukum Pascal", kategori: "tekanan", desc: "Tekanan zat cair dalam ruang tertutup diteruskan ke segala arah.", rumus: "P₁ = P₂ → F₁/A₁ = F₂/A₂", contoh: "📌 Dongkrak hidrolik, rem hidrolik, pompa hidrolik", trik: "⚡ TRIK KILAT: Pascal = dongkrak hidrolik" },
+        { judul: "Tekanan Udara (Atmosfer)", kategori: "tekanan", desc: "Tekanan yang diberikan atmosfer.", rumus: "1 atm = 76 cmHg = 101.325 Pa", contoh: "📌 Alat suntik bekerja karena tekanan atmosfer", trik: "⚡ TRIK KILAT: 1 atm = 76 cmHg = 101 kPa" },
+
+        // ==================== LISTRIK STATIS ====================
+        { judul: "Muatan Listrik", kategori: "listrik", desc: "Sifat listrik pada benda.", rumus: "Positif (kekurangan elektron), Negatif (kelebihan elektron)", contoh: "📌 Kaca digosok sutra → positif (melepas elektron), plastik digosok wol → negatif (menerima elektron)", trik: "⚡ TRIK KILAT: kelebihan e = negatif, kekurangan e = positif" },
+        { judul: "Gaya Coulomb", kategori: "listrik", desc: "Gaya antara dua muatan listrik.", rumus: "F = k × q₁ × q₂ / r²", contoh: "📌 q₁=4μC, q₂=9μC, r=2cm → F = 9×10⁹ × 36×10⁻¹² / 4×10⁻⁴ = 810 N", trik: "⚡ TRIK KILAT: F sebanding q₁×q₂, berbanding terbalik r²" },
+        { judul: "Deret Tribolistrik", kategori: "listrik", desc: "Urutan benda saat digosok menghasilkan muatan.", rumus: "Kaca → Wol → Sutra → Plastik (makin ke kanan cenderung negatif)", contoh: "📌 Kaca digosok wol → positif, plastik digosok wol → negatif", trik: "⚡ TRIK KILAT: Kaca (+) → Plastik (-)" },
+        { judul: "Elektroskop", kategori: "listrik", desc: "Alat pendeteksi muatan listrik.", rumus: "Jika bermuatan sama → daun membuka lebih lebar, jika berbeda → daun menutup", contoh: "📌 Elektroskop digunakan untuk mengetahui jenis muatan listrik", trik: "⚡ TRIK KILAT: Elektroskop = detektor muatan" },
+
+        // ==================== TRIK KILAT ====================
+        { judul: "⚡ TRIK: Hafal 7 Besaran Pokok", kategori: "trik", desc: "Cara mudah menghafal 7 besaran pokok.", rumus: "Paman Makan Wortel Setelah Kekenyangan Istirahat Jangan", contoh: "📌 P = panjang, M = massa, W = waktu, S = suhu, K = kuat arus, I = intensitas cahaya, J = jumlah zat", trik: "🔥 SUPER TRIK: P-M-W-S-K-I-J" },
+        { judul: "⚡ TRIK: Rumus Tekanan", kategori: "trik", desc: "Cara cepat mengingat rumus tekanan.", rumus: "P = F/A (Pakaian = F/A → Pakaian diFana Akhirat)", contoh: "📌 P = tekanan (Pa), F = gaya (N), A = luas (m²)", trik: "🔥 SUPER TRIK: Pakaian = F/A (P = F/A)" },
+        { judul: "⚡ TRIK: Rumus Gaya Coulomb", kategori: "trik", desc: "Mudah mengingat rumus Coulomb.", rumus: "F = k.q₁.q₂ / r² (Foya kena Q satu Q dua bagi R dua)", contoh: "📌 F = gaya (N), k = 9×10⁹, q = muatan (C), r = jarak (m)", trik: "🔥 SUPER TRIK: F = k.q₁.q₂ / r²" },
+        { judul: "⚡ TRIK: Sendi Engsel, Peluru, Putar", kategori: "trik", desc: "Membedakan jenis sendi dengan mudah.", rumus: "Engsel (pintu), Peluru (bebas), Putar (gelang)", contoh: "📌 Engsel: siku, lutut. Peluru: bahu, pinggul. Putar: leher", trik: "🔥 SUPER TRIK: Engsel = 1 arah, Peluru = bebas, Putar = rotasi" }
+    ];
+
+    const fullData = [...materiDatabase];
+    let activeFilter = "semua";
+    let searchTerm = "";
+
+    function renderCards() {
+        const container = document.getElementById("cardsContainer");
+        let filtered = fullData.filter(item => {
+            if (activeFilter !== "semua" && item.kategori !== activeFilter) return false;
+            if (searchTerm.trim() !== "") {
+                const term = searchTerm.toLowerCase();
+                return item.judul.toLowerCase().includes(term) || 
+                       item.desc.toLowerCase().includes(term) ||
+                       (item.rumus && item.rumus.toLowerCase().includes(term)) ||
+                       (item.contoh && item.contoh.toLowerCase().includes(term)) ||
+                       (item.trik && item.trik.toLowerCase().includes(term));
+            }
+            return true;
+        });
+
+        if (filtered.length === 0) {
+            container.innerHTML = `<div class="empty-msg"><i class="fas fa-microscope" style="font-size: 2rem; opacity: 0.5;"></i><h3 style="margin-top: 10px;">Tidak ditemukan materi</h3><p>Coba cari: tekanan, gaya, energi, genetika, pencernaan</p></div>`;
+            return;
+        }
+
+        container.innerHTML = filtered.map(item => {
+            let categoryLabel = "";
+            let categoryColor = "#00d4ff";
+            let categoryBg = "rgba(0,212,255,0.1)";
+            
+            const catMap = {
+                besaran: { label: "📏 Besaran", color: "#4a9eff", bg: "rgba(74,158,255,0.12)" },
+                gerak: { label: "🦴 Sistem Gerak", color: "#4a9eff", bg: "rgba(74,158,255,0.12)" },
+                usaha: { label: "⚡ Usaha & Energi", color: "#4a9eff", bg: "rgba(74,158,255,0.12)" },
+                pencernaan: { label: "🍽️ Pencernaan", color: "#10d48e", bg: "rgba(16,212,142,0.1)" },
+                reproduksi: { label: "👶 Reproduksi", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
+                biotek: { label: "🧬 Bioteknologi", color: "#9b59ff", bg: "rgba(155,89,255,0.1)" },
+                genetika: { label: "🧬 Genetika", color: "#9b59ff", bg: "rgba(155,89,255,0.1)" },
+                darah: { label: "🩸 Peredaran Darah", color: "#ef4444", bg: "rgba(239,68,68,0.1)" },
+                tekanan: { label: "⚙️ Tekanan Zat", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
+                listrik: { label: "⚡ Listrik Statis", color: "#00d4ff", bg: "rgba(0,212,255,0.1)" },
+                trik: { label: "💡 Trik Kilat", color: "#fcd34d", bg: "rgba(253,224,71,0.1)" }
+            };
+            const info = catMap[item.kategori] || { label: "📘 Materi", color: "#00d4ff", bg: "rgba(0,212,255,0.1)" };
+            categoryLabel = info.label;
+            categoryColor = info.color;
+            categoryBg = info.bg;
+
+            let rumusHtml = "";
+            if (item.rumus) {
+                rumusHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-square-root-alt"></i> RUMUS CEPAT</div><div class="rumus-box">${escapeHtml(item.rumus)}</div></div>`;
+            }
+            let contohHtml = "";
+            if (item.contoh) {
+                contohHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-quote-left"></i> CONTOH SOAL</div><div class="contoh-text">${escapeHtml(item.contoh)}</div></div>`;
+            }
+            let trikHtml = "";
+            if (item.trik) {
+                trikHtml = `<div class="trik-box"><i class="fas fa-bolt" style="color: #f59e0b;"></i> ${escapeHtml(item.trik)}</div>`;
+            }
+            return `
+                <div class="card" style="border-left: 3px solid ${categoryColor};">
+                    <div class="card-category" style="background: ${categoryBg}; color: ${categoryColor};">${categoryLabel}</div>
+                    <h3>${escapeHtml(item.judul)}</h3>
+                    <div class="card-desc">${escapeHtml(item.desc)}</div>
+                    ${rumusHtml}
+                    ${contohHtml}
+                    ${trikHtml}
+                </div>
+            `;
+        }).join("");
+    }
+
+    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
+
+    function filterByCategory(cat) {
+        activeFilter = cat;
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            const btnCat = btn.getAttribute("data-filter");
+            if ((cat === "semua" && btnCat === "semua") || (btnCat === cat)) {
+                btn.classList.add("active");
+            } else {
+                btn.classList.remove("active");
+            }
+        });
+        renderCards();
+    }
+
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value;
+        renderCards();
+    });
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const filterVal = btn.getAttribute("data-filter");
+            filterByCategory(filterVal);
+        });
+    });
+
+    const mobileBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.querySelector(".nav-links");
+    if(mobileBtn){
+        mobileBtn.addEventListener("click", () => {
+            if(navLinks.style.display === "flex") navLinks.style.display = "none";
+            else navLinks.style.display = "flex";
+        });
+    }
+
+    window.filterByCategory = filterByCategory;
+    renderCards();
+</script>
+</body>
+</html>
