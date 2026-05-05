@@ -3,276 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>📚 E-BOOK IPA UTER | Lengkap + Rumus Cepat + Trik Kilat</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>📚 E-BOOK IPA SMP | Lengkap Semua Materi + Rumus + Trik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg: #03010a;
-            --surface: rgba(13,27,75,0.45);
-            --surface-raised: rgba(16,32,85,0.6);
-            --border: rgba(74,158,255,0.15);
-            --border-hover: rgba(74,158,255,0.35);
-            --blue: #4a9eff;
-            --cyan: #00d4ff;
-            --violet: #9b59ff;
-            --green: #10d48e;
-            --amber: #f59e0b;
-            --text: #e8f0ff;
-            --text-muted: rgba(184,200,240,0.7);
+            --bg-primary: #0a0e27;
+            --bg-secondary: rgba(20,35,80,0.5);
+            --bg-tertiary: rgba(25,40,90,0.4);
+            --accent-blue: #00d4ff;
+            --accent-purple: #a78bfa;
+            --accent-green: #10b981;
+            --accent-orange: #f97316;
+            --accent-pink: #ec4899;
+            --text-primary: #f0f4f8;
+            --text-secondary: rgba(200,220,240,0.8);
+            --text-muted: rgba(150,170,200,0.6);
+            --border-color: rgba(100,180,255,0.15);
+            --border-hover: rgba(100,180,255,0.3);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Raleway', sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #0f1535 50%, #1a0a35 100%);
+            color: var(--text-primary);
             scroll-behavior: smooth;
             min-height: 100vh;
-            background-image:
-                radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.55) 0%, transparent 100%),
-                radial-gradient(1px 1px at 30% 5%,  rgba(74,158,255,0.7)  0%, transparent 100%),
-                radial-gradient(1px 1px at 55% 20%, rgba(255,255,255,0.45) 0%, transparent 100%),
-                radial-gradient(1px 1px at 75% 8%,  rgba(200,180,255,0.6) 0%, transparent 100%),
-                radial-gradient(ellipse at 20% 0%,  rgba(74,158,255,0.07)  0%, transparent 50%),
-                radial-gradient(ellipse at 80% 100%,rgba(155,89,255,0.06) 0%, transparent 50%),
-                linear-gradient(145deg, #060318 0%, #03010a 100%);
-            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,212,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(167,139,250,0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating particles background */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+            25% { opacity: 0.5; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.3; }
+            75% { opacity: 0.2; }
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header & Navigation */
         .header {
-            background: rgba(6,3,24,0.85);
-            backdrop-filter: blur(16px);
+            background: rgba(10,14,39,0.95);
+            backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(74,158,255,0.2);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0,212,255,0.05);
         }
+
         .nav-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 1rem;
         }
+
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            font-family: 'Cinzel', serif;
-            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            font-size: 1.6rem;
+            font-weight: 900;
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        .logo i { color: var(--cyan); margin-right: 8px; }
+
         .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             list-style: none;
             flex-wrap: wrap;
         }
+
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: 0.2s;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             cursor: pointer;
         }
-        .nav-links a:hover { color: var(--cyan); }
-        .mobile-menu { display: none; font-size: 1.4rem; color: var(--cyan); cursor: pointer; }
 
-        .hero {
-            background: linear-gradient(135deg, rgba(13,27,75,0.6), rgba(26,13,59,0.5));
-            padding: 2rem 1.5rem 2rem;
-            text-align: center;
-            border-bottom: 2px solid rgba(74,158,255,0.2);
-            margin-bottom: 1.5rem;
+        .nav-links a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-2px);
         }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            cursor: pointer;
+            background: rgba(0,212,255,0.1);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.8rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu:hover {
+            background: rgba(0,212,255,0.2);
+            border-color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(20,35,80,0.6), rgba(40,20,80,0.4));
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0,212,255,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
         .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--text), var(--cyan), var(--blue));
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #a78bfa, #ec4899, #f97316);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
         }
-        .hero p { max-width: 900px; margin: 0.5rem auto; font-size: 0.8rem; color: var(--text-muted); }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 1.5rem 2rem; }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
 
+        .hero-desc {
+            max-width: 900px;
+            margin: 0.8rem auto;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: rgba(0,212,255,0.1);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(0,212,255,0.2);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 1.5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Filter Panel */
         .filter-panel {
-            background: rgba(6,3,24,0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 1.2rem;
-            border: 1px solid rgba(74,158,255,0.15);
-            margin-bottom: 1.5rem;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
+
         .search-wrapper {
             position: relative;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
+
         #searchInput {
             width: 100%;
-            padding: 0.8rem 1rem 0.8rem 2.8rem;
-            font-size: 0.85rem;
+            padding: 1rem 1.2rem 1rem 3rem;
+            font-size: 0.95rem;
             background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(74,158,255,0.2);
-            border-radius: 60px;
-            color: var(--text);
-            font-family: 'Raleway', sans-serif;
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
         }
+
         #searchInput:focus {
-            border-color: var(--cyan);
+            border-color: var(--accent-blue);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+            box-shadow: 0 0 20px rgba(0,212,255,0.2);
+            background: rgba(0,212,255,0.05);
         }
+
         .search-wrapper i {
             position: absolute;
-            left: 1rem;
+            left: 1.2rem;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
+            font-size: 1.1rem;
         }
+
+        .filter-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
         .filter-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .filter-btn {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(74,158,255,0.15);
-            padding: 0.4rem 1rem;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-        .filter-btn i { margin-right: 5px; }
-        .filter-btn.active, .filter-btn:hover {
-            background: linear-gradient(135deg, rgba(74,158,255,0.2), rgba(0,212,255,0.1));
-            border-color: var(--cyan);
-            color: var(--cyan);
-            transform: translateY(-1px);
+            gap: 0.8rem;
         }
 
+        .filter-btn {
+            background: rgba(255,255,255,0.04);
+            border: 2px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .filter-btn:hover {
+            background: rgba(0,212,255,0.1);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(167,139,250,0.1));
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(0,212,255,0.15);
+        }
+
+        /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+            animation: fadeIn 0.5s ease-in;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .card {
-            background: rgba(13,27,75,0.4);
+            background: var(--bg-tertiary);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(74,158,255,0.12);
-            border-radius: 24px;
-            padding: 1.2rem;
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
         }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .card:hover {
-            border-color: rgba(74,158,255,0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -12px rgba(0,0,0,0.4);
+            border-color: var(--border-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,212,255,0.15);
         }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
+        }
+
         .card-category {
-            display: inline-block;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.6rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 0.7rem;
-            background: rgba(74,158,255,0.12);
-            color: var(--cyan);
+            margin-bottom: 1rem;
+            background: rgba(0,212,255,0.12);
+            color: var(--accent-blue);
             letter-spacing: 0.05em;
+            border: 1px solid rgba(0,212,255,0.2);
+            width: fit-content;
         }
+
+        .card-category.cat-gerak { background: rgba(59,130,246,0.12); color: #60a5fa; border-color: rgba(59,130,246,0.2); }
+        .card-category.cat-usaha { background: rgba(249,115,22,0.12); color: #fb923c; border-color: rgba(249,115,22,0.2); }
+        .card-category.cat-pencernaan { background: rgba(34,197,94,0.12); color: #86efac; border-color: rgba(34,197,94,0.2); }
+        .card-category.cat-reproduksi { background: rgba(236,72,153,0.12); color: #f472b6; border-color: rgba(236,72,153,0.2); }
+        .card-category.cat-biotek { background: rgba(168,85,247,0.12); color: #d8b4fe; border-color: rgba(168,85,247,0.2); }
+        .card-category.cat-genetika { background: rgba(139,92,246,0.12); color: #c4b5fd; border-color: rgba(139,92,246,0.2); }
+        .card-category.cat-darah { background: rgba(239,68,68,0.12); color: #fca5a5; border-color: rgba(239,68,68,0.2); }
+        .card-category.cat-tekanan { background: rgba(245,158,11,0.12); color: #fcd34d; border-color: rgba(245,158,11,0.2); }
+        .card-category.cat-listrik { background: rgba(0,212,255,0.12); color: var(--accent-blue); border-color: rgba(0,212,255,0.2); }
+        .card-category.cat-trik { background: rgba(16,185,129,0.12); color: #6ee7b7; border-color: rgba(16,185,129,0.2); }
+
         .card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text);
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.7rem;
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.5px;
         }
+
         .card-desc {
-            color: var(--text-muted);
-            line-height: 1.45;
-            margin-bottom: 0.8rem;
-            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
         }
+
         .highlight-box {
-            background: rgba(0,0,0,0.3);
-            border-radius: 16px;
-            padding: 0.7rem;
-            margin-top: 0.7rem;
-            border: 1px solid rgba(74,158,255,0.1);
+            background: rgba(0,0,0,0.2);
+            border-radius: 14px;
+            padding: 0.9rem;
+            margin-top: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
+
+        .card:hover .highlight-box {
+            border-color: var(--accent-blue);
+            background: rgba(0,212,255,0.05);
+        }
+
         .label-mini {
             font-weight: 700;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            color: var(--cyan);
-            margin-bottom: 6px;
+            color: var(--accent-blue);
+            margin-bottom: 0.6rem;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
+
         .rumus-box {
-            background: linear-gradient(135deg, rgba(74,158,255,0.1), rgba(0,212,255,0.05));
-            padding: 0.5rem 0.8rem;
-            border-radius: 14px;
-            font-family: monospace;
+            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(167,139,250,0.05));
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-family: 'Courier Prime', monospace;
             font-size: 0.8rem;
             font-weight: 600;
             text-align: center;
-            color: var(--cyan);
-            margin: 6px 0;
+            color: var(--accent-blue);
+            margin: 0.6rem 0;
+            border: 1px solid rgba(0,212,255,0.2);
+            word-break: break-word;
+            overflow-x: auto;
         }
+
         .trik-box {
-            background: rgba(245,158,11,0.1);
-            padding: 0.5rem 0.8rem;
-            border-radius: 14px;
-            font-size: 0.7rem;
-            border-left: 3px solid var(--amber);
-            margin-top: 6px;
-            color: #fcd34d;
-        }
-        .contoh-text {
-            background: rgba(16,212,142,0.08);
-            padding: 0.5rem 0.8rem;
-            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(34,197,94,0.05));
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
             font-size: 0.75rem;
-            border-left: 3px solid var(--green);
-            line-height: 1.45;
-            color: #86efac;
+            border-left: 4px solid var(--accent-green);
+            margin-top: 0.6rem;
+            color: #a7f3d0;
+            line-height: 1.5;
         }
+
+        .contoh-box {
+            background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(245,158,11,0.05));
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border-left: 4px solid var(--accent-orange);
+            line-height: 1.6;
+            color: #fed7aa;
+        }
+
+        .notes-box {
+            background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(139,92,246,0.05));
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            border-left: 4px solid var(--accent-purple);
+            line-height: 1.5;
+            color: #e9d5ff;
+        }
+
         .empty-msg {
             text-align: center;
-            padding: 2.5rem;
-            background: rgba(13,27,75,0.4);
-            border-radius: 24px;
+            padding: 3rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: 18px;
+            border: 2px dashed var(--border-color);
             color: var(--text-muted);
+            grid-column: 1 / -1;
         }
 
+        .empty-msg i {
+            font-size: 3rem;
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+
+        .empty-msg h3 {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-msg p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
         footer {
-            background: rgba(6,3,24,0.9);
+            background: rgba(10,14,39,0.95);
             text-align: center;
-            padding: 1.2rem;
+            padding: 2rem;
             margin-top: 2rem;
-            font-size: 0.65rem;
-            border-top: 1px solid rgba(74,158,255,0.1);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
             color: var(--text-muted);
         }
 
+        footer p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu { display: block; }
-            .hero h1 { font-size: 1.3rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 0.95rem; }
             .cards-grid { grid-template-columns: 1fr; }
             .container { padding: 0 1rem 1.5rem; }
-            .filter-buttons { justify-content: center; }
+            .filter-buttons { justify-content: flex-start; }
+            .badge-row { margin-top: 1rem; }
+        }
+
+        .nav-links.mobile-show {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(10,14,39,0.98);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
         }
     </style>
 </head>
@@ -280,21 +572,31 @@
 
 <header class="header">
     <div class="nav-container">
-        <div class="logo"><i class="fas fa-flask"></i> IPA UTER PREMIUM</div>
+        <div class="logo"><i class="fas fa-atom"></i> IPA LENGKAP SMP</div>
         <ul class="nav-links">
-            <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
-            <li><a href="#" onclick="filterByCategory('semua'); return false;"><i class="fas fa-star"></i> Semua</a></li>
+            <li><a href="#top"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" onclick="filterByCategory('semua'); return false;"><i class="fas fa-th-large"></i> Semua Materi</a></li>
             <li><a href="#" onclick="filterByCategory('trik'); return false;"><i class="fas fa-bolt"></i> Trik Kilat</a></li>
         </ul>
         <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
     </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="top">
     <div class="container" style="padding: 0 1rem;">
-        <h1><i class="fas fa-dna"></i> E-Book IPA UTER Super Lengkap <i class="fas fa-atom"></i></h1>
-        <p>📚 Besaran & Pengukuran | Sistem Gerak | Usaha & Energi | Pencernaan | Reproduksi | Bioteknologi | Pewarisan Sifat | Peredaran Darah | Tekanan Zat | Listrik Statis</p>
-        <p style="font-size: 0.7rem; margin-top: 6px;">✨ Rumus Cepat + Trik Kilat + Contoh Soal + Pembahasan ✨</p>
+        <h1><i class="fas fa-flask-vial"></i> E-BOOK IPA SMP SUPER LENGKAP <i class="fas fa-dna"></i></h1>
+        <p class="hero-subtitle">Panduan Belajar Menyeluruh + Rumus Cepat + Trik Kilat untuk Sukses</p>
+        <p class="hero-desc">
+            Besaran & Pengukuran • Sistem Gerak • Usaha & Energi • Pencernaan • Reproduksi • Bioteknologi • 
+            Genetika • Peredaran Darah • Tekanan Zat • Listrik Statis • Alat Laboratorium • Metode Ilmiah
+        </p>
+        <div class="badge-row">
+            <div class="badge">✨ Lengkap Semua Materi</div>
+            <div class="badge">📐 Rumus & Perhitungan</div>
+            <div class="badge">⚡ Trik Kilat</div>
+            <div class="badge">💡 Tips & Trik</div>
+            <div class="badge">📝 Contoh Soal</div>
+        </div>
     </div>
 </section>
 
@@ -302,114 +604,154 @@
     <div class="filter-panel">
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="🔍 Cari materi: tekanan, gaya, energi, genetika, pencernaan...">
+            <input type="text" id="searchInput" placeholder="🔍 Cari materi: tekanan, gaya, energi, genetika, pencernaan, listrik...">
         </div>
+        <span class="filter-label"><i class="fas fa-filter"></i> Filter Berdasarkan Materi</span>
         <div class="filter-buttons" id="filterButtons">
-            <button class="filter-btn active" data-filter="semua"><i class="fas fa-th-large"></i> Semua</button>
-            <button class="filter-btn" data-filter="besaran">📏 Besaran & Pengukuran</button>
-            <button class="filter-btn" data-filter="gerak">🦴 Sistem Gerak</button>
-            <button class="filter-btn" data-filter="usaha">⚡ Usaha & Energi</button>
-            <button class="filter-btn" data-filter="pencernaan">🍽️ Pencernaan</button>
-            <button class="filter-btn" data-filter="reproduksi">👶 Reproduksi</button>
-            <button class="filter-btn" data-filter="biotek">🧬 Bioteknologi</button>
-            <button class="filter-btn" data-filter="genetika">🧬 Pewarisan Sifat</button>
-            <button class="filter-btn" data-filter="darah">🩸 Peredaran Darah</button>
-            <button class="filter-btn" data-filter="tekanan">⚙️ Tekanan Zat</button>
-            <button class="filter-btn" data-filter="listrik">⚡ Listrik Statis</button>
-            <button class="filter-btn" data-filter="trik"><i class="fas fa-bolt"></i> Trik Kilat</button>
+            <button class="filter-btn active" data-filter="semua"><i class="fas fa-th-large"></i> Semua Materi</button>
+            <button class="filter-btn" data-filter="besaran"><i class="fas fa-ruler"></i> Besaran & Pengukuran</button>
+            <button class="filter-btn" data-filter="laboratorium"><i class="fas fa-microscope"></i> Alat Lab</button>
+            <button class="filter-btn" data-filter="metode"><i class="fas fa-flask"></i> Metode Ilmiah</button>
+            <button class="filter-btn" data-filter="gerak"><i class="fas fa-bone"></i> Sistem Gerak</button>
+            <button class="filter-btn" data-filter="usaha"><i class="fas fa-bolt"></i> Usaha & Energi</button>
+            <button class="filter-btn" data-filter="pencernaan"><i class="fas fa-utensils"></i> Pencernaan</button>
+            <button class="filter-btn" data-filter="reproduksi"><i class="fas fa-heart"></i> Reproduksi</button>
+            <button class="filter-btn" data-filter="biotek"><i class="fas fa-flask-vial"></i> Bioteknologi</button>
+            <button class="filter-btn" data-filter="genetika"><i class="fas fa-dna"></i> Genetika</button>
+            <button class="filter-btn" data-filter="darah"><i class="fas fa-droplet"></i> Peredaran Darah</button>
+            <button class="filter-btn" data-filter="tekanan"><i class="fas fa-gauge"></i> Tekanan Zat</button>
+            <button class="filter-btn" data-filter="listrik"><i class="fas fa-bolt"></i> Listrik Statis</button>
+            <button class="filter-btn" data-filter="trik"><i class="fas fa-lightbulb"></i> Trik Kilat</button>
         </div>
     </div>
     <div id="cardsContainer" class="cards-grid"></div>
 </div>
 
 <footer>
-    <p>© 2025 E-BOOK IPA UTER | Lengkap Semua Materi + Rumus Cepat + Trik Kilat | Persiapan Ujian & OSN</p>
-    <p style="margin-top: 6px;">📖 Besaran | Tekanan | Energi | Genetika | Bioteknologi | Sistem Tubuh | Listrik Statis</p>
+    <p>📚 E-BOOK IPA SMP LENGKAP © 2025 | Materi Pelajaran IPA untuk Siswa SMP</p>
+    <p>Mencakup: Besaran • Besaran & Pengukuran • Alat Laboratorium • Metode Ilmiah • Sistem Gerak • Usaha & Energi • 
+    Pencernaan • Reproduksi • Bioteknologi • Genetika • Peredaran Darah • Tekanan Zat • Listrik Statis</p>
+    <p style="margin-top: 1rem; font-size: 0.7rem; opacity: 0.6;">Dibuat untuk membantu siswa SMP memahami semua materi IPA dengan mudah dan menyenangkan</p>
 </footer>
 
 <script>
-    // ======================== DATABASE SUPER LENGKAP (SESUAI KISI-KISI) ========================
+    // ======================== DATABASE SUPER LENGKAP KURIKULUM SMP ========================
     const materiDatabase = [
         // ==================== BESARAN, SATUAN, PENGUKURAN ====================
-        { judul: "Besaran Pokok (7 Besaran Dasar)", kategori: "besaran", desc: "Besaran yang satuannya telah ditetapkan terlebih dahulu.", rumus: "1. Panjang (meter), 2. Massa (kg), 3. Waktu (sekon), 4. Suhu (Kelvin), 5. Kuat Arus (Ampere), 6. Intensitas Cahaya (candela), 7. Jumlah Zat (mol)", contoh: "Contoh: massa = 5 kg, panjang = 2 m, waktu = 10 detik", trik: "⚡ TRIK HAFAL: Paman Makan Wortel Setelah Kekenyangan Istirahat Jangan (P-M-W-S-K-I-J)" },
-        { judul: "Besaran Turunan", kategori: "besaran", desc: "Besaran yang diturunkan dari besaran pokok.", rumus: "Luas = p × l (m²), Volume = p×l×t (m³), Kecepatan = jarak/waktu (m/s), Gaya = massa × percepatan (N)", contoh: "Kecepatan = m/s, Gaya = kg·m/s² (Newton)", trik: "⚡ TRIK: Besaran turunan = gabungan besaran pokok (ingat rumusnya!)" },
-        { judul: "Satuan Baku dan Tidak Baku", kategori: "besaran", desc: "Satuan baku = tetap di seluruh dunia (meter, kg). Satuan tidak baku = berbeda di setiap daerah (depa, jengkal, hasta).", rumus: "Baku: meter, kilogram, sekon. Tidak baku: depa (2 lengan), jengkal (lebar jari), hasta (siku ke ujung jari)", contoh: "Panjang meja = 10 jengkal (tidak baku) = 2 meter (baku)", trik: "⚡ TRIK: Baku = pasti, Tidak baku = beda-beda" },
-        { judul: "Alat Laboratorium IPA (Dasar)", kategori: "besaran", desc: "Alat-alat yang sering digunakan di laboratorium.", rumus: "Tabung reaksi (mereaksikan zat), Gelas kimia (menampung cairan), Labu ukur (membuat larutan), Pembakar spirtus (memanaskan)", contoh: "Tabung reaksi dipanaskan dengan penjepit kayu, mulut tabung tidak menghadap ke orang lain", trik: "⚡ TRIK: Tabung reaksi = reaksi, Gelas kimia = wadah besar, Labu ukur = pas volume" },
-        { judul: "Metode Ilmiah - Langkah-langkah", kategori: "besaran", desc: "Urutan langkah dalam penelitian ilmiah.", rumus: "1. Observasi (mengamati) → 2. Rumusan masalah (bertanya) → 3. Hipotesis (dugaan sementara) → 4. Eksperimen (percobaan) → 5. Analisis data → 6. Kesimpulan", contoh: "Meneliti pengaruh pupuk terhadap pertumbuhan tanaman", trik: "⚡ TRIK HAFAL: O-R-H-E-A-K (Observasi, Rumusan, Hipotesis, Eksperimen, Analisis, Kesimpulan)" },
-        { judul: "Jenis-jenis Variabel Penelitian", kategori: "besaran", desc: "Variabel yang mempengaruhi dan dipengaruhi dalam penelitian.", rumus: "Variabel Bebas (yang diubah), Variabel Terikat (hasil yang diukur), Variabel Kontrol (yang dijaga tetap)", contoh: "Penelitian pupuk: bebas = jenis pupuk, terikat = tinggi tanaman, kontrol = jenis tanah & air", trik: "⚡ TRIK: Bebas = penyebab, Terikat = akibat, Kontrol = dikendalikan" },
-        { judul: "Jangka Sorong - Cara Baca", kategori: "besaran", desc: "Alat ukur panjang dengan ketelitian 0,01 cm atau 0,1 mm.", rumus: "Hasil = SU + (SN × ketelitian)", contoh: "SU = 2,3 cm, SN = 4, ketelitian 0,01 → 2,3 + (4×0,01) = 2,34 cm", trik: "⚡ TRIK: Hasil = Skala Utama + (Skala Nonius × 0,01)" },
-        { judul: "Mikrometer Sekrup", kategori: "besaran", desc: "Alat ukur panjang dengan ketelitian 0,01 mm.", rumus: "Hasil = SU + (SN × 0,01)", contoh: "SU = 4,5 mm, SN = 28 → 4,5 + (28×0,01) = 4,78 mm", trik: "⚡ TRIK: Skala utama (mm) + (skala nonius × 0,01)" },
+        { judul: "Besaran Pokok (7 Besaran Dasar)", kategori: "besaran", desc: "Tujuh besaran fundamental yang menjadi dasar satuan SI.", rumus: "1. Panjang (m) | 2. Massa (kg) | 3. Waktu (s) | 4. Suhu (K) | 5. Kuat arus (A) | 6. Intensitas cahaya (cd) | 7. Jumlah zat (mol)", contoh: "📌 Contoh: panjang = 5 m, massa = 2 kg, waktu = 10 s", trik: "⚡ TRIK KILAT: P-M-W-S-K-I-J → 'Paman Makan Wortel Setelah Kenyang Istirahat Jangan'", notes: "Kelompok besaran pokok tidak bisa diturunkan dari besaran lain" },
+        { judul: "Besaran Turunan", kategori: "besaran", desc: "Besaran yang diturunkan dari kombinasi besaran pokok.", rumus: "Luas (m²) | Volume (m³) | Kecepatan (m/s) | Percepatan (m/s²) | Gaya (N = kg·m/s²) | Tekanan (Pa = N/m²)", contoh: "📌 Kecepatan = jarak ÷ waktu (m/s) | Gaya = massa × percepatan", trik: "⚡ TRIK KILAT: Besaran turunan = kombinasi 2+ besaran pokok", notes: "Jumlah besaran turunan tidak terbatas" },
+        { judul: "Satuan Baku dan Tidak Baku", kategori: "besaran", desc: "Perbedaan antara satuan yang telah disepakati secara internasional.", rumus: "Satuan Baku: meter (m), kilogram (kg), detik (s) | Satuan Tidak Baku: inci, pon, jam tangan", contoh: "📌 Satuan baku digunakan dalam ilmu pengetahuan, satuan tidak baku dalam kehidupan sehari-hari", trik: "⚡ TRIK KILAT: Baku = SI (Sistem Internasional), Tidak baku = lokal/tradisional", notes: "Satuan SI adalah standar internasional untuk pengukuran" },
+        { judul: "Jangka Sorong - Cara Baca Lengkap", kategori: "besaran", desc: "Alat ukur presisi untuk mengukur panjang dengan ketelitian 0,01 cm (0,1 mm).", rumus: "Hasil = Skala Utama + (Skala Nonius × Ketelitian) | Ketelitian = 1 mm ÷ 50 = 0,02 mm", contoh: "📌 SU = 2,3 cm, SN = 4 → Hasil = 2,3 + (4 × 0,01) = 2,34 cm", trik: "⚡ TRIK KILAT: SU (cm) + SN × 0,01 cm", notes: "Skala nonius adalah 50 garis dalam 1 mm pada skala utama" },
+        { judul: "Mikrometer Sekrup - Cara Baca", kategori: "besaran", desc: "Alat ukur untuk pengukuran sangat presisi dengan ketelitian 0,01 mm.", rumus: "Hasil = Skala Utama (mm) + (Skala Putar × 0,01 mm)", contoh: "📌 SU = 4,5 mm, SP = 28 → Hasil = 4,5 + (28 × 0,01) = 4,78 mm", trik: "⚡ TRIK KILAT: Skalanya 0,5 mm (skala utama) + putar × 0,01 mm", notes: "Sekrup mikrometer memiliki 50 garis pada skala putar" },
+        { judul: "Alat Ukur Lainnya (Termometer, Dinamometer, Hydrometer)", kategori: "besaran", desc: "Berbagai alat untuk mengukur suhu, gaya, dan kerapatan.", rumus: "Termometer: mengukur suhu (°C, °F, K) | Dinamometer: mengukur gaya (N) | Hydrometer: mengukur kerapatan (g/cm³)", contoh: "📌 Termometer alkohol untuk suhu rendah, raksa untuk suhu tinggi", trik: "⚡ TRIK KILAT: Termometer = suhu, Dinamometer = gaya, Hydrometer = kerapatan", notes: "Dinamometer menggunakan pegas yang bisa meregang" },
+        { judul: "Konversi Satuan & Dimensi", kategori: "besaran", desc: "Cara mengubah satuan dan menggunakan analisis dimensi.", rumus: "1 km = 1000 m | 1 jam = 3600 s | 1 kg = 1000 g | Analisis dimensi: [v] = [s]/[t]", contoh: "📌 Konversi: 72 km/jam = 72 × (1000 m)/(3600 s) = 20 m/s", trik: "⚡ TRIK KILAT: Gunakan tangga satuan: km-hm-dam-m-dm-cm-mm", notes: "Analisis dimensi membantu mengecek kebenaran rumus" },
+
+        // ==================== ALAT-ALAT LABORATORIUM IPA ====================
+        { judul: "Gelas Ukur & Gelas Beaker", kategori: "laboratorium", desc: "Alat untuk mengukur dan menampung cairan dalam eksperimen.", rumus: "Gelas ukur: presisi ±0,1-0,5 mL | Gelas beaker: kapasitas lebih besar, presisi rendah", contoh: "📌 Mengukur volume air: gelas ukur untuk presisi, beaker untuk perkiraan", trik: "⚡ TRIK KILAT: Gelas ukur = ukur presisi, Beaker = tampung sembarang", notes: "Baca skala gelas ukur pada permukaan meniskus" },
+        { judul: "Pipet & Burette (Pipet Volumetrik)", kategori: "laboratorium", desc: "Alat untuk memindahkan dan mengukur cairan dengan presisi tinggi.", rumus: "Pipet ukur: presisi ±0,05-0,1 mL | Pipet volumetrik: presisi ±0,005-0,01 mL | Burette: untuk titrasi", contoh: "📌 Pipet 10 mL tepat untuk transfer solusi standar", trik: "⚡ TRIK KILAT: Pipet = transfer, Burette = titrasi (lab analisis)", notes: "Pipet volumetrik lebih presisi daripada pipet ukur" },
+        { judul: "Neraca (Timbangan) - Jenis & Ketelitian", kategori: "laboratorium", desc: "Alat pengukur massa dengan berbagai tingkat ketelitian.", rumus: "Neraca dua lengan: ketelitian ±0,1 g | Neraca elektronik: ketelitian ±0,01-0,001 g", contoh: "📌 Neraca ohaus untuk presisi, neraca digital untuk cepat", trik: "⚡ TRIK KILAT: Lebih banyak piringan = lebih teliti", notes: "Selalu taruh kertas di piringan neraca sebelum menimbang" },
+        { judul: "Termometer & Barometer", kategori: "laboratorium", desc: "Alat untuk mengukur suhu dan tekanan udara.", rumus: "Termometer: -20°C hingga 110°C (alkohol) atau -40°C hingga 360°C (raksa) | Barometer: mengukur tekanan atmosfer (cmHg atau mbar)", contoh: "📌 Thermometer air: alkohol; Thermometer suhu tinggi: raksa", trik: "⚡ TRIK KILAT: Thermo = suhu, Baro = tekanan", notes: "Raksa lebih sensitif tapi berbahaya, alkohol lebih aman" },
+        { judul: "Spektrometer & Polarimeter", kategori: "laboratorium", desc: "Alat untuk analisis cahaya dan sifat optik bahan.", rumus: "Spektrometer: menganalisis panjang gelombang cahaya | Polarimeter: mengukur rotasi cahaya terpolarisasi", contoh: "📌 Spektrometer UV-Vis untuk analisis konsentrasi", trik: "⚡ TRIK KILAT: Spektro = spektrum cahaya, Polari = polarisasi", notes: "Spektrometer digunakan dalam analisis kuantitatif" },
+
+        // ==================== METODE ILMIAH & VARIABEL PENELITIAN ====================
+        { judul: "Langkah-Langkah Metode Ilmiah (6 Tahap)", kategori: "metode", desc: "Urutan prosedur dalam melakukan penelitian ilmiah.", rumus: "1. Observasi 2. Rumusan Masalah 3. Hipotesis 4. Eksperimen 5. Analisis Data 6. Kesimpulan", contoh: "📌 Penelitian 'Pengaruh intensitas cahaya terhadap kecepatan fotosintesis'", trik: "⚡ TRIK KILAT: O-R-H-E-A-K (Observasi-Rumusan-Hipotesis-Eksperimen-Analisis-Kesimpulan)", notes: "Metode ilmiah adalah ciri khas sains modern" },
+        { judul: "Observasi & Rumusan Masalah", kategori: "metode", desc: "Tahap awal penelitian untuk mengidentifikasi fenomena dan masalah.", rumus: "Observasi → identifikasi pola → Rumusan Masalah (berbentuk pertanyaan)", contoh: "📌 Obs: Tanaman dekat cahaya lebih hijau. Masalah: Apakah cahaya mempengaruhi fotosintesis?", trik: "⚡ TRIK KILAT: Observasi = menggunakan indra, Masalah = pertanyaan penelitian", notes: "Rumusan masalah harus dapat diuji secara eksperimental" },
+        { judul: "Hipotesis & Prediksi", kategori: "metode", desc: "Dugaan awal yang akan diuji melalui eksperimen.", rumus: "Hipotesis: pernyataan yang dapat diuji | Bentuk: Jika...maka... | Prediksi: akibat yang diharapkan", contoh: "📌 Jika intensitas cahaya meningkat, MAKA laju fotosintesis meningkat", trik: "⚡ TRIK KILAT: Hipotesis ≠ asal tebak, harus logis & terukur", notes: "Hipotesis dapat diterima atau ditolak berdasarkan data" },
+        { judul: "Variabel Penelitian (Bebas, Terikat, Kontrol)", kategori: "metode", desc: "Tiga jenis variabel dalam eksperimen untuk mengontrol penelitian.", rumus: "Bebas (X): dimanipulasi peneliti | Terikat (Y): hasil yang diukur | Kontrol: dijaga tetap sama", contoh: "📌 Penelitian pupuk: Bebas=jenis pupuk | Terikat=tinggi tanaman | Kontrol=jenis tanah,air,cahaya", trik: "⚡ TRIK KILAT: Bebas=penyebab, Terikat=akibat, Kontrol=sama", notes: "Variabel kontrol sangat penting untuk validitas eksperimen" },
+        { judul: "Desain Eksperimen & Pengumpulan Data", kategori: "metode", desc: "Merancang eksperimen yang akurat dan mengumpulkan data sistematis.", rumus: "Perlu: kontrol positif, kontrol negatif, replikasi (minimal 3x), randomisasi", contoh: "📌 Uji pengaruh pupuk: perlu kontrol tanpa pupuk, dengan 1x, 2x, 3x dosis", trik: "⚡ TRIK KILAT: Replikasi = pengulangan untuk akurasi", notes: "Semakin banyak replikasi, semakin valid hasil penelitian" },
 
         // ==================== SISTEM GERAK MANUSIA ====================
-        { judul: "Nama & Bentuk Tulang (Rangka Aksial)", kategori: "gerak", desc: "Tulang penyusun sumbu tubuh.", rumus: "Tengkorak (melindungi otak), Tulang belakang (penyangga tubuh & sumsum), Tulang dada, Tulang rusuk", contoh: "Tulang tengkorak berbentuk pipih dan kuat, melindungi otak", trik: "⚡ TRIK: Aksial = sumbu (kepala - leher - badan)" },
-        { judul: "Tulang Apendikular (Anggota Gerak)", kategori: "gerak", desc: "Tulang anggota gerak atas dan bawah.", rumus: "Gerak atas: humerus (lengan atas), radius (pengumpil), ulna (hasta). Gerak bawah: femur (paha), tibia (betis), fibula (kering)", contoh: "Tulang hasta dan pengumpil di lengan bawah memungkinkan gerak memutar telapak tangan", trik: "⚡ TRIK: Apendikular = alat gerak (tangan dan kaki)" },
-        { judul: "Jenis-jenis Otot", kategori: "gerak", desc: "Karakteristik otot rangka, polos, dan jantung.", rumus: "Otot rangka (lurik, sadar/volunter), Otot polos (polos, tak sadar/involunter), Otot jantung (lurik, tak sadar)", contoh: "Otot rangka: lengan, paha. Otot polos: usus, lambung. Otot jantung: dinding jantung", trik: "⚡ TRIK: Rangka = sadar, Polos = pasif, Jantung = lurik tapi tak sadar" },
-        { judul: "Sendi Berdasarkan Gerak", kategori: "gerak", desc: "Klasifikasi sendi berdasarkan kebebasan gerak.", rumus: "Sinartrosis (mati/tidak bisa gerak), Amfiartrosis (kaku/gerak terbatas), Diartrosis (bebas/gerak bebas)", contoh: "Sinartrosis: tengkorak, Amfiartrosis: ruas tulang belakang, Diartrosis: lutut, siku", trik: "⚡ TRIK: Mati (tengkorak), Kaku (belakang), Bebas (lutut, siku)" },
-        { judul: "Jenis Sendi Diartrosis", kategori: "gerak", desc: "Sendi gerak bebas dan jenis-jenisnya.", rumus: "Engsel (satu arah, seperti pintu), Pelana (dua arah), Peluru (segala arah), Putar (rotasi), Geser (meluncur)", contoh: "Engsel: siku, lutut; Peluru: bahu, pinggul; Putar: leher", trik: "⚡ TRIK: ENGSEL = pintu, PELURU = bebas, PUTAR = gelang" },
+        { judul: "Fungsi & Bagian Rangka Manusia", kategori: "gerak", desc: "Kerangka tubuh manusia yang menopang dan melindungi organ.", rumus: "Fungsi: mendukung tubuh, melindungi organ, melekat otot, produksi darah merah | Bagian: aksial + apendikular", contoh: "📌 Tulang tengkorak melindungi otak, tulang rusuk melindungi jantung & paru", trik: "⚡ TRIK KILAT: Aksial=sumbu (kepala-leher-badan), Apendikular=alat gerak (tangan-kaki)", notes: "Rangka manusia terdiri dari 206 tulang (dewasa)" },
+        { judul: "Tulang Aksial (Rangka Sumbu Tubuh)", kategori: "gerak", desc: "Tulang penyusun sumbu tubuh: kepala, leher, dan badan.", rumus: "Tengkorak (22 tulang): frontal, parietal, temporal, oksipital | Tulang belakang: 33 ruas | Tulang dada & rusuk: 12 pasang", contoh: "📌 Vertebra servikalis (leher) 7 ruas, torakalis (dada) 12 ruas, lumbalis (pinggang) 5 ruas", trik: "⚡ TRIK KILAT: Vertebra lumbar paling besar (menopang beban)", notes: "Cakram intervertebral menjaga fleksibilitas tulang belakang" },
+        { judul: "Tulang Apendikular (Anggota Gerak)", kategori: "gerak", desc: "Tulang-tulang anggota gerak atas dan bawah.", rumus: "Atas: humerus-radius-ulna-karpal-metacarpal-falang | Bawah: femur-tibia-fibula-tarsal-metatarsal-falang", contoh: "📌 Femur (paha) adalah tulang terbesar & terkuat dalam tubuh manusia", trik: "⚡ TRIK KILAT: Radius=ibu jari, Ulna=jari kelingking, Tibia=sebelah dalam", notes: "Fibula tidak menopang berat badan (tipis, di sebelah luar)" },
+        { judul: "Jenis-Jenis Otot (Rangka, Polos, Jantung)", kategori: "gerak", desc: "Tiga tipe otot dengan struktur dan fungsi berbeda.", rumus: "Otot rangka: lurik, volunter, kontraksi cepat | Otot polos: polos, involunter, kontraksi lambat | Otot jantung: lurik, involunter", contoh: "📌 Otot rangka: biseps, triseps, paha | Otot polos: usus, pembuluh darah | Otot jantung: dinding ventrikel", trik: "⚡ TRIK KILAT: Rangka=sadar menggerak, Polos=otomatis, Jantung=non-stop", notes: "Myosin & aktin adalah protein otot yang menghasilkan kontraksi" },
+        { judul: "Struktur Otot & Kontraksi Otot", kategori: "gerak", desc: "Organisasi otot dari makroskopik ke mikroskopik dan mekanisme kontraksi.", rumus: "Otot → Berkas otot → Serabut otot → Miofibril → Sarkomer → Filamen tebal (myosin) & filamen tipis (aktin)", contoh: "📌 Kontraksi otot: myosin menarik aktin → sarkomer memendek", trik: "⚡ TRIK KILAT: Sliding filament theory = myosin narik aktin", notes: "ATP diperlukan untuk relaksasi otot (bukan kontraksi)" },
+        { judul: "Sendi (Persendian) - Jenis Berdasarkan Gerak", kategori: "gerak", desc: "Klasifikasi sendi menurut derajat kebebasan gerakan.", rumus: "Sinartrosis: mati (0°) | Amfiartrosis: kaku (terbatas) | Diartrosis: bebas (segala arah)", contoh: "📌 Sinartrosis: sutura tengkorak | Amfiartrosis: antar ruas belakang | Diartrosis: sendi bahu, lutut", trik: "⚡ TRIK KILAT: Sinartrosis=pakem, Amfiartrosis=agak gerak, Diartrosis=bebas", notes: "Cairan sinovial pada diartrosis mengurangi gesekan" },
+        { judul: "Jenis Sendi Diartrosis (Sendi Gerak Bebas)", kategori: "gerak", desc: "Enam jenis sendi dengan gerakan dan contoh spesifik.", rumus: "Engsel: 1D (fleksi-ekstensi) | Pivot: rotasi | Pelana: 2D | Peluru: 3D | Geser: translasi | Kondiloid: 2D", contoh: "📌 Engsel: siku, lutut | Pivot: atlas-aksis (leher berputar) | Peluru: bahu, panggul | Geser: antar tarsal", trik: "⚡ TRIK KILAT: Engsel=pintu, Peluru=bebas maksimal, Putar=gelang", notes: "Sendi yang berbeda memberikan pergerakan yang spesifik" },
+        { judul: "Kelainan & Cedera Sistem Gerak", kategori: "gerak", desc: "Gangguan pada tulang, sendi, dan otot manusia.", rumus: "Osteoporosis: berkurangnya massa tulang | Artritis: peradangan sendi | Keseleo: robekan ligamen | Patah tulang: fraktur", contoh: "📌 Osteoporosis umum pada lansia, arthritis pada lutut dan tangan", trik: "⚡ TRIK KILAT: Osteo=tulang, Arthro=sendi, Porose=berlubang", notes: "Olahraga dan nutrisi (Ca, P, vitamin D) mencegah osteoporosis" },
 
         // ==================== USAHA, ENERGI, PESAWAT SEDERHANA ====================
-        { judul: "Usaha (Work)", kategori: "usaha", desc: "Gaya yang bekerja pada benda hingga berpindah.", rumus: "W = F × s (Joule)", contoh: "Gaya 20 N, perpindahan 5 m → W = 20 × 5 = 100 J", trik: "⚡ TRIK: Usaha = gaya × jarak (searah)" },
-        { judul: "Daya (Power)", kategori: "usaha", desc: "Laju usaha atau energi per satuan waktu.", rumus: "P = W / t = F × v (watt)", contoh: "Usaha 600 J dalam 2 menit (120 detik) → P = 600/120 = 5 watt", trik: "⚡ TRIK: Daya = usaha ÷ waktu (dalam detik)" },
-        { judul: "Perbedaan Usaha, Energi, Daya", kategori: "usaha", desc: "Usaha = gaya × perpindahan. Energi = kemampuan melakukan usaha. Daya = usaha per satuan waktu.", rumus: "Usaha (J), Energi (J), Daya (W)", contoh: "Mendorong mobil = usaha, energi dari makanan = energi, menyalakan lampu 10 watt = daya", trik: "⚡ TRIK: Usaha = proses, Energi = kemampuan, Daya = kecepatan melakukan usaha" },
-        { judul: "Energi Potensial Gravitasi", kategori: "usaha", desc: "Energi yang tersimpan karena ketinggian.", rumus: "Ep = m × g × h (Joule)", contoh: "m=2 kg, h=10 m, g=10 → Ep = 2×10×10 = 200 J", trik: "⚡ TRIK: Ep = m g h (massa × gravitasi × tinggi)" },
-        { judul: "Energi Kinetik", kategori: "usaha", desc: "Energi karena gerakan benda.", rumus: "Ek = ½ × m × v² (Joule)", contoh: "m=1000 kg, v=20 m/s → Ek = ½ × 1000 × 400 = 200.000 J = 200 kJ", trik: "⚡ TRIK: Ek = setengah × massa × kecepatan kuadrat" },
-        { judul: "Energi Mekanik & Hukum Kekekalan", kategori: "usaha", desc: "Jumlah energi potensial dan kinetik tetap jika tidak ada gaya luar.", rumus: "Em = Ep + Ek = tetap", contoh: "Bola dilempar ke atas: di titik tertinggi Ep max, Ek = 0", trik: "⚡ TRIK: Em awal = Em akhir (kekal!)" },
-        { judul: "Tuas (Pengungkit)", kategori: "usaha", desc: "Pesawat sederhana dengan titik tumpu.", rumus: "w × Lb = F × Lk, KM = Lk/Lb = w/F", contoh: "Lb=0,5 m, Lk=2 m, w=200 N → F = 50 N", trik: "⚡ TRIK: KM = keuntungan mekanis = Lk ÷ Lb" },
-        { judul: "Katrol (Tetap, Bergerak, Majemuk)", kategori: "usaha", desc: "Katrol untuk mengangkat beban.", rumus: "Katrol tetap: KM = 1, Katrol bergerak: KM = 2, Katrol majemuk: KM = jumlah tali", contoh: "Katrol majemuk dengan 4 tali → KM=4, beban 800 N → F = 800/4 = 200 N", trik: "⚡ TRIK: KM katrol = jumlah tali yang menopang beban" },
-        { judul: "Bidang Miring", kategori: "usaha", desc: "Mempermudah menaikkan benda ke ketinggian.", rumus: "w × h = F × s, KM = s/h = w/F", contoh: "s=5 m, h=2 m, w=400 N → F = 400×2÷5 = 160 N", trik: "⚡ TRIK: KM bidang miring = panjang ÷ tinggi" },
-        { judul: "Energi Terbarukan", kategori: "usaha", desc: "Sumber energi yang dapat diperbaharui dan ramah lingkungan.", rumus: "Matahari (PLTS), Angin (kincir angin), Air (PLTA), Panas bumi (geothermal), Biomassa (bioenergi)", contoh: "Panel surya mengubah sinar matahari menjadi listrik", trik: "⚡ TRIK: MAAB-PA (Matahari, Angin, Air, Biomassa, Panas bumi, Arus laut)" },
+        { judul: "Pengertian Usaha (Work)", kategori: "usaha", desc: "Gaya yang menyebabkan perpindahan benda searah dengan gaya.", rumus: "W = F × s × cos(θ) | Jika searah: W = F × s (Joule)", contoh: "📌 Mengangkat 10 kg setinggi 2 m: W = 100 N × 2 m = 200 J", trik: "⚡ TRIK KILAT: Usaha = gaya × jarak, satuan Joule (J)", notes: "Usaha hanya terjadi jika ada perpindahan searah dengan gaya" },
+        { judul: "Daya (Power) & Efisiensi", kategori: "usaha", desc: "Laju usaha atau energi per satuan waktu, dan perbandingan keluaran terhadap masukan.", rumus: "P = W/t = F×v (watt) | Efisiensi = (energi keluar / energi masuk) × 100%", contoh: "📌 Usaha 600 J dalam 2 menit (120 s) → P = 600/120 = 5 watt", trik: "⚡ TRIK KILAT: Daya = kerja cepat, satuan watt (W)", notes: "1 HP = 746 watt" },
+        { judul: "Energi Potensial (Gravitasi & Elastis)", kategori: "usaha", desc: "Energi tersimpan karena posisi atau keadaan benda.", rumus: "Ep gravitasi = m × g × h | Ep elastis = ½ × k × x² (k=konstanta pegas, x=perpanjangan)", contoh: "📌 Bola 2 kg di ketinggian 10 m: Ep = 2×10×10 = 200 J", trik: "⚡ TRIK KILAT: Ep gravitasi = m g h, Ep elastis = ½kx²", notes: "Ep bertambah dengan semakin tinggi benda" },
+        { judul: "Energi Kinetik", kategori: "usaha", desc: "Energi karena gerakan benda.", rumus: "Ek = ½ × m × v² (Joule)", contoh: "📌 Motor 1000 kg dengan kecepatan 20 m/s: Ek = ½ × 1000 × 400 = 200 kJ", trik: "⚡ TRIK KILAT: Ek = setengah × massa × kecepatan kuadrat", notes: "Ek bergantung pada kecepatan (v²), bukan arah" },
+        { judul: "Energi Mekanik & Hukum Kekekalan Energi", kategori: "usaha", desc: "Total energi potensial dan kinetik tetap konstan tanpa gaya luar.", rumus: "Em = Ep + Ek = konstan | Em awal = Em akhir", contoh: "📌 Bola dilempar: di atas Em=Ep max, Ek rendah | di bawah Em=Ek max, Ep rendah", trik: "⚡ TRIK KILAT: Em kekal = tidak ada gesekan (ideal)", notes: "Dalam kenyataan, gesekan mengurangi energi mekanik" },
+        { judul: "Tuas (Pengungkit) - Keuntungan Mekanis", kategori: "usaha", desc: "Pesawat sederhana memanfaatkan momen gaya untuk mengangkat beban.", rumus: "w × Lb = F × Lk | KM = Lk/Lb = w/F | Jenis: 1 (titik tumpu tengah), 2 (beban tengah), 3 (kuasa tengah)", contoh: "📌 Lb=0,5 m, Lk=2 m, w=200 N → F=50 N, KM=4", trik: "⚡ TRIK KILAT: KM = lengan kuasa ÷ lengan beban", notes: "Semakin panjang lengan kuasa, semakin kecil gaya yang dibutuhkan" },
+        { judul: "Katrol (Tetap & Bergerak)", kategori: "usaha", desc: "Roda berenda untuk memindahkan gaya dan mengangkat beban.", rumus: "Katrol tetap: KM=1 | Katrol bergerak: KM=2 | Katrol majemuk: KM=n (jumlah tali)", contoh: "📌 Katrol majemuk 4 tali, w=800 N → F=200 N", trik: "⚡ TRIK KILAT: KM katrol = jumlah tali yang menopang beban", notes: "Katrol tetap hanya mengubah arah gaya, tidak keuntungan mekanis" },
+        { judul: "Bidang Miring - Rumus & Perhitungan", kategori: "usaha", desc: "Permukaan miring untuk memudahkan menaikkan benda ke ketinggian.", rumus: "w × h = F × s | KM = s/h | F = w × (h/s) | sin θ = h/s", contoh: "📌 s=5 m, h=2 m, w=400 N → F=160 N, KM=2,5", trik: "⚡ TRIK KILAT: KM bidang miring = panjang ÷ tinggi", notes: "Tangga juga merupakan bidang miring" },
+        { judul: "Energi Terbarukan & Sumber Energi", kategori: "usaha", desc: "Energi yang dapat diperbaharui dan berkelanjutan.", rumus: "Matahari (surya), Angin (kincir angin), Air (PLTA), Panas bumi, Biomassa, Gelombang laut, Energi nuklir", contoh: "📌 Panel surya mengubah cahaya menjadi listrik, PLTA memanfaatkan aliran air", trik: "⚡ TRIK KILAT: Terbarukan = bisa diperbaharui (tidak habis)", notes: "Energi fosil (minyak, batu bara) tidak terbarukan" },
 
-        // ==================== SISTEM PENCERNAAN ====================
-        { judul: "Nutrisi & Sumbernya", kategori: "pencernaan", desc: "Karbohidrat, protein, lemak, vitamin, mineral.", rumus: "Karbohidrat: energi utama (nasi, roti). Protein: pembangun (telur, tahu). Lemak: cadangan energi (minyak, mentega)", contoh: "Karbohidrat 4 kkal/g, Lemak 9 kkal/g, Protein 4 kkal/g", trik: "⚡ TRIK: Karbo = cepat saji (energi), Lemak = tabungan, Protein = bata" },
-        { judul: "Uji Makanan (Reagen)", kategori: "pencernaan", desc: "Uji zat makanan dengan reagen khusus.", rumus: "Lugol (amilum/pati → biru kehitaman), Benedict (glukosa → merah bata), Biuret (protein → ungu)", contoh: "Nasi ditetesi lugol → biru kehitaman (positif mengandung amilum)", trik: "⚡ TRIK: Lugol = biru, Benedict = merah bata, Biuret = ungu" },
-        { judul: "Struktur Organ Pencernaan Manusia", kategori: "pencernaan", desc: "Mulut, kerongkongan, lambung, usus halus, usus besar, anus.", rumus: "Mulut: pencernaan mekanik (gigi) & kimiawi (enzim amilase). Lambung: pepsin (protein). Usus halus: penyerapan sari makanan melalui vili", contoh: "Vili (jonjot) di usus halus menyerap sari makanan ke darah", trik: "⚡ TRIK: Mulut = hancur & amilum, Lambung = protein, Usus = serap" },
-        { judul: "Enzim Pencernaan", kategori: "pencernaan", desc: "Enzim dan fungsinya dalam pencernaan.", rumus: "Amilase (amilum → maltosa), Pepsin (protein → pepton), Tripsin (pepton → asam amino)", contoh: "Pepsin bekerja di lambung dalam suasana asam (pH 1-2)", trik: "⚡ TRIK: Amilase = mulut, Pepsin = lambung, Tripsin = usus" },
-        { judul: "Proses Pencernaan (Mekanis & Kimiawi)", kategori: "pencernaan", desc: "Pencernaan mekanis: mengubah ukuran (gigi, lambung). Kimiawi: mengubah zat dengan enzim.", rumus: "Mekanis: gigi mengunyah, lambung meremas. Kimiawi: enzim mengubah amilum → glukosa, protein → asam amino", contoh: "Nasi dikunyah (mekanis) → enzim amilase mengubah pati jadi gula (kimiawi)", trik: "⚡ TRIK: Mekanis = fisik (hancur), Kimiawi = pakai enzim (ubah zat)" },
-        { judul: "Kelainan Sistem Pencernaan", kategori: "pencernaan", desc: "Penyakit/gangguan pada sistem pencernaan.", rumus: "Apendisitis (usus buntu), Ulkus (lambung/luka), Diare (BAB terus), Gastritis (radang lambung), Konstipasi (susah BAB)", contoh: "Apendisitis = radang usus buntu → diobati dengan operasi", trik: "⚡ TRIK: Apendisitis = apendiks (usus buntu)" },
+        // ==================== SISTEM PENCERNAAN MANUSIA ====================
+        { judul: "Nutrisi & Sumbernya (Karbohidrat, Protein, Lemak)", kategori: "pencernaan", desc: "Zat gizi utama yang diperlukan tubuh untuk energi dan pertumbuhan.", rumus: "Karbohidrat: 4 kal/g | Protein: 4 kal/g | Lemak: 9 kal/g | Vitamin, mineral, air: tidak menghasilkan energi", contoh: "📌 Nasi=karbo, telur=protein, minyak=lemak", trik: "⚡ TRIK KILAT: Karbo=cepat saji, Protein=bata bangunan, Lemak=tabungan", notes: "Keseimbangan nutrisi penting untuk kesehatan optimal" },
+        { judul: "Vitamin & Mineral - Jenis & Fungsi", kategori: "pencernaan", desc: "Mikronutrien penting untuk berbagai fungsi tubuh.", rumus: "Vitamin A: penglihatan | B: energi | C: imunitas | D: Ca/P | E: antioksidan | K: pembekuan | Mineral: Fe, Ca, I, Zn", contoh: "📌 Vitamin C dari jeruk, Fe dari daging, Ca dari susu", trik: "⚡ TRIK KILAT: Vitamin = organik, Mineral = anorganik", notes: "Vitamin larut air vs larut lemak mempengaruhi penyimpanan" },
+        { judul: "Uji Makanan dengan Reagen (Lugol, Benedict, Biuret)", kategori: "pencernaan", desc: "Cara mendeteksi zat makanan menggunakan reagen khusus.", rumus: "Lugol: amilum → biru kehitaman | Benedict: glukosa/gula pereduksi → merah bata | Biuret: protein → ungu", contoh: "📌 Nasi + lugol → biru (positif amilum), Susu + biuret → ungu (positif protein)", trik: "⚡ TRIK KILAT: Lugol=biru, Benedict=merah, Biuret=ungu", notes: "Uji makanan memerlukan pemanasan untuk hasil maksimal" },
+        { judul: "Struktur Saluran Pencernaan (Mulut hingga Anus)", kategori: "pencernaan", desc: "Organ-organ penyusun sistem pencernaan manusia.", rumus: "Mulut → Kerongkongan → Lambung → Usus halus (duodenum, jejunum, ileum) → Usus besar → Rektum → Anus", contoh: "📌 Panjang usus halus ~6 m, usus besar ~1,5 m", trik: "⚡ TRIK KILAT: Urutan = Mulut-Kerongkongan-Lambung-Usus halus-Usus besar", notes: "Setiap organ punya peran spesifik dalam pencernaan" },
+        { judul: "Pencernaan Mekanis & Kimiawi di Berbagai Organ", kategori: "pencernaan", desc: "Proses pemecahan makanan melalui dua mekanisme.", rumus: "MULUT: Mekanis=menggigit/mengunyah, Kimiawi=amilase saliva | LAMBUNG: Mekanis=churning, Kimiawi=pepsin (pH asam) | USUS HALUS: Kimiawi=tripsin, lipase, dsb", contoh: "📌 Makanan di mulut 30 detik, lambung 3-4 jam, usus halus 3-5 jam", trik: "⚡ TRIK KILAT: Mulut=amilum, Lambung=protein, Usus=semuanya", notes: "pH berbeda di setiap organ mengaktifkan enzim spesifik" },
+        { judul: "Enzim Pencernaan & Hormon", kategori: "pencernaan", desc: "Protein yang mempercepat reaksi dan mengendalikan proses pencernaan.", rumus: "Amilase (amilum→maltosa) | Pepsin (protein→pepton) | Tripsin (pepton→AA) | Lipase (lemak→asam lemak) | Hormon: gastrin, sekeretin, kolesistokinin", contoh: "📌 Pepsin bekerja optimal di pH 2 (lambung), tripsin di pH 8 (usus)", trik: "⚡ TRIK KILAT: Enzim pancreas maksimal di usus halus", notes: "Satu enzim satu substrat (spesifik)" },
+        { judul: "Penyerapan Zat Gizi di Usus Halus", kategori: "pencernaan", desc: "Proses transfer nutrisi dari usus ke aliran darah.", rumus: "Vili (jonjot) untuk memperluas permukaan | Gula & asam amino: ke darah langsung | Lemak: ke saluran limfa | Vitamin larut lemak: perlu lemak", contoh: "📌 Penyerapan maksimal di ileum (bagian akhir usus halus)", trik: "⚡ TRIK KILAT: Vili = jari-jari usus untuk penyerapan", notes: "Dinding usus halus sangat tipis untuk difusi efisien" },
+        { judul: "Kelainan & Penyakit Pencernaan", kategori: "pencernaan", desc: "Gangguan pada sistem pencernaan dan penyebabnya.", rumus: "Apendisitis: radang usus buntu | Ulkus: luka lambung | Gastritis: radang lambung | Diare: penyerapan air kurang | Konstipasi: gerak usus lambat", contoh: "📌 Apendisitis ditandai rasa sakit di kanan bawah perut", trik: "⚡ TRIK KILAT: Apendiks = usus buntu (fungsi tidak jelas)", notes: "Makanan pedas & stres bisa memicu tukak lambung" },
 
-        // ==================== SISTEM REPRODUKSI ====================
-        { judul: "Organ Reproduksi Pria", kategori: "reproduksi", desc: "Testis, epididimis, vas deferens, penis, skrotum.", rumus: "Testis: produksi sperma & hormon testosteron. Epididimis: pematangan sperma. Vas deferens: saluran sperma. Penis: alat kopulasi", contoh: "Testis berada di dalam skrotum (kantung luar)", trik: "⚡ TRIK: Testis = pabrik sperma, Epididimis = tempat parkir/pematangan" },
-        { judul: "Organ Reproduksi Wanita", kategori: "reproduksi", desc: "Ovarium, tuba fallopi, uterus, vagina.", rumus: "Ovarium: produksi ovum & hormon estrogen/progesteron. Tuba fallopi: tempat fertilisasi. Uterus: tempat janin berkembang", contoh: "Ovulasi = pelepasan ovum dari ovarium (sekitar hari ke-14)", trik: "⚡ TRIK: Ovarium = pabrik telur, Tuba = jalan bertemu, Uterus = rumah janin" },
-        { judul: "Fertilisasi (Pembuahan)", kategori: "reproduksi", desc: "Pertemuan sperma dan ovum.", rumus: "Fertilisasi terjadi di tuba fallopi → menghasilkan zigot → embrio → janin", contoh: "Bayi tabung = fertilisasi di luar tubuh (in vitro)", trik: "⚡ TRIK: Fertilisasi = pertemuan, Implantasi = menempel di rahim" },
-        { judul: "Ovulasi, Menstruasi, dan Siklus", kategori: "reproduksi", desc: "Siklus bulanan pada wanita.", rumus: "Hari 1-5: menstruasi (meluruh), Hari 6-13: proliferasi (penebalan), Hari 14: ovulasi (pelepasan telur), Hari 15-28: sekresi (persiapan implantasi)", contoh: "Ovulasi terjadi sekitar hari ke-14 dalam siklus 28 hari", trik: "⚡ TRIK: 1-5 = keluar, 14 = lepas, 15-28 = siap" },
+        // ==================== SISTEM REPRODUKSI MANUSIA ====================
+        { judul: "Organ Reproduksi Pria (Struktur & Fungsi)", kategori: "reproduksi", desc: "Sistem reproduksi laki-laki untuk produksi sperma dan hormon.", rumus: "Testis: sperma & testosteron | Epididimis: pematangan | Vas deferens: saluran | Prostat & vesikula: sekresi | Penis: kopulasi", contoh: "📌 Testis menghasilkan jutaan sperma per hari", trik: "⚡ TRIK KILAT: Testis = pabrik sperma, Epididimis = tempat matang", notes: "Sperma membutuhkan suhu 34-35°C (lebih rendah dari tubuh)" },
+        { judul: "Organ Reproduksi Wanita (Struktur & Fungsi)", kategori: "reproduksi", desc: "Sistem reproduksi perempuan untuk produksi ovum dan hormonal.", rumus: "Ovarium: ovum & estrogen-progesteron | Tuba fallopi: saluran & fertilisasi | Uterus: tempat implantasi | Vagina: kopulasi & kelahiran", contoh: "📌 Satu ovum dilepas setiap siklus menstruasi (~28 hari)", trik: "⚡ TRIK KILAT: Ovarium = pabrik telur, Uterus = rumah janin", notes: "Wanita dilahirkan dengan ~2 juta oosit" },
+        { judul: "Gametogenesis: Spermatogenesis & Oogenesis", kategori: "reproduksi", desc: "Proses pembentukan gamet (sperma dan ovum).", rumus: "Spermatogenesis (mitosis+meiosis): sel diploid → 4 sperma haploid | Oogenesis (mitosis+meiosis): 1 sel diploid → 1 ovum + 3 badan polar", contoh: "📌 Spermatogenesis ~74 hari, oogenesis mulai sebelum lahir", trik: "⚡ TRIK KILAT: Spermatogenesis = 4 sperma, Oogenesis = 1 ovum (tidak simetris)", notes: "Sperma hanya hidup 2-3 hari, ovum 12-24 jam" },
+        { judul: "Siklus Menstruasi (Fase & Hormon)", kategori: "reproduksi", desc: "Siklus bulanan persiapan uterus untuk kehamilan.", rumus: "Menstruasi (1-5): endometrium luruh | Fase proliferasi (6-14): estrogen tinggi, endometrium tumbuh | Ovulasi (14): lepas ovum | Fase sekresi (15-28): progesteron tinggi, persiapan implantasi", contoh: "📌 Siklus 28 hari: menstruasi 5 hari, ovulasi hari 14", trik: "⚡ TRIK KILAT: Hari 1-5=menstruasi, Hari 14=ovulasi, Hari 15-28=siap implantasi", notes: "Siklus berbeda setiap individu (21-35 hari normal)" },
+        { judul: "Fertilisasi, Implantasi & Perkembangan Embrional", kategori: "reproduksi", desc: "Proses pembuahan hingga perkembangan janin.", rumus: "Fertilisasi (tuba fallopi): sperma+ovum→zigot | Pembelahan: zigot→morula→blastosis | Implantasi (7-12 hari): menempel di endometrium", contoh: "📌 Kehamilan normal ~280 hari (40 minggu)", trik: "⚡ TRIK KILAT: Fertilisasi → Implantasi → Diferensiasi organ", notes: "Trimester 1: pembentukan organ, 2-3: pertumbuhan" },
+        { judul: "Pertumbuhan Janin & Trimester Kehamilan", kategori: "reproduksi", desc: "Perkembangan janin selama 9 bulan kehamilan.", rumus: "Tri-1 (0-3 bulan): organ terbentuk | Tri-2 (4-6 bulan): pertumbuhan, janin bergerak | Tri-3 (7-9 bulan): kematangan, posisi lahir", contoh: "📌 Minggu 8: embrio sudah punya bentuk manusia | Minggu 16: genitalia jelas | Minggu 32: matang untuk lahir", trik: "⚡ TRIK KILAT: Tri-1=organ, Tri-2=gerak, Tri-3=matang", notes: "USG untuk memantau perkembangan janin" },
+        { judul: "Gangguan & Kelainan Reproduksi", kategori: "reproduksi", desc: "Masalah kesehatan pada sistem reproduksi.", rumus: "Infertilitas: sulit hamil | Endometriosis: pertumbuhan endometrium abnormal | PMS: gejala pra-menstruasi | ISK: infeksi saluran kemih", contoh: "📌 Infertilitas pria: kadar sperma rendah | Wanita: saluran tertutup", trik: "⚡ TRIK KILAT: Endometriosis = endometrium tumbuh di tempat salah", notes: "Kontrasepsi mencegah kehamilan, tidak cegah STI" },
 
         // ==================== BIOTEKNOLOGI ====================
-        { judul: "Definisi Bioteknologi", kategori: "biotek", desc: "Pemanfaatan makhluk hidup (mikroorganisme, tumbuhan, hewan) untuk menghasilkan produk barang atau jasa.", rumus: "Bio (hidup) + Teknologi = pemanfaatan makhluk hidup", contoh: "Pembuatan tempe, tape, yogurt, insulin", trik: "⚡ TRIK: Bioteknologi = pake mikroba buat bikin produk" },
-        { judul: "Perbedaan Bioteknologi Konvensional & Modern", kategori: "biotek", desc: "Konvensional: menggunakan mikroba langsung (fermentasi). Modern: rekayasa genetika (DNA rekombinan).", rumus: "Konvensional: tempe, tape, yogurt. Modern: insulin, vaksin, tanaman transgenik", contoh: "Tempe = konvensional, Insulin dari E.coli = modern", trik: "⚡ TRIK: Konvensional = fermentasi sederhana, Modern = rekayasa DNA" },
-        { judul: "Produk & Mikroorganisme Bioteknologi Konvensional", kategori: "biotek", desc: "Mikroba dan produk fermentasinya.", rumus: "Tempe (Rhizopus), Tape & Roti (Saccharomyces), Yogurt (Lactobacillus), Cuka (Acetobacter)", contoh: "Tempe dibuat dengan jamur Rhizopus oligosporus", trik: "⚡ TRIK: R = tempe, S = roti/tabe, L = yogurt, A = cuka" },
-        { judul: "Produk Bioteknologi Modern & Manfaatnya", kategori: "biotek", desc: "Produk hasil rekayasa genetika.", rumus: "Insulin (mengatasi diabetes), Vaksin (kekebalan tubuh), Antibodi monoklonal (deteksi penyakit), Tanaman transgenik (tahan hama)", contoh: "Insulin manusia diproduksi oleh bakteri E.coli yang disisipi gen insulin", trik: "⚡ TRIK: Insulin = diabetes, Vaksin = imun, Transgenik = tahan hama" },
+        { judul: "Pengertian & Sejarah Bioteknologi", kategori: "biotek", desc: "Penggunaan organisme hidup untuk menghasilkan produk bermanfaat.", rumus: "Bioteknologi: bio (hidup) + teknologi (aplikasi teknis) | Konvensional (tradisional) vs Modern (genetika)", contoh: "📌 Pembuatan roti, bir, cuka adalah bioteknologi kuno", trik: "⚡ TRIK KILAT: Bioteknologi = memanfaatkan mikroba untuk produk", notes: "Sudah digunakan manusia ribuan tahun (fermentasi)" },
+        { judul: "Bioteknologi Konvensional & Produknya", kategori: "biotek", desc: "Penggunaan mikroorganisme tanpa modifikasi genetik.", rumus: "Tempe (Rhizopus): kedelai → tempe | Tape (Saccharomyces): beras → tape | Yogurt (Lactobacillus): susu → yogurt | Roti (Saccharomyces): tepung → roti", contoh: "📌 Miso dari kedelai, natto dari kacang tanah", trik: "⚡ TRIK KILAT: Tempe=jamur, Tape=ragi, Yogurt=bakteri, Roti=ragi", notes: "Proses fermentasi: anaerob atau fakultatif anaerob" },
+        { judul: "Bioteknologi Modern & Rekayasa Genetika", kategori: "biotek", desc: "Memodifikasi DNA untuk menghasilkan produk baru.", rumus: "DNA rekombinan: gabung gen dari organisme berbeda | Kloning: replikasi DNA | PCR: amplifikasi DNA | Transgenik: organisme dengan gen asing", contoh: "📌 Insulin (human) diproduksi bakteri E.coli | Tomato BT tahan hama", trik: "⚡ TRIK KILAT: DNA rekombinan = gen dari 2+ organisme", notes: "Bioteknologi modern = terapi gen, vaksin rekombinan" },
+        { judul: "Produk Bioteknologi Modern & Manfaatnya", kategori: "biotek", desc: "Aplikasi rekayasa genetika dalam kesehatan, pertanian, industri.", rumus: "Farmasi: insulin, interferon, antibodi monoklo | Pertanian: jagung Bt, padi emas (Golden rice) | Lingkungan: bakteri pemakan limbah", contoh: "📌 Insulin rekombinan untuk diabetes | Padi emas mengandung β-karoten", trik: "⚡ TRIK KILAT: Bioteknologi modern = obat & tanaman transgenik", notes: "GMO masih kontroversial (keamanan & etika)" },
+        { judul: "Kloning & Sel Punca", kategori: "biotek", desc: "Teknik duplikasi organisme dan penggunaan sel multipoten.", rumus: "Kloning: nukleus sel somatik → telur tanpa nukleus | Sel punca: berdiferensiasi menjadi berbagai sel", contoh: "📌 Dolly (domba kloning, 1996) | Sel punca embrional vs somatic", trik: "⚡ TRIK KILAT: Kloning = identik genetik | Sel punca = bisa jadi berbagai sel", notes: "Terapi sel punca untuk penyakit degeneratif" },
 
         // ==================== PEWARISAN SIFAT (GENETIKA) ====================
-        { judul: "Kromosom, Gen, DNA", kategori: "genetika", desc: "Struktur pembawa sifat keturunan.", rumus: "DNA → Gen → Kromosom", contoh: "DNA adalah materi genetik, gen adalah unit pewarisan sifat, kromosom adalah pembawa gen", trik: "⚡ TRIK: DNA (bahan), Gen (kode), Kromosom (kotak)" },
-        { judul: "Persilangan Monohibrid", kategori: "genetika", desc: "Persilangan satu sifat beda.", rumus: "Parental (P): BB × bb → F1: Bb × Bb → F2: BB, Bb, Bb, bb. Perbandingan fenotip = 3:1", contoh: "Tanaman tinggi (TT) × pendek (tt) → F1 semua tinggi (Tt) → F2 = 3 tinggi : 1 pendek", trik: "⚡ TRIK: Monohibrid dominan penuh = 3:1" },
-        { judul: "Persilangan Dihibrid", kategori: "genetika", desc: "Persilangan dua sifat beda.", rumus: "Perbandingan fenotip F2 = 9:3:3:1", contoh: "BbKk × BbKk → 9 bulat kuning : 3 bulat hijau : 3 keriput kuning : 1 keriput hijau", trik: "⚡ TRIK: Dihibrid = 9:3:3:1 (jumlah 16 keturunan)" },
-        { judul: "Macam-macam Kelainan Pewarisan Sifat", kategori: "genetika", desc: "Buta warna, hemofilia, albino, sindrom down, thalassemia.", rumus: "Buta warna & hemofilia: terpaut kromosom X resesif (lebih sering pada laki-laki). Albino: resesif autosom. Sindrom down: kelebihan kromosom 21", contoh: "Laki-laki buta warna (XᵇY), wanita carrier (XᴺXᵇ)", trik: "⚡ TRIK: Buta warna & hemofilia = laki-laki lebih sering (kromosom X)" },
+        { judul: "DNA, Gen, & Kromosom", kategori: "genetika", desc: "Struktur pembawa informasi genetik dalam sel.", rumus: "DNA: asam deoksiribonukleat (double helix) | Gen: segmen DNA yang kode protein | Kromosom: struktur DNA + protein di nukleus", contoh: "📌 Manusia: 46 kromosom (23 pasang) | 1 gen ~ 1000 bp DNA", trik: "⚡ TRIK KILAT: DNA → Gen → Kromosom (dari kecil ke besar)", notes: "Manusia punya ~20.000 gen aktif" },
+        { judul: "Struktur & Replikasi DNA (Central Dogma)", kategori: "genetika", desc: "Susunan DNA dan cara duplikasi untuk pembelahan sel.", rumus: "DNA: 2 strand, purin (A-G), pirimidin (T-C) | Pasangan: A-T (2H), G-C (3H) | Replikasi: semi-konservatif (Watson-Crick)", contoh: "📌 Replikasi dimulai dari origin of replication", trik: "⚡ TRIK KILAT: A=T, G=C (pasangan komplementer)", notes: "Error pada replikasi → mutasi" },
+        { judul: "Hukum Mendel & Pola Pewarisan", kategori: "genetika", desc: "Dasar-dasar pewarisan sifat berdasarkan eksperimen Mendel.", rumus: "Hukum segregasi: alel terpisah | Hukum assortment independen: gen berbeda bersegreasi independen | Dominansi: alel dominan menampak", contoh: "📌 Aa × Aa → AA, Aa, Aa, aa (fenotip 3:1 dominan:resesif)", trik: "⚡ TRIK KILAT: Dominan nutupi resesif", notes: "Mendel menemukan hukum dari 28.000 tanaman kacang" },
+        { judul: "Persilangan Monohibrid (1 Sifat)", kategori: "genetika", desc: "Persilangan dua individu yang berbeda 1 sifat.", rumus: "Genotip F2: 1 AA : 2 Aa : 1 aa | Fenotip F2: 3 dominan : 1 resesif", contoh: "📌 Bunga merah (M) × putih (m) → F1 semua merah → F2 3:1", trik: "⚡ TRIK KILAT: Monohibrid = 3:1", notes: "Testcross (Aa × aa) hasil 1:1" },
+        { judul: "Persilangan Dihibrid (2 Sifat)", kategori: "genetika", desc: "Persilangan dua individu yang berbeda 2 sifat.", rumus: "Genotip F2: 9:3:3:1 | Fenotip F2: 9 dominan-dominan : 3 dominan-resesif : 3 resesif-dominan : 1 resesif-resesif", contoh: "📌 Biji bulat kuning (B_Y_) × keriput hijau (bbYY) → F2 9:3:3:1", trik: "⚡ TRIK KILAT: Dihibrid = 9:3:3:1", notes: "Punnett square 4×4 untuk dihibrid" },
+        { judul: "Kelainan Pewarisan Sifat (Terpaut Gen)", kategori: "genetika", desc: "Penyakit atau sifat yang diwariskan melalui kromosom.", rumus: "Buta warna: XᵇY (laki) atau XᵇXᵇ (perempuan) | Hemofilia: XʰY (laki) | Sindrom Down: trisomi 21", contoh: "📌 Laki-laki buta warna lebih sering dari perempuan (hanya 1 kromosom X)", trik: "⚡ TRIK KILAT: Terpaut X = laki sering sakit, perempuan carrier", notes: "Konseling genetik untuk pencegahan" },
+        { judul: "Mutasi, Variasi, & Evolusi", kategori: "genetika", desc: "Perubahan genetik dan dampaknya pada populasi.", rumus: "Mutasi: perubahan DNA | Variasi: perbedaan individu | Seleksi alam: yang fit bertahan", contoh: "📌 Bakteri tahan antibiotik = mutasi gen resisten | Jerapah leher panjang: adaptasi", trik: "⚡ TRIK KILAT: Mutasi = random, Seleksi = terarah", notes: "Evolusi membutuhkan waktu sangat lama" },
 
         // ==================== SISTEM PEREDARAN DARAH ====================
-        { judul: "Struktur & Fungsi Jantung", kategori: "darah", desc: "Jantung memiliki 4 ruang: serambi kanan, bilik kanan, serambi kiri, bilik kiri.", rumus: "Serambi kanan: terima darah kotor (CO₂) dari tubuh. Bilik kanan: pompa darah ke paru-paru. Serambi kiri: terima darah bersih (O₂) dari paru-paru. Bilik kiri: pompa darah ke seluruh tubuh", contoh: "Darah kotor (CO₂) dari seluruh tubuh masuk serambi kanan", trik: "⚡ TRIK: Kanan = kotor (CO₂), Kiri = bersih (O₂)" },
-        { judul: "Pembuluh Darah (Arteri, Vena, Kapiler)", kategori: "darah", desc: "Arteri: keluar jantung, dinding tebal, elastis. Vena: menuju jantung, dinding tipis, ada katup. Kapiler: satu lapis, tempat pertukaran zat.", rumus: "Arteri → kapiler → vena (urutan aliran darah)", contoh: "Aorta = arteri terbesar. Vena cava = vena terbesar", trik: "⚡ TRIK: Arteri = keluar, Vena = masuk, Kapiler = tempat tukar" },
-        { judul: "Sel-sel Darah", kategori: "darah", desc: "Eritrosit (sel darah merah), Leukosit (sel darah putih), Trombosit (keping darah).", rumus: "Eritrosit: angkut O₂, bentuk bikonkaf, tidak punya inti. Leukosit: kekebalan tubuh, ada inti. Trombosit: pembekuan darah", contoh: "Trombositopenia = kekurangan trombosit → pendarahan sulit berhenti", trik: "⚡ TRIK: E = merah, L = putih (Leukosit = penjaga tubuh), T = pembekuan" },
+        { judul: "Fungsi & Komposisi Darah", kategori: "darah", desc: "Cairan transportasi dan komponennya.", rumus: "Darah = plasma (55%) + sel darah (45%) | Plasma: air, protein, nutrisi, gas, hormon | Sel: eritrosit, leukosit, trombosit", contoh: "📌 Volume darah manusia ~5-6 L", trik: "⚡ TRIK KILAT: Plasma = kuning jernih, sel = warna merah", notes: "Hematokrit: persentase sel dalam darah (normalnya 40-50%)" },
+        { judul: "Eritrosit (Sel Darah Merah) - Struktur & Fungsi", kategori: "darah", desc: "Sel yang mengangkut oksigen ke seluruh tubuh.", rumus: "Eritrosit: tanpa inti pada mamalia, punya hemoglobin | Hemoglobin: protein pembawa O₂ | Umur: 120 hari", contoh: "📌 Eritrosit normal: 4,5-6 juta/mm³ (pria), 4-5 juta/mm³ (wanita)", trik: "⚡ TRIK KILAT: Eritrosit merah (punya hemoglobin)", notes: "Anemia = kekurangan eritrosit atau hemoglobin" },
+        { judul: "Leukosit (Sel Darah Putih) - Jenis & Fungsi", kategori: "darah", desc: "Sel imunitas yang melawan patogen.", rumus: "Granulosit: neutrofil, eosinofil, basofil | Agranulositik: limfosit, monosit | Fungsi: fagositosis, imunitas", contoh: "📌 Leukosit normal: 5.000-10.000/mm³ | Infeksi → leukosit meningkat", trik: "⚡ TRIK KILAT: Leukosit = tentara kekebalan", notes: "Leukemia = kanker leukosit (produksi berlebihan)" },
+        { judul: "Trombosit & Hemostasis (Pembekuan Darah)", kategori: "darah", desc: "Mekanisme penghentian perdarahan.", rumus: "Trombosit: 150.000-400.000/mm³ | Hemostasis: vasokonstriksi → agregasi trombosit → koagulasi → fibrinolisis", contoh: "📌 Hemofilia: faktor koagulasi defisien → perdarahan tidak berhenti", trik: "⚡ TRIK KILAT: Trombosit = penyumbat awal, fibrin = jaring", notes: "Vitamin K diperlukan untuk faktor koagulasi" },
+        { judul: "Jantung: Ruang, Katup & Fungsi", kategori: "darah", desc: "Pompa yang mendorong darah ke seluruh tubuh.", rumus: "4 ruang: 2 serambi (atrium) + 2 bilik (ventricle) | Katup: AV (mitralis-trikuspidalis), semilunar (aorta-pulmoner) | Siklus jantung: sistol-diastol", contoh: "📌 Tekanan normal: sistol 120 mmHg, diastol 80 mmHg", trik: "⚡ TRIK KILAT: Kanan=kotor (CO₂), Kiri=bersih (O₂)", notes: "Detak jantung normal: 60-100 bpm" },
+        { judul: "Pembuluh Darah: Arteri, Vena, Kapiler", kategori: "darah", desc: "Saluran transportasi darah dengan fungsi berbeda.", rumus: "Arteri: tebal, elastis, keluar jantung, tekanan tinggi | Vena: tipis, katup, masuk jantung, tekanan rendah | Kapiler: 1 lapis, pertukaran zat", contoh: "📌 Aorta terbesar (diameter 2-3 cm), kapiler terkecil (6-8 μm)", trik: "⚡ TRIK KILAT: Arteri = tebal & keluar, Vena = tipis & masuk", notes: "Varises: pelebaran vena (katup tidak berfungsi)" },
+        { judul: "Sirkulasi Darah: Sistemik & Pulmonalis", kategori: "darah", desc: "Dua loop peredaran darah dalam tubuh.", rumus: "Sistemik: jantung kiri → seluruh tubuh → jantung kanan | Pulmonalis: jantung kanan → paru → jantung kiri", contoh: "📌 Darah vena (CO₂) → paru (O₂) → darah arteri", trik: "⚡ TRIK KILAT: Sistemik=besar loop, Pulmonalis=paru loop", notes: "Janin punya lubang ASD & PDA (fetal shunt)" },
+        { judul: "Golongan Darah ABO & Rhesus", kategori: "darah", desc: "Sistem tipe darah berdasarkan antigen.", rumus: "ABO: A (antigen A), B (antigen B), AB (A+B), O (tanpa antigen) | Rhesus: + (punya D), - (tidak ada D)", contoh: "📌 O⁻: donor universal | AB⁺: resipien universal", trik: "⚡ TRIK KILAT: O donor untuk semua, AB terima dari semua", notes: "Inkompatibilitas darah → transfusi fatal" },
+        { judul: "Faktor Penyakit Jantung & Pencegahan", kategori: "darah", desc: "Risiko dan cara menjaga kesehatan kardiovaskuler.", rumus: "Faktor risiko: hipertensi, kolesterol tinggi, merokok, obesitas, stress | Pencegahan: olahraga, diet sehat, tidak merokok", contoh: "📌 Tekanan darah tinggi → aterosklerosis → infark miokard", trik: "⚡ TRIK KILAT: Hipertensi = tekanan sistolik >140", notes: "Stroke: penyumbatan pembuluh darah di otak" },
 
         // ==================== TEKANAN ZAT ====================
-        { judul: "Tekanan Zat Padat", kategori: "tekanan", desc: "Gaya per satuan luas.", rumus: "P = F/A (Pascal atau N/m²)", contoh: "Gaya 600 N, luas 0,5 m² → P = 600/0,5 = 1.200 Pa", trik: "⚡ TRIK: Tekanan = gaya ÷ luas (P = F ÷ A)" },
-        { judul: "Contoh Penerapan Tekanan Zat Padat", kategori: "tekanan", desc: "Aplikasi konsep tekanan dalam kehidupan.", rumus: "Sepatu salju (luas besar → tekanan kecil → tidak tenggelam), Paku runcing (luas kecil → tekanan besar → mudah masuk kayu)", contoh: "Sepatu salju didesain lebar agar tekanan ke salju kecil", trik: "⚡ TRIK: Luas besar = tekanan kecil, Luas kecil = tekanan besar" },
-        { judul: "Tekanan Hidrostatis", kategori: "tekanan", desc: "Tekanan dalam zat cair karena kedalaman.", rumus: "Ph = ρ × g × h (Pascal)", contoh: "Air laut (ρ=1.025 kg/m³), g=10, h=10 m → Ph = 1.025×10×10 = 102.500 Pa", trik: "⚡ TRIK: Ph = rho × g × h (makin dalam, makin besar tekanan)" },
-        { judul: "Hukum Pascal", kategori: "tekanan", desc: "Tekanan zat cair dalam ruang tertutup diteruskan ke segala arah sama besar.", rumus: "P₁ = P₂ → F₁/A₁ = F₂/A₂", contoh: "Dongkrak hidrolik, rem hidrolik, pompa hidrolik", trik: "⚡ TRIK: Pascal = dongkrak hidrolik" },
-        { judul: "Tekanan Udara (Atmosfer)", kategori: "tekanan", desc: "Tekanan yang diberikan oleh lapisan udara Bumi.", rumus: "1 atm = 76 cmHg = 101.325 Pa ≈ 101 kPa", contoh: "Alat suntik bekerja karena tekanan atmosfer: piston ditarik → tekanan dalam turun → tekanan atmosfer mendorong cairan masuk", trik: "⚡ TRIK: 1 atm = 76 cmHg = 101 kPa" },
+        { judul: "Tekanan Zat Padat", kategori: "tekanan", desc: "Gaya tekan per unit luas pada permukaan.", rumus: "P = F / A (Pascal atau N/m²) | 1 Pa = 1 N/m² | Tekanan > jika gaya besar atau luas kecil", contoh: "📌 Gaya 600 N pada area 0,5 m² → P = 1.200 Pa", trik: "⚡ TRIK KILAT: P = F ÷ A", notes: "Tekanan berkaitan dengan daya tekan benda" },
+        { judul: "Tekanan Hidrostatis (Zat Cair Diam)", kategori: "tekanan", desc: "Tekanan dalam cairan karena kedalaman.", rumus: "Ph = ρ × g × h | ρ=massa jenis (kg/m³), g=gravitasi, h=kedalaman (m)", contoh: "📌 Air ρ=1000 kg/m³, h=10 m → Ph = 100.000 Pa", trik: "⚡ TRIK KILAT: Ph = ρ g h (rho × g × h)", notes: "Tekanan meningkat seiring kedalaman" },
+        { judul: "Hukum Pascal & Penerapannya", kategori: "tekanan", desc: "Tekanan dalam cairan tertutup diteruskan ke semua arah sama besar.", rumus: "P = F₁/A₁ = F₂/A₂ | Keuntungan mekanis: A₂/A₁", contoh: "📌 Dongkrak hidrolik: pompa area kecil → beban area besar", trik: "⚡ TRIK KILAT: Pascal = sama ke semua arah", notes: "Rem hidrolik mobil & pesawat pakai prinsip Pascal" },
+        { judul: "Tekanan Udara (Atmosfer)", kategori: "tekanan", desc: "Tekanan yang diberikan lapisan udara di sekitar bumi.", rumus: "1 atm = 76 cmHg = 101.325 Pa | Tekanan turun dengan ketinggian", contoh: "📌 Di laut: 1 atm | Di gunung (1500 m): ~0,8 atm", trik: "⚡ TRIK KILAT: 1 atm = 76 cmHg = 101 kPa", notes: "Barometer mengukur tekanan atmosfer" },
+        { judul: "Hukum Boyle (Tekanan Gas)", kategori: "tekanan", desc: "Hubungan tekanan dan volume gas pada suhu tetap.", rumus: "P₁V₁ = P₂V₂ (suhu konstan) | Tekanan berbanding terbalik dengan volume", contoh: "📌 Mengempiskan balon: tekanan naik, volume turun", trik: "⚡ TRIK KILAT: Boyle = P×V = konstan", notes: "Gas ideal mengikuti hukum Boyle dengan sempurna" },
 
         // ==================== LISTRIK STATIS ====================
-        { judul: "Konsep Atom (Proton, Elektron, Neutron)", kategori: "listrik", desc: "Atom terdiri dari inti (proton + neutron) dan elektron yang mengelilingi inti.", rumus: "Proton (muatan +), Elektron (muatan -), Neutron (netral)", contoh: "Atom netral: jumlah proton = jumlah elektron", trik: "⚡ TRIK: Proton = plus (+), Elektron = minus (-), Neutron = netral" },
-        { judul: "Perpindahan Elektron (Deret Tribolistrik)", kategori: "listrik", desc: "Urutan benda saat digosok, elektron berpindah.", rumus: "Kaca → Wol → Sutra → Plastik (makin ke kanan cenderung menerima elektron → negatif)", contoh: "Kaca digosok sutra → elektron pindah dari kaca ke sutra → kaca kekurangan elektron → positif (+) | sutra kelebihan elektron → negatif (-)", trik: "⚡ TRIK: Kaca (+) → Plastik (-), dari kiri ke kanan makin negatif" },
-        { judul: "Gejala Listrik Statis Sehari-hari", kategori: "listrik", desc: "Contoh peristiwa listrik statis.", rumus: "Rambut berdiri saat digosok sisir, petir, penggaris menarik potongan kertas", contoh: "Sisir digosok rambut kering → muatan negatif → bisa menarik potongan kertas kecil", trik: "⚡ TRIK: Listrik statis = muatan diam (bisa dirasakan tapi tidak mengalir)" },
-        { judul: "Jenis & Interaksi Antar Muatan Listrik", kategori: "listrik", desc: "Muatan sejenis tolak menolak, muatan tidak sejenis tarik menarik.", rumus: "Positif (+), Negatif (-)", contoh: "Kaca (+) dengan plastik (-) → tarik menarik. Plastik (-) dengan plastik (-) → tolak menolak", trik: "⚡ TRIK: Sejenis = tolak, beda jenis = tarik" },
-        { judul: "Gaya Coulomb", kategori: "listrik", desc: "Gaya antara dua muatan listrik.", rumus: "F = k × q₁ × q₂ / r²", contoh: "q₁=4μC, q₂=9μC, r=2cm → F = 9×10⁹ × (4×10⁻⁶)(9×10⁻⁶) / (2×10⁻²)² = 810 N", trik: "⚡ TRIK: F = k.q₁.q₂ / r² (semakin besar muatan, semakin besar gaya; semakin jauh, semakin kecil gaya)" },
-        { judul: "Elektroskop", kategori: "listrik", desc: "Alat pendeteksi muatan listrik.", rumus: "Prinsip: jika bermuatan sama → daun membuka lebih lebar, jika berbeda → daun menutup", contoh: "Elektroskop digunakan untuk mengetahui jenis muatan listrik suatu benda", trik: "⚡ TRIK: Elektroskop = detektor muatan" },
+        { judul: "Muatan Listrik & Hukum Coulomb", kategori: "listrik", desc: "Sifat listrik benda dan gaya antar muatan.", rumus: "Muatan: Q (coulomb) | Positif (kekurangan e⁻), Negatif (kelebihan e⁻) | F = k × Q₁ × Q₂ / r²", contoh: "📌 q₁=4 μC, q₂=9 μC, r=2 cm → F = (9×10⁹ × 4×9×10⁻¹²) / (4×10⁻⁴)", trik: "⚡ TRIK KILAT: F = k q₁q₂ / r² (Coulomb)", notes: "k = 9×10⁹ N·m²/C²" },
+        { judul: "Deret Tribolistrik", kategori: "listrik", desc: "Urutan benda saat digosok menghasilkan muatan positif/negatif.", rumus: "Kaca → Wol → Sutra → Rambut → Plastik (makin kanan = negatif)", contoh: "📌 Kaca + wol → kaca (+), wol (-) | Plastik + wol → plastik (-), wol (+)", trik: "⚡ TRIK KILAT: KWSRP (kaca positif, plastik negatif)", notes: "Urutan tetap (tidak berubah)" },
+        { judul: "Gejala Listrik Statis Sehari-hari", kategori: "listrik", desc: "Fenomena listrik statis dalam kehidupan.", rumus: "Petir: muatan awan-bumi, loncatan 100 juta volt | Kilat diam: rambut berdiri saat disisir | Shock: sentuh logam setelah gosok", contoh: "📌 Petir menyambar pohon → terbakar | Magnet tarik kertas kecil", trik: "⚡ TRIK KILAT: Petir = listrik statis skala besar", notes: "Penangkal petir melindungi bangunan" },
+        { judul: "Interaksi Muatan: Tarik-Tolak", kategori: "listrik", desc: "Gaya antar muatan sejenis dan berlainan jenis.", rumus: "Muatan sejenis: tolak (+tolak+, -tolak-) | Muatan berlainan: tarik (+tarik-)", contoh: "📌 Dua balon bermuatan sama → tolak | Balon bermuatan + kertas netral → tarik (induksi)", trik: "⚡ TRIK KILAT: Sama = tolak, beda = tarik", notes: "Induksi: muatan netral tertarik ke muatan (polarisasi)" },
+        { judul: "Elektroskop & Pendeteksi Muatan", kategori: "listrik", desc: "Alat untuk mengetahui jenis dan ada tidaknya muatan.", rumus: "Daun membuka: ada muatan | Semakin terbuka: muatan semakin besar | Tutup saat ditangkap muatan berlainan", contoh: "📌 Elektroskop + rod bermuatan + → daun terbuka lebih | Elektroskop + rod bermuatan - → daun tutup", trik: "⚡ TRIK KILAT: Elektroskop = indikator muatan", notes: "Elektroskop peka terhadap muatan hingga jauh" },
+        { judul: "Medan Listrik & Garis Gaya", kategori: "listrik", desc: "Daerah pengaruh muatan dan visualisasinya.", rumus: "E = F / q (N/C) | Garis gaya: dari + ke - | Rapat garis = medan kuat", contoh: "📌 Medan di sekitar muatan + menuju keluar | Medan di sekitar - menuju masuk", trik: "⚡ TRIK KILAT: Medan listrik = ruang sekitar muatan", notes: "Medan listrik seragam antara plat paralel" },
 
-        // ==================== TRIK KILAT ====================
-        { judul: "⚡ TRIK: Rumus Tekanan", kategori: "trik", desc: "Cara cepat mengingat rumus tekanan padat.", rumus: "P = F/A (Pakaian = F/A)", contoh: "P = tekanan (Pa), F = gaya (N), A = luas (m²)", trik: "🔥 SUPER TRIK: Pakaian = F/A → berarti P = F÷A" },
-        { judul: "⚡ TRIK: Rumus Gaya Coulomb", kategori: "trik", desc: "Mudah mengingat rumus Coulomb.", rumus: "F = k.q₁.q₂ / r² (Foya kena Q satu Q dua bagi R dua)", contoh: "F = gaya (N), k = 9×10⁹, q = muatan (C), r = jarak (m)", trik: "🔥 SUPER TRIK: F = k.q₁.q₂ / r²" },
-        { judul: "⚡ TRIK: Sendi Engsel, Peluru, Putar", kategori: "trik", desc: "Membedakan jenis sendi dengan mudah.", rumus: "Engsel (pintu), Peluru (bebas), Putar (gelang)", contoh: "Engsel: siku, lutut. Peluru: bahu, pinggul. Putar: leher", trik: "🔥 SUPER TRIK: Engsel = 1 arah, Peluru = bebas, Putar = rotasi" },
-        { judul: "⚡ TRIK: Hafal 7 Besaran Pokok", kategori: "trik", desc: "Cara mudah menghafal 7 besaran pokok.", rumus: "Paman Makan Wortel Setelah Kekenyangan Istirahat Jangan", contoh: "📌 P = panjang, M = massa, W = waktu, S = suhu, K = kuat arus, I = intensitas cahaya, J = jumlah zat", trik: "🔥 SUPER TRIK: P-M-W-S-K-I-J" },
+        // ==================== TRIK KILAT SUPER ====================
+        { judul: "⚡ TRIK: Hapus 7 Besaran Pokok Super Cepat", kategori: "trik", desc: "Mnemonik untuk menghafal 7 besaran pokok SI.", rumus: "P-M-W-S-K-I-J = Paman Makan Wortel Setelah Kenyang Istirahat Jangan", contoh: "📌 P=Panjang(m), M=Massa(kg), W=Waktu(s), S=Suhu(K), K=Kuat arus(A), I=Intensitas(cd), J=Jumlah zat(mol)", trik: "🔥 SUPER TRIK: Buat kalimat sendiri yang mudah diingat", notes: "Hafal dengan cara berbeda lebih efektif" },
+        { judul: "⚡ TRIK: Rumus Cepat Energi Kinetik vs Potensial", kategori: "trik", desc: "Membedakan cepat kedua energi mekanik.", rumus: "Ek = ½ m v² (V-nya kuadrat) | Ep = m g h (simbol G×H)", contoh: "📌 Bola jatuh: Ep berkurang, Ek bertambah", trik: "🔥 SUPER TRIK: Ek lihat kecepatan (K), Ep lihat tinggi (P)", notes: "Ingat dengan visual/gerakan" },
+        { judul: "⚡ TRIK: Pembuluh Darah - Arteri vs Vena", kategori: "trik", desc: "Cepat membedakan dua pembuluh utama.", rumus: "Arteri: Anak keluar (keluar jantung) | Vena: Istri masuk rumah (masuk jantung)", contoh: "📌 Arteri: tebal, tekanan tinggi, keluar kiri jantung | Vena: tipis, tekanan rendah, masuk kanan jantung", trik: "🔥 SUPER TRIK: Anak Keluar (Arteri), Istri Masuk (Vena)", notes: "Juga ingat: Arteri darah bersih O₂, Vena darah kotor CO₂" },
+        { judul: "⚡ TRIK: Jenis Sendi - Engsel, Peluru, Putar", kategori: "trik", desc: "Membedakan 3 sendi diartrosis utama dengan mudah.", rumus: "Engsel: Pintu (hanya 1 arah) | Peluru: Bebas (segala arah) | Putar: Gelang (rotasi)", contoh: "📌 Engsel=siku/lutut, Peluru=bahu/pinggul, Putar=leher", trik: "🔥 SUPER TRIK: Bayangin gerakan pintu, bola di socket, kepala memutar", notes: "Visualisasi = paling mudah diingat" },
+        { judul: "⚡ TRIK: Muatan Listrik - Tribolistrik", kategori: "trik", desc: "Urutan paling mudah: KWSRP (Kaca Wol Sutra Rambut Plastik).", rumus: "Urutan: Kaca(+) > Wol > Sutra > Rambut > Plastik(-) | Semakin kanan = negatif", contoh: "📌 Kaca digosok wol → kaca +, wol - | Plastik digosok wol → plastik -, wol +", trik: "🔥 SUPER TRIK: KWSRP dari + ke -", notes: "Ingat: sesuai urutan alfabet awal" },
+        { judul: "⚡ TRIK: Fasa Menstruasi - 1-5, 14, 15-28", kategori: "trik", desc: "Hafal fase menstruasi dengan angka kunci.", rumus: "Hari 1-5: Menstruasi (luruh) | Hari 6-14: Proliferasi (tumbuh) → Hari 14: OVULASI | Hari 15-28: Sekresi (siap)", contoh: "📌 Hari 14 adalah puncak estrogen, lepas ovum", trik: "🔥 SUPER TRIK: 1-5 (keluar) → 14 (lepas) → 15-28 (tunggu)", notes: "Siklus wanita normal 21-35 hari, rata-rata 28 hari" },
+        { judul: "⚡ TRIK: Enzim Pencernaan - Organ & Fungsi", kategori: "trik", desc: "Tempat & enzim pencernaan per organ.", rumus: "Mulut: Amilase (amilum→maltosa) | Lambung: Pepsin (protein→pepton) | Usus halus: Tripsin, lipase, trypepsin", contoh: "📌 pH lambung asam (2) → pepsin aktif | pH usus basa (8) → tripsin aktif", trik: "🔥 SUPER TRIK: A=amilum (mulut), P=protein (lambung), T=tripsin (usus)", notes: "Satu enzim = satu tempat = satu pH optimal" },
+        { judul: "⚡ TRIK: Monohibrid vs Dihibrid - Rasio Fenotip", kategori: "trik", desc: "Perbedaan persilangan 1 sifat vs 2 sifat.", rumus: "Monohibrid: F2 = 3:1 | Dihibrid: F2 = 9:3:3:1", contoh: "📌 Aa × Aa → 3 dominan : 1 resesif | AaBb × AaBb → 9:3:3:1", trik: "🔥 SUPER TRIK: Mono=3:1, Di=9:3:3:1", notes: "Jumlah total = 4 (mono) dan 16 (di)" },
+        { judul: "⚡ TRIK: Tekanan Zat - 3 Rumus Penting", kategori: "trik", desc: "3 rumus tekanan yang sering keluar di soal.", rumus: "1. P = F/A (padat) | 2. Ph = ρgh (hidrostatis) | 3. P₁V₁=P₂V₂ (gas Boyle)", contoh: "📌 Soal: balok 600N, area 0,5m² → P = 1200 Pa", trik: "🔥 SUPER TRIK: Padat=gaya/luas, Cair=ρ×g×h, Gas=P×V=konstan", notes: "Ketiga rumus ini paling sering disuruh hitung" }
     ];
 
     const fullData = [...materiDatabase];
@@ -432,96 +774,74 @@
         });
 
         if (filtered.length === 0) {
-            container.innerHTML = `<div class="empty-msg"><i class="fas fa-microscope" style="font-size: 2rem; opacity: 0.5;"></i><h3 style="margin-top: 10px;">Tidak ditemukan materi</h3><p>Coba cari: tekanan, gaya, energi, genetika, pencernaan</p></div>`;
+            container.innerHTML = `<div class="empty-msg"><i class="fas fa-magnifying-glass"></i><h3>Materi tidak ditemukan</h3><p>Coba cari dengan kata kunci lain: tekanan, gaya, energi, genetika, atau pencernaan</p></div>`;
             return;
         }
 
         container.innerHTML = filtered.map(item => {
-            let categoryLabel = "";
-            let categoryColor = "#00d4ff";
-            let categoryBg = "rgba(0,212,255,0.1)";
-            
-            const catMap = {
-                besaran: { label: "📏 Besaran", color: "#4a9eff", bg: "rgba(74,158,255,0.12)" },
-                gerak: { label: "🦴 Sistem Gerak", color: "#4a9eff", bg: "rgba(74,158,255,0.12)" },
-                usaha: { label: "⚡ Usaha & Energi", color: "#4a9eff", bg: "rgba(74,158,255,0.12)" },
-                pencernaan: { label: "🍽️ Pencernaan", color: "#10d48e", bg: "rgba(16,212,142,0.1)" },
-                reproduksi: { label: "👶 Reproduksi", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-                biotek: { label: "🧬 Bioteknologi", color: "#9b59ff", bg: "rgba(155,89,255,0.1)" },
-                genetika: { label: "🧬 Genetika", color: "#9b59ff", bg: "rgba(155,89,255,0.1)" },
-                darah: { label: "🩸 Peredaran Darah", color: "#ef4444", bg: "rgba(239,68,68,0.1)" },
-                tekanan: { label: "⚙️ Tekanan Zat", color: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-                listrik: { label: "⚡ Listrik Statis", color: "#00d4ff", bg: "rgba(0,212,255,0.1)" },
-                trik: { label: "💡 Trik Kilat", color: "#fcd34d", bg: "rgba(253,224,71,0.1)" }
+            const catClasses = {
+                besaran: "Besaran & Pengukuran",
+                laboratorium: "Alat Laboratorium",
+                metode: "Metode Ilmiah",
+                gerak: "Sistem Gerak",
+                usaha: "Usaha & Energi",
+                pencernaan: "Pencernaan",
+                reproduksi: "Reproduksi",
+                biotek: "Bioteknologi",
+                genetika: "Genetika",
+                darah: "Peredaran Darah",
+                tekanan: "Tekanan Zat",
+                listrik: "Listrik Statis",
+                trik: "Trik Kilat"
             };
-            const info = catMap[item.kategori] || { label: "📘 Materi", color: "#00d4ff", bg: "rgba(0,212,255,0.1)" };
-            categoryLabel = info.label;
-            categoryColor = info.color;
-            categoryBg = info.bg;
+            
+            const catEmoji = {
+                besaran: "📏", laboratorium: "🔬", metode: "🧪", gerak: "🦴", usaha: "⚡", 
+                pencernaan: "🍽️", reproduksi: "👶", biotek: "🧬", genetika: "🧬", 
+                darah: "🩸", tekanan: "⚙️", listrik: "⚡", trik: "💡"
+            };
 
-            let rumusHtml = "";
-            if (item.rumus) {
-                rumusHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-square-root-alt"></i> RUMUS CEPAT</div><div class="rumus-box">${escapeHtml(item.rumus)}</div></div>`;
-            }
-            let contohHtml = "";
-            if (item.contoh) {
-                contohHtml = `<div class="highlight-box"><div class="label-mini"><i class="fas fa-quote-left"></i> CONTOH SOAL</div><div class="contoh-text">${escapeHtml(item.contoh)}</div></div>`;
-            }
-            let trikHtml = "";
-            if (item.trik) {
-                trikHtml = `<div class="trik-box"><i class="fas fa-bolt" style="color: #f59e0b;"></i> ${escapeHtml(item.trik)}</div>`;
-            }
-            return `
-                <div class="card" style="border-left: 3px solid ${categoryColor};">
-                    <div class="card-category" style="background: ${categoryBg}; color: ${categoryColor};">${categoryLabel}</div>
-                    <h3>${escapeHtml(item.judul)}</h3>
-                    <div class="card-desc">${escapeHtml(item.desc)}</div>
-                    ${rumusHtml}
-                    ${contohHtml}
-                    ${trikHtml}
-                </div>
-            `;
+            const categoryLabel = catClasses[item.kategori] || "Materi";
+            const categoryEmoji = catEmoji[item.kategori] || "📘";
+
+            let rumusHtml = item.rumus ? `<div class="highlight-box"><div class="label-mini"><i class="fas fa-calculator"></i> RUMUS</div><div class="rumus-box">${escapeHtml(item.rumus)}</div></div>` : "";
+            let contohHtml = item.contoh ? `<div class="highlight-box"><div class="label-mini"><i class="fas fa-lightbulb"></i> CONTOH</div><div class="contoh-box">${escapeHtml(item.contoh)}</div></div>` : "";
+            let trikHtml = item.trik ? `<div class="trik-box"><i class="fas fa-bolt"></i> ${escapeHtml(item.trik)}</div>` : "";
+            let notesHtml = item.notes ? `<div class="notes-box"><i class="fas fa-bookmark"></i> ${escapeHtml(item.notes)}</div>` : "";
+
+            return `<div class="card"><div class="card-category cat-${item.kategori}"><i class="fas fa-tag"></i> ${categoryEmoji} ${categoryLabel}</div><h3>${escapeHtml(item.judul)}</h3><div class="card-desc">${escapeHtml(item.desc)}</div>${rumusHtml}${contohHtml}${trikHtml}${notesHtml}</div>`;
         }).join("");
     }
 
-    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; return m;}); }
+    function escapeHtml(str) {
+        if (!str) return '';
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
 
     function filterByCategory(cat) {
         activeFilter = cat;
         document.querySelectorAll(".filter-btn").forEach(btn => {
-            const btnCat = btn.getAttribute("data-filter");
-            if ((cat === "semua" && btnCat === "semua") || (btnCat === cat)) {
-                btn.classList.add("active");
-            } else {
-                btn.classList.remove("active");
-            }
+            btn.classList.toggle("active", btn.getAttribute("data-filter") === cat || (cat === "semua" && btn.getAttribute("data-filter") === "semua"));
         });
         renderCards();
     }
 
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("input", (e) => {
+    document.getElementById("searchInput").addEventListener("input", (e) => {
         searchTerm = e.target.value;
         renderCards();
     });
 
     document.querySelectorAll(".filter-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const filterVal = btn.getAttribute("data-filter");
-            filterByCategory(filterVal);
-        });
+        btn.addEventListener("click", () => filterByCategory(btn.getAttribute("data-filter")));
     });
 
-    const mobileBtn = document.getElementById("mobileMenuBtn");
-    const navLinks = document.querySelector(".nav-links");
-    if(mobileBtn){
-        mobileBtn.addEventListener("click", () => {
-            if(navLinks.style.display === "flex") navLinks.style.display = "none";
-            else navLinks.style.display = "flex";
-        });
-    }
+    document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        const nav = document.querySelector(".nav-links");
+        nav.classList.toggle("mobile-show");
+    });
 
-    window.filterByCategory = filterByCategory;
     renderCards();
 </script>
 </body>
